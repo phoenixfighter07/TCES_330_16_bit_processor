@@ -1,0 +1,32 @@
+RF[01] = D[1B]; // Load
+RF[02] = D[2A]; // Load
+RF[03] = D[3C]; // Load
+RF[04] = D[7E]; // Load
+
+RF[01] = R[01] - RF[02]; // Subtraction
+RF[02] = RF[03] - RF[04]; // Subtraction
+RF[0A] = RF[01] + RF[02]; // Addition
+
+D[6A] = RF[0A]; // Save
+HALT // HALT
+
+ISA Form:
+LOAD 1B 01
+LOAD 2A 02
+LOAD 3C 03
+LOAD 7E 04
+
+SUBTRACT 1 2 1
+SUBTRACT 3 4 2
+ADD 1 2 A
+HALT
+
+Hexadecimal Form:
+21B1
+22A2
+23C3
+27E4
+4121
+4342
+312A
+0XXX
