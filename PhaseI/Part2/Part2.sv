@@ -16,5 +16,4 @@ module Part2(SW, HEX0, LEDR);
 	Decoder (HEX0, encodedNumber);
 	
 	assign LEDR = SW;
-
 endmodule

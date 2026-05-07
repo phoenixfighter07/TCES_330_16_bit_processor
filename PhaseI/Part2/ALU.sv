@@ -17,14 +17,14 @@ module ALU (A, B, Sel, Q);
 
     always_comb begin
         case(Sel) 
-            0: Q = 0; // zeroes
-            1: Q = A + B; // adition
+            0: Q = 1'b0; // zeroes
+            1: Q = A + B; // addition
             2: Q = A - B; // subtraction
             3: Q = A; // A pass-through
             4: Q = A ^ B; // bitwise XOR
             5: Q = A | B; // bitwise OR
             6: Q = A & B; // bitwise AND
-            7: Q = A + 1; // increment
+            7: Q = A + 1'b1; // increment
         endcase
     end
 endmodule
