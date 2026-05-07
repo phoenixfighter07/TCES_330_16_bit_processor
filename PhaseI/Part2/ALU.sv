@@ -5,8 +5,6 @@
 // The default bit size that it will be programmed in is 16, but a parameter is included so that
 // the module can be tested qwith less bits. 
 
-
-
 // The module for te ALU that is used in the processor
 module ALU (A, B, Sel, Q);
     parameter bits = 16; // used to make testing easier, specifies the bit sizes of the inputs and output
@@ -17,7 +15,7 @@ module ALU (A, B, Sel, Q);
 
     always_comb begin
         case(Sel) 
-            0: Q = 1'b0; // zeroes
+            0: Q = 4'b0; // zeroes
             1: Q = A + B; // addition
             2: Q = A - B; // subtraction
             3: Q = A; // A pass-through
@@ -28,7 +26,6 @@ module ALU (A, B, Sel, Q);
         endcase
     end
 endmodule
-
 
 // The testbench for the ALU module
 module ALU_tb();
