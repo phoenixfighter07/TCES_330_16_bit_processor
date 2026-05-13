@@ -4,6 +4,8 @@ vlib work
 # Compile Verilog
 #     All Verilog files that are part of this design should have
 #     their own "vlog" line below.
+vlog "./regALU.sv"
+vlog "./ALU.sv"
 vlog "./regfile16x16.sv"
 
 # Call vsim to invoke simulator

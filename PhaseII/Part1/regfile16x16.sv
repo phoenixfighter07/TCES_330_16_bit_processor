@@ -82,14 +82,16 @@ module regfile16x16_tb();
     logic [maxLogBits:0] rdAddrB;
     logic [maxBits:0] rdDataB;
 
-    regfile16x16 #(.bits(testBits)) DUT (clk,
-    write,
-    wrAddr,
-    wrData,
-    rdAddrA,
-    rdDataA,
-    rdAddrB,
-    rdDataB);
+    regfile16x16 #(.bits(testBits)) DUT (
+        clk,
+        write,
+        wrAddr,
+        wrData,
+        rdAddrA,
+        rdDataA,
+        rdAddrB,
+        rdDataB
+    );
 
     // Initialize the clock
     always begin

@@ -1,347 +1,151 @@
 # Reading pref.tcl
 do runlab.do
+# ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 19:37:39 on May 11,2026
-# vlog -reportprogress 300 ./regfile16x16_tb.sv 
-# ** Error: (vlog-7) Failed to open design unit file "./regfile16x16_tb.sv" in read mode.
-# No such file or directory. (errno = ENOENT)
-# End time: 19:37:39 on May 11,2026, Elapsed time: 0:00:00
+# Start time: 12:19:17 on May 13,2026
+# vlog -reportprogress 300 ./regALU.sv 
+# -- Compiling module regALU
+# ** Error: (vlog-13069) ./regALU.sv(23): near "=": syntax error, unexpected '=', expecting ';'.
+# -- Compiling module regALU_tb
+# End time: 12:19:17 on May 13,2026, Elapsed time: 0:00:00
 # Errors: 1, Warnings: 0
 # ** Error: C:/intelFPGA/20.1/modelsim_ase/win32aloem/vlog failed.
 # Error in macro ./runlab.do line 7
 # C:/intelFPGA/20.1/modelsim_ase/win32aloem/vlog failed.
 #     while executing
-# "vlog "./regfile16x16_tb.sv""
+# "vlog "./regALU.sv""
 do runlab.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 19:37:48 on May 11,2026
-# vlog -reportprogress 300 ./regfile16x16.sv 
-# -- Compiling module regfile16x16
-# ** Error: ./regfile16x16.sv(54): (vlog-2730) Undefined variable: 'regFile'.
-# -- Compiling module regfile16x16_tb
-# ** Error: ./regfile16x16.sv(96): (vlog-2730) Undefined variable: 'Clk'.
-# End time: 19:37:49 on May 11,2026, Elapsed time: 0:00:01
+# Start time: 12:21:11 on May 13,2026
+# vlog -reportprogress 300 ./regALU.sv 
+# -- Compiling module regALU
+# ** Error: (vlog-13069) ./regALU.sv(23): near "=": syntax error, unexpected '=', expecting ';'.
+# -- Compiling module regALU_tb
+# End time: 12:21:11 on May 13,2026, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: C:/intelFPGA/20.1/modelsim_ase/win32aloem/vlog failed.
+# Error in macro ./runlab.do line 7
+# C:/intelFPGA/20.1/modelsim_ase/win32aloem/vlog failed.
+#     while executing
+# "vlog "./regALU.sv""
+do runlab.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 12:23:51 on May 13,2026
+# vlog -reportprogress 300 ./regALU.sv 
+# -- Compiling module regALU
+# ** Error: (vlog-13069) ./regALU.sv(23): near "=": syntax error, unexpected '=', expecting ';'.
+# -- Compiling module regALU_tb
+# End time: 12:23:51 on May 13,2026, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: C:/intelFPGA/20.1/modelsim_ase/win32aloem/vlog failed.
+# Error in macro ./runlab.do line 7
+# C:/intelFPGA/20.1/modelsim_ase/win32aloem/vlog failed.
+#     while executing
+# "vlog "./regALU.sv""
+do runlab.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 12:26:52 on May 13,2026
+# vlog -reportprogress 300 ./regALU.sv 
+# -- Compiling module regALU
+# ** Error: ./regALU.sv(42): (vlog-2730) Undefined variable: 'clk'.
+# -- Compiling module regALU_tb
+# End time: 12:26:52 on May 13,2026, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: C:/intelFPGA/20.1/modelsim_ase/win32aloem/vlog failed.
+# Error in macro ./runlab.do line 7
+# C:/intelFPGA/20.1/modelsim_ase/win32aloem/vlog failed.
+#     while executing
+# "vlog "./regALU.sv""
+vlog -work work ./regALU.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 12:28:21 on May 13,2026
+# vlog -reportprogress 300 -work work ./regALU.sv 
+# -- Compiling module regALU
+# ** Error: ./regALU.sv(42): (vlog-2110) Illegal reference to net "Clk".
+# ** Error: ./regALU.sv(43): (vlog-2110) Illegal reference to net "Clk".
+# -- Compiling module regALU_tb
+# End time: 12:28:21 on May 13,2026, Elapsed time: 0:00:00
 # Errors: 2, Warnings: 0
-# ** Error: C:/intelFPGA/20.1/modelsim_ase/win32aloem/vlog failed.
-# Error in macro ./runlab.do line 7
 # C:/intelFPGA/20.1/modelsim_ase/win32aloem/vlog failed.
-#     while executing
-# "vlog "./regfile16x16.sv""
 do runlab.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 19:40:16 on May 11,2026
-# vlog -reportprogress 300 ./regfile16x16.sv 
-# -- Compiling module regfile16x16
-# ** Error: ./regfile16x16.sv(54): (vlog-2730) Undefined variable: 'regFile'.
-# -- Compiling module regfile16x16_tb
-# End time: 19:40:16 on May 11,2026, Elapsed time: 0:00:00
+# Start time: 12:28:53 on May 13,2026
+# vlog -reportprogress 300 ./regALU.sv 
+# -- Compiling module regALU
+# -- Compiling module regALU_tb
+# ** Error: ./regALU.sv(58): (vlog-2730) Undefined variable: 'clkCycleTime'.
+# End time: 12:28:53 on May 13,2026, Elapsed time: 0:00:00
 # Errors: 1, Warnings: 0
 # ** Error: C:/intelFPGA/20.1/modelsim_ase/win32aloem/vlog failed.
 # Error in macro ./runlab.do line 7
 # C:/intelFPGA/20.1/modelsim_ase/win32aloem/vlog failed.
 #     while executing
-# "vlog "./regfile16x16.sv""
+# "vlog "./regALU.sv""
 do runlab.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 19:42:44 on May 11,2026
-# vlog -reportprogress 300 ./regfile16x16.sv 
-# -- Compiling module regfile16x16
-# ** Error: ./regfile16x16.sv(54): (vlog-2730) Undefined variable: 'regFile'.
-# -- Compiling module regfile16x16_tb
-# End time: 19:42:44 on May 11,2026, Elapsed time: 0:00:00
-# Errors: 1, Warnings: 0
-# ** Error: C:/intelFPGA/20.1/modelsim_ase/win32aloem/vlog failed.
-# Error in macro ./runlab.do line 7
-# C:/intelFPGA/20.1/modelsim_ase/win32aloem/vlog failed.
-#     while executing
-# "vlog "./regfile16x16.sv""
-do runlab.do
-# ** Warning: (vlib-34) Library already exists at "work".
+# Start time: 12:29:10 on May 13,2026
+# vlog -reportprogress 300 ./regALU.sv 
+# -- Compiling module regALU
+# -- Compiling module regALU_tb
+# 
+# Top level modules:
+# 	regALU
+# 	regALU_tb
+# End time: 12:29:10 on May 13,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 19:43:43 on May 11,2026
+# Start time: 12:29:10 on May 13,2026
+# vlog -reportprogress 300 ./ALU.sv 
+# -- Compiling module ALU
+# -- Compiling module ALU_tb
+# 
+# Top level modules:
+# 	ALU_tb
+# End time: 12:29:10 on May 13,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 12:29:10 on May 13,2026
 # vlog -reportprogress 300 ./regfile16x16.sv 
 # -- Compiling module regfile16x16
 # -- Compiling module regfile16x16_tb
 # 
 # Top level modules:
 # 	regfile16x16_tb
-# End time: 19:43:43 on May 11,2026, Elapsed time: 0:00:00
+# End time: 12:29:10 on May 13,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vsim -voptargs=""+acc"" -t 1ps -lib work regfile16x16_tb 
-# Start time: 19:43:43 on May 11,2026
+# Start time: 12:29:10 on May 13,2026
 # Loading sv_std.std
 # Loading work.regfile16x16_tb
 # Loading work.regfile16x16
 # WARNING: No extended dataflow license exists
+# ** UI-Msg: (vish-4014) No objects found matching '/regALU/Clk'.
+# Executing ONERROR command at macro ./wave.do line 3
+# ** UI-Msg: (vish-4014) No objects found matching '/regALU/RF_W_addr'.
+# Executing ONERROR command at macro ./wave.do line 4
+# ** UI-Msg: (vish-4014) No objects found matching '/regALU/RF_W_en'.
+# Executing ONERROR command at macro ./wave.do line 5
+# ** UI-Msg: (vish-4014) No objects found matching '/regALU/RF_Ra_addr'.
+# Executing ONERROR command at macro ./wave.do line 6
+# ** UI-Msg: (vish-4014) No objects found matching '/regALU/RF_Rb_addr'.
+# Executing ONERROR command at macro ./wave.do line 7
+# ** UI-Msg: (vish-4014) No objects found matching '/regALU/ALU_s0'.
+# Executing ONERROR command at macro ./wave.do line 8
+# ** UI-Msg: (vish-4014) No objects found matching '/regALU/Q'.
+# Executing ONERROR command at macro ./wave.do line 9
 # .main_pane.wave.interior.cs.body.pw.wf
 # .main_pane.structure.interior.cs.body.struct
 # .main_pane.objects.interior.cs.body.tree
-# ** Note: $stop    : ./regfile16x16.sv(116)
-#    Time: 100 ps  Iteration: 0  Instance: /regfile16x16_tb
-# Break in Module regfile16x16_tb at ./regfile16x16.sv line 116
-do runlab.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 19:46:53 on May 11,2026
-# vlog -reportprogress 300 ./regfile16x16.sv 
-# -- Compiling module regfile16x16
-# -- Compiling module regfile16x16_tb
-# ** Error: ./regfile16x16.sv(107): (vlog-2730) Undefined variable: 'rdArrdA'.
-# ** Error: ./regfile16x16.sv(118): (vlog-2730) Undefined variable: 'test_bits'.
-# ** Error: (vlog-13069) ./regfile16x16.sv(123): near "end": syntax error, unexpected end.
-# ** Error: (vlog-13069) ./regfile16x16.sv(139): near "endmodule": syntax error, unexpected endmodule.
-# End time: 19:46:53 on May 11,2026, Elapsed time: 0:00:00
-# Errors: 4, Warnings: 0
-# ** Error: C:/intelFPGA/20.1/modelsim_ase/win32aloem/vlog failed.
-# Error in macro ./runlab.do line 7
-# C:/intelFPGA/20.1/modelsim_ase/win32aloem/vlog failed.
-#     while executing
-# "vlog "./regfile16x16.sv""
-do runlab.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 19:47:33 on May 11,2026
-# vlog -reportprogress 300 ./regfile16x16.sv 
-# -- Compiling module regfile16x16
-# -- Compiling module regfile16x16_tb
-# 
-# Top level modules:
-# 	regfile16x16_tb
-# End time: 19:47:34 on May 11,2026, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-# End time: 19:47:39 on May 11,2026, Elapsed time: 0:03:56
-# Errors: 1, Warnings: 0
-# vsim -voptargs=""+acc"" -t 1ps -lib work regfile16x16_tb 
-# Start time: 19:47:39 on May 11,2026
-# Loading sv_std.std
-# Loading work.regfile16x16_tb
-# Loading work.regfile16x16
-# WARNING: No extended dataflow license exists
-# .main_pane.wave.interior.cs.body.pw.wf
-# .main_pane.structure.interior.cs.body.struct
-# .main_pane.objects.interior.cs.body.tree
-# ** Note: $stop    : ./regfile16x16.sv(137)
-#    Time: 261 ps  Iteration: 0  Instance: /regfile16x16_tb
-# Break in Module regfile16x16_tb at ./regfile16x16.sv line 137
-do runlab.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 19:48:53 on May 11,2026
-# vlog -reportprogress 300 ./regfile16x16.sv 
-# -- Compiling module regfile16x16
-# -- Compiling module regfile16x16_tb
-# 
-# Top level modules:
-# 	regfile16x16_tb
-# End time: 19:48:53 on May 11,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 19:48:55 on May 11,2026, Elapsed time: 0:01:16
-# Errors: 0, Warnings: 0
-# vsim -voptargs=""+acc"" -t 1ps -lib work regfile16x16_tb 
-# Start time: 19:48:55 on May 11,2026
-# Loading sv_std.std
-# Loading work.regfile16x16_tb
-# Loading work.regfile16x16
-# WARNING: No extended dataflow license exists
-# ** UI-Msg: (vish-4014) No objects found matching '/regfile16x16_tb/regfile'.
-# Executing ONERROR command at macro ./wave.do line 11
-# .main_pane.wave.interior.cs.body.pw.wf
-# .main_pane.structure.interior.cs.body.struct
-# .main_pane.objects.interior.cs.body.tree
-# ** Note: $stop    : ./regfile16x16.sv(137)
-#    Time: 261 ps  Iteration: 0  Instance: /regfile16x16_tb
-# Break in Module regfile16x16_tb at ./regfile16x16.sv line 137
-do runlab.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 19:50:42 on May 11,2026
-# vlog -reportprogress 300 ./regfile16x16.sv 
-# -- Compiling module regfile16x16
-# -- Compiling module regfile16x16_tb
-# 
-# Top level modules:
-# 	regfile16x16_tb
-# End time: 19:50:42 on May 11,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 19:50:44 on May 11,2026, Elapsed time: 0:01:49
-# Errors: 0, Warnings: 0
-# vsim -voptargs=""+acc"" -t 1ps -lib work regfile16x16_tb 
-# Start time: 19:50:44 on May 11,2026
-# Loading sv_std.std
-# Loading work.regfile16x16_tb
-# Loading work.regfile16x16
-# WARNING: No extended dataflow license exists
-# .main_pane.wave.interior.cs.body.pw.wf
-# .main_pane.structure.interior.cs.body.struct
-# .main_pane.objects.interior.cs.body.tree
-# ** Note: $stop    : ./regfile16x16.sv(137)
-#    Time: 261 ps  Iteration: 0  Instance: /regfile16x16_tb
-# Break in Module regfile16x16_tb at ./regfile16x16.sv line 137
-do runlab.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 19:55:09 on May 11,2026
-# vlog -reportprogress 300 ./regfile16x16.sv 
-# -- Compiling module regfile16x16
-# -- Compiling module regfile16x16_tb
-# 
-# Top level modules:
-# 	regfile16x16_tb
-# End time: 19:55:09 on May 11,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 19:55:13 on May 11,2026, Elapsed time: 0:04:29
-# Errors: 0, Warnings: 0
-# vsim -voptargs=""+acc"" -t 1ps -lib work regfile16x16_tb 
-# Start time: 19:55:13 on May 11,2026
-# Loading sv_std.std
-# Loading work.regfile16x16_tb
-# Loading work.regfile16x16
-# WARNING: No extended dataflow license exists
-# .main_pane.wave.interior.cs.body.pw.wf
-# .main_pane.structure.interior.cs.body.struct
-# .main_pane.objects.interior.cs.body.tree
-# ** Note: $stop    : ./regfile16x16.sv(149)
-#    Time: 341 ps  Iteration: 0  Instance: /regfile16x16_tb
-# Break in Module regfile16x16_tb at ./regfile16x16.sv line 149
-do runlab.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 19:55:35 on May 11,2026
-# vlog -reportprogress 300 ./regfile16x16.sv 
-# -- Compiling module regfile16x16
-# -- Compiling module regfile16x16_tb
-# 
-# Top level modules:
-# 	regfile16x16_tb
-# End time: 19:55:35 on May 11,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 19:55:38 on May 11,2026, Elapsed time: 0:00:25
-# Errors: 0, Warnings: 0
-# vsim -voptargs=""+acc"" -t 1ps -lib work regfile16x16_tb 
-# Start time: 19:55:38 on May 11,2026
-# Loading sv_std.std
-# Loading work.regfile16x16_tb
-# Loading work.regfile16x16
-# WARNING: No extended dataflow license exists
-# .main_pane.wave.interior.cs.body.pw.wf
-# .main_pane.structure.interior.cs.body.struct
-# .main_pane.objects.interior.cs.body.tree
-# ** Error: Data from register           0 not output! Expected 3524, got 0000.
-#    Time: 166 ps  Scope: regfile16x16_tb File: ./regfile16x16.sv Line: 135
-# ** Error: Data from register           1 not output! Expected 5e81, got 0000.
-#    Time: 171 ps  Scope: regfile16x16_tb File: ./regfile16x16.sv Line: 135
-# ** Error: Data from register           2 not output! Expected d609, got 0000.
-#    Time: 176 ps  Scope: regfile16x16_tb File: ./regfile16x16.sv Line: 135
-# ** Error: Data from register           3 not output! Expected 5663, got 0000.
-#    Time: 181 ps  Scope: regfile16x16_tb File: ./regfile16x16.sv Line: 135
-# ** Error: Data from register           4 not output! Expected 7b0d, got 0000.
-#    Time: 186 ps  Scope: regfile16x16_tb File: ./regfile16x16.sv Line: 135
-# ** Error: Data from register           5 not output! Expected 998d, got 0000.
-#    Time: 191 ps  Scope: regfile16x16_tb File: ./regfile16x16.sv Line: 135
-# ** Error: Data from register           6 not output! Expected 8465, got 0000.
-#    Time: 196 ps  Scope: regfile16x16_tb File: ./regfile16x16.sv Line: 135
-# ** Error: Data from register           7 not output! Expected 5212, got 0000.
-#    Time: 201 ps  Scope: regfile16x16_tb File: ./regfile16x16.sv Line: 135
-# ** Error: Data from register           8 not output! Expected e301, got 0000.
-#    Time: 206 ps  Scope: regfile16x16_tb File: ./regfile16x16.sv Line: 135
-# ** Error: Data from register           9 not output! Expected cd0d, got 0000.
-#    Time: 211 ps  Scope: regfile16x16_tb File: ./regfile16x16.sv Line: 135
-# ** Error: Data from register          10 not output! Expected f176, got 0000.
-#    Time: 216 ps  Scope: regfile16x16_tb File: ./regfile16x16.sv Line: 135
-# ** Error: Data from register          11 not output! Expected cd3d, got 0000.
-#    Time: 221 ps  Scope: regfile16x16_tb File: ./regfile16x16.sv Line: 135
-# ** Error: Data from register          12 not output! Expected 57ed, got 0000.
-#    Time: 226 ps  Scope: regfile16x16_tb File: ./regfile16x16.sv Line: 135
-# ** Error: Data from register          13 not output! Expected f78c, got 0000.
-#    Time: 231 ps  Scope: regfile16x16_tb File: ./regfile16x16.sv Line: 135
-# ** Error: Data from register          14 not output! Expected e9f9, got 0000.
-#    Time: 236 ps  Scope: regfile16x16_tb File: ./regfile16x16.sv Line: 135
-# ** Error: Data from register          15 not output! Expected 24c6, got 0000.
-#    Time: 241 ps  Scope: regfile16x16_tb File: ./regfile16x16.sv Line: 135
-# ** Note: $stop    : ./regfile16x16.sv(149)
-#    Time: 341 ps  Iteration: 0  Instance: /regfile16x16_tb
-# Break in Module regfile16x16_tb at ./regfile16x16.sv line 149
-do runlab.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 20:13:04 on May 11,2026
-# vlog -reportprogress 300 ./regfile16x16.sv 
-# -- Compiling module regfile16x16
-# -- Compiling module regfile16x16_tb
-# 
-# Top level modules:
-# 	regfile16x16_tb
-# End time: 20:13:04 on May 11,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 20:13:08 on May 11,2026, Elapsed time: 0:17:30
-# Errors: 16, Warnings: 0
-# vsim -voptargs=""+acc"" -t 1ps -lib work regfile16x16_tb 
-# Start time: 20:13:08 on May 11,2026
-# Loading sv_std.std
-# Loading work.regfile16x16_tb
-# Loading work.regfile16x16
-# WARNING: No extended dataflow license exists
-# .main_pane.wave.interior.cs.body.pw.wf
-# .main_pane.structure.interior.cs.body.struct
-# .main_pane.objects.interior.cs.body.tree
-# ** Note: $stop    : ./regfile16x16.sv(172)
+# ** Note: $stop    : ./regfile16x16.sv(162)
 #    Time: 501 ps  Iteration: 0  Instance: /regfile16x16_tb
-# Break in Module regfile16x16_tb at ./regfile16x16.sv line 172
-do runlab.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 20:16:46 on May 11,2026
-# vlog -reportprogress 300 ./regfile16x16.sv 
-# -- Compiling module regfile16x16
-# -- Compiling module regfile16x16_tb
-# 
-# Top level modules:
-# 	regfile16x16_tb
-# End time: 20:16:47 on May 11,2026, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-# End time: 20:16:51 on May 11,2026, Elapsed time: 0:03:43
-# Errors: 0, Warnings: 0
-# vsim -voptargs=""+acc"" -t 1ps -lib work regfile16x16_tb 
-# Start time: 20:16:51 on May 11,2026
-# Loading sv_std.std
-# Loading work.regfile16x16_tb
-# Loading work.regfile16x16
-# WARNING: No extended dataflow license exists
-# .main_pane.wave.interior.cs.body.pw.wf
-# .main_pane.structure.interior.cs.body.struct
-# .main_pane.objects.interior.cs.body.tree
-# ** Note: $stop    : ./regfile16x16.sv(172)
-#    Time: 1701 ps  Iteration: 0  Instance: /regfile16x16_tb
-# Break in Module regfile16x16_tb at ./regfile16x16.sv line 172
-do runlab.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 20:17:37 on May 11,2026
-# vlog -reportprogress 300 ./regfile16x16.sv 
-# -- Compiling module regfile16x16
-# -- Compiling module regfile16x16_tb
-# 
-# Top level modules:
-# 	regfile16x16_tb
-# End time: 20:17:37 on May 11,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 20:17:41 on May 11,2026, Elapsed time: 0:00:50
-# Errors: 0, Warnings: 0
-# vsim -voptargs=""+acc"" -t 1ps -lib work regfile16x16_tb 
-# Start time: 20:17:41 on May 11,2026
-# Loading sv_std.std
-# Loading work.regfile16x16_tb
-# Loading work.regfile16x16
-# WARNING: No extended dataflow license exists
-# .main_pane.wave.interior.cs.body.pw.wf
-# .main_pane.structure.interior.cs.body.struct
-# .main_pane.objects.interior.cs.body.tree
-# ** Note: $stop    : ./regfile16x16.sv(172)
-#    Time: 501 ps  Iteration: 0  Instance: /regfile16x16_tb
-# Break in Module regfile16x16_tb at ./regfile16x16.sv line 172
+# Break in Module regfile16x16_tb at ./regfile16x16.sv line 162
 quit
-# End time: 20:19:35 on May 11,2026, Elapsed time: 0:01:54
+quit -sim
+
+# End time: 12:29:39 on May 13,2026, Elapsed time: 0:00:29
 # Errors: 0, Warnings: 0
