@@ -8,47 +8,47 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 dC:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/PhaseI
+dC:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/PhaseI
 vALU
-Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z2 !s110 1777922016
+Z0 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
+Z1 !s110 1778696431
 !i10b 1
-!s100 UeKDRC8]8WR:3`VamGAbS2
-Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
-Ik1I=AZWf9l:C9>5g^<fzS1
-Z4 VDg1SIo80bB@j0V0VzS_@n1
+!s100 7Mg>zB2efY>KDBE4P;R8;3
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IeSBXb@OMR9HR60:bVo2:g2
+Z3 VDg1SIo80bB@j0V0VzS_@n1
 S1
-R0
-Z5 w1777922014
+Z4 dc:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/PhaseI/Part2
+Z5 w1778696426
 Z6 8./ALU.sv
 Z7 F./ALU.sv
-!i122 26
-L0 11 20
+!i122 28
+L0 9 20
 Z8 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z9 !s108 1777922016.000000
+Z9 !s108 1778696431.000000
 !s107 ./ALU.sv|
 Z10 !s90 -reportprogress|300|./ALU.sv|
 !i113 1
 Z11 tCvgOpt 0
 n@a@l@u
 vALU_tb
-R1
-R2
-!i10b 1
-!s100 bW4gQT^]1;cKa8T<ER>Ao1
-R3
-I:jBlQ[H4KTJ?WWmf3DNig0
-R4
-S1
 R0
+R1
+!i10b 1
+!s100 >ch=CTBUMGF3CmGjKai6j3
+R2
+I5M7c<W0JT4Y:e]:`P022[2
+R3
+S1
+R4
 R5
 R6
 R7
-!i122 26
-L0 34 36
+!i122 28
+L0 31 29
 R8
 r1
 !s85 0

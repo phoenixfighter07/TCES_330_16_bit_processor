@@ -29,20 +29,21 @@ endmodule
 
 // The testbench for the ALU module
 module ALU_tb();
-    localparam test_bits = 4;
+    localparam test_bits = 3;
     logic [test_bits - 1: 0] A, B, Q;
     logic [2:0] select;
 
     ALU #(.bits(test_bits)) DUT (A, B, select, Q);
     
     initial begin
-        //$display("A\tB\tselect\tQ");
-        //$monitor("%b\t%b\t%b\t%b", A, B, select, Q);
+        $timeformat(-12, 0, "", 5);
+        $display("time\tA\tB\tselect\tQ");
+        $monitor("%t\t%b\t%b\t%b\t%b", $realtime, A, B, select, Q);
 
         // Test all cases
         for (longint i = 0; i < 2 ** (test_bits * 2 + 3); i++) begin
             {select, A, B} = i;
-            #0.1;
+            #10;
             case(select) 
                 0: assert(Q == 0) else $error("Expected Q to be %d, got %d.", 0, Q);
                 1: assert(Q == A + B) else $error("Expected Q to be the sum of A and B. Expected %d, got %d.", A + B, Q);
@@ -53,12 +54,6 @@ module ALU_tb();
                 6: assert(Q == (A & B)) else $error("Expected Q to be bitwise AND of A and B. Expected %b, got %b.", A & B, Q);
                 7: assert(Q == ((A + 1) % (2 ** test_bits))) else $error("Expected Q to be A + 1. Expected %d, got %d.", A + 1, Q);
             endcase
-
-            // assert((select == 0 && Q == 0) || (select == 1 && Q == A + B) ||
-            //     (select == 2 && Q == A - B) || (select == 3 && Q == A) ||
-            //     (select == 4 || Q == A ^ B) || (select == 5 && Q == A | B) ||
-            //     (select == 6 && Q == A & B) || (select == 7 && Q == (A + 1) % 2 ** test_bits))
-            // else $error("Problem with computation. select: %d; A: %d; B: %d; Q: %d;", select, A, B, Q);
         end
     end
 endmodule
