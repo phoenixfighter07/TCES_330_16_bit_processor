@@ -48,6 +48,7 @@ module regALU(RF_W_addr, RF_W_en, RF_Ra_addr, RF_Rb_addr, ALU_s0, Q, Clk);
 
     ALU #(.bits(bits)) ALUunit (rdDataA, rdDataB, ALU_s0, ALU_OUT);
 endmodule
+
 module regALU_tb();
     localparam clkCycleTime = 10;
     logic Clk;
