@@ -35,7 +35,7 @@ module regALU(RF_W_addr, RF_W_en, RF_Ra_addr, RF_Rb_addr, ALU_s0, Q, Clk);
     
     assign Q = ALU_OUT;
 
-    regfile16x16 #(.bits(bits)) DUT (
+    regfile16x16 #(.bits(bits)) Registers (
         Clk,
         RF_W_en,
         RF_W_addr,
@@ -51,12 +51,82 @@ endmodule
 
 module regALU_tb();
     localparam clkCycleTime = 10;
+    localparam bits = 4;
     logic Clk;
-
+    logic RG_W_en;
+    logic [3:0] RF_W_addr, RF_Ra_addr, RF_Rb_addr;
+    logic [2:0] ALU_s0;
+    logic [bits - 1:0] Q;
+    
+    regALU #(.bits(bits)) DUT(RF_W_addr, RF_W_en, RF_Ra_addr, RF_Rb_addr, ALU_s0, Q, Clk);
     // Initialize the clock
     always begin
         Clk = 0; #(clkCycleTime/2);
         Clk = 1; #(clkCycleTime/2);
+    end
+
+    initial begin
+        // put data in registers. 16 is used as the upper cap becasue is it the number of registers in the register file.
+        RF_W_en = 1; 
+        ALU_s0 = 0; // writes 0 to every register 
+        RF_Ra_addr = 0; RF_Rb_addr = 0; // assigned so hat they have a value
+        for (int i = 0; i < 16; i++) begin
+            RF_W_addr = i;
+            #clkCycleTime;
+            assert(0 == Dut.Registers.regFile[i]) else $error("Error with writing 0 to register %d. Register value is %d", RF_W_addr, Dut.Registers.regFile[i]);
+        end
+
+        // Checks if write can be turned off while incrementing
+        // Assumes that all registers equal 1 because of the previous for loop
+        RF_W_en = 0;
+        ALU_s0 = 7; // Is set to increment for the next few variables
+        for (int j = 0; j < 16; j++) begin
+            RF_Ra_addr = j;
+            RF_W_addr = j;
+            #clkCycleTime;
+            assert(DUT.Registers.regFile[j] == 0) 
+            else $error("Register write enable not working for register %d. Expected value is 0. Actual value is %d", j, DUT.Registers.regFile[j]);
+        end
+
+        // checks if increment works
+        RF_W_en = 1;
+        for (int i = 1; i <= 2; i++) begin
+            for (int j = 0; j < 16; j++) begin
+                RF_Ra_addr = j;
+                RF_W_addr = j;
+                #clkCycleTime;
+                assert(DUT.Registers.regFile[j] = i) 
+                else $error("Increment error. Register %d should equal %d. Actual value: %d", j, i, DUT.Registers.regFile[j]);
+            end
+        end
+
+
+        // Checks if addition works and if data can effectively be read from both registers
+        // increment loop so each register has a unique value
+        // ALU still in increment mode
+        for (int i = 0; i < 16; i++) begin
+            for (int j = 0; j < i; j++) begin
+                RF_Ra_addr = i;
+                RF_W_addr = i;
+                #clkCycleTime
+            end
+        end
+
+        // actually checks addition
+        RF_W_addr = 0; // turns off writeback. We will be testing Q for the next few values
+        ALU_s0 = 1;
+        for (int i = 0; i < 16; i++) begin
+            RF_Ra_addr = i;
+            for (int j = 0; j < 16; j++) begin
+                RF_Rb_addr = j;
+                #clkCycleTime;
+                assert(Q == (DUT.Registers.regFile[i] + DUT.Registers.regFile[j]))
+                else $error("Addition error. Expected Q: %d; Actual Q: %d", 
+                    (DUT.Registers.regFile[i] + DUT.Registers.regFile[j], Q));
+            end
+        end
+
+        
     end
 endmodule
     
