@@ -67,6 +67,10 @@ module regALU_tb();
 
     initial begin
         // put data in registers. 16 is used as the upper cap becasue is it the number of registers in the register file.
+
+        $display("RF_W_en\t\tRF_W_addr\t\tALU_s0\t\tRF_Ra_addr\t\tRF_Rb_Addr\t\tQ\t\tRegisters");
+        $monitor("%d\t\t%d\t\t%d\t\t%d\t\t%d\t\t%d\t\t%p", RF_W_en, RF_W_addr, ALU_s0, RF_Ra_addr, RF_Rb_addr, Q, DUT.Registers.regfile);
+
         RF_W_en = 1; 
         ALU_s0 = 0; // writes 0 to every register 
         RF_Ra_addr = 0; RF_Rb_addr = 0; // assigned so hat they have a value
@@ -98,7 +102,7 @@ module regALU_tb();
                 RF_W_addr = j;
                 #clkCycleTime;
                 assert(DUT.Registers.regfile[j] == i) 
-                else $error("Increment error. Register %d should equal %d. Actual value: %d", j, i, DUT.Registers.regfile[j]);
+                else $error("Increment error. Register %g should equal %g. Actual value: %g", j, i, DUT.Registers.regfile[j]);
             end
         end
 
@@ -125,11 +129,11 @@ module regALU_tb();
                     #clkCycleTime;
                     if (i == 1) begin
                         assert(Q == DUT.Registers.regfile[k] + DUT.Registers.regfile[j])
-                        else $error("Addition error. A register #: %d; B register #: %d; Expected Q: %d; Actual Q: %d", 
+                        else $error("Addition error. A register #: %g; B register #: %g; Expected Q: %g; Actual Q: %g", 
                             j, k, (DUT.Registers.regfile[k] + DUT.Registers.regfile[j]), Q);
                     end else begin
                         assert(Q == DUT.Registers.regfile[j] - DUT.Registers.regfile[k])
-                        else $error(" Subtraction error. A register #: %d; B register #: %d; Expected Q: %d; Actual Q: %d", 
+                        else $error(" Subtraction error. A register #: %g; B register #: %g; Expected Q: %g; Actual Q: %g", 
                             j, k, (DUT.Registers.regfile[j] - DUT.Registers.regfile[k]), Q);
                     end
                 end
@@ -142,7 +146,7 @@ module regALU_tb();
             RF_Ra_addr = i;
             #clkCycleTime;
             assert(Q == DUT.Registers.regfile[i])
-            else $error("Pass-through not working for register %d. Expected: %d; Actual: %d", i, DUT.Registers.regfile[i], Q);
+            else $error("Pass-through not working for register %g. Expected: %g; Actual: %g", i, DUT.Registers.regfile[i], Q);
         end
 
         // checks bitwise operators
@@ -155,15 +159,15 @@ module regALU_tb();
                     #clkCycleTime;
                     if (i == 4) begin // XOR
                         assert(Q == (DUT.Registers.regfile[j] ^ DUT.Registers.regfile[k]))
-                        else $error("Problem with bitwise XOR of registers %d and %d. Register values were %b and %b. Expected: %b; Actual: %b",
+                        else $error("Problem with bitwise XOR of registers %g and %g. Register values were %b and %b. Expected: %b; Actual: %b",
                             j, k, DUT.Registers.regfile[j], DUT.Registers.regfile[k], DUT.Registers.regfile[j] ^ DUT.Registers.regfile[k], Q);
                     end else if (i == 5) begin // OR
                         assert(Q == (DUT.Registers.regfile[j] | DUT.Registers.regfile[k]))
-                        else $error("Problem with bitwise OR of registers %d and %d. Register values were %b and %b. Expected: %b; Actual: %b",
+                        else $error("Problem with bitwise OR of registers %g and %g. Register values were %b and %b. Expected: %b; Actual: %b",
                             j, k, DUT.Registers.regfile[j], DUT.Registers.regfile[k], DUT.Registers.regfile[j] | DUT.Registers.regfile[k], Q);
                     end else begin
                         assert(Q == (DUT.Registers.regfile[j] & DUT.Registers.regfile[k]))
-                        else $error("Problem with bitwise AND of registers %d and %d. Register values were %b and %b. Expected: %b; Actual: %b",
+                        else $error("Problem with bitwise AND of registers %g and %g. Register values were %b and %b. Expected: %b; Actual: %b",
                             j, k, DUT.Registers.regfile[j], DUT.Registers.regfile[k], DUT.Registers.regfile[j] & DUT.Registers.regfile[k], Q);
                     end
                 end

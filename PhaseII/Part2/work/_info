@@ -11,7 +11,7 @@ cModel Technology
 dC:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/PhaseII/Part1
 vALU
 Z0 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z1 !s110 1778871855
+Z1 !s110 1778878786
 !i10b 1
 !s100 7Mg>zB2efY>KDBE4P;R8;3
 Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
@@ -22,13 +22,13 @@ Z4 dC:/Users/rober/TCES 330/TCES_330_16_bit_processor/Phaseii/Part2
 Z5 w1778728991
 Z6 8./ALU.sv
 Z7 F./ALU.sv
-!i122 147
+!i122 159
 L0 9 20
 Z8 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z9 !s108 1778871855.000000
+Z9 !s108 1778878786.000000
 Z10 !s107 ./ALU.sv|
 Z11 !s90 -reportprogress|300|./ALU.sv|
 !i113 1
@@ -47,7 +47,7 @@ R4
 R5
 R6
 R7
-!i122 147
+!i122 159
 L0 31 29
 R8
 r1
@@ -69,18 +69,18 @@ IemzVn<Q@VM7S33i8H9EF@1
 R3
 S1
 R4
-Z13 w1778871849
+Z13 w1778878781
 Z14 8./regALU.sv
 Z15 F./regALU.sv
-!i122 146
+!i122 158
 L0 24 27
 R8
 r1
 !s85 0
 31
-R9
-Z16 !s107 ./regALU.sv|
-Z17 !s90 -reportprogress|300|./regALU.sv|
+Z16 !s108 1778878785.000000
+Z17 !s107 ./regALU.sv|
+Z18 !s90 -reportprogress|300|./regALU.sv|
 !i113 1
 R12
 nreg@a@l@u
@@ -88,24 +88,24 @@ vregALU_tb
 R0
 R1
 !i10b 1
-!s100 3Q;795=K:Bz?M3M2ck;960
+!s100 _]dA^f@<9MQ_I9oa0LPzD0
 R2
-IEFZ0C98]GBE=i:T`Jif[63
+IoN:1ON^40o8g;eI<N?C:91
 R3
 S1
 R4
 R13
 R14
 R15
-!i122 146
-L0 52 123
+!i122 158
+L0 52 127
 R8
 r1
 !s85 0
 31
-R9
 R16
 R17
+R18
 !i113 1
 R12
 nreg@a@l@u_tb
@@ -120,9 +120,9 @@ R3
 S1
 R4
 R5
-Z18 8./regfile16x16.sv
-Z19 F./regfile16x16.sv
-!i122 148
+Z19 8./regfile16x16.sv
+Z20 F./regfile16x16.sv
+!i122 160
 L0 23 40
 R8
 r1
@@ -130,7 +130,7 @@ r1
 31
 R9
 !s107 ./regfile16x16.sv|
-Z20 !s90 -reportprogress|300|./regfile16x16.sv|
+Z21 !s90 -reportprogress|300|./regfile16x16.sv|
 !i113 1
 R12
 vregfile16x16_tb
@@ -144,16 +144,16 @@ R3
 S1
 R4
 R5
-R18
 R19
-!i122 148
+R20
+!i122 160
 L0 65 100
 R8
 r1
 !s85 0
 31
 R9
-Z21 !s107 ./regfile16x16.sv|
-R20
+Z22 !s107 ./regfile16x16.sv|
+R21
 !i113 1
 R12
