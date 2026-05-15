@@ -112,21 +112,55 @@ module regALU_tb();
             end
         end
 
-        // actually checks addition
+        // checks addition and subtraction
         RF_W_addr = 0; // turns off writeback. We will be testing Q for the next few values
-        ALU_s0 = 1;
-        for (int i = 0; i < 16; i++) begin
-            RF_Ra_addr = i;
+        for (int i = 1; i <= 2; i++) begin
+            ALU_s0 = i;
             for (int j = 0; j < 16; j++) begin
-                RF_Rb_addr = j;
-                #clkCycleTime;
-                assert(Q == (DUT.Registers.regFile[i] + DUT.Registers.regFile[j]))
-                else $error("Addition error. Expected Q: %d; Actual Q: %d", 
-                    (DUT.Registers.regFile[i] + DUT.Registers.regFile[j], Q));
+                RF_Ra_addr = j;
+                for (int k = 0; k < 16; k++) begin
+                    RF_Rb_addr = k;
+                    #clkCycleTime;
+                    assert(Q == ((i == 1) ? (DUT.Registers.regFile[k] + DUT.Registers.regFile[j]) : DUT.Registers.regFile[k] + DUT.Registers.regFile[j]))
+                    else $error("Addition/subtraction error. Expected Q: %d; Actual Q: %d", 
+                        (DUT.Registers.regFile[k] + DUT.Registers.regFile[j], Q));
+                end
             end
         end
 
-        
+        // checks pass-through
+        ALU_s0 =  3;
+        for(int i = 0; i < 16; i++) begin
+            RF_Ra_addr = i;
+            #clkCycleTime;
+            assert(Q == DUT.Registers.regFile[i])
+            else $error("Pass-through not working for register %d. Expected: %d; Actual: %d", i, DUT.Registers.regFile[i], Q);
+        end
+
+        // checks bitwise operators
+        for (int i = 4; i <=6; i++) begin
+            ALU_s0 = i;
+            for (int j = 0; j < 16; j++) begin
+                RF_Ra_addr = j;
+                for (int k = 0; k < 16; k++) begin
+                    RF_Rb_addr = k;
+                    #clkCycleTime;
+                    if (i == 4) begin // XOR
+                        assert(Q == (DUT.Registers.regFile[j] ^ DUT.Registers.regFile[k]))
+                        else $error("Problem with bitwise XOR of registers %d and %d. Register values were %b and %b. Expected: %b; Actual: %b",
+                            j, k, DUT.Registers.regFile[j], DUT.Registers.refFile[k], DUT.Registers.regFile[j] ^ DUT.Registers.refFile[k], Q);
+                    end else if (i == 5) begin // OR
+                        assert(Q == (DUT.Registers.regFile[j] | DUT.Registers.regFile[k]))
+                        else $error("Problem with bitwise OR of registers %d and %d. Register values were %b and %b. Expected: %b; Actual: %b",
+                            j, k, DUT.Registers.regFile[j], DUT.Registers.refFile[k], DUT.Registers.regFile[j] | DUT.Registers.refFile[k], Q);
+                    end else begin
+                        assert(Q == (DUT.Registers.regFile[j] & DUT.Registers.regFile[k]))
+                        else $error("Problem with bitwise AND of registers %d and %d. Register values were %b and %b. Expected: %b; Actual: %b",
+                            j, k, DUT.Registers.regFile[j], DUT.Registers.refFile[k], DUT.Registers.regFile[j] & DUT.Registers.refFile[k], Q);
+                    end
+                end
+            end
+        end
     end
 endmodule
     
