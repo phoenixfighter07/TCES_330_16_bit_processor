@@ -1,12 +1,12 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
-add wave -noupdate /regALU/Clk
-add wave -noupdate -hex /regALU/RF_W_addr
-add wave -noupdate /regALU/RF_W_en
-add wave -noupdate -hex /regALU/RF_Ra_addr
-add wave -noupdate -hex /regALU/RF_Rb_addr
-add wave -noupdate -hex /regALU/ALU_s0
-add wave -noupdate -hex /regALU/Q
+add wave -noupdate /regALU_tb/Clk
+add wave -noupdate -hex /regALU_tb/RF_W_addr
+add wave -noupdate /regALU_tb/RF_W_en
+add wave -noupdate -hex /regALU_tb/RF_Ra_addr
+add wave -noupdate -hex /regALU_tb/RF_Rb_addr
+add wave -noupdate -hex /regALU_tb/ALU_s0
+add wave -noupdate -hex /regALU_tb/Q
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {0 ps} 0}
 quietly wave cursor active 0

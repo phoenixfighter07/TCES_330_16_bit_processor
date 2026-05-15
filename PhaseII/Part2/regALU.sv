@@ -31,7 +31,7 @@ module regALU(RF_W_addr, RF_W_en, RF_Ra_addr, RF_Rb_addr, ALU_s0, Q, Clk);
     input [2:0] ALU_s0;
     output [(bits-1):0] Q;
     
-    logic [(bits-1):0] ALU_OUT;
+    logic [(bits-1):0] ALU_OUT, rdDataA, rdDataB;
     
     assign Q = ALU_OUT;
 
@@ -51,14 +51,14 @@ endmodule
 
 module regALU_tb();
     localparam clkCycleTime = 10;
-    localparam bits = 4;
+    localparam bits = 16;
     logic Clk;
-    logic RG_W_en;
+    logic RF_W_en;
     logic [3:0] RF_W_addr, RF_Ra_addr, RF_Rb_addr;
     logic [2:0] ALU_s0;
     logic [bits - 1:0] Q;
     
-    regALU #(.bits(bits)) DUT(RF_W_addr, RF_W_en, RF_Ra_addr, RF_Rb_addr, ALU_s0, Q, Clk);
+    regALU #(.bits(bits)) DUT (RF_W_addr, RF_W_en, RF_Ra_addr, RF_Rb_addr, ALU_s0, Q, Clk);
     // Initialize the clock
     always begin
         Clk = 0; #(clkCycleTime/2);
@@ -73,7 +73,8 @@ module regALU_tb();
         for (int i = 0; i < 16; i++) begin
             RF_W_addr = i;
             #clkCycleTime;
-            assert(0 == Dut.Registers.regFile[i]) else $error("Error with writing 0 to register %d. Register value is %d", RF_W_addr, Dut.Registers.regFile[i]);
+            assert(DUT.Registers.regfile[i] == 0) 
+            else $error("Error with writing 0 to register %d. Register value is %d", RF_W_addr, DUT.Registers.regfile[i]);
         end
 
         // Checks if write can be turned off while incrementing
@@ -84,8 +85,8 @@ module regALU_tb();
             RF_Ra_addr = j;
             RF_W_addr = j;
             #clkCycleTime;
-            assert(DUT.Registers.regFile[j] == 0) 
-            else $error("Register write enable not working for register %d. Expected value is 0. Actual value is %d", j, DUT.Registers.regFile[j]);
+            assert(DUT.Registers.regfile[j] == 0) 
+            else $error("Register write enable not working for register %d. Expected value is 0. Actual value is %d", j, DUT.Registers.regfile[j]);
         end
 
         // checks if increment works
@@ -95,8 +96,8 @@ module regALU_tb();
                 RF_Ra_addr = j;
                 RF_W_addr = j;
                 #clkCycleTime;
-                assert(DUT.Registers.regFile[j] = i) 
-                else $error("Increment error. Register %d should equal %d. Actual value: %d", j, i, DUT.Registers.regFile[j]);
+                assert(DUT.Registers.regfile[j] == i) 
+                else $error("Increment error. Register %d should equal %d. Actual value: %d", j, i, DUT.Registers.regfile[j]);
             end
         end
 
@@ -108,7 +109,7 @@ module regALU_tb();
             for (int j = 0; j < i; j++) begin
                 RF_Ra_addr = i;
                 RF_W_addr = i;
-                #clkCycleTime
+                #clkCycleTime;
             end
         end
 
@@ -121,9 +122,9 @@ module regALU_tb();
                 for (int k = 0; k < 16; k++) begin
                     RF_Rb_addr = k;
                     #clkCycleTime;
-                    assert(Q == ((i == 1) ? (DUT.Registers.regFile[k] + DUT.Registers.regFile[j]) : DUT.Registers.regFile[k] + DUT.Registers.regFile[j]))
+                    assert(Q == ((i == 1) ? (DUT.Registers.regfile[k] + DUT.Registers.regfile[j]) : DUT.Registers.regfile[k] + DUT.Registers.regfile[j]))
                     else $error("Addition/subtraction error. Expected Q: %d; Actual Q: %d", 
-                        (DUT.Registers.regFile[k] + DUT.Registers.regFile[j], Q));
+                        (DUT.Registers.regfile[k] + DUT.Registers.regfile[j]), Q);
                 end
             end
         end
@@ -133,8 +134,8 @@ module regALU_tb();
         for(int i = 0; i < 16; i++) begin
             RF_Ra_addr = i;
             #clkCycleTime;
-            assert(Q == DUT.Registers.regFile[i])
-            else $error("Pass-through not working for register %d. Expected: %d; Actual: %d", i, DUT.Registers.regFile[i], Q);
+            assert(Q == DUT.Registers.regfile[i])
+            else $error("Pass-through not working for register %d. Expected: %d; Actual: %d", i, DUT.Registers.regfile[i], Q);
         end
 
         // checks bitwise operators
@@ -146,21 +147,22 @@ module regALU_tb();
                     RF_Rb_addr = k;
                     #clkCycleTime;
                     if (i == 4) begin // XOR
-                        assert(Q == (DUT.Registers.regFile[j] ^ DUT.Registers.regFile[k]))
+                        assert(Q == (DUT.Registers.regfile[j] ^ DUT.Registers.regfile[k]))
                         else $error("Problem with bitwise XOR of registers %d and %d. Register values were %b and %b. Expected: %b; Actual: %b",
-                            j, k, DUT.Registers.regFile[j], DUT.Registers.refFile[k], DUT.Registers.regFile[j] ^ DUT.Registers.refFile[k], Q);
+                            j, k, DUT.Registers.regfile[j], DUT.Registers.regfile[k], DUT.Registers.regfile[j] ^ DUT.Registers.regfile[k], Q);
                     end else if (i == 5) begin // OR
-                        assert(Q == (DUT.Registers.regFile[j] | DUT.Registers.regFile[k]))
+                        assert(Q == (DUT.Registers.regfile[j] | DUT.Registers.regfile[k]))
                         else $error("Problem with bitwise OR of registers %d and %d. Register values were %b and %b. Expected: %b; Actual: %b",
-                            j, k, DUT.Registers.regFile[j], DUT.Registers.refFile[k], DUT.Registers.regFile[j] | DUT.Registers.refFile[k], Q);
+                            j, k, DUT.Registers.regfile[j], DUT.Registers.regfile[k], DUT.Registers.regfile[j] | DUT.Registers.regfile[k], Q);
                     end else begin
-                        assert(Q == (DUT.Registers.regFile[j] & DUT.Registers.regFile[k]))
+                        assert(Q == (DUT.Registers.regfile[j] & DUT.Registers.regfile[k]))
                         else $error("Problem with bitwise AND of registers %d and %d. Register values were %b and %b. Expected: %b; Actual: %b",
-                            j, k, DUT.Registers.regFile[j], DUT.Registers.refFile[k], DUT.Registers.regFile[j] & DUT.Registers.refFile[k], Q);
+                            j, k, DUT.Registers.regfile[j], DUT.Registers.regfile[k], DUT.Registers.regfile[j] & DUT.Registers.regfile[k], Q);
                     end
                 end
             end
         end
+        $stop;
     end
 endmodule
     
