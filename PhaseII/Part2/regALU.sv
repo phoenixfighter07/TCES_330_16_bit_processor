@@ -49,6 +49,10 @@ module regALU(RF_W_addr, RF_W_en, RF_Ra_addr, RF_Rb_addr, ALU_s0, Q, Clk);
     ALU #(.bits(bits)) ALUunit (rdDataA, rdDataB, ALU_s0, ALU_OUT);
 endmodule
 
+/*
+ * Hi Jenny! :D
+ * Please don't kill us for how long this is, we wanted to be very thorough.
+*/
 module regALU_tb();
     localparam clkCycleTime = 10;
     localparam bits = 16;
@@ -67,9 +71,10 @@ module regALU_tb();
 
     initial begin
         // put data in registers. 16 is used as the upper cap becasue is it the number of registers in the register file.
+        $timeformat(-12, 0, "", 5);
 
         $display("RF_W_en\t\tRF_W_addr\t\tALU_s0\t\tRF_Ra_addr\t\tRF_Rb_Addr\t\tQ\t\tRegisters");
-        $monitor("%d\t\t%d\t\t%d\t\t%d\t\t%d\t\t%d\t\t%p", RF_W_en, RF_W_addr, ALU_s0, RF_Ra_addr, RF_Rb_addr, Q, DUT.Registers.regfile);
+        $monitor("%t\t%d\t\t%d\t\t%d\t\t%d\t\t%d\t\t%d\t\t%p", $realtime, RF_W_en, RF_W_addr, ALU_s0, RF_Ra_addr, RF_Rb_addr, Q, DUT.Registers.regfile);
 
         RF_W_en = 1; 
         ALU_s0 = 0; // writes 0 to every register 
