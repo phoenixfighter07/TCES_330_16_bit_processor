@@ -145,7 +145,7 @@ module regfile16x16_tb();
             $error("Data from register %d at data B incorrect! Expected %h, got %h.", i, DUT.regfile[rdAddrB], rdDataB);
         end
 
-        // Test that each register can be read from on B port:
+        // Test that both ports read the same
         for (int i = 0; i < testBits; i++) begin 
             rdAddrA = i;
             rdAddrB = i;
@@ -154,7 +154,7 @@ module regfile16x16_tb();
 
             assert(DUT.regfile[rdAddrA] == DUT.regfile[rdAddrB]) 
             else 
-            $error("Data from register %d at data B incorrect! Expected Data A (%h) to be equal to Data B(%h).", i, DUT.regfile[rdAddrA], DUT.regfile[rdAddrB]);
+            $error("Data A and Data B are incorrect! Expected Data A (%h) to be equal to Data B(%h).", i, DUT.regfile[rdAddrA], DUT.regfile[rdAddrB]);
         end
 
         #100;
