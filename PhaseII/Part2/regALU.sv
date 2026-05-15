@@ -70,11 +70,12 @@ module regALU_tb();
         RF_W_en = 1; 
         ALU_s0 = 0; // writes 0 to every register 
         RF_Ra_addr = 0; RF_Rb_addr = 0; // assigned so hat they have a value
+        #1;
         for (int i = 0; i < 16; i++) begin
             RF_W_addr = i;
             #clkCycleTime;
-            assert(DUT.Registers.regfile[i] == 0) 
-            else $error("Error with writing 0 to register %d. Register value is %d", RF_W_addr, DUT.Registers.regfile[i]);
+            assert((DUT.Registers.regfile[i]) == (Q)) 
+            else $error("Error with writing 0 to register %g. Register value is %g. \t MATRIX: %m", Q, DUT.Registers.regfile[i]);
         end
 
         // Checks if write can be turned off while incrementing
@@ -86,7 +87,7 @@ module regALU_tb();
             RF_W_addr = j;
             #clkCycleTime;
             assert(DUT.Registers.regfile[j] == 0) 
-            else $error("Register write enable not working for register %d. Expected value is 0. Actual value is %d", j, DUT.Registers.regfile[j]);
+            else $error("Register write enable not working for register %g. Expected value is 0. Actual value is %g", j, DUT.Registers.regfile[j]);
         end
 
         // checks if increment works
@@ -122,9 +123,15 @@ module regALU_tb();
                 for (int k = 0; k < 16; k++) begin
                     RF_Rb_addr = k;
                     #clkCycleTime;
-                    assert(Q == ((i == 1) ? (DUT.Registers.regfile[k] + DUT.Registers.regfile[j]) : DUT.Registers.regfile[k] + DUT.Registers.regfile[j]))
-                    else $error("Addition/subtraction error. Expected Q: %d; Actual Q: %d", 
-                        (DUT.Registers.regfile[k] + DUT.Registers.regfile[j]), Q);
+                    if (i == 1) begin
+                        assert(Q == DUT.Registers.regfile[k] + DUT.Registers.regfile[j])
+                        else $error("Addition error. A register #: %d; B register #: %d; Expected Q: %d; Actual Q: %d", 
+                            j, k, (DUT.Registers.regfile[k] + DUT.Registers.regfile[j]), Q);
+                    end else begin
+                        assert(Q == DUT.Registers.regfile[j] - DUT.Registers.regfile[k])
+                        else $error(" Subtraction error. A register #: %d; B register #: %d; Expected Q: %d; Actual Q: %d", 
+                            j, k, (DUT.Registers.regfile[j] - DUT.Registers.regfile[k]), Q);
+                    end
                 end
             end
         end
