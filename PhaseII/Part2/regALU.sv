@@ -79,7 +79,7 @@ module regALU_tb();
             RF_W_addr = i;
             #clkCycleTime;
             assert((DUT.Registers.regfile[i]) == (Q)) 
-            else $error("Error with writing 0 to register %g. Register value is %g. \t MATRIX: %m", Q, DUT.Registers.regfile[i]);
+            else $error("Error with writing 0 to register %g. Register value is %g.", Q, DUT.Registers.regfile[i]);
         end
 
         // Checks if write can be turned off while incrementing
