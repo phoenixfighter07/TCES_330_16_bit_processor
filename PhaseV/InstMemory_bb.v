@@ -4,7 +4,7 @@
 // MODULE: altsyncram 
 
 // ============================================================
-// File Name: ROM.v
+// File Name: InstMemory.v
 // Megafunction Name(s):
 // 			altsyncram
 //
@@ -32,7 +32,7 @@
 //refer to the Altera Software License Subscription Agreements 
 //on the Quartus Prime software download page.
 
-module ROM (
+module InstMemory (
 	address,
 	clock,
 	q);
@@ -70,7 +70,7 @@ endmodule
 // Retrieval info: PRIVATE: JTAG_ENABLED NUMERIC "1"
 // Retrieval info: PRIVATE: JTAG_ID STRING "uROM"
 // Retrieval info: PRIVATE: MAXIMUM_DEPTH NUMERIC "0"
-// Retrieval info: PRIVATE: MIFfilename STRING "Mif2.mif"
+// Retrieval info: PRIVATE: MIFfilename STRING "A.mif"
 // Retrieval info: PRIVATE: NUMWORDS_A NUMERIC "128"
 // Retrieval info: PRIVATE: RAM_BLOCK_TYPE NUMERIC "0"
 // Retrieval info: PRIVATE: RegAddr NUMERIC "1"
@@ -85,7 +85,7 @@ endmodule
 // Retrieval info: CONSTANT: ADDRESS_ACLR_A STRING "NONE"
 // Retrieval info: CONSTANT: CLOCK_ENABLE_INPUT_A STRING "BYPASS"
 // Retrieval info: CONSTANT: CLOCK_ENABLE_OUTPUT_A STRING "BYPASS"
-// Retrieval info: CONSTANT: INIT_FILE STRING "Mif2.mif"
+// Retrieval info: CONSTANT: INIT_FILE STRING "A.mif"
 // Retrieval info: CONSTANT: INTENDED_DEVICE_FAMILY STRING "Cyclone IV E"
 // Retrieval info: CONSTANT: LPM_HINT STRING "ENABLE_RUNTIME_MOD=YES,INSTANCE_NAME=uROM"
 // Retrieval info: CONSTANT: LPM_TYPE STRING "altsyncram"
@@ -102,11 +102,11 @@ endmodule
 // Retrieval info: CONNECT: @address_a 0 0 7 0 address 0 0 7 0
 // Retrieval info: CONNECT: @clock0 0 0 0 0 clock 0 0 0 0
 // Retrieval info: CONNECT: q 0 0 16 0 @q_a 0 0 16 0
-// Retrieval info: GEN_FILE: TYPE_NORMAL ROM.v TRUE
-// Retrieval info: GEN_FILE: TYPE_NORMAL ROM.inc FALSE
-// Retrieval info: GEN_FILE: TYPE_NORMAL ROM.cmp FALSE
-// Retrieval info: GEN_FILE: TYPE_NORMAL ROM.bsf FALSE
-// Retrieval info: GEN_FILE: TYPE_NORMAL ROM_inst.v TRUE
-// Retrieval info: GEN_FILE: TYPE_NORMAL ROM_bb.v TRUE
-// Retrieval info: GEN_FILE: TYPE_NORMAL ROM_syn.v TRUE
+// Retrieval info: GEN_FILE: TYPE_NORMAL InstMemory.v TRUE
+// Retrieval info: GEN_FILE: TYPE_NORMAL InstMemory.inc FALSE
+// Retrieval info: GEN_FILE: TYPE_NORMAL InstMemory.cmp FALSE
+// Retrieval info: GEN_FILE: TYPE_NORMAL InstMemory.bsf FALSE
+// Retrieval info: GEN_FILE: TYPE_NORMAL InstMemory_inst.v TRUE
+// Retrieval info: GEN_FILE: TYPE_NORMAL InstMemory_bb.v TRUE
+// Retrieval info: GEN_FILE: TYPE_NORMAL InstMemory_syn.v TRUE
 // Retrieval info: LIB_FILE: altera_mf

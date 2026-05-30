@@ -4,7 +4,7 @@
 // MODULE: altsyncram 
 
 // ============================================================
-// File Name: ROM.v
+// File Name: InstMemory.v
 // Megafunction Name(s):
 // 			altsyncram
 //
@@ -34,14 +34,14 @@
 //on the Quartus Prime software download page.
 
 
-//altsyncram ADDRESS_ACLR_A="NONE" CLOCK_ENABLE_INPUT_A="BYPASS" CLOCK_ENABLE_OUTPUT_A="BYPASS" DEVICE_FAMILY="Cyclone IV E" ENABLE_RUNTIME_MOD="YES" INIT_FILE="Mif2.mif" INSTANCE_NAME="uROM" NUMWORDS_A=128 OPERATION_MODE="ROM" OUTDATA_ACLR_A="NONE" OUTDATA_REG_A="UNREGISTERED" WIDTH_A=16 WIDTH_BYTEENA_A=1 WIDTHAD_A=7 address_a clock0 q_a
+//altsyncram ADDRESS_ACLR_A="NONE" CLOCK_ENABLE_INPUT_A="BYPASS" CLOCK_ENABLE_OUTPUT_A="BYPASS" DEVICE_FAMILY="Cyclone IV E" ENABLE_RUNTIME_MOD="YES" INIT_FILE="A.mif" INSTANCE_NAME="uROM" NUMWORDS_A=128 OPERATION_MODE="ROM" OUTDATA_ACLR_A="NONE" OUTDATA_REG_A="UNREGISTERED" WIDTH_A=16 WIDTH_BYTEENA_A=1 WIDTHAD_A=7 address_a clock0 q_a
 //VERSION_BEGIN 25.1 cbx_altera_syncram_nd_impl 2025:10:22:10:31:27:SC cbx_altsyncram 2025:10:22:10:31:27:SC cbx_cycloneii 2025:10:22:10:31:27:SC cbx_lpm_add_sub 2025:10:22:10:31:27:SC cbx_lpm_compare 2025:10:22:10:31:27:SC cbx_lpm_decode 2025:10:22:10:31:27:SC cbx_lpm_mux 2025:10:22:10:31:26:SC cbx_mgl 2025:10:22:10:31:44:SC cbx_nadder 2025:10:22:10:31:27:SC cbx_stratix 2025:10:22:10:31:27:SC cbx_stratixii 2025:10:22:10:31:26:SC cbx_stratixiii 2025:10:22:10:31:27:SC cbx_stratixv 2025:10:22:10:31:26:SC cbx_util_mgl 2025:10:22:10:31:27:SC  VERSION_END
 // synthesis VERILOG_INPUT_VERSION VERILOG_2001
 // altera message_off 10463
 
 
 
-//altsyncram ADDRESS_ACLR_A="NONE" ADDRESS_ACLR_B="NONE" ADDRESS_REG_B="CLOCK1" CLOCK_ENABLE_INPUT_A="BYPASS" CLOCK_ENABLE_OUTPUT_A="BYPASS" DEVICE_FAMILY="Cyclone IV E" ENABLE_RUNTIME_MOD="NO" INDATA_ACLR_B="NONE" INDATA_REG_B="CLOCK1" INIT_FILE="Mif2.mif" NUMWORDS_A=128 NUMWORDS_B=128 OPERATION_MODE="BIDIR_DUAL_PORT" OUTDATA_ACLR_A="NONE" OUTDATA_ACLR_B="NONE" OUTDATA_REG_A="UNREGISTERED" OUTDATA_REG_B="UNREGISTERED" RDCONTROL_REG_B="CLOCK1" read_during_write_mode_port_a="NEW_DATA_NO_NBE_READ" WIDTH_A=16 WIDTH_B=16 WIDTH_BYTEENA_A=1 WIDTHAD_A=7 WIDTHAD_B=7 WRCONTROL_ACLR_A="NONE" WRCONTROL_ACLR_B="NONE" WRCONTROL_WRADDRESS_REG_B="CLOCK1" address_a address_b clock0 clock1 data_b q_a q_b wren_b
+//altsyncram ADDRESS_ACLR_A="NONE" ADDRESS_ACLR_B="NONE" ADDRESS_REG_B="CLOCK1" CLOCK_ENABLE_INPUT_A="BYPASS" CLOCK_ENABLE_OUTPUT_A="BYPASS" DEVICE_FAMILY="Cyclone IV E" ENABLE_RUNTIME_MOD="NO" INDATA_ACLR_B="NONE" INDATA_REG_B="CLOCK1" INIT_FILE="A.mif" NUMWORDS_A=128 NUMWORDS_B=128 OPERATION_MODE="BIDIR_DUAL_PORT" OUTDATA_ACLR_A="NONE" OUTDATA_ACLR_B="NONE" OUTDATA_REG_A="UNREGISTERED" OUTDATA_REG_B="UNREGISTERED" RDCONTROL_REG_B="CLOCK1" read_during_write_mode_port_a="NEW_DATA_NO_NBE_READ" WIDTH_A=16 WIDTH_B=16 WIDTH_BYTEENA_A=1 WIDTHAD_A=7 WIDTHAD_B=7 WRCONTROL_ACLR_A="NONE" WRCONTROL_ACLR_B="NONE" WRCONTROL_WRADDRESS_REG_B="CLOCK1" address_a address_b clock0 clock1 data_b q_a q_b wren_b
 //VERSION_BEGIN 25.1 cbx_altera_syncram_nd_impl 2025:10:22:10:31:27:SC cbx_altsyncram 2025:10:22:10:31:27:SC cbx_cycloneii 2025:10:22:10:31:27:SC cbx_lpm_add_sub 2025:10:22:10:31:27:SC cbx_lpm_compare 2025:10:22:10:31:27:SC cbx_lpm_decode 2025:10:22:10:31:27:SC cbx_lpm_mux 2025:10:22:10:31:26:SC cbx_mgl 2025:10:22:10:31:44:SC cbx_nadder 2025:10:22:10:31:27:SC cbx_stratix 2025:10:22:10:31:27:SC cbx_stratixii 2025:10:22:10:31:26:SC cbx_stratixiii 2025:10:22:10:31:27:SC cbx_stratixv 2025:10:22:10:31:26:SC cbx_util_mgl 2025:10:22:10:31:27:SC  VERSION_END
 
 //synthesis_resources = M9K 1 
@@ -49,7 +49,7 @@
 `timescale 1 ps / 1 ps
 //synopsys translate_on
 (* ALTERA_ATTRIBUTE = {"OPTIMIZE_POWER_DURING_SYNTHESIS=NORMAL_COMPILATION"} *)
-module  ROM_altsyncram1
+module  InstMemory_altsyncram1
 	( 
 	address_a,
 	address_b,
@@ -159,7 +159,7 @@ module  ROM_altsyncram1
 		ram_block3a_0.clk1_core_clock_enable = "none",
 		ram_block3a_0.clk1_input_clock_enable = "none",
 		ram_block3a_0.connectivity_checking = "OFF",
-		ram_block3a_0.init_file = "Mif2.mif",
+		ram_block3a_0.init_file = "A.mif",
 		ram_block3a_0.init_file_layout = "port_a",
 		ram_block3a_0.logical_ram_name = "ALTSYNCRAM",
 		ram_block3a_0.mem_init0 = 128'h00000000000000000000000000000000,
@@ -232,7 +232,7 @@ module  ROM_altsyncram1
 		ram_block3a_1.clk1_core_clock_enable = "none",
 		ram_block3a_1.clk1_input_clock_enable = "none",
 		ram_block3a_1.connectivity_checking = "OFF",
-		ram_block3a_1.init_file = "Mif2.mif",
+		ram_block3a_1.init_file = "A.mif",
 		ram_block3a_1.init_file_layout = "port_a",
 		ram_block3a_1.logical_ram_name = "ALTSYNCRAM",
 		ram_block3a_1.mem_init0 = 128'h00000000000000000000000000000000,
@@ -305,7 +305,7 @@ module  ROM_altsyncram1
 		ram_block3a_2.clk1_core_clock_enable = "none",
 		ram_block3a_2.clk1_input_clock_enable = "none",
 		ram_block3a_2.connectivity_checking = "OFF",
-		ram_block3a_2.init_file = "Mif2.mif",
+		ram_block3a_2.init_file = "A.mif",
 		ram_block3a_2.init_file_layout = "port_a",
 		ram_block3a_2.logical_ram_name = "ALTSYNCRAM",
 		ram_block3a_2.mem_init0 = 128'h00000000000000000000000000000000,
@@ -378,7 +378,7 @@ module  ROM_altsyncram1
 		ram_block3a_3.clk1_core_clock_enable = "none",
 		ram_block3a_3.clk1_input_clock_enable = "none",
 		ram_block3a_3.connectivity_checking = "OFF",
-		ram_block3a_3.init_file = "Mif2.mif",
+		ram_block3a_3.init_file = "A.mif",
 		ram_block3a_3.init_file_layout = "port_a",
 		ram_block3a_3.logical_ram_name = "ALTSYNCRAM",
 		ram_block3a_3.mem_init0 = 128'h00000000000000000000000000000000,
@@ -451,7 +451,7 @@ module  ROM_altsyncram1
 		ram_block3a_4.clk1_core_clock_enable = "none",
 		ram_block3a_4.clk1_input_clock_enable = "none",
 		ram_block3a_4.connectivity_checking = "OFF",
-		ram_block3a_4.init_file = "Mif2.mif",
+		ram_block3a_4.init_file = "A.mif",
 		ram_block3a_4.init_file_layout = "port_a",
 		ram_block3a_4.logical_ram_name = "ALTSYNCRAM",
 		ram_block3a_4.mem_init0 = 128'h00000000000000000000000000000000,
@@ -524,7 +524,7 @@ module  ROM_altsyncram1
 		ram_block3a_5.clk1_core_clock_enable = "none",
 		ram_block3a_5.clk1_input_clock_enable = "none",
 		ram_block3a_5.connectivity_checking = "OFF",
-		ram_block3a_5.init_file = "Mif2.mif",
+		ram_block3a_5.init_file = "A.mif",
 		ram_block3a_5.init_file_layout = "port_a",
 		ram_block3a_5.logical_ram_name = "ALTSYNCRAM",
 		ram_block3a_5.mem_init0 = 128'h00000000000000000000000000000000,
@@ -597,7 +597,7 @@ module  ROM_altsyncram1
 		ram_block3a_6.clk1_core_clock_enable = "none",
 		ram_block3a_6.clk1_input_clock_enable = "none",
 		ram_block3a_6.connectivity_checking = "OFF",
-		ram_block3a_6.init_file = "Mif2.mif",
+		ram_block3a_6.init_file = "A.mif",
 		ram_block3a_6.init_file_layout = "port_a",
 		ram_block3a_6.logical_ram_name = "ALTSYNCRAM",
 		ram_block3a_6.mem_init0 = 128'h00000000000000000000000000000000,
@@ -670,7 +670,7 @@ module  ROM_altsyncram1
 		ram_block3a_7.clk1_core_clock_enable = "none",
 		ram_block3a_7.clk1_input_clock_enable = "none",
 		ram_block3a_7.connectivity_checking = "OFF",
-		ram_block3a_7.init_file = "Mif2.mif",
+		ram_block3a_7.init_file = "A.mif",
 		ram_block3a_7.init_file_layout = "port_a",
 		ram_block3a_7.logical_ram_name = "ALTSYNCRAM",
 		ram_block3a_7.mem_init0 = 128'h00000000000000000000000000000000,
@@ -743,10 +743,10 @@ module  ROM_altsyncram1
 		ram_block3a_8.clk1_core_clock_enable = "none",
 		ram_block3a_8.clk1_input_clock_enable = "none",
 		ram_block3a_8.connectivity_checking = "OFF",
-		ram_block3a_8.init_file = "Mif2.mif",
+		ram_block3a_8.init_file = "A.mif",
 		ram_block3a_8.init_file_layout = "port_a",
 		ram_block3a_8.logical_ram_name = "ALTSYNCRAM",
-		ram_block3a_8.mem_init0 = 128'h00000000000000000000000000000001,
+		ram_block3a_8.mem_init0 = 128'h00000000000000000000000000000000,
 		ram_block3a_8.mixed_port_feed_through_mode = "dont_care",
 		ram_block3a_8.operation_mode = "bidir_dual_port",
 		ram_block3a_8.port_a_address_width = 7,
@@ -816,7 +816,7 @@ module  ROM_altsyncram1
 		ram_block3a_9.clk1_core_clock_enable = "none",
 		ram_block3a_9.clk1_input_clock_enable = "none",
 		ram_block3a_9.connectivity_checking = "OFF",
-		ram_block3a_9.init_file = "Mif2.mif",
+		ram_block3a_9.init_file = "A.mif",
 		ram_block3a_9.init_file_layout = "port_a",
 		ram_block3a_9.logical_ram_name = "ALTSYNCRAM",
 		ram_block3a_9.mem_init0 = 128'h00000000000000000000000000000000,
@@ -889,7 +889,7 @@ module  ROM_altsyncram1
 		ram_block3a_10.clk1_core_clock_enable = "none",
 		ram_block3a_10.clk1_input_clock_enable = "none",
 		ram_block3a_10.connectivity_checking = "OFF",
-		ram_block3a_10.init_file = "Mif2.mif",
+		ram_block3a_10.init_file = "A.mif",
 		ram_block3a_10.init_file_layout = "port_a",
 		ram_block3a_10.logical_ram_name = "ALTSYNCRAM",
 		ram_block3a_10.mem_init0 = 128'h00000000000000000000000000000000,
@@ -962,7 +962,7 @@ module  ROM_altsyncram1
 		ram_block3a_11.clk1_core_clock_enable = "none",
 		ram_block3a_11.clk1_input_clock_enable = "none",
 		ram_block3a_11.connectivity_checking = "OFF",
-		ram_block3a_11.init_file = "Mif2.mif",
+		ram_block3a_11.init_file = "A.mif",
 		ram_block3a_11.init_file_layout = "port_a",
 		ram_block3a_11.logical_ram_name = "ALTSYNCRAM",
 		ram_block3a_11.mem_init0 = 128'h00000000000000000000000000000000,
@@ -1035,7 +1035,7 @@ module  ROM_altsyncram1
 		ram_block3a_12.clk1_core_clock_enable = "none",
 		ram_block3a_12.clk1_input_clock_enable = "none",
 		ram_block3a_12.connectivity_checking = "OFF",
-		ram_block3a_12.init_file = "Mif2.mif",
+		ram_block3a_12.init_file = "A.mif",
 		ram_block3a_12.init_file_layout = "port_a",
 		ram_block3a_12.logical_ram_name = "ALTSYNCRAM",
 		ram_block3a_12.mem_init0 = 128'h00000000000000000000000000000000,
@@ -1108,10 +1108,10 @@ module  ROM_altsyncram1
 		ram_block3a_13.clk1_core_clock_enable = "none",
 		ram_block3a_13.clk1_input_clock_enable = "none",
 		ram_block3a_13.connectivity_checking = "OFF",
-		ram_block3a_13.init_file = "Mif2.mif",
+		ram_block3a_13.init_file = "A.mif",
 		ram_block3a_13.init_file_layout = "port_a",
 		ram_block3a_13.logical_ram_name = "ALTSYNCRAM",
-		ram_block3a_13.mem_init0 = 128'h00000000000000000000000000000001,
+		ram_block3a_13.mem_init0 = 128'h00000000000000000000000000000000,
 		ram_block3a_13.mixed_port_feed_through_mode = "dont_care",
 		ram_block3a_13.operation_mode = "bidir_dual_port",
 		ram_block3a_13.port_a_address_width = 7,
@@ -1181,7 +1181,7 @@ module  ROM_altsyncram1
 		ram_block3a_14.clk1_core_clock_enable = "none",
 		ram_block3a_14.clk1_input_clock_enable = "none",
 		ram_block3a_14.connectivity_checking = "OFF",
-		ram_block3a_14.init_file = "Mif2.mif",
+		ram_block3a_14.init_file = "A.mif",
 		ram_block3a_14.init_file_layout = "port_a",
 		ram_block3a_14.logical_ram_name = "ALTSYNCRAM",
 		ram_block3a_14.mem_init0 = 128'h00000000000000000000000000000000,
@@ -1254,7 +1254,7 @@ module  ROM_altsyncram1
 		ram_block3a_15.clk1_core_clock_enable = "none",
 		ram_block3a_15.clk1_input_clock_enable = "none",
 		ram_block3a_15.connectivity_checking = "OFF",
-		ram_block3a_15.init_file = "Mif2.mif",
+		ram_block3a_15.init_file = "A.mif",
 		ram_block3a_15.init_file_layout = "port_a",
 		ram_block3a_15.logical_ram_name = "ALTSYNCRAM",
 		ram_block3a_15.mem_init0 = 128'h00000000000000000000000000000000,
@@ -1291,13 +1291,13 @@ module  ROM_altsyncram1
 		q_a = {wire_ram_block3a_15portadataout[0], wire_ram_block3a_14portadataout[0], wire_ram_block3a_13portadataout[0], wire_ram_block3a_12portadataout[0], wire_ram_block3a_11portadataout[0], wire_ram_block3a_10portadataout[0], wire_ram_block3a_9portadataout[0], wire_ram_block3a_8portadataout[0], wire_ram_block3a_7portadataout[0], wire_ram_block3a_6portadataout[0], wire_ram_block3a_5portadataout[0], wire_ram_block3a_4portadataout[0], wire_ram_block3a_3portadataout[0], wire_ram_block3a_2portadataout[0], wire_ram_block3a_1portadataout[0], wire_ram_block3a_0portadataout[0]},
 		q_b = {wire_ram_block3a_15portbdataout[0], wire_ram_block3a_14portbdataout[0], wire_ram_block3a_13portbdataout[0], wire_ram_block3a_12portbdataout[0], wire_ram_block3a_11portbdataout[0], wire_ram_block3a_10portbdataout[0], wire_ram_block3a_9portbdataout[0], wire_ram_block3a_8portbdataout[0], wire_ram_block3a_7portbdataout[0], wire_ram_block3a_6portbdataout[0], wire_ram_block3a_5portbdataout[0], wire_ram_block3a_4portbdataout[0], wire_ram_block3a_3portbdataout[0], wire_ram_block3a_2portbdataout[0], wire_ram_block3a_1portbdataout[0], wire_ram_block3a_0portbdataout[0]},
 		wren_a = 1'b0;
-endmodule //ROM_altsyncram1
+endmodule //InstMemory_altsyncram1
 
 //synthesis_resources = M9K 1 sld_mod_ram_rom 1 
 //synopsys translate_off
 `timescale 1 ps / 1 ps
 //synopsys translate_on
-module  ROM_altsyncram
+module  InstMemory_altsyncram
 	( 
 	address_a,
 	clock0,
@@ -1320,7 +1320,7 @@ module  ROM_altsyncram
 	wire  wire_mgl_prim2_enable_write;
 	wire  wire_mgl_prim2_tck_usr;
 
-	ROM_altsyncram1   altsyncram1
+	InstMemory_altsyncram1   altsyncram1
 	( 
 	.address_a(address_a),
 	.address_b(wire_mgl_prim2_address),
@@ -1348,14 +1348,14 @@ module  ROM_altsyncram
 		mgl_prim2.widthad = 7;
 	assign
 		q_a = wire_altsyncram1_q_a;
-endmodule //ROM_altsyncram
+endmodule //InstMemory_altsyncram
 //VALID FILE
 
 
 // synopsys translate_off
 `timescale 1 ps / 1 ps
 // synopsys translate_on
-module ROM (
+module InstMemory (
 	address,
 	clock,
 	q)/* synthesis synthesis_clearbox = 1 */;
@@ -1374,7 +1374,7 @@ module ROM (
 	wire [15:0] sub_wire0;
 	wire [15:0] q = sub_wire0[15:0];
 
-	ROM_altsyncram	ROM_altsyncram_component (
+	InstMemory_altsyncram	InstMemory_altsyncram_component (
 				.address_a (address),
 				.clock0 (clock),
 				.q_a (sub_wire0));
@@ -1401,7 +1401,7 @@ endmodule
 // Retrieval info: PRIVATE: JTAG_ENABLED NUMERIC "1"
 // Retrieval info: PRIVATE: JTAG_ID STRING "uROM"
 // Retrieval info: PRIVATE: MAXIMUM_DEPTH NUMERIC "0"
-// Retrieval info: PRIVATE: MIFfilename STRING "Mif2.mif"
+// Retrieval info: PRIVATE: MIFfilename STRING "A.mif"
 // Retrieval info: PRIVATE: NUMWORDS_A NUMERIC "128"
 // Retrieval info: PRIVATE: RAM_BLOCK_TYPE NUMERIC "0"
 // Retrieval info: PRIVATE: RegAddr NUMERIC "1"
@@ -1416,7 +1416,7 @@ endmodule
 // Retrieval info: CONSTANT: ADDRESS_ACLR_A STRING "NONE"
 // Retrieval info: CONSTANT: CLOCK_ENABLE_INPUT_A STRING "BYPASS"
 // Retrieval info: CONSTANT: CLOCK_ENABLE_OUTPUT_A STRING "BYPASS"
-// Retrieval info: CONSTANT: INIT_FILE STRING "Mif2.mif"
+// Retrieval info: CONSTANT: INIT_FILE STRING "A.mif"
 // Retrieval info: CONSTANT: INTENDED_DEVICE_FAMILY STRING "Cyclone IV E"
 // Retrieval info: CONSTANT: LPM_HINT STRING "ENABLE_RUNTIME_MOD=YES,INSTANCE_NAME=uROM"
 // Retrieval info: CONSTANT: LPM_TYPE STRING "altsyncram"
@@ -1433,11 +1433,11 @@ endmodule
 // Retrieval info: CONNECT: @address_a 0 0 7 0 address 0 0 7 0
 // Retrieval info: CONNECT: @clock0 0 0 0 0 clock 0 0 0 0
 // Retrieval info: CONNECT: q 0 0 16 0 @q_a 0 0 16 0
-// Retrieval info: GEN_FILE: TYPE_NORMAL ROM.v TRUE
-// Retrieval info: GEN_FILE: TYPE_NORMAL ROM.inc FALSE
-// Retrieval info: GEN_FILE: TYPE_NORMAL ROM.cmp FALSE
-// Retrieval info: GEN_FILE: TYPE_NORMAL ROM.bsf FALSE
-// Retrieval info: GEN_FILE: TYPE_NORMAL ROM_inst.v TRUE
-// Retrieval info: GEN_FILE: TYPE_NORMAL ROM_bb.v TRUE
-// Retrieval info: GEN_FILE: TYPE_NORMAL ROM_syn.v TRUE
+// Retrieval info: GEN_FILE: TYPE_NORMAL InstMemory.v TRUE
+// Retrieval info: GEN_FILE: TYPE_NORMAL InstMemory.inc FALSE
+// Retrieval info: GEN_FILE: TYPE_NORMAL InstMemory.cmp FALSE
+// Retrieval info: GEN_FILE: TYPE_NORMAL InstMemory.bsf FALSE
+// Retrieval info: GEN_FILE: TYPE_NORMAL InstMemory_inst.v TRUE
+// Retrieval info: GEN_FILE: TYPE_NORMAL InstMemory_bb.v TRUE
+// Retrieval info: GEN_FILE: TYPE_NORMAL InstMemory_syn.v TRUE
 // Retrieval info: LIB_FILE: altera_mf
