@@ -60,7 +60,7 @@ module IR_tb();
 
         @(negedge Clk);
 
-        assert(DataOut == 16'h0) else $error({"IR did not reset! ", ASSERT_MESSAGE}, DataIn, 0);
+        assert(DataOut == 16'h0) else $error({"IR did not reset! ", ASSERT_MESSAGE}, DataIn, 1'b0);
 
         Ld = 1;
         DataIn = TEST_VALUE;
@@ -83,7 +83,7 @@ module IR_tb();
         @(posedge Clk);
         #2;
 
-        assert(DataOut == 0) else $error({"IR did not take in new value on rising edge! ", ASSERT_MESSAGE}, DataIn, 0);
+        assert(DataOut == 0) else $error({"IR did not take in new value on rising edge! ", ASSERT_MESSAGE}, DataIn, 1'b0);
 
         $stop;
     end

@@ -49,12 +49,12 @@ module ControlUnit(
 		   D_wr, 
 		   PC_clr,
 		   RF_s, 
-		   RF_W_en,  
-		   ALU_s0;
+		   RF_W_en;
 	output logic [3:0] RF_W_addr, 
 		   RF_Ra_addr, 
 		   RF_Rb_addr;
 	output logic [7:0] D_addr;
+	output logic [2:0] ALU_s0;
 
 	state currentState, nextState;
 
@@ -68,7 +68,7 @@ module ControlUnit(
 				end
 				Fetch: begin
 					PC_clr = 0;
-					PC_up = 0;
+					PC_up = 1;
 					IR_ld = 1;
 					D_addr = 0;
 					D_wr = 0;
@@ -78,7 +78,6 @@ module ControlUnit(
 					RF_W_en = 0;
 					RF_W_addr = 0;
 					ALU_s0 = 0;
-					PC_up = 0;
 					nextState = Decode;
 				end
 				Decode: begin
@@ -123,7 +122,6 @@ module ControlUnit(
 				LOAD_B: begin
 					D_addr = Instruction[11:4];
 					RF_s = 1;
-					RF_W_addr = Instruction[3:0];
 					RF_W_en = 1;
 					nextState = Fetch;
 				end
@@ -148,15 +146,16 @@ module ControlUnit_tb();
 	logic PC_up,
 		   IR_ld,
 		   D_wr, 
+		   PC_clr,
 		   RF_s, 
-		   RF_W_en,  
-		   ALU_s0;
-	logic [3:0] RF_W_Add, 
+		   RF_W_en;
+	logic [3:0] RF_W_addr, 
 		   RF_Ra_addr, 
 		   RF_Rb_addr;
 	logic [7:0] D_addr;
+	logic [2:0] ALU_s0;
 
-    localparam CLK_CYCLE_TIME = 10;
+    localparam CLK_CYCLE_TIME = 20;
 
     // Initialize the clock
 	always begin
@@ -183,7 +182,7 @@ module ControlUnit_tb();
 	// Wait n clock cycles
 	task automatic WaitCycles(input [31:0] n);
 		repeat (n) begin
-			@(posedge Clk);
+			@(negedge Clk);
 		end
 	endtask
 
@@ -199,11 +198,10 @@ module ControlUnit_tb();
 	endtask
 
 	initial begin
-		WaitCycles(1);
-
 		$timeformat(-12, 0, "", 5);
-		$display("Time\tClk\tResetN\tInstruction\tPC_clr\tPC_up\tIR_ld\tD_addr\tD_wr\tRF_s\tRF_Ra_addr\tRF_Rb_addr\tRF_W_en\tRF_W_addr\tALU_s0");
-		$monitor("%t\t%b\t%b\t%h\t%b\t%b\t%b\t%h\t%b\t%b\t%h\t%h\t%b\t%h\t%b", $realtime, 		
+		$display("Time\tClk\tResetN\tInst\tPC_clr\tPC_up\tIR_ld\tD_addr\tD_wr\tRF_s\tRF_Ra_addr\tRF_Rb_addr\tRF_W_en\tRF_W_addr\tALU_s0");
+		$monitor("%t\t%b\t%b\t%h\t%b\t%b\t%b\t%h\t%b\t%b\t%h\t%h\t%b\t%h\t%b",
+			$realtime, 		
 			Clk, 
 			ResetN, 
 			Instruction,
@@ -228,19 +226,19 @@ module ControlUnit_tb();
 		Instruction = 16'h0000;
 
 		assert(PC_clr) 
-		else $error("PC_clr not asserted when reset! Got PC_clr = %b, expected PC_clr = %b.", PC_clr, 1);
+		else $error("PC_clr not asserted when reset! Expected PC_clr = %b, got PC_clr = %b.", 1'b1, PC_clr);
 
 		// Enter Fetch
 		WaitCycles(1);
 
 		assert(~PC_clr) 
-		else $error("PC_clr not deasserted when in fetch! Got PC_clr = %b, expected PC_clr = %b.", PC_clr, 0);
+		else $error("PC_clr not deasserted when in fetch! Expected PC_clr = %b, got PC_clr = %b.", 1'b0, PC_clr);
 
 		assert(PC_up) 
-		else $error("PC_up not asserted when in fetch! Got PC_up = %b, expected PC_up = %b.", PC_up, 1);
+		else $error("PC_up not asserted when in fetch! Expected PC_up = %b, got PC_up = %b.", 1'b1, PC_up);
 
 		assert(IR_ld) 
-		else $error("IR_ld not asserted when in fetch! Got IR_ld = %b, expected IR_ld = %b.", IR_ld, 1);
+		else $error("IR_ld not asserted when in fetch! Expected IR_ld = %b, got IR_ld = %b.", 1'b1, IR_ld);
 
 		// Enter Decode
 		WaitCycles(1);
@@ -250,16 +248,16 @@ module ControlUnit_tb();
 		// Set instruction to STORE from register B to address A1
 		Instruction = 16'h1BA1;
 
-		WaitCycles(3);
+		WaitCycles(2);
 
 		assert(D_addr == Instruction[7:0]) 
-		else $error("D_addr did not take on the correct value! Got D_addr = %h, expected D_addr = %h.", D_addr, Instruction[7:0]);
+		else $error("D_addr did not take on the correct value! Expected D_addr = %h, got D_addr = %h.", Instruction[7:0], D_addr);
 
 		assert(D_wr) 
-		else $error("D_wr not asserted when in store! Got D_wr = %b, expected D_wr = %b.", D_wr, 1);
+		else $error("D_wr not asserted when in store! Expected D_wr = %b, got D_wr = %b.", 1'b1, D_wr);
 
 		assert(RF_Ra_addr == Instruction[11:8]) 
-		else $error("RF_Ra_addr did not take on the correct value! Got RF_Ra_addr = %h, expected RF_Ra_addr = %h.", RF_Ra_addr, Instruction[11:8]);
+		else $error("RF_Ra_addr did not take on the correct value! Expected RF_Ra_addr = %h, got RF_Ra_addr = %h.", Instruction[11:8], RF_Ra_addr);
 
 		// Return to fetch
 		WaitCycles(1);
@@ -267,32 +265,32 @@ module ControlUnit_tb();
 		ResetFSM();
 
 		// Set instruction to LOAD from Address CD to register 2
-		Instruction = 16'h2CD2; 
+		Instruction = 16'h2CD3; 
 
-		WaitCycles(3);
+		WaitCycles(2);
 
 		assert(D_addr == Instruction[11:4]) 
-		else $error("D_addr did not take on the correct value! Got D_addr = %h, expected D_addr = %h.", D_addr, Instruction[11:4]);
+		else $error("D_addr did not take on the correct value! Expected D_addr = %h, got D_addr = %h.", Instruction[11:4], D_addr);
 
 		assert(RF_s) 
-		else $error("RF_s not asserted when in load_a! Got RF_s = %b, expected RF_s = %b.", RF_s, 1);
+		else $error("RF_s not asserted when in load_a! Expected RF_s = %b, got RF_s = %b.", 1'b1, RF_s);
 
 		assert(RF_W_addr == Instruction[3:0]) 
-		else $error("RF_W_addr did not take on the correct value! Got RF_W_addr = %h, expected RF_W_addr = %h.", RF_W_addr, Instruction[3:0]);
+		else $error("RF_W_addr did not take on the correct value! Expected RF_W_addr = %h, got RF_W_addr = %h.", Instruction[3:0], RF_W_addr);
 
 		WaitCycles(1);
 
 		assert(D_addr == Instruction[11:4]) 
-		else $error("D_addr did not hold the correct value! Got D_addr = %h, expected D_addr = %h.", D_addr, Instruction[11:4]);
+		else $error("D_addr did not hold the correct value! Expected D_addr = %h, got D_addr = %h.", Instruction[11:4], D_addr);
 
 		assert(RF_s) 
-		else $error("RF_s did not stay asserted when in load_b! Got RF_s = %b, expected RF_s = %b.", RF_s, 1);
+		else $error("RF_s did not stay asserted when in load_b! Expected RF_s = %b, got RF_s = %b.", 1'b1, RF_s);
 
 		assert(RF_W_en) 
-		else $error("RF_W_en did not assert when in load_b! Got RF_W_en = %b, expected RF_W_en = %b.", RF_W_en, 1);
+		else $error("RF_W_en did not assert when in load_b! Expected RF_W_en = %b, got RF_W_en = %b.", 1'b1, RF_W_en);
 
 		assert(RF_W_addr == Instruction[3:0]) 
-		else $error("RF_W_addr did not hold the correct value! Got RF_W_addr = %h, expected RF_W_addr = %h.", RF_W_addr, Instruction[3:0]);
+		else $error("RF_W_addr did not hold the correct value! Expected RF_W_addr = %h, got RF_W_addr = %h.", Instruction[3:0], RF_W_addr);
 
 		// Return to fetch
 		WaitCycles(1);
@@ -302,25 +300,22 @@ module ControlUnit_tb();
 		// Set instruction to ADD, add register F and register 1, then store into register 3
 		Instruction = 16'h3F13; 
 
-		WaitCycles(3);
-
-		assert(RF_s) 
-		else $error("RF_s did not stay asserted when in load_b! Got RF_s = %b, expected RF_s = %b.", RF_s, 1);
+		WaitCycles(2);
 
 		assert(RF_W_en) 
-		else $error("RF_W_en did not assert when in load_b! Got RF_W_en = %b, expected RF_W_en = %b.", RF_W_en, 1);
+		else $error("RF_W_en did not assert when in add! Expected RF_W_en = %b, got RF_W_en = %b.", 1'b1, RF_W_en);
 
 		assert(RF_W_addr == Instruction[3:0]) 
-		else $error("RF_W_addr did not hold the correct value! Got RF_W_addr = %h, expected RF_W_addr = %h.", RF_W_addr, Instruction[3:0]);
+		else $error("RF_W_addr did not hold the correct value! Expected RF_W_addr = %h, got RF_W_addr = %h.", Instruction[3:0], RF_W_addr);
 
 		assert(RF_Ra_addr == Instruction[11:8]) 
-		else $error("RF_Ra_addr did not take on the correct value! Got RF_Ra_addr = %h, expected RF_Ra_addr = %h.", RF_Ra_addr, Instruction[11:8]);
+		else $error("RF_Ra_addr did not take on the correct value! Expected RF_Ra_addr = %h, got RF_Ra_addr = %h.", Instruction[11:8], RF_Ra_addr);
 
 		assert(RF_Rb_addr == Instruction[7:4]) 
-		else $error("RF_Rb_addr did not take on the correct value! Got RF_Rb_addr = %h, expected RF_Rb_addr = %h.", RF_Rb_addr, Instruction[7:4]);
+		else $error("RF_Rb_addr did not take on the correct value! Expected RF_Rb_addr = %h, got RF_Rb_addr = %h.", Instruction[7:4], RF_Rb_addr);
 
 		assert(ALU_s0 == 1) 
-		else $error("ALU_s0 is not the correct operation! Got ALU_s0 = %h, expected ALU_s0 = %h.", ALU_s0, 1);
+		else $error("ALU_s0 is not the correct operation! Expected ALU_s0 = %h, got ALU_s0 = %h.", 4'h1, ALU_s0);
 
 		// Return to fetch
 		WaitCycles(1);
@@ -330,25 +325,22 @@ module ControlUnit_tb();
 		// Set instruction to SUB, subtract register E, register 3, then store into register 2
 		Instruction = 16'h4E32; 
 
-		WaitCycles(3);
-
-		assert(RF_s) 
-		else $error("RF_s did not stay asserted when in load_b! Got RF_s = %b, expected RF_s = %b.", RF_s, 1);
+		WaitCycles(2);
 
 		assert(RF_W_en) 
-		else $error("RF_W_en did not assert when in load_b! Got RF_W_en = %b, expected RF_W_en = %b.", RF_W_en, 1);
+		else $error("RF_W_en did not assert when in sub! Expected RF_W_en = %b, got RF_W_en = %b.", 1'b1, RF_W_en);
 
 		assert(RF_W_addr == Instruction[3:0]) 
-		else $error("RF_W_addr did not hold the correct value! Got RF_W_addr = %h, expected RF_W_addr = %h.", RF_W_addr, Instruction[3:0]);
+		else $error("RF_W_addr did not hold the correct value! Expected RF_W_addr = %h, got RF_W_addr = %h.", Instruction[3:0], RF_W_addr);
 
 		assert(RF_Ra_addr == Instruction[11:8]) 
-		else $error("RF_Ra_addr did not take on the correct value! Got RF_Ra_addr = %h, expected RF_Ra_addr = %h.", RF_Ra_addr, Instruction[11:8]);
+		else $error("RF_Ra_addr did not take on the correct value! Expected RF_Ra_addr = %h, got RF_Ra_addr = %h.", Instruction[11:8], RF_Ra_addr);
 
 		assert(RF_Rb_addr == Instruction[7:4]) 
-		else $error("RF_Rb_addr did not take on the correct value! Got RF_Rb_addr = %h, expected RF_Rb_addr = %h.", RF_Rb_addr, Instruction[7:4]);
+		else $error("RF_Rb_addr did not take on the correct value! Expected RF_Rb_addr = %h, got RF_Rb_addr = %h.", Instruction[7:4], RF_Rb_addr);
 
 		assert(ALU_s0 == 2) 
-		else $error("ALU_s0 is not the correct operation! Got ALU_s0 = %h, expected ALU_s0 = %h.", ALU_s0, 2);
+		else $error("ALU_s0 is not the correct operation! Expected ALU_s0 = %h, got ALU_s0 = %h.", 4'h2, ALU_s0);
 
 		// Return to fetch
 		WaitCycles(1);
@@ -359,12 +351,12 @@ module ControlUnit_tb();
 		WaitCycles(4);
 
 		assert(DUT.currentState == HALT) 
-		else $error("Control unit not in halt state! Got currentState = %h, expected currentState = %h.", DUT.currentState, HALT);
+		else $error("Control unit not in halt state! Expected currentState = %h, got currentState = %h.", DUT.currentState, HALT);
 		
 		WaitCycles(4);
 
 		assert(DUT.currentState == HALT) 
-		else $error("Control did not maintain halt state! Got currentState = %h, expected currentState = %h.", DUT.currentState, HALT);
+		else $error("Control did not maintain halt state! Expected currentState = %h, got currentState = %h.", DUT.currentState, HALT);
 
 		$stop;
 	end
