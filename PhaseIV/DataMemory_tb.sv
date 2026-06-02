@@ -1,6 +1,6 @@
 /*
  * TCES 330
- * Landon Wardle
+ * Robert Cromer and Landon Wardle
  * 6/1/2026
  * Testbench for the RAM generated in Quartus.
  */ 

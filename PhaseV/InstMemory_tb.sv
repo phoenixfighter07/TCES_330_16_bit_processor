@@ -1,6 +1,6 @@
 /*
  * TCES 330
- * Landon Wardle
+ * Robert Cromer and Landon Wardle
  * 6/2/2026
  * Testbench for the ROM generated in Quartus.
  */ 

@@ -1,318 +1,750 @@
 # Reading pref.tcl
-do DataMemoryrtl.do
-# 
-# Get rid of current work lib
-# if {[file exists rtl_work]} {
-# 	vdel -lib rtl_work -all
-# }
-# 
-# Create work library and map it to 'work'
-# vlib rtl_work
-# vmap work rtl_work
-# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
-# vmap work rtl_work 
-# Modifying modelsim.ini
-# 
-# Compile Verilog
-#     All Verilog files that are part of this design should have
-#     their own "vlog" line below.
-# vlog -work work +acc "./DataMemory.v"
+do runMux.do
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 10:36:06 on Jun 02,2026
-# vlog -reportprogress 300 -work work "+acc" ./DataMemory.v 
-# -- Compiling module DataMemory
+# Start time: 11:24:37 on Jun 02,2026
+# vlog -reportprogress 300 ./Mux.sv 
+# -- Compiling module Mux
+# ** Error: (vlog-13069) ./Mux.sv(27): near "if": syntax error, unexpected if, expecting ';' or ','.
+# ** Error: ./Mux.sv(41): Illegal use of 'automatic' for variable declaration (M).
+# ** Error: ./Mux.sv(41): Illegal use of 'automatic' for variable declaration (X).
+# ** Error: ./Mux.sv(41): Illegal use of 'automatic' for variable declaration (Y).
+# ** Error: ./Mux.sv(41): Illegal use of 'automatic' for variable declaration (S).
+# ** Error: ./Mux.sv(43): Illegal declaration after the statement near line '38'.  Declarations must precede statements.  Look for stray semicolons.
+# ** Error: ./Mux.sv(48): (vlog-2730) Undefined variable: 'Y'.
+# ** Error (suppressible): ./Mux.sv(48): (vlog-2388) 'Y' already declared in this scope (work) at ./Mux.sv(41).
+# ./Mux.sv(48): Verilog Compiler exiting
+# End time: 11:24:37 on Jun 02,2026, Elapsed time: 0:00:00
+# Errors: 8, Warnings: 0
+# ** Error: C:/intelFPGA/20.1/modelsim_ase/win32aloem/vlog failed.
+# Error in macro ./runMux.do line 7
+# C:/intelFPGA/20.1/modelsim_ase/win32aloem/vlog failed.
+#     while executing
+# "vlog "./Mux.sv""
+do runMux.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:25:05 on Jun 02,2026
+# vlog -reportprogress 300 ./Mux.sv 
+# -- Compiling module Mux
+# ** Error: ./Mux.sv(67): (vlog-2730) Undefined variable: 'U'.
+# End time: 11:25:05 on Jun 02,2026, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: C:/intelFPGA/20.1/modelsim_ase/win32aloem/vlog failed.
+# Error in macro ./runMux.do line 7
+# C:/intelFPGA/20.1/modelsim_ase/win32aloem/vlog failed.
+#     while executing
+# "vlog "./Mux.sv""
+do runMux.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:25:27 on Jun 02,2026
+# vlog -reportprogress 300 ./Mux.sv 
+# -- Compiling module Mux
+# -- Compiling package Mux_sv_unit
+# -- Compiling module Mux_tb
 # 
 # Top level modules:
-# 	DataMemory
-# End time: 10:36:07 on Jun 02,2026, Elapsed time: 0:00:01
+# 	Mux_tb
+# End time: 11:25:27 on Jun 02,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -work work +acc "./DataMemory_tb.sv"
-# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 10:36:07 on Jun 02,2026
-# vlog -reportprogress 300 -work work "+acc" ./DataMemory_tb.sv 
-# -- Compiling module DataMemory_tb
-# 
-# Top level modules:
-# 	DataMemory_tb
-# End time: 10:36:07 on Jun 02,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# 
-# Call vsim to invoke simulator
-#     Make sure the last item on the line is the name of the
-#     testbench module you want to execute.
-# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc" -fsmdebug  DataMemory_tb
-# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=""+acc"" -fsmdebug DataMemory_tb 
-# Start time: 10:36:07 on Jun 02,2026
+# vsim -voptargs=""+acc"" -t 1ps -lib work Mux_tb 
+# Start time: 11:25:27 on Jun 02,2026
 # Loading sv_std.std
-# Loading work.DataMemory_tb
-# Loading work.DataMemory
-# Loading altera_mf_ver.altsyncram
-# Loading altera_mf_ver.altsyncram_body
-# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
-# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+# Loading work.Mux_sv_unit
+# Loading work.Mux_tb
+# Loading work.Mux
+# ** Warning: (vsim-3015) [PCDPC] - Port size (16) does not match connection size (3) for port 'M'. The port definition is at: ./Mux.sv(16).
+#    Time: 0 ps  Iteration: 0  Instance: /Mux_tb/DUT File: ./Mux.sv Line: 43
+# ** Warning: (vsim-3015) [PCDPC] - Port size (16) does not match connection size (3) for port 'X'. The port definition is at: ./Mux.sv(16).
+#    Time: 0 ps  Iteration: 0  Instance: /Mux_tb/DUT File: ./Mux.sv Line: 43
+# ** Warning: (vsim-3015) [PCDPC] - Port size (16) does not match connection size (3) for port 'Y'. The port definition is at: ./Mux.sv(16).
+#    Time: 0 ps  Iteration: 0  Instance: /Mux_tb/DUT File: ./Mux.sv Line: 43
+# ** Warning: (vsim-3015) [PCDPC] - Port size (16) does not match connection size (3) for port 'S'. The port definition is at: ./Mux.sv(16).
+#    Time: 0 ps  Iteration: 0  Instance: /Mux_tb/DUT File: ./Mux.sv Line: 43
 # WARNING: No extended dataflow license exists
+# ** Error: Cannot open macro file: wave.do
+# Error in macro ./runMux.do line 17
+# Cannot open macro file: wave.do
+#     while executing
+# "do wave.do"
+do runMux.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:26:13 on Jun 02,2026
+# vlog -reportprogress 300 ./Mux.sv 
+# -- Compiling module Mux
+# -- Compiling package Mux_sv_unit
+# -- Compiling module Mux_tb
 # 
-# Source the wave do file
-#     This should be the file that sets up the signal window for
-#     the module you are testing.
-# do DataMemoryWave.do
-# onerror {resume}
-# quietly WaveActivateNextPane {} 0
-# add wave -noupdate /DataMemory_tb/clock
-# add wave -noupdate -hex /DataMemory_tb/address
-# add wave -noupdate -hex /DataMemory_tb/q
-# add wave -noupdate -hex /DataMemory_tb/data
-# add wave -noupdate /DataMemory_tb/wren
-# TreeUpdate [SetDefaultTree]
-# WaveRestoreCursors {{Cursor 1} {0 ps} 0}
-# quietly wave cursor active 0
-# configure wave -namecolwidth 150
-# configure wave -valuecolwidth 100
-# configure wave -justifyvalue left
-# configure wave -signalnamewidth 0
-# configure wave -snapdistance 10
-# configure wave -datasetprefix 0
-# configure wave -rowmargin 4
-# configure wave -childrowmargin 2
-# configure wave -gridoffset 0
-# configure wave -gridperiod 1
-# configure wave -griddelta 40
-# configure wave -timeline 0
-# configure wave -timelineunits ps
-# update
-# WaveRestoreZoom {0 ps} {1 ns}
-# 
-# Set the window types
-# view wave
-# .main_pane.wave.interior.cs.body.pw.wf
-# view structure
-# .main_pane.structure.interior.cs.body.struct
-# view signals
-# .main_pane.objects.interior.cs.body.tree
-# 
-# Run the simulation
-# run -all
-# time	addr	clk	data	wren	q
-#     0	xx	0	xxxx	x	0000
-#    10	xx	1	xxxx	x	xxxx
-#    20	xx	0	xxxx	x	xxxx
-#    30	xx	1	xxxx	x	xxxx
-#    40	xx	0	xxxx	x	xxxx
-#    50	xx	1	xxxx	x	xxxx
-#    60	xx	0	xxxx	x	xxxx
-#    70	xx	1	xxxx	x	xxxx
-#    80	0a	0	6767	1	xxxx
-#    90	0a	1	6767	1	6767
-#   100	0a	0	6767	1	6767
-#   110	0a	1	6767	1	6767
-#   120	0a	0	6767	0	6767
-#   130	0a	1	6767	0	6767
-#   140	00	0	0000	1	6767
-#   150	00	1	0000	1	0000
-#   160	01	0	0000	1	0000
-#   170	01	1	0000	1	0000
-#   180	02	0	0000	1	0000
-#   190	02	1	0000	1	0000
-#   200	03	0	0000	1	0000
-#   210	03	1	0000	1	0000
-#   220	04	0	0000	1	0000
-#   230	04	1	0000	1	0000
-#   240	05	0	0000	1	0000
-#   250	05	1	0000	1	0000
-#   260	06	0	0000	1	0000
-#   270	06	1	0000	1	0000
-#   280	07	0	0000	1	0000
-#   290	07	1	0000	1	0000
-#   300	08	0	0000	1	0000
-#   310	08	1	0000	1	0000
-#   320	09	0	0000	1	0000
-#   330	09	1	0000	1	0000
-#   340	0a	0	0000	1	0000
-#   350	0a	1	0000	1	0000
-#   360	0b	0	0000	1	0000
-#   370	0b	1	0000	1	0000
-#   380	0c	0	0000	1	0000
-#   390	0c	1	0000	1	0000
-#   400	0d	0	0000	1	0000
-#   410	0d	1	0000	1	0000
-#   420	0e	0	0000	1	0000
-#   430	0e	1	0000	1	0000
-#   440	0f	0	0000	1	0000
-#   450	0f	1	0000	1	0000
-#   460	0f	0	0000	1	0000
-#   470	0f	1	0000	1	0000
-#   480	00	0	3524	1	0000
-#   490	00	1	3524	1	3524
-#   500	01	0	5e81	1	3524
-#   510	01	1	5e81	1	5e81
-#   520	02	0	d609	1	5e81
-#   530	02	1	d609	1	d609
-#   540	03	0	5663	1	d609
-#   550	03	1	5663	1	5663
-#   560	04	0	7b0d	1	5663
-#   570	04	1	7b0d	1	7b0d
-#   580	05	0	998d	1	7b0d
-#   590	05	1	998d	1	998d
-#   600	06	0	8465	1	998d
-#   610	06	1	8465	1	8465
-#   620	07	0	5212	1	8465
-#   630	07	1	5212	1	5212
-#   640	08	0	e301	1	5212
-#   650	08	1	e301	1	e301
-#   660	09	0	cd0d	1	e301
-#   670	09	1	cd0d	1	cd0d
-#   680	0a	0	f176	1	cd0d
-#   690	0a	1	f176	1	f176
-#   700	0b	0	cd3d	1	f176
-#   710	0b	1	cd3d	1	cd3d
-#   720	0c	0	57ed	1	cd3d
-#   730	0c	1	57ed	1	57ed
-#   740	0d	0	f78c	1	57ed
-#   750	0d	1	f78c	1	f78c
-#   760	0e	0	e9f9	1	f78c
-#   770	0e	1	e9f9	1	e9f9
-#   780	0f	0	24c6	1	e9f9
-#   790	0f	1	24c6	1	24c6
-#   800	0f	0	24c6	1	24c6
-#   810	0f	1	24c6	1	24c6
-#   820	00	0	24c6	0	24c6
-#   830	00	1	24c6	0	3524
-#   840	00	0	24c6	0	3524
-#   850	00	1	24c6	0	3524
-#   860	00	0	24c6	0	3524
-#   870	00	1	24c6	0	3524
-#   880	00	0	24c6	0	3524
-#   890	00	1	24c6	0	3524
-#   900	01	0	24c6	0	3524
-#   910	01	1	24c6	0	5e81
-#   920	01	0	24c6	0	5e81
-#   930	01	1	24c6	0	5e81
-#   940	01	0	24c6	0	5e81
-#   950	01	1	24c6	0	5e81
-#   960	01	0	24c6	0	5e81
-#   970	01	1	24c6	0	5e81
-#   980	02	0	24c6	0	5e81
-#   990	02	1	24c6	0	d609
-#  1000	02	0	24c6	0	d609
-#  1010	02	1	24c6	0	d609
-#  1020	02	0	24c6	0	d609
-#  1030	02	1	24c6	0	d609
-#  1040	02	0	24c6	0	d609
-#  1050	02	1	24c6	0	d609
-#  1060	03	0	24c6	0	d609
-#  1070	03	1	24c6	0	5663
-#  1080	03	0	24c6	0	5663
-#  1090	03	1	24c6	0	5663
-#  1100	03	0	24c6	0	5663
-#  1110	03	1	24c6	0	5663
-#  1120	03	0	24c6	0	5663
-#  1130	03	1	24c6	0	5663
-#  1140	04	0	24c6	0	5663
-#  1150	04	1	24c6	0	7b0d
-#  1160	04	0	24c6	0	7b0d
-#  1170	04	1	24c6	0	7b0d
-#  1180	04	0	24c6	0	7b0d
-#  1190	04	1	24c6	0	7b0d
-#  1200	04	0	24c6	0	7b0d
-#  1210	04	1	24c6	0	7b0d
-#  1220	05	0	24c6	0	7b0d
-#  1230	05	1	24c6	0	998d
-#  1240	05	0	24c6	0	998d
-#  1250	05	1	24c6	0	998d
-#  1260	05	0	24c6	0	998d
-#  1270	05	1	24c6	0	998d
-#  1280	05	0	24c6	0	998d
-#  1290	05	1	24c6	0	998d
-#  1300	06	0	24c6	0	998d
-#  1310	06	1	24c6	0	8465
-#  1320	06	0	24c6	0	8465
-#  1330	06	1	24c6	0	8465
-#  1340	06	0	24c6	0	8465
-#  1350	06	1	24c6	0	8465
-#  1360	06	0	24c6	0	8465
-#  1370	06	1	24c6	0	8465
-#  1380	07	0	24c6	0	8465
-#  1390	07	1	24c6	0	5212
-#  1400	07	0	24c6	0	5212
-#  1410	07	1	24c6	0	5212
-#  1420	07	0	24c6	0	5212
-#  1430	07	1	24c6	0	5212
-#  1440	07	0	24c6	0	5212
-#  1450	07	1	24c6	0	5212
-#  1460	08	0	24c6	0	5212
-#  1470	08	1	24c6	0	e301
-#  1480	08	0	24c6	0	e301
-#  1490	08	1	24c6	0	e301
-#  1500	08	0	24c6	0	e301
-#  1510	08	1	24c6	0	e301
-#  1520	08	0	24c6	0	e301
-#  1530	08	1	24c6	0	e301
-#  1540	09	0	24c6	0	e301
-#  1550	09	1	24c6	0	cd0d
-#  1560	09	0	24c6	0	cd0d
-#  1570	09	1	24c6	0	cd0d
-#  1580	09	0	24c6	0	cd0d
-#  1590	09	1	24c6	0	cd0d
-#  1600	09	0	24c6	0	cd0d
-#  1610	09	1	24c6	0	cd0d
-#  1620	0a	0	24c6	0	cd0d
-#  1630	0a	1	24c6	0	f176
-#  1640	0a	0	24c6	0	f176
-#  1650	0a	1	24c6	0	f176
-#  1660	0a	0	24c6	0	f176
-#  1670	0a	1	24c6	0	f176
-#  1680	0a	0	24c6	0	f176
-#  1690	0a	1	24c6	0	f176
-#  1700	0b	0	24c6	0	f176
-#  1710	0b	1	24c6	0	cd3d
-#  1720	0b	0	24c6	0	cd3d
-#  1730	0b	1	24c6	0	cd3d
-#  1740	0b	0	24c6	0	cd3d
-#  1750	0b	1	24c6	0	cd3d
-#  1760	0b	0	24c6	0	cd3d
-#  1770	0b	1	24c6	0	cd3d
-#  1780	0c	0	24c6	0	cd3d
-#  1790	0c	1	24c6	0	57ed
-#  1800	0c	0	24c6	0	57ed
-#  1810	0c	1	24c6	0	57ed
-#  1820	0c	0	24c6	0	57ed
-#  1830	0c	1	24c6	0	57ed
-#  1840	0c	0	24c6	0	57ed
-#  1850	0c	1	24c6	0	57ed
-#  1860	0d	0	24c6	0	57ed
-#  1870	0d	1	24c6	0	f78c
-#  1880	0d	0	24c6	0	f78c
-#  1890	0d	1	24c6	0	f78c
-#  1900	0d	0	24c6	0	f78c
-#  1910	0d	1	24c6	0	f78c
-#  1920	0d	0	24c6	0	f78c
-#  1930	0d	1	24c6	0	f78c
-#  1940	0e	0	24c6	0	f78c
-#  1950	0e	1	24c6	0	e9f9
-#  1960	0e	0	24c6	0	e9f9
-#  1970	0e	1	24c6	0	e9f9
-#  1980	0e	0	24c6	0	e9f9
-#  1990	0e	1	24c6	0	e9f9
-#  2000	0e	0	24c6	0	e9f9
-#  2010	0e	1	24c6	0	e9f9
-#  2020	0f	0	24c6	0	e9f9
-#  2030	0f	1	24c6	0	24c6
-#  2040	0f	0	24c6	0	24c6
-#  2050	0f	1	24c6	0	24c6
-#  2060	0f	0	24c6	0	24c6
-#  2070	0f	1	24c6	0	24c6
-#  2080	0f	0	24c6	0	24c6
-#  2090	0f	1	24c6	0	24c6
-# ** Note: $stop    : ./DataMemory_tb.sv(111)
-#    Time: 2100 ps  Iteration: 1  Instance: /DataMemory_tb
-# Break in Module DataMemory_tb at ./DataMemory_tb.sv line 111
-# 
-# View the entire wave display
-# wave zoomfull
-# 0 ps
-# 2205 ps
-# 
-# End
-quit
-# End time: 10:36:18 on Jun 02,2026, Elapsed time: 0:00:11
+# Top level modules:
+# 	Mux_tb
+# End time: 11:26:13 on Jun 02,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
+# End time: 11:26:14 on Jun 02,2026, Elapsed time: 0:00:47
+# Errors: 1, Warnings: 4
+# vsim -voptargs=""+acc"" -t 1ps -lib work Mux_tb 
+# Start time: 11:26:14 on Jun 02,2026
+# Loading sv_std.std
+# Loading work.Mux_sv_unit
+# Loading work.Mux_tb
+# Loading work.Mux
+# ** Warning: (vsim-3015) [PCDPC] - Port size (16) does not match connection size (17) for port 'M'. The port definition is at: ./Mux.sv(16).
+#    Time: 0 ps  Iteration: 0  Instance: /Mux_tb/DUT File: ./Mux.sv Line: 44
+# ** Warning: (vsim-3015) [PCDPC] - Port size (16) does not match connection size (17) for port 'X'. The port definition is at: ./Mux.sv(16).
+#    Time: 0 ps  Iteration: 0  Instance: /Mux_tb/DUT File: ./Mux.sv Line: 44
+# ** Warning: (vsim-3015) [PCDPC] - Port size (16) does not match connection size (17) for port 'Y'. The port definition is at: ./Mux.sv(16).
+#    Time: 0 ps  Iteration: 0  Instance: /Mux_tb/DUT File: ./Mux.sv Line: 44
+# ** Warning: (vsim-3015) [PCDPC] - Port size (16) does not match connection size (1) for port 'S'. The port definition is at: ./Mux.sv(16).
+#    Time: 0 ps  Iteration: 0  Instance: /Mux_tb/DUT File: ./Mux.sv Line: 44
+# WARNING: No extended dataflow license exists
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+# X	Y	S	M
+#     0	00000	00000	00000	0
+#     5	00000	00000	00000	1
+# ** Error: S value not bound to 0 or 1. Got S = 1.
+#    Time: 10 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 34
+#    10	00000	00000	00000	0
+#    15	0000X	00001	00000	0
+# ** Error: 25204518131839341543789837070297079505343846651435502949004860635663646159084792264364131006629582689311240100815992982281837562921291971762331194686730753847801Xx
+#    Time: 20 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 29
+#    20	00000	00000	00000	0
+#    25	00000	00000	00000	1
+# ** Error: S value not bound to 0 or 1. Got S = 1.
+#    Time: 30 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 34
+#    30	01111	01111	01111	0
+#    35	01111	01111	01111	1
+# ** Error: S value not bound to 0 or 1. Got S = 1.
+#    Time: 40 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 34
+#    40	0af40	13022	0af40	1
+# ** Error: S value not bound to 0 or 1. Got S = 1.
+#    Time: 45 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 34
+#    45	02b31	06c7c	02b31	1
+# ** Error: S value not bound to 0 or 1. Got S = 1.
+#    Time: 50 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 34
+#    50	0ccc6	151b7	1ccc6	1
+# ** Error: S value not bound to 0 or 1. Got S = 1.
+#    Time: 55 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 34
+#    55	0XXXX	1624d	1a909	0
+#    60	0e686	041b5	1e686	1
+# ** Error: S value not bound to 0 or 1. Got S = 1.
+#    Time: 65 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 34
+#    65	0e69e	187a3	0e69e	1
+# ** Error: S value not bound to 0 or 1. Got S = 1.
+#    Time: 70 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 34
+#    70	0XXXX	1518b	0fbc6	0
+# ** Error: 25204518131839341543789837070297079505343846651435502949004860635663646159084792264364131006629582689311240100815992982281837562921291971762331194686730753847801Xx
+#    Time: 75 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 29
+#    75	0XXXX	078cd	19263	0
+#    80	0XXXX	17544	1e955	0
+# ** Error: 25204518131839341543789837070297079505343846651435502949004860635663646159084792264364131006629582689311240100815992982281837562921291971762331194686730753847800Xx
+#    Time: 85 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 29
+#    85	0393b	16ef4	1393b	1
+# ** Error: S value not bound to 0 or 1. Got S = 1.
+#    Time: 90 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 34
+#    90	06dc7	091fb	06dc7	1
+# ** Error: S value not bound to 0 or 1. Got S = 1.
+#    Time: 95 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 34
+#    95	0xXXX	0b9dd	14b67	0
+#   100	02762	038b2	12762	1
+# ** Error: S value not bound to 0 or 1. Got S = 1.
+#    Time: 105 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 34
+#   105	0145e	137a3	1145e	1
+# ** Error: S value not bound to 0 or 1. Got S = 1.
+#    Time: 110 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 34
+#   110	09332	16ca9	19332	1
+# ** Error: S value not bound to 0 or 1. Got S = 1.
+#    Time: 115 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 34
+#   115	0cXXX	0c15c	1c385	0
+# ** Error: 25204518131839341543789837070297079505343846651435502949004860635663646159084792264364131006629582689311240100815992982281837562921291971762331194686730753847800Xx
+#    Time: 120 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 29
+#   120	0XXXX	00419	01090	0
+# ** Error: 25204518131839341543789837070297079505343846651435502949004860635663646159084792264364131006629582689311240100815992982281837562921291971762331194686730753847801Xx
+#    Time: 125 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 29
+#   125	0664e	0b3b3	0664e	1
+# ** Error: S value not bound to 0 or 1. Got S = 1.
+#    Time: 130 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 34
+#   130	0dc09	1a260	1dc09	1
+# ** Error: S value not bound to 0 or 1. Got S = 1.
+#    Time: 135 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 34
+#   135	0eb29	16a69	1eb29	1
+# ** Error: S value not bound to 0 or 1. Got S = 1.
+#    Time: 140 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 34
+#   140	0156a	0faa9	1156a	1
+# ** Error: S value not bound to 0 or 1. Got S = 1.
+#    Time: 145 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 34
+#   145	0XXXX	0b5d5	11f57	0
+#   150	0b967	179f1	0b967	1
+# ** Error: S value not bound to 0 or 1. Got S = 1.
+#    Time: 155 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 34
+#   155	0XXXX	0c142	0b285	0
+# ** Error: 25204518131839341543789837070297079505343846651435502949004860635663646159084792264364131006629582689311240100815992982281837562921291971762331194686730753847800Xx
+#    Time: 160 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 29
+#   160	0aXXX	0a78c	0a61e	0
+#   165	0XXXX	0914b	130c5	0
+#   170	0XXXX	07b12	19a6c	0
+#   175	00944	03122	10944	1
+# ** Error: S value not bound to 0 or 1. Got S = 1.
+#    Time: 180 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 34
+#   180	0XXXX	0d6c0	132db	0
+# ** Error: 25204518131839341543789837070297079505343846651435502949004860635663646159084792264364131006629582689311240100815992982281837562921291971762331194686730753847800Xx
+#    Time: 185 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 29
+#   185	0XXXX	195c5	089d7	0
+#   190	0XXXX	10543	1ee95	0
+#   195	0df38	0ee25	1df38	1
+# ** Error: S value not bound to 0 or 1. Got S = 1.
+#    Time: 200 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 34
+#   200	02aa7	149fc	12aa7	1
+# ** Error: S value not bound to 0 or 1. Got S = 1.
+#    Time: 205 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 34
+#   205	0XXXX	0c741	1199d	0
+#   210	0258a	182aa	1258a	1
+# ** Error: S value not bound to 0 or 1. Got S = 1.
+#    Time: 215 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 34
+#   215	025ec	05b27	025ec	1
+# ** Error: S value not bound to 0 or 1. Got S = 1.
+#    Time: 220 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 34
+#   220	0XXXX	0898d	0fda6	0
+# ** Error: 25204518131839341543789837070297079505343846651435502949004860635663646159084792264364131006629582689311240100815992982281837562921291971762331194686730753847801Xx
+#    Time: 225 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 29
+#   225	0d0c7	1d1ee	0d0c7	1
+# ** Error: S value not bound to 0 or 1. Got S = 1.
+#    Time: 230 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 34
+#   230	0b05b	036f3	0b05b	1
+# ** Error: S value not bound to 0 or 1. Got S = 1.
+#    Time: 235 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 34
+#   235	0XXXX	1eb9f	0ca2e	0
+# ** Error: 25204518131839341543789837070297079505343846651435502949004860635663646159084792264364131006629582689311240100815992982281837562921291971762331194686730753847801Xx
+#    Time: 240 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 29
+#   240	01bc4	0d137	11bc4	1
+# ** Error: S value not bound to 0 or 1. Got S = 1.
+#    Time: 245 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 34
+#   245	0XXX8	07a08	19f68	0
+#   250	0fe28	1ea31	1fe28	1
+# ** Error: S value not bound to 0 or 1. Got S = 1.
+#    Time: 255 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 34
+#   255	0XX8X	18187	0bf86	0
+# ** Error: 25204518131839341543789837070297079505343846651435502949004860635663646159084792264364131006629582689311240100815992982281837562921291971762331194686730753847801Xx
+#    Time: 260 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 29
+#   260	0XxxX	09915	1f6e4	0
+# ** Error: 25204518131839341543789837070297079505343846651435502949004860635663646159084792264364131006629582689311240100815992982281837562921291971762331194686730753847801Xx
+#    Time: 265 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 29
+#   265	0769e	1c7bc	1769e	1
+# ** Error: S value not bound to 0 or 1. Got S = 1.
+#    Time: 270 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 34
+#   270	0XxxX	0afc1	0803f	0
+#   275	0f39c	14736	0f39c	1
+# ** Error: S value not bound to 0 or 1. Got S = 1.
+#    Time: 280 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 34
+#   280	0fb69	1fa7a	1fb69	1
+# ** Error: S value not bound to 0 or 1. Got S = 1.
+#    Time: 285 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 34
+#   285	0XXXX	16f05	0443c	0
+# ** Error: 25204518131839341543789837070297079505343846651435502949004860635663646159084792264364131006629582689311240100815992982281837562921291971762331194686730753847801Xx
+#    Time: 290 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 29
+#   290	0a5a4	0c922	1a5a4	1
+# ** Error: S value not bound to 0 or 1. Got S = 1.
+#    Time: 295 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 34
+#   295	0XXXX	1c543	05795	0
+#   300	0XXXX	030cf	19c43	0
+#   305	0XXXX	1b38b	1f94e	0
+# ** Error: 25204518131839341543789837070297079505343846651435502949004860635663646159084792264364131006629582689311240100815992982281837562921291971762331194686730753847801Xx
+#    Time: 310 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 29
+#   310	0XXXX	0a4df	0de13	0
+#   315	0da51	0f462	1da51	1
+# ** Error: S value not bound to 0 or 1. Got S = 1.
+#    Time: 320 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 34
+#   320	04959	1f674	14959	1
+# ** Error: S value not bound to 0 or 1. Got S = 1.
+#    Time: 325 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 34
+#   325	0XXXX	1c88a	086a2	0
+#   330	09b65	1f966	19b65	1
+# ** Error: S value not bound to 0 or 1. Got S = 1.
+#    Time: 335 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 34
+#   335	0XXXX	18b4a	06dad	0
+# ** Error: 25204518131839341543789837070297079505343846651435502949004860635663646159084792264364131006629582689311240100815992982281837562921291971762331194686730753847800Xx
+#    Time: 340 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 29
+#   340	07176	07da0	17176	1
+# ** Error: S value not bound to 0 or 1. Got S = 1.
+#    Time: 345 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 34
+#   345	0db32	0aca7	1db32	1
+# ** Error: S value not bound to 0 or 1. Got S = 1.
+#    Time: 350 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 34
+#   350	04a6f	17bef	14a6f	1
+# ** Error: S value not bound to 0 or 1. Got S = 1.
+#    Time: 355 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 34
+#   355	0XXXX	0488c	0ffa2	0
+#   360	0X5XX	00542	08595	0
+# ** Error: 25204518131839341543789837070297079505343846651435502949004860635663646159084792264364131006629582689311240100815992982281837562921291971762331194686730753847800Xx
+#    Time: 365 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 29
+#   365	0XXXX	0c1db	1e787	0
+#   370	0XXXX	13357	15e4d	0
+do runMux.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:26:57 on Jun 02,2026
+# vlog -reportprogress 300 ./Mux.sv 
+# -- Compiling module Mux
+# -- Compiling package Mux_sv_unit
+# -- Compiling module Mux_tb
+# 
+# Top level modules:
+# 	Mux_tb
+# End time: 11:26:57 on Jun 02,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 11:26:58 on Jun 02,2026, Elapsed time: 0:00:44
+# Errors: 52, Warnings: 4
+# vsim -voptargs=""+acc"" -t 1ps -lib work Mux_tb 
+# Start time: 11:26:58 on Jun 02,2026
+# Loading sv_std.std
+# Loading work.Mux_sv_unit
+# Loading work.Mux_tb
+# Loading work.Mux
+# ** Warning: (vsim-3015) [PCDPC] - Port size (16) does not match connection size (17) for port 'M'. The port definition is at: ./Mux.sv(16).
+#    Time: 0 ps  Iteration: 0  Instance: /Mux_tb/DUT File: ./Mux.sv Line: 44
+# ** Warning: (vsim-3015) [PCDPC] - Port size (16) does not match connection size (17) for port 'X'. The port definition is at: ./Mux.sv(16).
+#    Time: 0 ps  Iteration: 0  Instance: /Mux_tb/DUT File: ./Mux.sv Line: 44
+# ** Warning: (vsim-3015) [PCDPC] - Port size (16) does not match connection size (17) for port 'Y'. The port definition is at: ./Mux.sv(16).
+#    Time: 0 ps  Iteration: 0  Instance: /Mux_tb/DUT File: ./Mux.sv Line: 44
+# ** Warning: (vsim-3015) [PCDPC] - Port size (16) does not match connection size (1) for port 'S'. The port definition is at: ./Mux.sv(16).
+#    Time: 0 ps  Iteration: 0  Instance: /Mux_tb/DUT File: ./Mux.sv Line: 44
+# WARNING: No extended dataflow license exists
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+# X	Y	S	M
+#     0	00000	00000	00000	0
+#     5	00000	00000	00000	1
+#    10	00000	00000	00000	0
+#    15	0000X	00001	00000	0
+# ** Error: Incorrect Mux output! S = 0, so expected M = 1 (X), got M = x.
+#    Time: 20 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 29
+#    20	00000	00000	00000	0
+#    25	00000	00000	00000	1
+#    30	01111	01111	01111	0
+#    35	01111	01111	01111	1
+#    40	0af40	13022	0af40	1
+#    45	02b31	06c7c	02b31	1
+#    50	0ccc6	151b7	1ccc6	1
+#    55	0XXXX	1624d	1a909	0
+#    60	0e686	041b5	1e686	1
+#    65	0e69e	187a3	0e69e	1
+#    70	0XXXX	1518b	0fbc6	0
+# ** Error: Incorrect Mux output! S = 0, so expected M = 1 (X), got M = x.
+#    Time: 75 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 29
+#    75	0XXXX	078cd	19263	0
+#    80	0XXXX	17544	1e955	0
+# ** Error: Incorrect Mux output! S = 0, so expected M = 0 (X), got M = x.
+#    Time: 85 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 29
+#    85	0393b	16ef4	1393b	1
+#    90	06dc7	091fb	06dc7	1
+#    95	0xXXX	0b9dd	14b67	0
+#   100	02762	038b2	12762	1
+#   105	0145e	137a3	1145e	1
+#   110	09332	16ca9	19332	1
+#   115	0cXXX	0c15c	1c385	0
+# ** Error: Incorrect Mux output! S = 0, so expected M = 0 (X), got M = x.
+#    Time: 120 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 29
+#   120	0XXXX	00419	01090	0
+# ** Error: Incorrect Mux output! S = 0, so expected M = 1 (X), got M = x.
+#    Time: 125 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 29
+#   125	0664e	0b3b3	0664e	1
+#   130	0dc09	1a260	1dc09	1
+#   135	0eb29	16a69	1eb29	1
+#   140	0156a	0faa9	1156a	1
+#   145	0XXXX	0b5d5	11f57	0
+#   150	0b967	179f1	0b967	1
+#   155	0XXXX	0c142	0b285	0
+# ** Error: Incorrect Mux output! S = 0, so expected M = 0 (X), got M = x.
+#    Time: 160 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 29
+#   160	0aXXX	0a78c	0a61e	0
+#   165	0XXXX	0914b	130c5	0
+#   170	0XXXX	07b12	19a6c	0
+#   175	00944	03122	10944	1
+#   180	0XXXX	0d6c0	132db	0
+# ** Error: Incorrect Mux output! S = 0, so expected M = 0 (X), got M = x.
+#    Time: 185 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 29
+#   185	0XXXX	195c5	089d7	0
+#   190	0XXXX	10543	1ee95	0
+#   195	0df38	0ee25	1df38	1
+#   200	02aa7	149fc	12aa7	1
+#   205	0XXXX	0c741	1199d	0
+#   210	0258a	182aa	1258a	1
+#   215	025ec	05b27	025ec	1
+#   220	0XXXX	0898d	0fda6	0
+# ** Error: Incorrect Mux output! S = 0, so expected M = 1 (X), got M = x.
+#    Time: 225 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 29
+#   225	0d0c7	1d1ee	0d0c7	1
+#   230	0b05b	036f3	0b05b	1
+#   235	0XXXX	1eb9f	0ca2e	0
+# ** Error: Incorrect Mux output! S = 0, so expected M = 1 (X), got M = x.
+#    Time: 240 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 29
+#   240	01bc4	0d137	11bc4	1
+#   245	0XXX8	07a08	19f68	0
+#   250	0fe28	1ea31	1fe28	1
+#   255	0XX8X	18187	0bf86	0
+# ** Error: Incorrect Mux output! S = 0, so expected M = 1 (X), got M = x.
+#    Time: 260 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 29
+#   260	0XxxX	09915	1f6e4	0
+# ** Error: Incorrect Mux output! S = 0, so expected M = 1 (X), got M = x.
+#    Time: 265 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 29
+#   265	0769e	1c7bc	1769e	1
+#   270	0XxxX	0afc1	0803f	0
+#   275	0f39c	14736	0f39c	1
+#   280	0fb69	1fa7a	1fb69	1
+#   285	0XXXX	16f05	0443c	0
+# ** Error: Incorrect Mux output! S = 0, so expected M = 1 (X), got M = x.
+#    Time: 290 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 29
+#   290	0a5a4	0c922	1a5a4	1
+#   295	0XXXX	1c543	05795	0
+#   300	0XXXX	030cf	19c43	0
+#   305	0XXXX	1b38b	1f94e	0
+# ** Error: Incorrect Mux output! S = 0, so expected M = 1 (X), got M = x.
+#    Time: 310 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 29
+#   310	0XXXX	0a4df	0de13	0
+#   315	0da51	0f462	1da51	1
+#   320	04959	1f674	14959	1
+#   325	0XXXX	1c88a	086a2	0
+#   330	09b65	1f966	19b65	1
+#   335	0XXXX	18b4a	06dad	0
+# ** Error: Incorrect Mux output! S = 0, so expected M = 0 (X), got M = x.
+#    Time: 340 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 29
+#   340	07176	07da0	17176	1
+#   345	0db32	0aca7	1db32	1
+#   350	04a6f	17bef	14a6f	1
+#   355	0XXXX	0488c	0ffa2	0
+#   360	0X5XX	00542	08595	0
+# ** Error: Incorrect Mux output! S = 0, so expected M = 0 (X), got M = x.
+#    Time: 365 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 29
+#   365	0XXXX	0c1db	1e787	0
+#   370	0XXXX	13357	15e4d	0
+do runMux.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:27:42 on Jun 02,2026
+# vlog -reportprogress 300 ./Mux.sv 
+# -- Compiling module Mux
+# -- Compiling package Mux_sv_unit
+# -- Compiling module Mux_tb
+# 
+# Top level modules:
+# 	Mux_tb
+# End time: 11:27:42 on Jun 02,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 11:27:43 on Jun 02,2026, Elapsed time: 0:00:45
+# Errors: 15, Warnings: 4
+# vsim -voptargs=""+acc"" -t 1ps -lib work Mux_tb 
+# Start time: 11:27:43 on Jun 02,2026
+# Loading sv_std.std
+# Loading work.Mux_sv_unit
+# Loading work.Mux_tb
+# Loading work.Mux
+# ** Warning: (vsim-3015) [PCDPC] - Port size (16) does not match connection size (1) for port 'S'. The port definition is at: ./Mux.sv(16).
+#    Time: 0 ps  Iteration: 0  Instance: /Mux_tb/DUT File: ./Mux.sv Line: 44
+# WARNING: No extended dataflow license exists
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+# X	Y	S	M
+#     0	0000	0000	0000	0
+#     5	0000	0000	0000	1
+#    10	0000	0000	0000	0
+#    15	000X	0001	0000	0
+# ** Error: Incorrect Mux output! S = 0, so expected M = 1 (X), got M = x.
+#    Time: 20 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 29
+#    20	0000	0000	0000	0
+#    25	0000	0000	0000	1
+#    30	1111	1111	1111	0
+#    35	1111	1111	1111	1
+#    40	af40	6044	af40	1
+#    45	2b31	d8f8	2b31	1
+#    50	ccc6	a36f	ccc6	1
+#    55	XXXX	c49b	a909	0
+#    60	e686	836b	e686	1
+#    65	e69e	0f46	e69e	1
+#    70	XXX6	a316	fbc6	0
+#    75	XXxX	f19b	9263	0
+#    80	eXXX	ea89	e955	0
+#    85	393b	dde9	393b	1
+#    90	6dc7	23f6	6dc7	1
+#    95	XXXX	73bb	4b67	0
+#   100	2762	7165	2762	1
+#   105	145e	6f47	145e	1
+#   110	9332	d953	9332	1
+#   115	XXXX	82b9	c385	0
+#   120	XXXX	0832	1090	0
+#   125	664e	6766	664e	1
+#   130	dc09	44c1	dc09	1
+#   135	eb29	d4d3	eb29	1
+#   140	156a	f553	156a	1
+#   145	XXxX	6bab	1f57	0
+#   150	b967	f3e2	b967	1
+#   155	X28X	8284	b285	0
+# ** Error: Incorrect Mux output! S = 0, so expected M = 0 (X), got M = x.
+#    Time: 160 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 29
+#   160	XX1X	4f18	a61e	0
+#   165	XXXX	2297	30c5	0
+#   170	XXXX	f625	9a6c	0
+# ** Error: Incorrect Mux output! S = 0, so expected M = 1 (X), got M = x.
+#    Time: 175 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 29
+#   175	0944	6245	0944	1
+#   180	XxXX	ad81	32db	0
+#   185	XXXX	2b8a	89d7	0
+# ** Error: Incorrect Mux output! S = 0, so expected M = 0 (X), got M = x.
+#    Time: 190 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 29
+#   190	XXXX	0a87	ee95	0
+#   195	df38	dc4b	df38	1
+#   200	2aa7	93f9	2aa7	1
+#   205	XXXX	8e83	199d	0
+#   210	258a	0555	258a	1
+#   215	25ec	b64e	25ec	1
+#   220	XXXX	131a	fda6	0
+#   225	d0c7	a3dc	d0c7	1
+#   230	b05b	6de6	b05b	1
+#   235	XXXe	d73e	ca2e	0
+#   240	1bc4	a26f	1bc4	1
+#   245	XXXX	f411	9f68	0
+# ** Error: Incorrect Mux output! S = 0, so expected M = 1 (X), got M = x.
+#    Time: 250 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 29
+#   250	fe28	d463	fe28	1
+#   255	XXXX	030e	bf86	0
+#   260	XXXx	322b	f6e4	0
+# ** Error: Incorrect Mux output! S = 0, so expected M = 1 (X), got M = x.
+#    Time: 265 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 29
+#   265	769e	8f79	769e	1
+#   270	XxXX	5f82	803f	0
+# ** Error: Incorrect Mux output! S = 0, so expected M = 0 (X), got M = x.
+#    Time: 275 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 29
+#   275	f39c	8e6c	f39c	1
+#   280	fb69	f4f5	fb69	1
+#   285	XXXX	de0a	443c	0
+#   290	a5a4	9245	a5a4	1
+#   295	XXXX	8a86	5795	0
+# ** Error: Incorrect Mux output! S = 0, so expected M = 0 (X), got M = x.
+#    Time: 300 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 29
+#   300	xXXX	619f	9c43	0
+#   305	XXXX	6717	f94e	0
+# ** Error: Incorrect Mux output! S = 0, so expected M = 1 (X), got M = x.
+#    Time: 310 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 29
+#   310	XXXX	49be	de13	0
+# ** Error: Incorrect Mux output! S = 0, so expected M = 0 (X), got M = x.
+#    Time: 315 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 29
+#   315	da51	e8c5	da51	1
+#   320	4959	ece9	4959	1
+#   325	XXXX	9114	86a2	0
+#   330	9b65	f2cd	9b65	1
+#   335	XXXX	1694	6dad	0
+# ** Error: Incorrect Mux output! S = 0, so expected M = 0 (X), got M = x.
+#    Time: 340 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 29
+#   340	7176	fb41	7176	1
+#   345	db32	594f	db32	1
+#   350	4a6f	f7df	4a6f	1
+#   355	XXXX	9118	ffa2	0
+#   360	XxXX	0a84	8595	0
+# ** Error: Incorrect Mux output! S = 0, so expected M = 0 (X), got M = x.
+#    Time: 365 ps  Scope: Mux_sv_unit.Validate File: ./Mux.sv Line: 29
+#   365	XXX7	83b7	e787	0
+#   370	XXXX	66af	5e4d	0
+do runMux.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:27:58 on Jun 02,2026
+# vlog -reportprogress 300 ./Mux.sv 
+# -- Compiling module Mux
+# -- Compiling package Mux_sv_unit
+# -- Compiling module Mux_tb
+# 
+# Top level modules:
+# 	Mux_tb
+# End time: 11:27:58 on Jun 02,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 11:27:59 on Jun 02,2026, Elapsed time: 0:00:16
+# Errors: 12, Warnings: 1
+# vsim -voptargs=""+acc"" -t 1ps -lib work Mux_tb 
+# Start time: 11:27:59 on Jun 02,2026
+# Loading sv_std.std
+# Loading work.Mux_sv_unit
+# Loading work.Mux_tb
+# Loading work.Mux
+# WARNING: No extended dataflow license exists
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+# X	Y	S	M
+#     0	0000	0000	0000	0
+#     5	0000	0000	0000	1
+#    10	0000	0000	0000	0
+#    15	0001	0001	0000	0
+#    20	0000	0000	0000	0
+#    25	0000	0000	0000	1
+#    30	1111	1111	1111	0
+#    35	1111	1111	1111	1
+#    40	af40	6044	af40	1
+#    45	2b31	d8f8	2b31	1
+#    50	ccc6	a36f	ccc6	1
+#    55	c49b	c49b	a909	0
+#    60	e686	836b	e686	1
+#    65	e69e	0f46	e69e	1
+#    70	a316	a316	fbc6	0
+#    75	f19b	f19b	9263	0
+#    80	ea89	ea89	e955	0
+#    85	393b	dde9	393b	1
+#    90	6dc7	23f6	6dc7	1
+#    95	73bb	73bb	4b67	0
+#   100	2762	7165	2762	1
+#   105	145e	6f47	145e	1
+#   110	9332	d953	9332	1
+#   115	82b9	82b9	c385	0
+#   120	0832	0832	1090	0
+#   125	664e	6766	664e	1
+#   130	dc09	44c1	dc09	1
+#   135	eb29	d4d3	eb29	1
+#   140	156a	f553	156a	1
+#   145	6bab	6bab	1f57	0
+#   150	b967	f3e2	b967	1
+#   155	8284	8284	b285	0
+#   160	4f18	4f18	a61e	0
+#   165	2297	2297	30c5	0
+#   170	f625	f625	9a6c	0
+#   175	0944	6245	0944	1
+#   180	ad81	ad81	32db	0
+#   185	2b8a	2b8a	89d7	0
+#   190	0a87	0a87	ee95	0
+#   195	df38	dc4b	df38	1
+#   200	2aa7	93f9	2aa7	1
+#   205	8e83	8e83	199d	0
+#   210	258a	0555	258a	1
+#   215	25ec	b64e	25ec	1
+#   220	131a	131a	fda6	0
+#   225	d0c7	a3dc	d0c7	1
+#   230	b05b	6de6	b05b	1
+#   235	d73e	d73e	ca2e	0
+#   240	1bc4	a26f	1bc4	1
+#   245	f411	f411	9f68	0
+#   250	fe28	d463	fe28	1
+#   255	030e	030e	bf86	0
+#   260	322b	322b	f6e4	0
+#   265	769e	8f79	769e	1
+#   270	5f82	5f82	803f	0
+#   275	f39c	8e6c	f39c	1
+#   280	fb69	f4f5	fb69	1
+#   285	de0a	de0a	443c	0
+#   290	a5a4	9245	a5a4	1
+#   295	8a86	8a86	5795	0
+#   300	619f	619f	9c43	0
+#   305	6717	6717	f94e	0
+#   310	49be	49be	de13	0
+#   315	da51	e8c5	da51	1
+#   320	4959	ece9	4959	1
+#   325	9114	9114	86a2	0
+#   330	9b65	f2cd	9b65	1
+#   335	1694	1694	6dad	0
+#   340	7176	fb41	7176	1
+#   345	db32	594f	db32	1
+#   350	4a6f	f7df	4a6f	1
+#   355	9118	9118	ffa2	0
+#   360	0a84	0a84	8595	0
+#   365	83b7	83b7	e787	0
+#   370	66af	66af	5e4d	0
+do runMux.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:28:20 on Jun 02,2026
+# vlog -reportprogress 300 ./Mux.sv 
+# -- Compiling module Mux
+# -- Compiling package Mux_sv_unit
+# -- Compiling module Mux_tb
+# 
+# Top level modules:
+# 	Mux_tb
+# End time: 11:28:20 on Jun 02,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 11:28:21 on Jun 02,2026, Elapsed time: 0:00:22
+# Errors: 0, Warnings: 0
+# vsim -voptargs=""+acc"" -t 1ps -lib work Mux_tb 
+# Start time: 11:28:21 on Jun 02,2026
+# Loading sv_std.std
+# Loading work.Mux_sv_unit
+# Loading work.Mux_tb
+# Loading work.Mux
+# WARNING: No extended dataflow license exists
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+# time	X	Y	S	M
+#     0	0000	0000	0000	0
+#     5	0000	0000	0000	1
+#    10	0000	0000	0000	0
+#    15	0001	0001	0000	0
+#    20	0000	0000	0000	0
+#    25	0000	0000	0000	1
+#    30	1111	1111	1111	0
+#    35	1111	1111	1111	1
+#    40	af40	6044	af40	1
+#    45	2b31	d8f8	2b31	1
+#    50	ccc6	a36f	ccc6	1
+#    55	c49b	c49b	a909	0
+#    60	e686	836b	e686	1
+#    65	e69e	0f46	e69e	1
+#    70	a316	a316	fbc6	0
+#    75	f19b	f19b	9263	0
+#    80	ea89	ea89	e955	0
+#    85	393b	dde9	393b	1
+#    90	6dc7	23f6	6dc7	1
+#    95	73bb	73bb	4b67	0
+#   100	2762	7165	2762	1
+#   105	145e	6f47	145e	1
+#   110	9332	d953	9332	1
+#   115	82b9	82b9	c385	0
+#   120	0832	0832	1090	0
+#   125	664e	6766	664e	1
+#   130	dc09	44c1	dc09	1
+#   135	eb29	d4d3	eb29	1
+#   140	156a	f553	156a	1
+#   145	6bab	6bab	1f57	0
+#   150	b967	f3e2	b967	1
+#   155	8284	8284	b285	0
+#   160	4f18	4f18	a61e	0
+#   165	2297	2297	30c5	0
+#   170	f625	f625	9a6c	0
+#   175	0944	6245	0944	1
+#   180	ad81	ad81	32db	0
+#   185	2b8a	2b8a	89d7	0
+#   190	0a87	0a87	ee95	0
+#   195	df38	dc4b	df38	1
+#   200	2aa7	93f9	2aa7	1
+#   205	8e83	8e83	199d	0
+#   210	258a	0555	258a	1
+#   215	25ec	b64e	25ec	1
+#   220	131a	131a	fda6	0
+#   225	d0c7	a3dc	d0c7	1
+#   230	b05b	6de6	b05b	1
+#   235	d73e	d73e	ca2e	0
+#   240	1bc4	a26f	1bc4	1
+#   245	f411	f411	9f68	0
+#   250	fe28	d463	fe28	1
+#   255	030e	030e	bf86	0
+#   260	322b	322b	f6e4	0
+#   265	769e	8f79	769e	1
+#   270	5f82	5f82	803f	0
+#   275	f39c	8e6c	f39c	1
+#   280	fb69	f4f5	fb69	1
+#   285	de0a	de0a	443c	0
+#   290	a5a4	9245	a5a4	1
+#   295	8a86	8a86	5795	0
+#   300	619f	619f	9c43	0
+#   305	6717	6717	f94e	0
+#   310	49be	49be	de13	0
+#   315	da51	e8c5	da51	1
+#   320	4959	ece9	4959	1
+#   325	9114	9114	86a2	0
+#   330	9b65	f2cd	9b65	1
+#   335	1694	1694	6dad	0
+#   340	7176	fb41	7176	1
+#   345	db32	594f	db32	1
+#   350	4a6f	f7df	4a6f	1
+#   355	9118	9118	ffa2	0
+#   360	0a84	0a84	8595	0
+#   365	83b7	83b7	e787	0
+#   370	66af	66af	5e4d	0
