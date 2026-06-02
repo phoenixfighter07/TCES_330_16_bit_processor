@@ -9,86 +9,53 @@ z2
 !i10f 100
 cModel Technology
 Z0 dc:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/PhaseV
-vControlUnit
-Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z2 DXx4 work 19 ControlUnit_sv_unit 0 22 AHhc@=J<joEN5C4ChgzGg0
-Z3 !s110 1780343925
-Z4 VDg1SIo80bB@j0V0VzS_@n1
+vInstMemory
+Z1 !s110 1780422596
+!i10b 1
+!s100 Gb28zf2bGKX9ChVXQUdYJ1
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IBeclHV_emP:`UGVLEOc>R1
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1779991370
+8./InstMemory.v
+F./InstMemory.v
+!i122 0
+L0 40 61
+Z4 OV;L;2020.1;71
 r1
 !s85 0
-!i10b 1
-!s100 N5STCSHFKfhIFL>gX2Q?Q1
-IF_lTSOXml0ed;CU@J:[7R3
-Z5 !s105 ControlUnit_sv_unit
-S1
-R0
-Z6 w1780343851
-Z7 8./ControlUnit.sv
-Z8 F./ControlUnit.sv
-!i122 0
-L0 29 113
-Z9 OV;L;2020.1;71
 31
-Z10 !s108 1780343925.000000
-!s107 ./ControlUnit.sv|
-Z11 !s90 -reportprogress|300|-work|work|+acc|+cover|./ControlUnit.sv|
+Z5 !s108 1780422596.000000
+!s107 ./InstMemory.v|
+!s90 -reportprogress|300|-work|work|+acc|./InstMemory.v|
 !i113 1
-Z12 !s102 +cover
-Z13 o-work work +acc +cover
-Z14 tCvgOpt 0
-n@control@unit
-XControlUnit_sv_unit
+Z6 o-work work +acc
+Z7 tCvgOpt 0
+n@inst@memory
+vInstMemory_tb
+DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
 R1
-R3
-VAHhc@=J<joEN5C4ChgzGg0
-r1
-!s85 0
 !i10b 1
-!s100 =[05<[nFV6Z?j0L6O6j8Q3
-IAHhc@=J<joEN5C4ChgzGg0
-!i103 1
-S1
-R0
-R6
-R7
-R8
-!i122 0
-L0 15 0
-R9
-31
-R10
-Z15 !s107 ./ControlUnit.sv|
-R11
-!i113 1
-R12
-R13
-R14
-n@control@unit_sv_unit
-vControlUnit_tb
-R1
+!s100 YZPEmd3?hL=3lbidYcnia2
 R2
+I<PO_Ck[mh@;UzeH=K1Jzb0
 R3
+S1
+R0
+w1780422593
+8./InstMemory_tb.sv
+F./InstMemory_tb.sv
+!i122 1
+L0 24 56
 R4
 r1
 !s85 0
-!i10b 1
-!s100 ::A51`^QUFcLkbU7kj6Nc3
-I]`ijc[Xl91B:oRDine_Jh0
+31
 R5
-S1
-R0
+!s107 ./InstMemory_tb.sv|
+!s90 -reportprogress|300|-work|work|+acc|./InstMemory_tb.sv|
+!i113 1
 R6
 R7
-R8
-!i122 0
-L0 143 221
-R9
-31
-R10
-R15
-R11
-!i113 1
-R12
-R13
-R14
-n@control@unit_tb
+n@inst@memory_tb

@@ -103,7 +103,7 @@ module DataMemory_tb();
             for (int j = 0; j < 4; j++) begin
                 address = i;
                 WaitCycles(1);
-                assert(q != 4'h0000) 
+                assert(q == randData[i]) 
                 else $error("Data at address %h is incorrect. Expected %h got %h.", address, randData[i], q); 
             end
         end
