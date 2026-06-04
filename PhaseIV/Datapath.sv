@@ -16,8 +16,12 @@
  * RF_Ra_addr is the 4-bit address of the first register to read from from the reg file
  * RF_Rb_addr is the 4-bit address of the second register to read from from the reg file
  * ALU_s0 is the 3-bit ALU selecting signal for which operation to do
+ * ALU_inA the signal going into the 'A' port of the ALU
+ * ALU_inB the signal going into the 'B' port of the ALU
+ * ALU_out the signal coming out of the ALU
  *
  */
+ `timescale 1ps/1ps
 module Datapath(
 	Clk,
 	D_addr,
@@ -47,14 +51,12 @@ module Datapath(
 	input [7:0] D_addr;
 
 	output [15:0] ALU_inA, ALU_inB, ALU_out;
-	logic [15:0] wire_ALU_inA, wire_ALU_inB, wire_ALU_out;
+	logic [15:0] wire_ALU_inA, wire_ALU_inB, wire_ALU_out, RAM_out, Mux_out;
 
 	// Assign output signals
-	assign ALUinA = wire_ALU_inA;
+	assign ALU_inA = wire_ALU_inA;
 	assign ALU_inB = wire_ALU_inB;
 	assign ALU_out = wire_ALU_out;
-
-	logic RAM_out;
 
 	// Instantiate submodules
 	DataMemory RAM (	
@@ -75,7 +77,7 @@ module Datapath(
 	ALU ALU (
 		.A(wire_ALU_inA), 
 		.B(wire_ALU_inB), 
-		.select(ALU_s0), 
+		.Sel(ALU_s0), 
 		.Q(wire_ALU_out)
 	);
 
@@ -85,15 +87,18 @@ module Datapath(
         .wrAddr(RF_W_addr),
         .wrData(Mux_out),
         .rdAddrA(RF_Ra_addr),
-        .rdDataA(RF_Rb_addr),
-        .rdAddrB(wire_ALU_inA),
+        .rdDataA(wire_ALU_inA),
+        .rdAddrB(RF_Rb_addr),
         .rdDataB(wire_ALU_inB)
     );
 endmodule
 
 module Datapath_tb();
+	// The data that should be in each RAM address
+	localparam RAM_DATA = 16'hABCD;
+
 	localparam REG_FILE_SIZE = 16;
-	localparam RAM_SIZE = 256;
+	localparam RAM_SIZE = 16;
 	localparam ClkCycleTime = 20;
 
 	logic D_wr,
@@ -110,7 +115,8 @@ module Datapath_tb();
 
 	logic [15:0] ALU_inA, ALU_inB, ALU_out;
 
-	logic [15:0] RF_data [7:0];
+	logic operand_a;
+	logic operand_b;
 
 	// Initialize the clock
     always begin
@@ -134,25 +140,13 @@ module Datapath_tb();
 		D_wr = 0;
 		RF_s = 0;
 		RF_W_en = 0;
+
+		RF_W_addr = 0;
 		RF_Ra_addr = 0;
 		RF_Rb_addr = 0;
-		ALU_S0 = 0;
+
+		ALU_s0 = 0;
 		D_addr = 0;
-		ALU_inA = 0;
-		ALU_inB = 0;
-		ALU_out = 0;
-	endtask
-
-	/* Task to reset all registers to random values */
-	task automatic ResetRegisters();
-		// Populate reg file with random values
-		for (int i = 0; i < REG_FILE_SIZE; i++) begin
-            wrAddr = i;
-			RF_data[i] = $random;
-			wrData = RF_data[i];
-
-            WaitCycles(1);
-        end
 	endtask
 
 	/*
@@ -164,8 +158,6 @@ module Datapath_tb();
 	 * 
 	 */
 	task automatic ALUSweep(input op);
-		ResetRegisters();
-
 		for (int i = 0; i < REG_FILE_SIZE; i++) begin
 			// Add
 			ResetSignals();
@@ -179,8 +171,8 @@ module Datapath_tb();
 			// Let signals propagate
 			#5;
 
-			logic operand_a = ALU_inA;
-			logic operand_b = ALU_inB;
+			operand_a = ALU_inA;
+			operand_b = ALU_inA;
 
 			WaitCycles(1);
 
@@ -191,23 +183,51 @@ module Datapath_tb();
 			#5;
 
 			assert(op ? operand_a + operand_b == ALU_inA : operand_a - operand_b == ALU_inA)
-			else $error("Incorrect subtraction result recieved! Expected %h, got %h.", op ? operand_a + operand_b == ALU_inA : operand_a - operand_b == ALU_inA);
+			else $error("Incorrect subtraction result recieved! Expected %h, got %h.", 
+			op ? operand_a + operand_b == ALU_inA : operand_a - operand_b == ALU_inA, ALU_inA);
 		end
 	endtask
 
-	task automatic RAMSweep();
-		ResetRegisters();
-
+	/* Task to test load instruction */
+	task automatic Load();
+		// Load data from RAM
 		for (int i = 0; i < RAM_SIZE; i++) begin
+			ResetSignals();
+
+			// LOAD_A
+			D_addr = i;
+			RF_s = 1;
+			RF_W_addr = i % REG_FILE_SIZE;
+
+			WaitCycles(1);
+
+			// LOAD_B
+			RF_W_en = 1;
+			RF_Ra_addr = i % REG_FILE_SIZE;
+
+			// TODO: Why is it 3 cycles???
+			WaitCycles(3);
+
+			assert(ALU_inA == RAM_DATA)
+			else $error("Incorrect data loaded back from RAM. Expected %h, got %h.", RAM_DATA, ALU_inA);
+        end
+	endtask
+
+	/* Test to test store instruction */
+	task automatic Store();
+		logic [15:0] data [(REG_FILE_SIZE - 1):0];
+
+		// Store data from reg files into RAM
+		for (int i = 0; i < RAM_SIZE; i++) begin
+			ResetSignals();
+
 			D_addr = i;
 			D_wr = 1;
-			RF_Ra_addr = Instruction[11:8];
+			RF_Ra_addr = i % REG_FILE_SIZE;
 
 			WaitCycles(1);
         end
 	endtask
-
-	//RF_data
 
 	Datapath DUT(
 		Clk,
@@ -245,11 +265,13 @@ module Datapath_tb();
 
 		// Test all instructions
 
+		Load(); // Test load
+			
 		ALUSweep(0); // Test addition
 		ALUSweep(1); // Test subtraction
 
-		ResetSignals();
+		Store(); // Test save
 
-
+		$stop();
 	end
 endmodule
