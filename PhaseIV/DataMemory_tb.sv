@@ -30,7 +30,7 @@ module DataMemory_tb();
     logic [7:0] address;
     logic [15:0] data, q;
 
-    logic [15:0] randData [15:0];
+    logic [15:0] randData [255:0];
 
     // Initialize the clock
     always begin
@@ -75,9 +75,9 @@ module DataMemory_tb();
 
         WaitCycles(1);
 
-        // Write to 0 to 16 addresses
+        // Write to 0 to 128 addresses
         wren = 1;
-        for (int i = 0; i < 16; i++) begin
+        for (int i = 0; i < 128; i++) begin
             address = i;
             data = 16'h0000;
             WaitCycles(1);
@@ -85,10 +85,10 @@ module DataMemory_tb();
 
         WaitCycles(1);
 
-        // Write random data to the same 16 addresses
+        // Write random data to the same 128 addresses
 
         wren = 1;
-        for (int i = 0; i < 16; i++) begin
+        for (int i = 0; i < 128; i++) begin
             address = i;
             data = $random;
             randData[i] = data;
@@ -97,9 +97,9 @@ module DataMemory_tb();
 
         WaitCycles(1);
 
-        // Read random data from the same 16 addresses
+        // Read random data from the same 128 addresses
         wren = 0;
-        for (int i = 0; i < 16; i++) begin
+        for (int i = 0; i < 128; i++) begin
             for (int j = 0; j < 4; j++) begin
                 address = i;
                 WaitCycles(1);

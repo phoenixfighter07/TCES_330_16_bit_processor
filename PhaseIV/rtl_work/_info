@@ -10,7 +10,7 @@ z2
 cModel Technology
 Z0 dc:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/PhaseIV
 vDataMemory
-Z1 !s110 1780421767
+Z1 !s110 1780452164
 !i10b 1
 !s100 cR`3B6hfQe_[E4X=27=AX0
 Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
@@ -26,7 +26,7 @@ Z4 OV;L;2020.1;71
 r1
 !s85 0
 31
-!s108 1780421766.000000
+!s108 1780452163.000000
 !s107 ./DataMemory.v|
 !s90 -reportprogress|300|-work|work|+acc|./DataMemory.v|
 !i113 1
@@ -34,16 +34,16 @@ Z5 o-work work +acc
 Z6 tCvgOpt 0
 n@data@memory
 vDataMemory_tb
-Z7 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
+DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
 R1
 !i10b 1
-!s100 THNUih7:RQH_SI2f?K<023
+!s100 KS2>L;cn=2odgH`SS3@Q@2
 R2
-IW7N[0n9CoWfg7U^2==]HA3
+IE>f>BNNC27fGbMGWlKg<h3
 R3
 S1
 R0
-w1780421687
+w1780451858
 8./DataMemory_tb.sv
 F./DataMemory_tb.sv
 !i122 1
@@ -52,88 +52,10 @@ R4
 r1
 !s85 0
 31
-!s108 1780421767.000000
+!s108 1780452164.000000
 !s107 ./DataMemory_tb.sv|
 !s90 -reportprogress|300|-work|work|+acc|./DataMemory_tb.sv|
 !i113 1
 R5
 R6
 n@data@memory_tb
-vMux
-Z8 !s105 Mux_sv_unit
-Z9 DXx4 work 11 Mux_sv_unit 0 22 k^nUf3Hlg:3KMCooN;6B[3
-R7
-Z10 !s110 1780424900
-!i10b 1
-!s100 >][V5c8Xm2gXZQGI0L`]O2
-R2
-I?K`?lQQS@SZ5ldm1R<5Bz3
-R3
-S1
-R0
-Z11 w1780424898
-Z12 8./Mux.sv
-Z13 F./Mux.sv
-!i122 9
-L0 16 7
-R4
-r1
-!s85 0
-31
-Z14 !s108 1780424900.000000
-!s107 ./Mux.sv|
-Z15 !s90 -reportprogress|300|./Mux.sv|
-!i113 1
-R6
-n@mux
-XMux_sv_unit
-R7
-R10
-Vk^nUf3Hlg:3KMCooN;6B[3
-r1
-!s85 0
-!i10b 1
-!s100 l^=RjlhM_fGFba4mh890_2
-Ik^nUf3Hlg:3KMCooN;6B[3
-!i103 1
-S1
-R0
-R11
-R12
-R13
-!i122 9
-L0 25 0
-R4
-31
-R14
-Z16 !s107 ./Mux.sv|
-R15
-!i113 1
-R6
-n@mux_sv_unit
-vMux_tb
-R7
-R9
-R10
-R3
-r1
-!s85 0
-!i10b 1
-!s100 f`O=m>`aP8YdPBLLJH3?]0
-I_7Hczblf6^C[5@c_OD5lz2
-R8
-S1
-R0
-R11
-R12
-R13
-!i122 9
-L0 39 64
-R4
-31
-R14
-R16
-R15
-!i113 1
-R6
-n@mux_tb

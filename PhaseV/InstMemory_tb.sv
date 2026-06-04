@@ -64,8 +64,8 @@ module InstMemory_tb();
         // Wait a few cycles
         WaitCycles(2);
 
-        // Read data from 16 addresses
-        for (int i = 0; i < 16; i++) begin
+        // Read data from 64 addresses
+        for (int i = 0; i < 64; i++) begin
             for (int j = 0; j < 4; j++) begin
                 address = i;
                 WaitCycles(1);

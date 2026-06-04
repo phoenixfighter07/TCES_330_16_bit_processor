@@ -26,7 +26,7 @@ typedef enum logic [3:0]
 	LOAD_B
 } state;
 
-module ControlUnit(
+module ControlFSM(
 	Clk, 
 	ResetN, 
 	Instruction,
@@ -140,7 +140,7 @@ module ControlUnit(
 	end
 endmodule
 
-module ControlUnit_tb();
+module ControlFSM_tb();
 	logic Clk, ResetN;
 	logic [15:0] Instruction;
 	logic PC_up,
@@ -163,7 +163,7 @@ module ControlUnit_tb();
 		#(CLK_CYCLE_TIME / 2) Clk = 1;
 	end
 
-	ControlUnit DUT (
+	ControlFSM DUT (
 		Clk, 
 		ResetN, 
 		Instruction,
