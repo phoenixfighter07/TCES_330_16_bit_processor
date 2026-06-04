@@ -22,7 +22,7 @@ module PC(Up, Clk, Clr, Q);
 
     // Asynchronous reset
     always_ff @( posedge Clk, negedge Clr ) begin
-        if (!Clr || (Up && Q >= maxValue)) begin
+        if (Clr || (Up && Q >= maxValue)) begin
             // Sizecast the binary 0 to be the size of the parameter n
             Q <= (n)'(1'b0);
         end else if (Up && Q < maxValue) begin
