@@ -87,26 +87,26 @@ R7
 n@i@r_tb
 vPC
 R8
-Z16 !s110 1780612344
+Z16 !s110 1780613693
 !i10b 1
-!s100 dz1>QC:`[3fLRoY`NkIRK3
+!s100 JhlWcFgdfM:4h81k9ZU^20
 R2
-I^KVHg5B_J441AP9aozWBF0
+I3=8c8BkSCUmTFN5><k61[3
 R3
 S1
-R0
-Z17 w1780612280
-Z18 8./PC.sv
-Z19 F./PC.sv
-!i122 4
+Z17 dc:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/PhaseV
+Z18 w1780613688
+Z19 8./PC.sv
+Z20 F./PC.sv
+!i122 6
 L0 16 17
 R4
 r1
 !s85 0
 31
-Z20 !s108 1780612344.000000
+Z21 !s108 1780613692.000000
 !s107 ./PC.sv|
-Z21 !s90 -reportprogress|300|./PC.sv|
+Z22 !s90 -reportprogress|300|./PC.sv|
 !i113 1
 R7
 n@p@c
@@ -114,30 +114,30 @@ vPC_tb
 R8
 R16
 !i10b 1
-!s100 ]JYzlV29TQ0AAzj`0H_XP3
+!s100 o]XZKfFCVdjiD_CzSa7kH2
 R2
-IRN54aP:G7CJ;j`:[R?[^T2
+I71b3;bCU5OUTLO@lz^<;K0
 R3
 S1
-R0
 R17
 R18
 R19
-!i122 4
+R20
+!i122 6
 L0 39 93
 R4
 r1
 !s85 0
 31
-R20
-Z22 !s107 ./PC.sv|
 R21
+Z23 !s107 ./PC.sv|
+R22
 !i113 1
 R7
 n@p@c_tb
 vROM_PC_IR
 R8
-Z23 DXx4 work 17 ROM_PC_IR_sv_unit 0 22 [>=`a9djm5X?B5QDjGD@j0
+Z24 DXx4 work 17 ROM_PC_IR_sv_unit 0 22 [>=`a9djm5X?B5QDjGD@j0
 R1
 R3
 r1
@@ -145,19 +145,19 @@ r1
 !i10b 1
 !s100 `B=0W74=8[J8TBS3Y<]Oc1
 IlU6c05A<UR63gXidH43Vh1
-Z24 !s105 ROM_PC_IR_sv_unit
+Z25 !s105 ROM_PC_IR_sv_unit
 S1
 R0
-Z25 w1780612286
-Z26 8./ROM_PC_IR.sv
-Z27 F./ROM_PC_IR.sv
+Z26 w1780612286
+Z27 8./ROM_PC_IR.sv
+Z28 F./ROM_PC_IR.sv
 !i122 0
 L0 17 15
 R4
 31
 R5
-Z28 !s107 ./ROM_PC_IR.sv|
-Z29 !s90 -reportprogress|300|-work|work|+acc|./ROM_PC_IR.sv|
+Z29 !s107 ./ROM_PC_IR.sv|
+Z30 !s90 -reportprogress|300|-work|work|+acc|./ROM_PC_IR.sv|
 !i113 1
 R6
 R7
@@ -174,23 +174,23 @@ I[>=`a9djm5X?B5QDjGD@j0
 !i103 1
 S1
 R0
-R25
 R26
 R27
+R28
 !i122 0
 L0 10 0
 R4
 31
 R5
-R28
 R29
+R30
 !i113 1
 R6
 R7
 n@r@o@m_@p@c_@i@r_sv_unit
 vROM_PC_IR_tb
 R8
-R23
+R24
 R1
 R3
 r1
@@ -198,19 +198,19 @@ r1
 !i10b 1
 !s100 k7=YKo6X?dBm]2Oa4B9Ng3
 IC]4Bj3POnEgG0ZcZoL<_>3
-R24
+R25
 S1
 R0
-R25
 R26
 R27
+R28
 !i122 0
 L0 38 53
 R4
 31
 R5
-R28
 R29
+R30
 !i113 1
 R6
 R7

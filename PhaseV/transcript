@@ -1,233 +1,423 @@
 # Reading pref.tcl
-do runrtlFSMControl.do
-# 
-# Get rid of current work lib
-# if {[file exists rtl_work]} {
-# 	vdel -lib rtl_work -all
-# }
-# 
-# Create work library and map it to 'work'
-# vlib rtl_work
-# vmap work rtl_work
-# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
-# vmap work rtl_work 
-# Modifying modelsim.ini
-# 
-# Compile Verilog
-#     All Verilog files that are part of this design should have
-#     their own "vlog" line below.
-# vlog -work work +acc +cover "./ControlFSM.sv"
+do runPC.do
+# ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 20:31:37 on Jun 02,2026
-# vlog -reportprogress 300 -work work "+acc" "+cover" ./ControlFSM.sv 
-# -- Compiling package ControlFSM_sv_unit
-# -- Compiling module ControlUnit
-# ** Note: (vlog-143) Recognized 1 FSM in module "ControlUnit(verilog)".
-# -- Compiling module ControlUnit_tb
+# Start time: 15:53:45 on Jun 04,2026
+# vlog -reportprogress 300 ./PC.sv 
+# -- Compiling module PC
+# -- Compiling module PC_tb
 # 
 # Top level modules:
-# 	ControlUnit_tb
-# End time: 20:31:37 on Jun 02,2026, Elapsed time: 0:00:00
+# 	PC_tb
+# End time: 15:53:45 on Jun 04,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# 
-# Call vsim to invoke simulator
-#     Make sure the last item on the line is the name of the
-#     testbench module you want to execute.
-# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc" -fsmdebug  ControlFSM_tb
-# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=""+acc"" -fsmdebug ControlFSM_tb 
-# Start time: 20:31:38 on Jun 02,2026
-# ** Error: (vsim-3170) Could not find 'ControlFSM_tb'.
-#         Searched libraries:
-#             C:/intelFPGA/20.1/modelsim_ase/altera/verilog/altera
-#             C:/intelFPGA/20.1/modelsim_ase/altera/verilog/220model
-#             C:/intelFPGA/20.1/modelsim_ase/altera/verilog/sgate
-#             C:/intelFPGA/20.1/modelsim_ase/altera/verilog/altera_mf
-#             C:/intelFPGA/20.1/modelsim_ase/altera/verilog/altera_lnsim
-#             C:/intelFPGA/20.1/modelsim_ase/altera/verilog/cycloneive
-#             c:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/PhaseV/rtl_work
-#             c:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/PhaseV/rtl_work
-# Error loading design
-# Error: Error loading design
-#        Pausing macro execution
-# MACRO ./runrtlFSMControl.do PAUSED at line 21
-do runrtlFSMControl.do
-# turn on verbage
-# transcript on
-# 
-# Get rid of current work lib
-# if {[file exists rtl_work]} {
-# 	vdel -lib rtl_work -all
-# }
-# 
-# Create work library and map it to 'work'
-# vlib rtl_work
-# vmap work rtl_work
-# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
-# vmap work rtl_work 
-# Modifying modelsim.ini
-# 
-# Compile Verilog
-#     All Verilog files that are part of this design should have
-#     their own "vlog" line below.
-# vlog -work work +acc +cover "./ControlFSM.sv"
-# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 20:31:59 on Jun 02,2026
-# vlog -reportprogress 300 -work work "+acc" "+cover" ./ControlFSM.sv 
-# -- Compiling package ControlFSM_sv_unit
-# -- Compiling module ControlFSM
-# ** Note: (vlog-143) Recognized 1 FSM in module "ControlFSM(verilog)".
-# -- Compiling module ControlFSM_tb
-# 
-# Top level modules:
-# 	ControlFSM_tb
-# End time: 20:31:59 on Jun 02,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# 
-# Call vsim to invoke simulator
-#     Make sure the last item on the line is the name of the
-#     testbench module you want to execute.
-# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc" -fsmdebug  ControlFSM_tb
-# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=""+acc"" -fsmdebug ControlFSM_tb 
-# Start time: 20:31:38 on Jun 02,2026
+# vsim -voptargs=""+acc"" -t 1ps -lib work PC_tb 
+# Start time: 15:53:45 on Jun 04,2026
 # Loading sv_std.std
-# Loading work.ControlFSM_sv_unit
-# Loading work.ControlFSM_tb
-# Loading work.ControlFSM
+# Loading work.PC_tb
+# Loading work.PC
 # WARNING: No extended dataflow license exists
-# 
-# Source the wave do file
-#     This should be the file that sets up the signal window for
-#     the module you are testing.
-# do controlWave.do
-# onerror {resume}
-# quietly WaveActivateNextPane {} 0
-# add wave -noupdate /ControlFSM_tb/Clk
 # ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
 #           File in use by: lando  Hostname: LANDONSLAPTOP  ProcessID: 29424
-#           Attempting to use alternate WLF file "./wlftgmz67c".
+#           Attempting to use alternate WLF file "./wlft63en9k".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlftgmz67c
-# add wave -noupdate /ControlFSM_tb/ResetN
-# add wave -noupdate -hex /ControlFSM_tb/Instruction
-# add wave -noupdate /ControlFSM_tb/PC_clr
-# add wave -noupdate /ControlFSM_tb/PC_up
-# add wave -noupdate /ControlFSM_tb/IR_ld
-# add wave -noupdate -hex /ControlFSM_tb/D_addr
-# add wave -noupdate /ControlFSM_tb/D_wr
-# add wave -noupdate /ControlFSM_tb/RF_s
-# add wave -noupdate -hex /ControlFSM_tb/RF_Ra_addr
-# add wave -noupdate -hex /ControlFSM_tb/RF_Rb_addr
-# add wave -noupdate /ControlFSM_tb/RF_W_en
-# add wave -noupdate -hex /ControlFSM_tb/RF_W_Addr
-# ** UI-Msg: (vish-4014) No objects found matching '/ControlFSM_tb/RF_W_Addr'.
-# Executing ONERROR command at macro ./controlWave.do line 15
-# add wave -noupdate -hex /ControlFSM_tb/ALU_s0
-# add wave -noupdate -hex /ControlFSM_tb/DUT/currentState
-# TreeUpdate [SetDefaultTree]
-# WaveRestoreCursors {{Cursor 1} {0 ps} 0}
-# quietly wave cursor active 0
-# configure wave -namecolwidth 150
-# configure wave -valuecolwidth 100
-# configure wave -justifyvalue left
-# configure wave -signalnamewidth 0
-# configure wave -snapdistance 10
-# configure wave -datasetprefix 0
-# configure wave -rowmargin 4
-# configure wave -childrowmargin 2
-# configure wave -gridoffset 0
-# configure wave -gridperiod 1
-# configure wave -griddelta 40
-# configure wave -timeline 0
-# configure wave -timelineunits ps
-# update
-# WaveRestoreZoom {0 ps} {1 ns}
-# 
-# Set the window types
-# view wave
+#           Using alternate file: ./wlft63en9k
+# ** UI-Msg: (vish-4014) No objects found matching '/PC_tb/Ld'.
+# Executing ONERROR command at macro ./PCwave.do line 4
+# ** UI-Msg: (vish-4014) No objects found matching '/PC_tb/DataIn'.
+# Executing ONERROR command at macro ./PCwave.do line 5
+# ** UI-Msg: (vish-4014) No objects found matching '/PC_tb/DataOut'.
+# Executing ONERROR command at macro ./PCwave.do line 6
 # .main_pane.wave.interior.cs.body.pw.wf
-# view structure
 # .main_pane.structure.interior.cs.body.struct
-# view signals
 # .main_pane.objects.interior.cs.body.tree
+# time	Clk	E	ResetN	Q
+#     0	0	0	1	 x
+#     5	1	0	1	 0
+#    10	0	0	1	 0
+#    11	0	1	0	 1
+#    15	1	1	0	 2
+#    20	0	1	0	 2
+# ** Error: Incorrect output in sequence! Expected Q = 000001, got Q = 000010.
+#    Time: 21 ps  Scope: PC_tb File: ./PC.sv Line: 74
+#    25	1	1	0	 3
+#    30	0	1	0	 3
+# ** Error: Incorrect output in sequence! Expected Q = 000010, got Q = 000011.
+#    Time: 31 ps  Scope: PC_tb File: ./PC.sv Line: 74
+#    35	1	1	0	 4
+#    40	0	1	0	 4
+# ** Error: Incorrect output in sequence! Expected Q = 000011, got Q = 000100.
+#    Time: 41 ps  Scope: PC_tb File: ./PC.sv Line: 74
+#    45	1	1	0	 5
+#    50	0	1	0	 5
+# ** Error: Incorrect output in sequence! Expected Q = 000100, got Q = 000101.
+#    Time: 51 ps  Scope: PC_tb File: ./PC.sv Line: 74
+#    55	1	1	0	 6
+#    60	0	1	0	 6
+# ** Error: Incorrect output in sequence! Expected Q = 000101, got Q = 000110.
+#    Time: 61 ps  Scope: PC_tb File: ./PC.sv Line: 74
+#    65	1	1	0	 7
+#    70	0	1	0	 7
+# ** Error: Incorrect output in sequence! Expected Q = 000110, got Q = 000111.
+#    Time: 71 ps  Scope: PC_tb File: ./PC.sv Line: 74
+#    75	1	1	0	 8
+#    80	0	1	0	 8
+# ** Error: Incorrect output in sequence! Expected Q = 000111, got Q = 001000.
+#    Time: 81 ps  Scope: PC_tb File: ./PC.sv Line: 74
+#    85	1	1	0	 9
+#    90	0	1	0	 9
+# ** Error: Incorrect output in sequence! Expected Q = 001000, got Q = 001001.
+#    Time: 91 ps  Scope: PC_tb File: ./PC.sv Line: 74
+#    95	1	1	0	10
+#   100	0	1	0	10
+# ** Error: Incorrect output in sequence! Expected Q = 001001, got Q = 001010.
+#    Time: 101 ps  Scope: PC_tb File: ./PC.sv Line: 74
+#   105	1	1	0	11
+#   110	0	1	0	11
+# ** Error: Incorrect output in sequence! Expected Q = 001010, got Q = 001011.
+#    Time: 111 ps  Scope: PC_tb File: ./PC.sv Line: 74
+#   115	1	1	0	12
+#   120	0	1	0	12
+# ** Error: Incorrect output in sequence! Expected Q = 001011, got Q = 001100.
+#    Time: 121 ps  Scope: PC_tb File: ./PC.sv Line: 74
+#   125	1	1	0	13
+#   130	0	1	0	13
+# ** Error: Incorrect output in sequence! Expected Q = 001100, got Q = 001101.
+#    Time: 131 ps  Scope: PC_tb File: ./PC.sv Line: 74
+#   135	1	1	0	14
+#   140	0	1	0	14
+# ** Error: Incorrect output in sequence! Expected Q = 001101, got Q = 001110.
+#    Time: 141 ps  Scope: PC_tb File: ./PC.sv Line: 74
+#   145	1	1	0	15
+#   150	0	1	0	15
+# ** Error: Incorrect output in sequence! Expected Q = 001110, got Q = 001111.
+#    Time: 151 ps  Scope: PC_tb File: ./PC.sv Line: 74
+#   155	1	1	0	 0
+#   160	0	1	0	 0
+# ** Error: Incorrect output in sequence! Expected Q = 001111, got Q = 000000.
+#    Time: 161 ps  Scope: PC_tb File: ./PC.sv Line: 74
+#   165	1	1	0	 1
+#   170	0	1	0	 1
+#   171	0	0	1	 1
+#   175	1	0	1	 0
+#   180	0	0	1	 0
+#   185	1	0	1	 0
+#   190	0	0	1	 0
+#   191	0	1	0	 1
+#   195	1	1	0	 2
+#   200	0	1	0	 2
+# ** Error: Incorrect output in sequence! Expected Q = 000001, got Q = 000010.
+#    Time: 201 ps  Scope: PC_tb File: ./PC.sv Line: 90
+#   205	1	1	0	 3
+#   210	0	1	0	 3
+# ** Error: Incorrect output in sequence! Expected Q = 000010, got Q = 000011.
+#    Time: 211 ps  Scope: PC_tb File: ./PC.sv Line: 90
+#   215	1	1	0	 4
+#   220	0	1	0	 4
+# ** Error: Incorrect output in sequence! Expected Q = 000011, got Q = 000100.
+#    Time: 221 ps  Scope: PC_tb File: ./PC.sv Line: 90
+#   225	1	1	0	 5
+#   230	0	1	0	 5
+# ** Error: Incorrect output in sequence! Expected Q = 000100, got Q = 000101.
+#    Time: 231 ps  Scope: PC_tb File: ./PC.sv Line: 90
+#   235	1	1	0	 6
+#   240	0	1	0	 6
+# ** Error: Incorrect output in sequence! Expected Q = 000101, got Q = 000110.
+#    Time: 241 ps  Scope: PC_tb File: ./PC.sv Line: 90
+#   245	1	1	0	 7
+#   250	0	1	0	 7
+# ** Error: Incorrect output in sequence! Expected Q = 000110, got Q = 000111.
+#    Time: 251 ps  Scope: PC_tb File: ./PC.sv Line: 90
+#   255	1	1	0	 8
+#   260	0	1	0	 8
+# ** Error: Incorrect output in sequence! Expected Q = 000111, got Q = 001000.
+#    Time: 261 ps  Scope: PC_tb File: ./PC.sv Line: 90
+#   265	1	1	0	 9
+#   270	0	1	0	 9
+#   271	0	0	0	 9
+#   275	1	0	0	 9
+#   280	0	0	0	 9
+#   285	1	0	0	 9
+#   290	0	0	0	 9
+#   295	1	0	0	 9
+#   300	0	0	0	 9
+#   305	1	0	0	 9
+#   310	0	0	0	 9
+#   315	1	0	0	 9
+#   320	0	0	0	 9
+#   325	1	0	0	 9
+#   330	0	0	0	 9
+#   335	1	0	0	 9
+#   340	0	0	0	 9
+#   345	1	0	0	 9
+#   350	0	0	0	 9
+#   355	1	0	0	 9
+#   360	0	0	0	 9
+#   365	1	0	0	 9
+#   370	0	0	0	 9
+# ** Error: Counter did not hold half value! Expected Q = 010000, got Q = 001001.
+#    Time: 371 ps  Scope: PC_tb File: ./PC.sv Line: 102
+#   371	0	0	1	 9
+#   375	1	0	1	 0
+#   380	0	0	1	 0
+#   385	1	0	1	 0
+#   390	0	0	1	 0
+#   391	0	1	0	 1
+#   395	1	1	0	 2
+#   400	0	1	0	 2
+# ** Error: Incorrect output in sequence! Expected Q = 000001, got Q = 000010.
+#    Time: 401 ps  Scope: PC_tb File: ./PC.sv Line: 115
+#   405	1	1	0	 3
+#   410	0	1	0	 3
+# ** Error: Incorrect output in sequence! Expected Q = 000010, got Q = 000011.
+#    Time: 411 ps  Scope: PC_tb File: ./PC.sv Line: 115
+#   415	1	1	0	 4
+#   420	0	1	0	 4
+# ** Error: Incorrect output in sequence! Expected Q = 000011, got Q = 000100.
+#    Time: 421 ps  Scope: PC_tb File: ./PC.sv Line: 115
+#   425	1	1	0	 5
+#   430	0	1	0	 5
+# ** Error: Incorrect output in sequence! Expected Q = 000100, got Q = 000101.
+#    Time: 431 ps  Scope: PC_tb File: ./PC.sv Line: 115
+#   435	1	1	0	 6
+#   440	0	1	0	 6
+# ** Error: Incorrect output in sequence! Expected Q = 000101, got Q = 000110.
+#    Time: 441 ps  Scope: PC_tb File: ./PC.sv Line: 115
+#   445	1	1	0	 7
+#   450	0	1	0	 7
+# ** Error: Incorrect output in sequence! Expected Q = 000110, got Q = 000111.
+#    Time: 451 ps  Scope: PC_tb File: ./PC.sv Line: 115
+#   455	1	1	0	 8
+#   460	0	1	0	 8
+# ** Error: Incorrect output in sequence! Expected Q = 000111, got Q = 001000.
+#    Time: 461 ps  Scope: PC_tb File: ./PC.sv Line: 115
+#   465	1	1	0	 9
+#   470	0	1	0	 9
+# ** Error: Incorrect output in sequence! Expected Q = 001000, got Q = 001001.
+#    Time: 471 ps  Scope: PC_tb File: ./PC.sv Line: 115
+#   475	1	1	0	10
+#   480	0	1	0	10
+# ** Error: Incorrect output in sequence! Expected Q = 001001, got Q = 001010.
+#    Time: 481 ps  Scope: PC_tb File: ./PC.sv Line: 115
+#   485	1	1	0	11
+#   490	0	1	0	11
+# ** Error: Incorrect output in sequence! Expected Q = 001010, got Q = 001011.
+#    Time: 491 ps  Scope: PC_tb File: ./PC.sv Line: 115
+#   495	1	1	0	12
+#   500	0	1	0	12
+# ** Error: Incorrect output in sequence! Expected Q = 001011, got Q = 001100.
+#    Time: 501 ps  Scope: PC_tb File: ./PC.sv Line: 115
+#   505	1	1	0	13
+#   510	0	1	0	13
+# ** Error: Incorrect output in sequence! Expected Q = 001100, got Q = 001101.
+#    Time: 511 ps  Scope: PC_tb File: ./PC.sv Line: 115
+#   515	1	1	0	14
+#   520	0	1	0	14
+# ** Error: Incorrect output in sequence! Expected Q = 001101, got Q = 001110.
+#    Time: 521 ps  Scope: PC_tb File: ./PC.sv Line: 115
+#   525	1	1	0	15
+#   530	0	1	0	15
+# ** Error: Incorrect output in sequence! Expected Q = 001110, got Q = 001111.
+#    Time: 531 ps  Scope: PC_tb File: ./PC.sv Line: 115
+#   535	1	1	0	 0
+#   540	0	1	0	 0
+#   541	0	0	0	 0
+#   545	1	0	0	 0
+#   550	0	0	0	 0
+#   555	1	0	0	 0
+#   560	0	0	0	 0
+#   565	1	0	0	 0
+#   570	0	0	0	 0
+#   575	1	0	0	 0
+#   580	0	0	0	 0
+#   585	1	0	0	 0
+#   590	0	0	0	 0
+#   595	1	0	0	 0
+#   600	0	0	0	 0
+#   605	1	0	0	 0
+#   610	0	0	0	 0
+#   615	1	0	0	 0
+#   620	0	0	0	 0
+#   625	1	0	0	 0
+#   630	0	0	0	 0
+#   635	1	0	0	 0
+#   640	0	0	0	 0
+# ** Error: Counter did not hold max value! Expected Q = 001111, got Q = 000000.
+#    Time: 641 ps  Scope: PC_tb File: ./PC.sv Line: 127
+# ** Note: $stop    : ./PC.sv(129)
+#    Time: 641 ps  Iteration: 0  Instance: /PC_tb
+# Break in Module PC_tb at ./PC.sv line 129
+do runPC.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 15:54:52 on Jun 04,2026
+# vlog -reportprogress 300 ./PC.sv 
+# -- Compiling module PC
+# -- Compiling module PC_tb
 # 
-# Run the simulation
-# run -all
-# Time	Clk	ResetN	Inst	PC_clr	PC_up	IR_ld	D_addr	D_wr	RF_s	RF_Ra_addr	RF_Rb_addr	RF_W_en	RF_W_addr	ALU_s0
-#     0	x	0	xxxx	x	x	x	xx	x	x	x	x	x	x	xxx
-#    10	0	1	xxxx	x	x	x	xx	x	x	x	x	x	x	xxx
-#    20	1	1	xxxx	1	x	x	xx	x	x	x	x	x	x	xxx
-#    30	0	1	0000	1	x	x	xx	x	x	x	x	x	x	xxx
-#    40	1	1	0000	0	1	1	00	0	0	0	0	0	0	000
-#    50	0	1	0000	0	1	1	00	0	0	0	0	0	0	000
-#    60	1	1	0000	0	1	1	00	0	0	0	0	0	0	000
-#    70	0	0	0000	0	1	1	00	0	0	0	0	0	0	000
-#    80	1	0	0000	0	1	1	00	0	0	0	0	0	0	000
-#    90	0	1	0000	1	1	1	00	0	0	0	0	0	0	000
-#   100	1	1	0000	0	1	1	00	0	0	0	0	0	0	000
-#   110	0	1	1ba1	0	1	1	00	0	0	0	0	0	0	000
-#   120	1	1	1ba1	0	1	1	00	0	0	0	0	0	0	000
-#   130	0	1	1ba1	0	1	1	00	0	0	0	0	0	0	000
-#   140	1	1	1ba1	0	1	1	a1	1	0	b	0	0	0	000
-#   150	0	1	1ba1	0	1	1	a1	1	0	b	0	0	0	000
-#   160	1	1	1ba1	0	1	1	00	0	0	0	0	0	0	000
-#   170	0	0	1ba1	0	1	1	00	0	0	0	0	0	0	000
-#   180	1	0	1ba1	0	1	1	00	0	0	0	0	0	0	000
-#   190	0	1	1ba1	1	1	1	00	0	0	0	0	0	0	000
-#   200	1	1	1ba1	0	1	1	00	0	0	0	0	0	0	000
-#   210	0	1	2cd3	0	1	1	00	0	0	0	0	0	0	000
-#   220	1	1	2cd3	0	1	1	00	0	0	0	0	0	0	000
-#   230	0	1	2cd3	0	1	1	00	0	0	0	0	0	0	000
-#   240	1	1	2cd3	0	1	1	cd	0	1	0	0	0	3	000
-#   250	0	1	2cd3	0	1	1	cd	0	1	0	0	0	3	000
-#   260	1	1	2cd3	0	1	1	cd	0	1	0	0	1	3	000
-#   270	0	1	2cd3	0	1	1	cd	0	1	0	0	1	3	000
-#   280	1	1	2cd3	0	1	1	00	0	0	0	0	0	0	000
-#   290	0	0	2cd3	0	1	1	00	0	0	0	0	0	0	000
-#   300	1	0	2cd3	0	1	1	00	0	0	0	0	0	0	000
-#   310	0	1	2cd3	1	1	1	00	0	0	0	0	0	0	000
-#   320	1	1	2cd3	0	1	1	00	0	0	0	0	0	0	000
-#   330	0	1	3f13	0	1	1	00	0	0	0	0	0	0	000
-#   340	1	1	3f13	0	1	1	00	0	0	0	0	0	0	000
-#   350	0	1	3f13	0	1	1	00	0	0	0	0	0	0	000
-#   360	1	1	3f13	0	1	1	00	0	0	f	1	1	3	001
-#   370	0	1	3f13	0	1	1	00	0	0	f	1	1	3	001
-#   380	1	1	3f13	0	1	1	00	0	0	0	0	0	0	000
-#   390	0	0	3f13	0	1	1	00	0	0	0	0	0	0	000
-#   400	1	0	3f13	0	1	1	00	0	0	0	0	0	0	000
-#   410	0	1	3f13	1	1	1	00	0	0	0	0	0	0	000
-#   420	1	1	3f13	0	1	1	00	0	0	0	0	0	0	000
-#   430	0	1	4e32	0	1	1	00	0	0	0	0	0	0	000
-#   440	1	1	4e32	0	1	1	00	0	0	0	0	0	0	000
-#   450	0	1	4e32	0	1	1	00	0	0	0	0	0	0	000
-#   460	1	1	4e32	0	1	1	00	0	0	e	3	1	2	010
-#   470	0	1	4e32	0	1	1	00	0	0	e	3	1	2	010
-#   480	1	1	4e32	0	1	1	00	0	0	0	0	0	0	000
-#   490	0	1	5eff	0	1	1	00	0	0	0	0	0	0	000
-#   500	1	1	5eff	0	1	1	00	0	0	0	0	0	0	000
-#   510	0	1	5eff	0	1	1	00	0	0	0	0	0	0	000
-#   520	1	1	5eff	0	1	1	00	0	0	0	0	0	0	000
-#   530	0	1	5eff	0	1	1	00	0	0	0	0	0	0	000
-#   540	1	1	5eff	0	1	1	00	0	0	0	0	0	0	000
-#   550	0	1	5eff	0	1	1	00	0	0	0	0	0	0	000
-#   560	1	1	5eff	0	1	1	00	0	0	0	0	0	0	000
-#   570	0	1	5eff	0	1	1	00	0	0	0	0	0	0	000
-#   580	1	1	5eff	0	1	1	00	0	0	0	0	0	0	000
-#   590	0	1	5eff	0	1	1	00	0	0	0	0	0	0	000
-#   600	1	1	5eff	0	1	1	00	0	0	0	0	0	0	000
-#   610	0	1	5eff	0	1	1	00	0	0	0	0	0	0	000
-#   620	1	1	5eff	0	1	1	00	0	0	0	0	0	0	000
-#   630	0	1	5eff	0	1	1	00	0	0	0	0	0	0	000
-#   640	1	1	5eff	0	1	1	00	0	0	0	0	0	0	000
-# ** Note: $stop    : ./ControlFSM.sv(361)
-#    Time: 650 ps  Iteration: 1  Instance: /ControlFSM_tb
-# Break in Module ControlFSM_tb at ./ControlFSM.sv line 361
-# 
-# View the entire wave display
-# wave zoomfull
-# 0 ps
-# 683 ps
-# 
-# End
-quit
-# End time: 20:32:12 on Jun 02,2026, Elapsed time: 0:00:34
-# Errors: 1, Warnings: 2
+# Top level modules:
+# 	PC_tb
+# End time: 15:54:53 on Jun 04,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# End time: 15:54:58 on Jun 04,2026, Elapsed time: 0:01:13
+# Errors: 38, Warnings: 2
+# vsim -voptargs=""+acc"" -t 1ps -lib work PC_tb 
+# Start time: 15:54:58 on Jun 04,2026
+# Loading sv_std.std
+# Loading work.PC_tb
+# Loading work.PC
+# WARNING: No extended dataflow license exists
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: lando  Hostname: LANDONSLAPTOP  ProcessID: 29424
+#           Attempting to use alternate WLF file "./wlftkfy4fb".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftkfy4fb
+# ** UI-Msg: (vish-4014) No objects found matching '/PC_tb/Ld'.
+# Executing ONERROR command at macro ./PCwave.do line 4
+# ** UI-Msg: (vish-4014) No objects found matching '/PC_tb/DataIn'.
+# Executing ONERROR command at macro ./PCwave.do line 5
+# ** UI-Msg: (vish-4014) No objects found matching '/PC_tb/DataOut'.
+# Executing ONERROR command at macro ./PCwave.do line 6
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+# time	Clk	E	ResetN	Q
+#     0	0	0	1	 x
+#     5	1	0	1	 0
+#    10	0	0	1	 0
+#    11	0	1	0	 0
+#    15	1	1	0	 1
+#    20	0	1	0	 1
+#    25	1	1	0	 2
+#    30	0	1	0	 2
+#    35	1	1	0	 3
+#    40	0	1	0	 3
+#    45	1	1	0	 4
+#    50	0	1	0	 4
+#    55	1	1	0	 5
+#    60	0	1	0	 5
+#    65	1	1	0	 6
+#    70	0	1	0	 6
+#    75	1	1	0	 7
+#    80	0	1	0	 7
+#    85	1	1	0	 8
+#    90	0	1	0	 8
+#    95	1	1	0	 9
+#   100	0	1	0	 9
+#   105	1	1	0	10
+#   110	0	1	0	10
+#   115	1	1	0	11
+#   120	0	1	0	11
+#   125	1	1	0	12
+#   130	0	1	0	12
+#   135	1	1	0	13
+#   140	0	1	0	13
+#   145	1	1	0	14
+#   150	0	1	0	14
+#   155	1	1	0	15
+#   160	0	1	0	15
+#   165	1	1	0	 0
+#   170	0	1	0	 0
+#   171	0	0	1	 0
+#   175	1	0	1	 0
+#   180	0	0	1	 0
+#   185	1	0	1	 0
+#   190	0	0	1	 0
+#   191	0	1	0	 0
+#   195	1	1	0	 1
+#   200	0	1	0	 1
+#   205	1	1	0	 2
+#   210	0	1	0	 2
+#   215	1	1	0	 3
+#   220	0	1	0	 3
+#   225	1	1	0	 4
+#   230	0	1	0	 4
+#   235	1	1	0	 5
+#   240	0	1	0	 5
+#   245	1	1	0	 6
+#   250	0	1	0	 6
+#   255	1	1	0	 7
+#   260	0	1	0	 7
+#   265	1	1	0	 8
+#   270	0	1	0	 8
+#   271	0	0	0	 8
+#   275	1	0	0	 8
+#   280	0	0	0	 8
+#   285	1	0	0	 8
+#   290	0	0	0	 8
+#   295	1	0	0	 8
+#   300	0	0	0	 8
+#   305	1	0	0	 8
+#   310	0	0	0	 8
+#   315	1	0	0	 8
+#   320	0	0	0	 8
+#   325	1	0	0	 8
+#   330	0	0	0	 8
+#   335	1	0	0	 8
+#   340	0	0	0	 8
+#   345	1	0	0	 8
+#   350	0	0	0	 8
+#   355	1	0	0	 8
+#   360	0	0	0	 8
+#   365	1	0	0	 8
+#   370	0	0	0	 8
+#   371	0	0	1	 8
+#   375	1	0	1	 0
+#   380	0	0	1	 0
+#   385	1	0	1	 0
+#   390	0	0	1	 0
+#   391	0	1	0	 0
+#   395	1	1	0	 1
+#   400	0	1	0	 1
+#   405	1	1	0	 2
+#   410	0	1	0	 2
+#   415	1	1	0	 3
+#   420	0	1	0	 3
+#   425	1	1	0	 4
+#   430	0	1	0	 4
+#   435	1	1	0	 5
+#   440	0	1	0	 5
+#   445	1	1	0	 6
+#   450	0	1	0	 6
+#   455	1	1	0	 7
+#   460	0	1	0	 7
+#   465	1	1	0	 8
+#   470	0	1	0	 8
+#   475	1	1	0	 9
+#   480	0	1	0	 9
+#   485	1	1	0	10
+#   490	0	1	0	10
+#   495	1	1	0	11
+#   500	0	1	0	11
+#   505	1	1	0	12
+#   510	0	1	0	12
+#   515	1	1	0	13
+#   520	0	1	0	13
+#   525	1	1	0	14
+#   530	0	1	0	14
+#   535	1	1	0	15
+#   540	0	1	0	15
+#   541	0	0	0	15
+#   545	1	0	0	15
+#   550	0	0	0	15
+#   555	1	0	0	15
+#   560	0	0	0	15
+#   565	1	0	0	15
+#   570	0	0	0	15
+#   575	1	0	0	15
+#   580	0	0	0	15
+#   585	1	0	0	15
+#   590	0	0	0	15
+#   595	1	0	0	15
+#   600	0	0	0	15
+#   605	1	0	0	15
+#   610	0	0	0	15
+#   615	1	0	0	15
+#   620	0	0	0	15
+#   625	1	0	0	15
+#   630	0	0	0	15
+#   635	1	0	0	15
+#   640	0	0	0	15
+# ** Note: $stop    : ./PC.sv(129)
+#    Time: 641 ps  Iteration: 0  Instance: /PC_tb
+# Break in Module PC_tb at ./PC.sv line 129

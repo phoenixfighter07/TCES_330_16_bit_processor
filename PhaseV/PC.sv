@@ -21,7 +21,7 @@ module PC(Up, Clk, Clr, Q);
     output logic [n-1:0] Q;
 
     // Asynchronous reset
-    always_ff @( posedge Clk, negedge Clr ) begin
+    always_ff @( posedge Clk ) begin
         if (Clr || (Up && Q >= maxValue)) begin
             // Sizecast the binary 0 to be the size of the parameter n
             Q <= (n)'(1'b0);
@@ -61,13 +61,13 @@ module PC_tb();
 		$monitor("%t\t%b\t%b\t%b\t%d", $time, Clk, Up, Clr, Q);
         // Reset high
         Up = 0;
-        Clr = 0; 
+        Clr = 1; 
 
         #(ClkCycleTime + 1);
 
         // Enable the counter
         Up = 1; 
-        Clr = 1; 
+        Clr = 0; 
 
         // Let counter count up, check each value
         for (int i = 0; i < 2 ** test_bits; i++) begin
@@ -77,13 +77,13 @@ module PC_tb();
 
         // Reset counter again
         Up = 0;
-        Clr = 0; 
+        Clr = 1; 
 
         #(ClkCycleTime * 2);
 
         // Enable the counter
         Up = 1; 
-        Clr = 1; 
+        Clr = 0; 
 
         // Let counter count up halfway
         for (int i = 0; i < 2 ** (test_bits - 1); i++) begin
@@ -103,12 +103,12 @@ module PC_tb();
 
         // Reset counter again
         Up = 0;
-        Clr = 0; 
+        Clr = 1; 
 
         #(ClkCycleTime * 2);
 
         Up = 1;
-        Clr = 1;
+        Clr = 0;
 
         // Let counter count up fully, then hold
         for (int i = 0; i < 2 ** (test_bits) - 1; i++) begin
