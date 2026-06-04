@@ -95,7 +95,7 @@ endmodule
 
 module Datapath_tb();
 	// The data that should be in each RAM address
-	localparam RAM_DATA = 16'hABCD;
+	localparam RAM_DATA = 16'hFFFF;
 
 	localparam REG_FILE_SIZE = 16;
 	localparam RAM_SIZE = 16;
@@ -115,8 +115,8 @@ module Datapath_tb();
 
 	logic [15:0] ALU_inA, ALU_inB, ALU_out;
 
-	logic operand_a;
-	logic operand_b;
+	logic [15:0] operand_a;
+	logic [15:0] operand_b;
 
 	// Initialize the clock
     always begin
@@ -157,7 +157,7 @@ module Datapath_tb();
 	 *  op = 1 is subtraction
 	 * 
 	 */
-	task automatic ALUSweep(input op);
+	task automatic ALUSweep(input [2:0] op);
 		for (int i = 0; i < REG_FILE_SIZE; i++) begin
 			// Add
 			ResetSignals();
@@ -166,13 +166,13 @@ module Datapath_tb();
 			RF_W_en = 1;
 			RF_Ra_addr = i;
 			RF_Rb_addr = (i + 1) % REG_FILE_SIZE;
-			ALU_s0 = op + 1;
+			ALU_s0 = op;
 
 			// Let signals propagate
 			#5;
 
 			operand_a = ALU_inA;
-			operand_b = ALU_inA;
+			operand_b = ALU_inB;
 
 			WaitCycles(1);
 
@@ -182,9 +182,17 @@ module Datapath_tb();
 			// Let signals propagate
 			#5;
 
-			assert(op ? operand_a + operand_b == ALU_inA : operand_a - operand_b == ALU_inA)
-			else $error("Incorrect subtraction result recieved! Expected %h, got %h.", 
-			op ? operand_a + operand_b == ALU_inA : operand_a - operand_b == ALU_inA, ALU_inA);
+			if (op == 1) begin
+				assert(operand_a + operand_b == ALU_inA)
+				else $error("Incorrect addition result recieved! Expected %h, got %h.", 
+				ALU_inA, operand_a + operand_b);
+			end else if (op == 2) begin
+				assert(operand_a - operand_b == ALU_inA)
+				else $error("Incorrect subtraction result recieved! Expected %h, got %h.", 
+				ALU_inA, operand_a - operand_b);
+			end else begin
+				$error("op = %d is not supported!", op);
+			end
 		end
 	endtask
 
@@ -206,7 +214,10 @@ module Datapath_tb();
 			RF_Ra_addr = i % REG_FILE_SIZE;
 
 			// TODO: Why is it 3 cycles???
-			WaitCycles(3);
+			WaitCycles(1);
+
+			// Let signals propagate
+			#5;
 
 			assert(ALU_inA == RAM_DATA)
 			else $error("Incorrect data loaded back from RAM. Expected %h, got %h.", RAM_DATA, ALU_inA);
@@ -215,6 +226,8 @@ module Datapath_tb();
 
 	/* Test to test store instruction */
 	task automatic Store();
+		// Note: All reg files have RAM_DATA in them to be tested
+
 		logic [15:0] data [(REG_FILE_SIZE - 1):0];
 
 		// Store data from reg files into RAM
@@ -247,10 +260,9 @@ module Datapath_tb();
 	initial begin
 		// Set up monitor
         $timeformat(-12, 0, "", 5);
-		$display("time\tClk\tD_addr\tD_wr\tRF_s\tRF_W_addr\tRF_W_en\tRF_Ra_addr\tRF_Rb_addr\tALU_s0\tALU_inA\tALU_inB\tALU_out");
-		$monitor("%t\t%b\t%h\t%b\t%b\t%h\t%b\t%h\t%h\t%h\t%h\t%h\t%h", 
+		$display("time\tD_addr\tD_wr\tRF_s\tRF_W_addr\tRF_W_en\tRF_Ra_addr\tRF_Rb_addr\tALU_s0\tALU_inA\tALU_inB\tALU_out");
+		$monitor("%t\t%h\t%b\t%b\t%h\t%b\t%h\t%h\t%h\t%h\t%h\t%h", 
 			$time, 
-			Clk, 
 			D_addr, 
 			D_wr, 
 			RF_s, 
@@ -266,11 +278,11 @@ module Datapath_tb();
 		// Test all instructions
 
 		Load(); // Test load
-			
-		ALUSweep(0); // Test addition
-		ALUSweep(1); // Test subtraction
 
 		Store(); // Test save
+			                                                                                                                                                           
+		ALUSweep(1); // Test addition
+		ALUSweep(2); // Test subtraction
 
 		$stop();
 	end

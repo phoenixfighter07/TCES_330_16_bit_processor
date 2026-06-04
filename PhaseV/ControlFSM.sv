@@ -5,13 +5,6 @@
  * 16-Bit Processor Project Phase V
  */ 
 
-/*
- * The FSM for the CPU's control unit.
- *
- * Clk is the input clock signal.
- * ResetN is the active-low reset signal to send the FSM back to the initialization state.
- * Instruction is the instruction coming in to the FSM
- */
 typedef enum logic [3:0] 
 { 
 	Init, 
@@ -26,6 +19,24 @@ typedef enum logic [3:0]
 	LOAD_B
 } state;
 
+/*
+ * The FSM for the CPU's control unit.
+ *
+ * Clk is the input clock signal.
+ * ResetN is the active-low reset signal to send the FSM back to the initialization state.
+ * Instruction is the 16-bit instruction coming in to the FSM
+ * PC_clr is the clear signal for the program counter
+ * PC_up is the increment signal for the program counter
+ * IR_ld is the load signal for the instruction register
+ * D_addr is the 8-bit address in RAM to operate on
+ * D_wr is the write signal for the RAM
+ * RF_s is the selecting signal for the mux leading in to the register file, 0 = ALU, 1 = RAM
+ * RF_Ra_addr is the 4-bit address of register A in the register file
+ * RF_Rb_addr is the 4-bit address of register B in the register file
+ * RF_W_en is the write signal for the register file
+ * RF_W_addr is the 4-bit address of the register to write to in the register file
+ * ALU_s0 is the 3-bit operation signal feeding into the ALU
+ */
 module ControlFSM(
 	Clk, 
 	ResetN, 
