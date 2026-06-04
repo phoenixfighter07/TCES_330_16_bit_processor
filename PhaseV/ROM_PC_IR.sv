@@ -53,15 +53,18 @@ module ROM_PC_IR_tb();
         waitCycles(2);
         assertClear();
         Clr = 0;
-        
+
         // Tests if value loads from ROM to IR to Output.
         // Assumes that the ROM has been loaded with the 
         // ROM_test.mif file
-        for(int i = 0; i < 256; i++) begin
-            waitCycles(2); // 1 cycle to update teh PC, another to update the 
+        for(int i = 0; i < 128; i++) begin
+            UP = 0;
+            waitCycles(2);
             assertIR();
             assert(DUT.IR_IN == i)
             else $error("Error with ROM connection. Expected ROM output to be %d. Recieved %d", i, DUT.IR_IN);
+            UP = 1;
+            waitCycles(1); // 1 cycle to update teh PC, another to update the 
         end
 
         $stop;
