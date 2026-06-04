@@ -421,3 +421,169 @@ do runPC.do
 # ** Note: $stop    : ./PC.sv(129)
 #    Time: 641 ps  Iteration: 0  Instance: /PC_tb
 # Break in Module PC_tb at ./PC.sv line 129
+cd ..
+# Cannot change directory while a simulation is in progress.
+# Use the "quit -sim" command to unload the design first.
+quit
+quit -sim
+# End time: 16:24:51 on Jun 04,2026, Elapsed time: 0:29:53
+# Errors: 0, Warnings: 2
+cd ..
+# reading C:/intelFPGA/20.1/modelsim_ase/win32aloem/../modelsim.ini
+cd ./Processor
+runrtl.do
+# couldn't execute ".\runrtl.do": no such file or directory
+do runrtl.do
+# 
+# Get rid of current work lib
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# 
+# Create work library and map it to 'work'
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Copying C:/intelFPGA/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# Compile Verilog
+#     All Verilog files that are part of this design should have
+#     their own "vlog" line below.
+# vlog -work work +acc +cover "./Processor.sv"
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:25:25 on Jun 04,2026
+# vlog -reportprogress 300 -work work "+acc" "+cover" ./Processor.sv 
+# -- Compiling module Processor
+# ** Error: (vlog-13069) ./Processor.sv(74): near ")": syntax error, unexpected ')', expecting .* or '.'.
+# End time: 16:25:25 on Jun 04,2026, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: C:/intelFPGA/20.1/modelsim_ase/win32aloem/vlog failed.
+# Error in macro ./runrtl.do line 16
+# C:/intelFPGA/20.1/modelsim_ase/win32aloem/vlog failed.
+#     while executing
+# "vlog -work work +acc +cover "./Processor.sv""
+do runrtl.do
+# 
+# Get rid of current work lib
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# 
+# Create work library and map it to 'work'
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Modifying modelsim.ini
+# 
+# Compile Verilog
+#     All Verilog files that are part of this design should have
+#     their own "vlog" line below.
+# vlog -work work +acc +cover "./Processor.sv"
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:25:36 on Jun 04,2026
+# vlog -reportprogress 300 -work work "+acc" "+cover" ./Processor.sv 
+# -- Compiling module Processor
+# 
+# Top level modules:
+# 	Processor
+# End time: 16:25:36 on Jun 04,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -work work +acc +cover "./testProcessor.sv"
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:25:36 on Jun 04,2026
+# vlog -reportprogress 300 -work work "+acc" "+cover" ./testProcessor.sv 
+# -- Compiling module testProcessor
+# 
+# Top level modules:
+# 	testProcessor
+# End time: 16:25:36 on Jun 04,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -work work +acc +cover "./DataMemory.v"
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:25:36 on Jun 04,2026
+# vlog -reportprogress 300 -work work "+acc" "+cover" ./DataMemory.v 
+# -- Compiling module DataMemory
+# 
+# Top level modules:
+# 	DataMemory
+# End time: 16:25:36 on Jun 04,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -work work +acc +cover "./Datapath.sv"
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:25:36 on Jun 04,2026
+# vlog -reportprogress 300 -work work "+acc" "+cover" ./Datapath.sv 
+# -- Compiling module Datapath
+# -- Compiling module Datapath_tb
+# 
+# Top level modules:
+# 	Datapath_tb
+# End time: 16:25:36 on Jun 04,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -work work +acc +cover "./ALU.sv"
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:25:37 on Jun 04,2026
+# vlog -reportprogress 300 -work work "+acc" "+cover" ./ALU.sv 
+# -- Compiling module ALU
+# -- Compiling module ALU_tb
+# 
+# Top level modules:
+# 	ALU_tb
+# End time: 16:25:37 on Jun 04,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -work work +acc +cover "./Mux.sv"
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:25:37 on Jun 04,2026
+# vlog -reportprogress 300 -work work "+acc" "+cover" ./Mux.sv 
+# -- Compiling module Mux
+# -- Compiling package Mux_sv_unit
+# -- Compiling module Mux_tb
+# 
+# Top level modules:
+# 	Mux_tb
+# End time: 16:25:37 on Jun 04,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -work work +acc +cover "./regfile16x16.sv"
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:25:37 on Jun 04,2026
+# vlog -reportprogress 300 -work work "+acc" "+cover" ./regfile16x16.sv 
+# -- Compiling module regfile16x16
+# -- Compiling module regfile16x16_tb
+# 
+# Top level modules:
+# 	regfile16x16_tb
+# End time: 16:25:37 on Jun 04,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# Call vsim to invoke simulator
+#     Make sure the last item on the line is the name of the
+#     testbench module you want to execute.
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc" -fsmdebug  testProcessor
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=""+acc"" -fsmdebug testProcessor 
+# Start time: 16:25:37 on Jun 04,2026
+# Loading sv_std.std
+# Loading work.testProcessor
+# Loading work.Processor
+# ** Error: (vsim-3033) Instantiation of 'Control' failed. The design unit was not found.
+#    Time: 0 ps  Iteration: 0  Instance: /testProcessor/DUT File: ./Processor.sv Line: 64
+#         Searched libraries:
+#             C:/intelFPGA/20.1/modelsim_ase/altera/verilog/altera
+#             C:/intelFPGA/20.1/modelsim_ase/altera/verilog/220model
+#             C:/intelFPGA/20.1/modelsim_ase/altera/verilog/sgate
+#             C:/intelFPGA/20.1/modelsim_ase/altera/verilog/altera_mf
+#             C:/intelFPGA/20.1/modelsim_ase/altera/verilog/altera_lnsim
+#             C:/intelFPGA/20.1/modelsim_ase/altera/verilog/cycloneive
+#             c:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/rtl_work
+#             c:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/rtl_work
+# Loading work.Datapath
+# Loading work.DataMemory
+# Loading altera_mf_ver.altsyncram
+# Loading work.Mux
+# Loading work.ALU
+# Loading work.regfile16x16
+# Error loading design
+# Error: Error loading design
+#        Pausing macro execution
+# MACRO ./runrtl.do PAUSED at line 27
