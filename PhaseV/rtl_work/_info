@@ -8,161 +8,297 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 dC:/Users/rober/TCES 330/TCES_330_16_bit_processor/PhaseV
+Z0 dc:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/PhaseV
+vControlFSM
+Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
+Z2 DXx4 work 18 ControlFSM_sv_unit 0 22 a`2IJ2S:B@d`jbn?baPoc2
+Z3 !s110 1780636649
+Z4 VDg1SIo80bB@j0V0VzS_@n1
+r1
+!s85 0
+!i10b 1
+!s100 jEGg3L4[o:S8H7Fn<<ON>1
+I9`W__HN]kD>^^hJ;6I3A00
+Z5 !s105 ControlFSM_sv_unit
+S1
+R0
+Z6 w1780612987
+Z7 8./ControlFSM.sv
+Z8 F./ControlFSM.sv
+!i122 4
+L0 40 113
+Z9 OV;L;2020.1;71
+31
+Z10 !s108 1780636649.000000
+Z11 !s107 ./ControlFSM.sv|
+Z12 !s90 -reportprogress|300|-work|work|+acc|./ControlFSM.sv|
+!i113 1
+Z13 o-work work +acc
+Z14 tCvgOpt 0
+n@control@f@s@m
+XControlFSM_sv_unit
+R1
+R3
+Va`2IJ2S:B@d`jbn?baPoc2
+r1
+!s85 0
+!i10b 1
+!s100 ?7VEi1U:]E6I@HlCCSd481
+Ia`2IJ2S:B@d`jbn?baPoc2
+!i103 1
+S1
+R0
+R6
+R7
+R8
+!i122 4
+L0 8 0
+R9
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+n@control@f@s@m_sv_unit
+vControlFSM_tb
+R1
+R2
+R3
+R4
+r1
+!s85 0
+!i10b 1
+!s100 WcWX;7OcCQC5lcAgQGk6:3
+IY=^D`OI^A87n:>T2P8gDz1
+R5
+S1
+R0
+R6
+R7
+R8
+!i122 4
+L0 154 221
+R9
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+n@control@f@s@m_tb
+vController
+R1
+R3
+!i10b 1
+!s100 9H9koUCg2Pzo8z1V;5@`G3
+Z15 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IOS3X6>0]7k[4;Yf;W2Mjz3
+R4
+S1
+R0
+Z16 w1780636648
+Z17 8./Controller.sv
+Z18 F./Controller.sv
+!i122 5
+L0 19 43
+R9
+r1
+!s85 0
+31
+R10
+!s107 ./Controller.sv|
+Z19 !s90 -reportprogress|300|-work|work|+acc|./Controller.sv|
+!i113 1
+R13
+R14
+n@controller
+vController_tb
+R1
+R3
+!i10b 1
+!s100 =o]J_czQXhFF41f3a3X>a1
+R15
+IC?15SlWFi9>JAIU`djKDY1
+R4
+S1
+R0
+R16
+R17
+R18
+!i122 5
+L0 63 23
+R9
+r1
+!s85 0
+31
+R10
+Z20 !s107 ./Controller.sv|
+R19
+!i113 1
+R13
+R14
+n@controller_tb
 vInstMemory
-!s110 1780613837
+R3
 !i10b 1
 !s100 F^YY0S@PSNN>d5jJA4SJ03
-Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
+R15
 IhiWaX3G_1BQfb6=h34lC91
-Z2 VDg1SIo80bB@j0V0VzS_@n1
+R4
 R0
-w1780608686
+w1780612956
 8./InstMemory.v
 F./InstMemory.v
 !i122 2
 L0 40 61
-Z3 OV;L;2020.1;71
+R9
 r1
 !s85 0
 31
-!s108 1780613837.000000
+R10
 !s107 ./InstMemory.v|
 !s90 -reportprogress|300|-work|work|+acc|./InstMemory.v|
 !i113 1
-Z4 o-work work +acc
-Z5 tCvgOpt 0
+R13
+R14
 n@inst@memory
 vIR
-Z6 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z7 !s110 1780636151
+R1
+R3
 !i10b 1
 !s100 1G@J3_=_PK<hbCW_5?a=L3
-R1
-I6jg>c0k=e:eQV>@0;MD:f3
-R2
+R15
+IN<^VGz6CLfiVQTKgHY3LS1
+R4
 S1
-Z8 dc:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/PhaseV
-Z9 w1780636147
-Z10 8./IR.sv
-Z11 F./IR.sv
-!i122 11
+R0
+Z21 w1780636147
+Z22 8./IR.sv
+Z23 F./IR.sv
+!i122 3
 L0 17 17
-R3
+R9
 r1
 !s85 0
 31
-Z12 !s108 1780636151.000000
-!s107 ./IR.sv|
-Z13 !s90 -reportprogress|300|./IR.sv|
+R10
+Z24 !s107 ./IR.sv|
+Z25 !s90 -reportprogress|300|-work|work|+acc|./IR.sv|
 !i113 1
-R5
+R13
+R14
 n@i@r
 vIR_tb
-R6
-R7
+R1
+R3
 !i10b 1
 !s100 K]Yl`Z1YQ`z3LlRL2cJN_2
-R1
-Ia^bZzK^XUeVk=`2Kk4G7N0
-R2
+R15
+ID]1[d0ma8O?OoECjeaTQ40
+R4
 S1
-R8
-R9
-R10
-R11
-!i122 11
+R0
+R21
+R22
+R23
+!i122 3
 L0 36 59
-R3
+R9
 r1
 !s85 0
 31
-R12
-Z14 !s107 ./IR.sv|
-R13
+R10
+R24
+R25
 !i113 1
-R5
+R13
+R14
 n@i@r_tb
 vPC
-R6
-Z15 !s110 1780635715
+R1
+R3
 !i10b 1
 !s100 JhlWcFgdfM:4h81k9ZU^20
-R1
-I3=8c8BkSCUmTFN5><k61[3
-R2
+R15
+ILVDngP]9=iSYaihBcB[TB1
+R4
 S1
-R8
-Z16 w1780613688
-Z17 8./PC.sv
-Z18 F./PC.sv
-!i122 4
+R0
+Z26 w1780613688
+Z27 8./PC.sv
+Z28 F./PC.sv
+!i122 1
 L0 16 17
-R3
+R9
 r1
 !s85 0
 31
-Z19 !s108 1780635714.000000
-Z20 !s107 ./PC.sv|
-Z21 !s90 -reportprogress|300|./PC.sv|
+R10
+Z29 !s107 ./PC.sv|
+Z30 !s90 -reportprogress|300|-work|work|+acc|./PC.sv|
 !i113 1
-R5
+R13
+R14
 n@p@c
 vPC_tb
-R6
-R15
+R1
+R3
 !i10b 1
 !s100 o]XZKfFCVdjiD_CzSa7kH2
-R1
-I71b3;bCU5OUTLO@lz^<;K0
-R2
+R15
+IeM^AL;j@VIWFc1J[3Nb7W2
+R4
 S1
-R8
-R16
-R17
-R18
-!i122 4
+R0
+R26
+R27
+R28
+!i122 1
 L0 39 93
-R3
+R9
 r1
 !s85 0
 31
-R19
-R20
-R21
+R10
+R29
+R30
 !i113 1
-R5
+R13
+R14
 n@p@c_tb
 vROM_PC_IR
-R6
-Z22 DXx4 work 17 ROM_PC_IR_sv_unit 0 22 >aW8LnO>NJgQ[9<Q6DEOh3
-Z23 !s110 1780613836
-R2
+R1
+Z31 DXx4 work 17 ROM_PC_IR_sv_unit 0 22 >aW8LnO>NJgQ[9<Q6DEOh3
+R3
+R4
 r1
 !s85 0
 !i10b 1
 !s100 `B=0W74=8[J8TBS3Y<]Oc1
 IlU6c05A<UR63gXidH43Vh1
-Z24 !s105 ROM_PC_IR_sv_unit
+Z32 !s105 ROM_PC_IR_sv_unit
 S1
 R0
-Z25 w1780613826
-Z26 8./ROM_PC_IR.sv
-Z27 F./ROM_PC_IR.sv
+Z33 w1780615560
+Z34 8./ROM_PC_IR.sv
+Z35 F./ROM_PC_IR.sv
 !i122 0
 L0 17 15
-R3
+R9
 31
-Z28 !s108 1780613836.000000
-Z29 !s107 ./ROM_PC_IR.sv|
-Z30 !s90 -reportprogress|300|-work|work|+acc|./ROM_PC_IR.sv|
+R10
+Z36 !s107 ./ROM_PC_IR.sv|
+Z37 !s90 -reportprogress|300|-work|work|+acc|./ROM_PC_IR.sv|
 !i113 1
-R4
-R5
+R13
+R14
 n@r@o@m_@p@c_@i@r
 XROM_PC_IR_sv_unit
-R6
-R23
+R1
+R3
 V>aW8LnO>NJgQ[9<Q6DEOh3
 r1
 !s85 0
@@ -172,44 +308,44 @@ I>aW8LnO>NJgQ[9<Q6DEOh3
 !i103 1
 S1
 R0
-R25
-R26
-R27
+R33
+R34
+R35
 !i122 0
 L0 10 0
-R3
+R9
 31
-R28
-R29
-R30
+R10
+R36
+R37
 !i113 1
-R4
-R5
+R13
+R14
 n@r@o@m_@p@c_@i@r_sv_unit
 vROM_PC_IR_tb
-R6
-R22
-R23
-R2
+R1
+R31
+R3
+R4
 r1
 !s85 0
 !i10b 1
 !s100 `@5a_?b3?z=m8c7SQeDGY2
 I]SI>6dHSAL`^aZ0oEnR<=0
-R24
+R32
 S1
 R0
-R25
-R26
-R27
+R33
+R34
+R35
 !i122 0
 L0 38 56
-R3
+R9
 31
-R28
-R29
-R30
+R10
+R36
+R37
 !i113 1
-R4
-R5
+R13
+R14
 n@r@o@m_@p@c_@i@r_tb

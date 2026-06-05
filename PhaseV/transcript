@@ -1,162 +1,276 @@
 # Reading pref.tcl
-do runIR.do
-# ** Warning: (vlib-34) Library already exists at "work".
+do controllerrtl.do
+# 
+# Get rid of current work lib
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# 
+# Create work library and map it to 'work'
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Modifying modelsim.ini
+# 
+# Compile Verilog
+#     All Verilog files that are part of this design should have
+#     their own "vlog" line below.
+# vlog -work work +acc "./ROM_PC_IR.sv"
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 22:07:35 on Jun 04,2026
-# vlog -reportprogress 300 ./IR.sv 
-# -- Compiling module IR
-# -- Compiling module IR_tb
+# Start time: 22:16:00 on Jun 04,2026
+# vlog -reportprogress 300 -work work "+acc" ./ROM_PC_IR.sv 
+# ** Warning: ./ROM_PC_IR.sv(10): (vlog-2283) Extra semicolon in $unit (global) scope.
+# ** Warning: ./ROM_PC_IR.sv(93): (vlog-2284) Empty $unit scope found.
+# -- Compiling package ROM_PC_IR_sv_unit
+# -- Compiling module ROM_PC_IR
+# -- Compiling module ROM_PC_IR_tb
 # 
 # Top level modules:
-# 	IR_tb
-# End time: 22:07:35 on Jun 04,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# vsim -voptargs=""+acc"" -t 1ps -lib work IR_tb 
-# Start time: 22:07:35 on Jun 04,2026
-# Loading sv_std.std
-# Loading work.IR_tb
-# Loading work.IR
-# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'DUT'.  Expected 5, found 4.
-#    Time: 0 ps  Iteration: 0  Instance: /IR_tb/DUT File: ./IR.sv Line: 54
-# ** Warning: (vsim-3722) ./IR.sv(54): [TFMPC] - Missing connection for port 'Clr'.
-# WARNING: No extended dataflow license exists
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-#           File in use by: lando  Hostname: LANDONSLAPTOP  ProcessID: 29424
-#           Attempting to use alternate WLF file "./wlft5q9bab".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlft5q9bab
-# ** UI-Msg: (vish-4014) No objects found matching '/IR_tb/Up'.
-# Executing ONERROR command at macro ./IRwave.do line 4
-# .main_pane.wave.interior.cs.body.pw.wf
-# .main_pane.structure.interior.cs.body.struct
-# .main_pane.objects.interior.cs.body.tree
-# time	Clk	Ld	DataIn	DataOut
-#     0	0	1	0000	xxxx
-#     5	1	1	0000	0000
-#    10	0	1	5231	0000
-#    15	1	1	5231	5231
-#    20	0	0	5231	5231
-#    25	1	0	5231	5231
-#    30	0	0	5231	5231
-#    35	1	0	5231	5231
-#    40	0	0	5231	5231
-#    45	1	0	5231	5231
-#    50	0	0	5231	5231
-#    55	1	0	5231	5231
-#    60	0	0	5231	5231
-#    65	1	0	5231	5231
-#    70	0	0	5231	5231
-#    75	1	0	5231	5231
-# ** Error: IR did not reset its contents! Expected DataOut = 5231, got DataOut = 0.
-#    Time: 77 ps  Scope: IR_tb File: ./IR.sv Line: 90
-# ** Note: $stop    : ./IR.sv(92)
-#    Time: 77 ps  Iteration: 0  Instance: /IR_tb
-# Break in Module IR_tb at ./IR.sv line 92
-do runIR.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 22:08:34 on Jun 04,2026
-# vlog -reportprogress 300 ./IR.sv 
-# -- Compiling module IR
-# -- Compiling module IR_tb
-# 
-# Top level modules:
-# 	IR_tb
-# End time: 22:08:34 on Jun 04,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 22:08:42 on Jun 04,2026, Elapsed time: 0:01:07
-# Errors: 1, Warnings: 4
-# vsim -voptargs=""+acc"" -t 1ps -lib work IR_tb 
-# Start time: 22:08:42 on Jun 04,2026
-# Loading sv_std.std
-# Loading work.IR_tb
-# Loading work.IR
-# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'DUT'.  Expected 5, found 4.
-#    Time: 0 ps  Iteration: 0  Instance: /IR_tb/DUT File: ./IR.sv Line: 54
-# ** Warning: (vsim-3722) ./IR.sv(54): [TFMPC] - Missing connection for port 'Clr'.
-# WARNING: No extended dataflow license exists
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-#           File in use by: lando  Hostname: LANDONSLAPTOP  ProcessID: 29424
-#           Attempting to use alternate WLF file "./wlfth38eb3".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlfth38eb3
-# ** UI-Msg: (vish-4014) No objects found matching '/IR_tb/Up'.
-# Executing ONERROR command at macro ./IRwave.do line 4
-# .main_pane.wave.interior.cs.body.pw.wf
-# .main_pane.structure.interior.cs.body.struct
-# .main_pane.objects.interior.cs.body.tree
-# time	Clk	Ld	DataIn	DataOut
-#     0	0	1	0000	xxxx
-#     5	1	1	0000	0000
-#    10	0	1	5231	0000
-#    15	1	1	5231	5231
-#    20	0	0	5231	5231
-#    25	1	0	5231	5231
-#    30	0	0	5231	5231
-#    35	1	0	5231	5231
-#    40	0	0	5231	5231
-#    45	1	0	5231	5231
-#    50	0	0	5231	5231
-#    55	1	0	5231	5231
-#    60	0	0	5231	5231
-#    65	1	0	5231	5231
-#    70	0	0	5231	5231
-#    75	1	0	5231	5231
-# ** Error: IR did not reset its contents! Expected DataOut = 0, got DataOut = 5231.
-#    Time: 77 ps  Scope: IR_tb File: ./IR.sv Line: 90
-# ** Note: $stop    : ./IR.sv(92)
-#    Time: 77 ps  Iteration: 0  Instance: /IR_tb
-# Break in Module IR_tb at ./IR.sv line 92
-do runIR.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 22:09:11 on Jun 04,2026
-# vlog -reportprogress 300 ./IR.sv 
-# -- Compiling module IR
-# -- Compiling module IR_tb
-# 
-# Top level modules:
-# 	IR_tb
-# End time: 22:09:11 on Jun 04,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 22:09:18 on Jun 04,2026, Elapsed time: 0:00:36
-# Errors: 1, Warnings: 4
-# vsim -voptargs=""+acc"" -t 1ps -lib work IR_tb 
-# Start time: 22:09:18 on Jun 04,2026
-# Loading sv_std.std
-# Loading work.IR_tb
-# Loading work.IR
-# WARNING: No extended dataflow license exists
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-#           File in use by: lando  Hostname: LANDONSLAPTOP  ProcessID: 29424
-#           Attempting to use alternate WLF file "./wlft3qc04k".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlft3qc04k
-# ** UI-Msg: (vish-4014) No objects found matching '/IR_tb/Up'.
-# Executing ONERROR command at macro ./IRwave.do line 4
-# .main_pane.wave.interior.cs.body.pw.wf
-# .main_pane.structure.interior.cs.body.struct
-# .main_pane.objects.interior.cs.body.tree
-# time	Clk	Ld	DataIn	DataOut
-#     0	0	1	0000	xxxx
-#     5	1	1	0000	0000
-#    10	0	1	5231	0000
-#    15	1	1	5231	5231
-#    20	0	0	5231	5231
-#    25	1	0	5231	5231
-#    30	0	0	5231	5231
-#    35	1	0	5231	5231
-#    40	0	0	5231	5231
-#    45	1	0	5231	5231
-#    50	0	0	5231	5231
-#    55	1	0	5231	5231
-#    60	0	0	5231	5231
-#    65	1	0	5231	5231
-#    70	0	0	5231	5231
-#    75	1	0	5231	0000
-# ** Note: $stop    : ./IR.sv(92)
-#    Time: 77 ps  Iteration: 0  Instance: /IR_tb
-# Break in Module IR_tb at ./IR.sv line 92
-quit
-# End time: 22:09:37 on Jun 04,2026, Elapsed time: 0:00:19
+# 	ROM_PC_IR_tb
+# End time: 22:16:00 on Jun 04,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 2
+# vlog -work work +acc "./PC.sv"
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:16:00 on Jun 04,2026
+# vlog -reportprogress 300 -work work "+acc" ./PC.sv 
+# -- Compiling module PC
+# -- Compiling module PC_tb
+# 
+# Top level modules:
+# 	PC_tb
+# End time: 22:16:00 on Jun 04,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -work work +acc "./InstMemory.v"
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:16:00 on Jun 04,2026
+# vlog -reportprogress 300 -work work "+acc" ./InstMemory.v 
+# -- Compiling module InstMemory
+# 
+# Top level modules:
+# 	InstMemory
+# End time: 22:16:00 on Jun 04,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -work work +acc "./IR.sv"
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:16:00 on Jun 04,2026
+# vlog -reportprogress 300 -work work "+acc" ./IR.sv 
+# -- Compiling module IR
+# -- Compiling module IR_tb
+# 
+# Top level modules:
+# 	IR_tb
+# End time: 22:16:00 on Jun 04,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -work work +acc "./ControlFSM.sv"
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:16:00 on Jun 04,2026
+# vlog -reportprogress 300 -work work "+acc" ./ControlFSM.sv 
+# -- Compiling package ControlFSM_sv_unit
+# -- Compiling module ControlFSM
+# -- Compiling module ControlFSM_tb
+# 
+# Top level modules:
+# 	ControlFSM_tb
+# End time: 22:16:00 on Jun 04,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -work work +acc "./Controller.sv"
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:16:00 on Jun 04,2026
+# vlog -reportprogress 300 -work work "+acc" ./Controller.sv 
+# -- Compiling module Controller
+# ** Error: ./Controller.sv(23): (vlog-13294) Identifier must be declared with a port mode: RF_s.
+# ** Error: ./Controller.sv(29): (vlog-2730) Undefined variable: 'state'.
+# ** Error: ./Controller.sv(29): (vlog-13294) Identifier must be declared with a port mode: state.
+# ** Error: ./Controller.sv(30): (vlog-2730) Undefined variable: 'nextState'.
+# ** Error: ./Controller.sv(30): (vlog-13294) Identifier must be declared with a port mode: nextState.
+# -- Compiling module Controller_tb
+# End time: 22:16:00 on Jun 04,2026, Elapsed time: 0:00:00
+# Errors: 5, Warnings: 0
+# ** Error: C:/intelFPGA/20.1/modelsim_ase/win32aloem/vlog failed.
+# Error in macro ./controllerrtl.do line 21
+# C:/intelFPGA/20.1/modelsim_ase/win32aloem/vlog failed.
+#     while executing
+# "vlog -work work +acc "./Controller.sv""
+do controllerrtl.do
+# 
+# Get rid of current work lib
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# 
+# Create work library and map it to 'work'
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Modifying modelsim.ini
+# 
+# Compile Verilog
+#     All Verilog files that are part of this design should have
+#     their own "vlog" line below.
+# vlog -work work +acc "./ROM_PC_IR.sv"
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:17:29 on Jun 04,2026
+# vlog -reportprogress 300 -work work "+acc" ./ROM_PC_IR.sv 
+# ** Warning: ./ROM_PC_IR.sv(10): (vlog-2283) Extra semicolon in $unit (global) scope.
+# ** Warning: ./ROM_PC_IR.sv(93): (vlog-2284) Empty $unit scope found.
+# -- Compiling package ROM_PC_IR_sv_unit
+# -- Compiling module ROM_PC_IR
+# -- Compiling module ROM_PC_IR_tb
+# 
+# Top level modules:
+# 	ROM_PC_IR_tb
+# End time: 22:17:29 on Jun 04,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 2
+# vlog -work work +acc "./PC.sv"
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:17:29 on Jun 04,2026
+# vlog -reportprogress 300 -work work "+acc" ./PC.sv 
+# -- Compiling module PC
+# -- Compiling module PC_tb
+# 
+# Top level modules:
+# 	PC_tb
+# End time: 22:17:29 on Jun 04,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -work work +acc "./InstMemory.v"
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:17:29 on Jun 04,2026
+# vlog -reportprogress 300 -work work "+acc" ./InstMemory.v 
+# -- Compiling module InstMemory
+# 
+# Top level modules:
+# 	InstMemory
+# End time: 22:17:29 on Jun 04,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -work work +acc "./IR.sv"
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:17:29 on Jun 04,2026
+# vlog -reportprogress 300 -work work "+acc" ./IR.sv 
+# -- Compiling module IR
+# -- Compiling module IR_tb
+# 
+# Top level modules:
+# 	IR_tb
+# End time: 22:17:29 on Jun 04,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -work work +acc "./ControlFSM.sv"
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:17:29 on Jun 04,2026
+# vlog -reportprogress 300 -work work "+acc" ./ControlFSM.sv 
+# -- Compiling package ControlFSM_sv_unit
+# -- Compiling module ControlFSM
+# -- Compiling module ControlFSM_tb
+# 
+# Top level modules:
+# 	ControlFSM_tb
+# End time: 22:17:29 on Jun 04,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -work work +acc "./Controller.sv"
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:17:29 on Jun 04,2026
+# vlog -reportprogress 300 -work work "+acc" ./Controller.sv 
+# -- Compiling module Controller
+# -- Compiling module Controller_tb
+# 
+# Top level modules:
+# 	Controller_tb
+# End time: 22:17:29 on Jun 04,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# Call vsim to invoke simulator
+#     Make sure the last item on the line is the name of the
+#     testbench module you want to execute.
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc" -fsmdebug  ROM_PC_IR_tb
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=""+acc"" -fsmdebug ROM_PC_IR_tb 
+# Start time: 22:17:29 on Jun 04,2026
+# Loading sv_std.std
+# Loading work.ROM_PC_IR_sv_unit
+# Loading work.ROM_PC_IR_tb
+# Loading work.ROM_PC_IR
+# Loading work.PC
+# Loading work.InstMemory
+# Loading altera_mf_ver.altsyncram
+# Loading work.IR
+# Loading altera_mf_ver.altsyncram_body
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'instructionRegister'.  Expected 5, found 4.
+#    Time: 0 ps  Iteration: 0  Instance: /ROM_PC_IR_tb/DUT/instructionRegister File: ./ROM_PC_IR.sv Line: 30
+# ** Warning: (vsim-3722) ./ROM_PC_IR.sv(30): [TFMPC] - Missing connection for port 'Clr'.
+# WARNING: No extended dataflow license exists
+# 
+# Source the wave do file
+#     This should be the file that sets up the signal window for
+#     the module you are testing.
+# do ROM_PC_IRwave.do
+# onerror {resume}
+# quietly WaveActivateNextPane {} 0
+# add wave -noupdate /ROM_PC_IR_tb/Clk
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: lando  Hostname: LANDONSLAPTOP  ProcessID: 29424
+#           Attempting to use alternate WLF file "./wlftr30jv5".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftr30jv5
+# add wave -noupdate /ROM_PC_IR_tb/LD
+# add wave -noupdate /ROM_PC_IR_tb/Clr
+# add wave -noupdate /ROM_PC_IR_tb/UP
+# add wave -noupdate /ROM_PC_IR_tb/IR_OUT
+# add wave -noupdate /ROM_PC_IR_tb/DUT.IR_IN
+# add wave -noupdate /ROM_PC_IR_tb/DUT.PC_addr
+# 
+# 
+# add wave -noupdate /Light_testbench/X1
+# ** UI-Msg: (vish-4014) No objects found matching '/Light_testbench/X1'.
+# Executing ONERROR command at macro ./ROM_PC_IRwave.do line 12
+# add wave -noupdate /Light_testbench/X2
+# ** UI-Msg: (vish-4014) No objects found matching '/Light_testbench/X2'.
+# Executing ONERROR command at macro ./ROM_PC_IRwave.do line 13
+# TreeUpdate [SetDefaultTree]
+# WaveRestoreCursors {{Cursor 1} {0 ps} 0}
+# quietly wave cursor active 0
+# configure wave -namecolwidth 150
+# configure wave -valuecolwidth 100
+# configure wave -justifyvalue left
+# configure wave -signalnamewidth 0
+# configure wave -snapdistance 10
+# configure wave -datasetprefix 0
+# configure wave -rowmargin 4
+# configure wave -childrowmargin 2
+# configure wave -gridoffset 0
+# configure wave -gridperiod 1
+# configure wave -griddelta 40
+# configure wave -timeline 0
+# configure wave -timelineunits ps
+# update
+# WaveRestoreZoom {0 ps} {1 ns}
+# 
+# Set the window types
+# view wave
+# .main_pane.wave.interior.cs.body.pw.wf
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# 
+# Run the simulation
+# run -all
+# ** Note: $stop    : ./ROM_PC_IR.sv(70)
+#    Time: 7720 ps  Iteration: 1  Instance: /ROM_PC_IR_tb
+# Break in Module ROM_PC_IR_tb at ./ROM_PC_IR.sv line 70
+# 
+# View the entire wave display
+# wave zoomfull
+# 0 ps
+# 8106 ps
+# 
+# End
+quitr
+# invalid command name "quitr"
+quit'
+# invalid command name "quit'"
+
+quit
+# End time: 22:17:45 on Jun 04,2026, Elapsed time: 0:00:16
+# Errors: 0, Warnings: 4

@@ -26,10 +26,10 @@ module Controller(  Clk,
                     RF_Ra_addr, 
                     RF_Rb_addr, 
                     ALU_s0, 
-                    state, 
-                    nextState, 
+                    State, 
+                    NextState, 
                     IR_OUT);
-    input Clk, ResetN;
+    input Clk, ResetN, RF_s;
     output [7:0] D_addr;
     output [3:0] RF_W_addr, RF_Ra_addr, RF_Rb_addr, State, NextState;
     output [2:0] ALU_s0;
@@ -57,7 +57,7 @@ module Controller(  Clk,
         .RF_Rb_addr(RF_Rb_addr),
         .ALU_s0(ALU_s0), 
         .State(State), 
-        .nextState(NextState));
+        .NextState(NextState));
 endmodule
 
 module Controller_tb();
@@ -79,7 +79,7 @@ module Controller_tb();
         RF_Ra_addr, 
         RF_Rb_addr, 
         ALU_s0, 
-        state, 
-        nextState, 
+        State, 
+        NextState, 
         IR_OUT);
 endmodule
