@@ -3,7 +3,8 @@ quietly WaveActivateNextPane {} 0
 add wave -noupdate /IR_tb/Clk
 add wave -noupdate /IR_tb/Up
 add wave -noupdate /IR_tb/Clr
-add wave -noupdate -hex /IR_tb/Q
+add wave -noupdate -hex /IR_tb/DataIn
+add wave -noupdate -hex /IR_tb/DataOut
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {0 ps} 0}
 quietly wave cursor active 0

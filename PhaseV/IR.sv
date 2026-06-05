@@ -9,27 +9,32 @@
  * A 16-bit instruction register module.
  *
  * Clk is the clock signal board's clock signal
+ * Clr is a high-driven reset signal
  * Ld is the enable signal to load DataIn
  * DataIn is the data being fed in to the IR
  * DataOut is the data coming out of the IR
  */
-module IR(Clk, Ld, DataIn, DataOut);
-    input Clk, Ld;
+module IR(Clk, Ld, DataIn, DataOut, Clr);
+    input Clk, Ld, Clr;
     input [15:0] DataIn;
     output logic [15:0] DataOut;
 
     always_ff @( posedge Clk ) begin
-        if (Ld) begin
-            DataOut <= DataIn;
+        if (Clr) begin
+            DataOut <= 16'h0000;
         end else begin
-            DataOut <= DataOut;
+            if (Ld) begin
+                DataOut <= DataIn;
+            end else begin
+                DataOut <= DataOut;
+            end
         end
     end
 endmodule
 
 /* Testbench for the above module. */
 module IR_tb();
-    logic Clk, Ld;
+    logic Clk, Ld, Clr;
     logic [15:0] DataIn, DataOut;
 
     // number of bits to test
@@ -46,7 +51,7 @@ module IR_tb();
         Clk = 1; #(ClkCycleTime/2);
     end
 
-    IR DUT (.Clk(Clk), .Ld(Ld), .DataIn(DataIn), .DataOut(DataOut));
+    IR DUT (.Clk(Clk), .Ld(Ld), .DataIn(DataIn), .DataOut(DataOut), .Clr(Clr));
 
     initial begin
         // Set up monitor
@@ -60,14 +65,14 @@ module IR_tb();
 
         @(negedge Clk);
 
-        assert(DataOut == 16'h0) else $error({"IR did not reset! ", ASSERT_MESSAGE}, DataIn, 1'b0);
+        assert(DataOut == 16'h0) else $error({"IR did not reset! ", ASSERT_MESSAGE}, DataOut, 1'b0);
 
         Ld = 1;
         DataIn = TEST_VALUE;
 
         @(negedge Clk);
 
-        assert(DataOut == TEST_VALUE) else $error({"IR did not take on new value! ", ASSERT_MESSAGE}, DataIn, TEST_VALUE);
+        assert(DataOut == TEST_VALUE) else $error({"IR did not take on new value! ", ASSERT_MESSAGE}, TEST_VALUE, DataOut);
 
         Ld = 0;
 
@@ -75,15 +80,14 @@ module IR_tb();
             @(negedge Clk);
         end
 
-        assert(DataOut == TEST_VALUE) else $error({"IR did not hold current value! ", ASSERT_MESSAGE}, DataIn, TEST_VALUE);
+        assert(DataOut == TEST_VALUE) else $error({"IR did not hold current value! ", ASSERT_MESSAGE}, TEST_VALUE, DataOut);
 
-        Ld = 1;
-        DataIn = 0;
+        Clr = 1;
 
         @(posedge Clk);
         #2;
 
-        assert(DataOut == 0) else $error({"IR did not take in new value on rising edge! ", ASSERT_MESSAGE}, DataIn, 1'b0);
+        assert(DataOut == 16'h0000) else $error({"IR did not reset its contents! ", ASSERT_MESSAGE}, 1'b0, DataOut);
 
         $stop;
     end
