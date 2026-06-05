@@ -70,7 +70,9 @@ module Processor(
         .RF_W_en(RF_W_en),
         .RF_Ra_addr(RF_Ra_addr),
         .RF_Rb_addr(RF_Rb_addr),
-        .ALU_s0(ALU_s0)
+        .ALU_s0(ALU_s0),
+        .nextState(NextState),
+        .state(State);
     );
 
     Datapath datapath (
