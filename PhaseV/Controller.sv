@@ -35,7 +35,7 @@ module Controller(  Clk,
     output [3:0] RF_W_addr, RF_Ra_addr, RF_Rb_addr, State, NextState;
     output [2:0] ALU_s0;
     output RF_W_en, D_wr;
-    output [16:0] IR_OUT;
+    output [15:0] IR_OUT;
     logic LD, UP, Clr; 
 
     // ROM_PC_IR(Clk, LD, IR_OUT, UP, Clr);
@@ -58,6 +58,28 @@ module Controller(  Clk,
         .RF_Rb_addr(RF_Rb_addr),
         .ALU_s0(ALU_s0), 
         .State(State), 
-        .nextState(NextState));
+        .nextState(NextState)
+        );
 endmodule
+
+/** 
+    This module tests the Controller module. Since we already know that the FSM will output
+    the correct values and the connections for teh non-FSM parts work, the purpose fo this testbech
+    is to test if the FSM can communicate with the other parts of the circuit and have the correct
+    states while doing so. 
+*/
+module Controller_tb();
+    logic Clk, ResetN, D_wr, RF_W_en;
+    logic [2:0] ALU_s0;
+    logic [3:0] RF_W_addr, RF_Ra_addr, RF_Rb_addr, State, NextState;
+    logic [7:0] D_Addr;
+    logic [15:0] IR_OUT;
+    localparam clkTime = 20;
+
+    always begin
+        Clk = 1; #(clkTime / 2);
+        Clk = 0; #(clkTime / 2);
+    end
+endmodule
+
 
