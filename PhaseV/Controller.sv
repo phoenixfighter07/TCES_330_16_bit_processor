@@ -19,8 +19,11 @@
 module Controller(  Clk, 
                     ResetN, 
                     D_addr, 
+                    D_wr,
                     RF_s, 
                     RF_W_addr, 
+                    RF_W_en,
+                    D_wr,
                     RF_Ra_addr, 
                     RF_Rb_addr, 
                     ALU_s0, 
@@ -30,7 +33,8 @@ module Controller(  Clk,
     input Clk, ResetN;
     output [7:0] D_addr;
     output [3:0] RF_W_addr, RF_Ra_addr, RF_Rb_addr, State, NextState;
-    output [2:0] ALU_s0, RF_W_en, D_wr;
+    output [2:0] ALU_s0;
+    output RF_W_en, D_wr;
     output [16:0] IR_OUT;
     logic LD, UP, Clr; 
 

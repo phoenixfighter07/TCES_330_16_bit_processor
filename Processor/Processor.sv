@@ -60,9 +60,13 @@ module Processor(
     logic D_wr, RF_s, RF_W_en;
     logic [3:0] RF_W_addr, RF_Ra_addr, RF_Rb_addr;
     logic [3:0] ALU_s0;
+    logic [15:0] IR_OUT;
 
-    Control control (
+    logic ResetN;
+
+    Controller controller (
         .Clk(Clk),
+        .ResetN(ResetN),
         .D_addr(D_addr),
         .D_wr(D_wr),
         .RF_s(RF_s),
@@ -73,6 +77,7 @@ module Processor(
         .ALU_s0(ALU_s0),
         .nextState(NextState),
         .state(State);
+        .IR_OUT(IR_OUT);
     );
 
     Datapath datapath (
