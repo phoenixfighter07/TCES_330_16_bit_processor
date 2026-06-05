@@ -587,3 +587,6 @@ do runrtl.do
 # Error: Error loading design
 #        Pausing macro execution
 # MACRO ./runrtl.do PAUSED at line 27
+quit
+# End time: 21:26:42 on Jun 04,2026, Elapsed time: 5:01:05
+# Errors: 1, Warnings: 0
