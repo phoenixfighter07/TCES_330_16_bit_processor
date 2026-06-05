@@ -23,7 +23,6 @@ module Controller(  Clk,
                     RF_s, 
                     RF_W_addr, 
                     RF_W_en,
-                    D_wr,
                     RF_Ra_addr, 
                     RF_Rb_addr, 
                     ALU_s0, 
@@ -61,3 +60,26 @@ module Controller(  Clk,
         .nextState(NextState));
 endmodule
 
+module Controller_tb();
+    logic Clk, ResetN;
+    logic [7:0] D_addr;
+    logic [3:0] RF_W_addr, RF_Ra_addr, RF_Rb_addr, State, NextState;
+    logic [2:0] ALU_s0;
+    logic RF_W_en, D_wr;
+    logic [16:0] IR_OUT;
+
+    Controller DUT (
+        Clk, 
+        ResetN, 
+        D_addr, 
+        D_wr,
+        RF_s, 
+        RF_W_addr, 
+        RF_W_en,
+        RF_Ra_addr, 
+        RF_Rb_addr, 
+        ALU_s0, 
+        state, 
+        nextState, 
+        IR_OUT);
+endmodule
