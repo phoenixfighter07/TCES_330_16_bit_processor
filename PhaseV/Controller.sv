@@ -29,11 +29,11 @@ module Controller(  Clk,
                     State, 
                     NextState, 
                     IR_OUT);
-    input Clk, ResetN, RF_s;
-    output [7:0] D_addr;
-    output [3:0] RF_W_addr, RF_Ra_addr, RF_Rb_addr, State, NextState;
+    input Clk, ResetN;
+    output RF_W_en, D_wr, RF_s;
     output [2:0] ALU_s0;
-    output RF_W_en, D_wr;
+    output [3:0] RF_W_addr, RF_Ra_addr, RF_Rb_addr, State, NextState;
+    output [7:0] D_addr;
     output [15:0] IR_OUT;
     logic LD, UP, Clr; 
 
@@ -87,4 +87,7 @@ module Controller_tb();
         State, 
         NextState, 
         IR_OUT);
+
+    always begin
+
 endmodule
