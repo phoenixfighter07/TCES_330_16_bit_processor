@@ -3,6 +3,8 @@
 // Project Phase V
 // This file tests the full control side of the processor. 
 
+
+import FSMstates::*;
 /**
     Clk: The clock
     ResetN: An active-low reset signal
@@ -74,8 +76,9 @@ module Controller_tb();
     logic [2:0] ALU_s0;
     logic [3:0] RF_W_addr, RF_Ra_Addr, RF_Rb_Addr
     state State, NextState;
+    logic [6:0] fetchCounter;
     logic [7:0] D_addr;
-    logic [16:0] IR_OUT, fetchCounter; 
+    logic [15:0] IR_OUT, IR_Tracker; 
 
 
     Controller DUT (
@@ -105,6 +108,10 @@ module Controller_tb();
         testReset();
 
         // figure out how to test PC 
+        always @(state != HALT) begin
+            @ (negedge Clk)
+            testPC_OUT();
+        end
         
     end
 
@@ -130,6 +137,16 @@ module Controller_tb();
         assert(PC_OUT == fetchCounter)
         else $error("PC_OUT not updating correctly. Expected %d, read %d");
     endtask
+
+    task automatic testIR();
+        if (State == Fetch) begin
+            IR_Tracker = IR_OUT;
+        end
+
+        assert(IR_OUT == IR_Tracker)
+        else $error("IR ERROR. Elaborate on data in the next commit");
+    endtask
+
 
 endmodule
 `endif
