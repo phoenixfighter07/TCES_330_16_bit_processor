@@ -3,6 +3,8 @@
 // Project Phase V
 // This file tests the full control side of the processor. 
 
+
+import FSMstates::*;
 /**
     Clk: The clock
     ResetN: An active-low reset signal
@@ -28,12 +30,13 @@ module Controller(  Clk,
                     ALU_s0, 
                     State, 
                     NextState, 
-                    IR_OUT);
+                    IR_OUT, 
+                    PC_OUT);
     input Clk, ResetN;
     output RF_W_en, D_wr, RF_s;
     output [2:0] ALU_s0;
     output [3:0] RF_W_addr, RF_Ra_addr, RF_Rb_addr, State, NextState;
-    output [7:0] D_addr;
+    output [7:0] D_addr, PC_OUT;
     output [15:0] IR_OUT;
     logic LD, UP, Clr; 
 
@@ -69,10 +72,12 @@ endmodule
 module Controller_tb();
     logic Clk, ResetN;
     logic [7:0] D_addr;
-    logic [3:0] RF_W_addr, RF_Ra_addr, RF_Rb_addr, State, NextState;
+    logic [3:0] RF_W_addr, RF_Ra_addr, RF_Rb_addr, 
+    state State, NextState;
     logic [2:0] ALU_s0;
     logic RF_W_en, D_wr;
     logic [16:0] IR_OUT;
+    localparam clkTime = 20;
 
     Controller DUT (
         Clk, 
@@ -87,7 +92,8 @@ module Controller_tb();
         ALU_s0, 
         State, 
         NextState, 
-        IR_OUT);
+        IR_OUT, 
+        PC_OUT);
 
     always begin
         Clk = 1; #(clkTime / 2);
@@ -96,10 +102,19 @@ module Controller_tb();
 
     initial begin   
         ResetN = 0;
-
+        waitCycles(1);
 
     end
 
     task automatic waitCycles(input cycles)
+        repeat(cycles) begin
+            @ (negedge Clk);
+        end
+    endtask
+
+    task automatic assertReset();
+        assert(State == 0)
+        else $error("Error with reset. Expected Init, got %s", state.getname());
+    endtask
 endmodule
 `endif
