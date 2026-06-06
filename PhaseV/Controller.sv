@@ -56,10 +56,15 @@ module Controller(  Clk,
         .RF_Ra_addr(RF_Ra_addr),
         .RF_Rb_addr(RF_Rb_addr),
         .ALU_s0(ALU_s0), 
-        .State(State), 
+        .CurrentState(State), 
         .NextState(NextState));
 endmodule
 
+/**
+    This module tests the controller unit. Since the ROM_PC_IR unit was already tested, the purpose
+    of the testbench is to see whether the controlFSM communicates properly with al of the other 
+    control units. 
+*/
 module Controller_tb();
     logic Clk, ResetN;
     logic [7:0] D_addr;
