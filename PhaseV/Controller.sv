@@ -60,6 +60,7 @@ module Controller(  Clk,
         .NextState(NextState));
 endmodule
 
+`ifdef MODEL_TECH
 /**
     This module tests the controller unit. Since the ROM_PC_IR unit was already tested, the purpose
     of the testbench is to see whether the controlFSM communicates properly with al of the other 
@@ -92,4 +93,13 @@ module Controller_tb();
         Clk = 1; #(clkTime / 2);
         Clk = 0; #(clkTime / 2);
     end
+
+    initial begin   
+        ResetN = 0;
+
+
+    end
+
+    task automatic waitCycles(input cycles)
 endmodule
+`endif
