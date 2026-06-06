@@ -33,12 +33,13 @@ module Controller(  Clk,
     output RF_W_en, D_wr, RF_s;
     output [2:0] ALU_s0;
     output [3:0] RF_W_addr, RF_Ra_Addr, RF_Rb_Addr, State, NextState;
+    output [6:0] PC_OUT;
     output [7:0] D_addr;
     output [15:0] IR_OUT;
     logic LD, UP, Clr; 
 
     // ROM_PC_IR(Clk, LD, IR_OUT, UP, Clr);
-    ROM_PC_IR instruction(.Clk(Clk), .LD(LD), .UP(UP), .Clr(Clr), .IR_OUT(IR_OUT));
+    ROM_PC_IR instruction(.Clk(Clk), .LD(LD), .UP(UP), .Clr(Clr), .IR_OUT(IR_OUT), .PC_OUT(PC_OUT));
 
     // ControlFSM(Clk, ResetN, Instruction, PC_clr, PC_up, IR_ld, D_addr, D_wr, RF_s, RF_Ra_Addr, 
                 // RF_Rb_Addr, RF_W_en, RF_W_addr, ALU_s0)

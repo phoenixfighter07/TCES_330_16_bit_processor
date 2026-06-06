@@ -14,17 +14,17 @@
     UP: Increments the PC
     ClrN: clears the PC
 */
-module ROM_PC_IR(Clk, LD, IR_OUT, UP, Clr);
+module ROM_PC_IR(Clk, LD, IR_OUT, UP, Clr, PC_OUT);
     input Clk, LD, UP, Clr;
+    output [6:0] PC_OUT;
     output [15:0] IR_OUT;
     logic [15:0] IR_IN;
-    logic [6:0] PC_addr;
 
     // PC(Up, Clk, Clr, Q)
-    PC programCounter(.Up(UP), .Clk(Clk), .Clr(Clr), .Q(PC_addr));
+    PC programCounter(.Up(UP), .Clk(Clk), .Clr(Clr), .Q(PC_OUT));
 
     // InstMemory (address,	clock, q);
-    InstMemory ROM(.address(PC_addr), .clock(Clk), .q(IR_IN));
+    InstMemory ROM(.address(PC_OUT), .clock(Clk), .q(IR_IN));
 
     // IR(Clk, Ld, DataIn, DataOut)
     IR instructionRegister(Clk, LD, IR_IN, IR_OUT);
@@ -37,6 +37,7 @@ endmodule
 */
 module ROM_PC_IR_tb();
     logic Clk, LD, UP, Clr;
+    logic [6:0] PC_OUT;
     logic [15:0] IR_OUT;
     localparam clkTime = 20;
 
@@ -80,8 +81,8 @@ module ROM_PC_IR_tb();
     // Checks if the clear signal works. It is implied that the clear signal was already running for a 
     // few cycles. 
     task automatic assertClear();
-        assert(DUT.PC_addr == 0)
-        else $error("Problem clearing PC Counter. Expected 0, got %d", DUT.PC_addr);
+        assert(PC_OUT == 0)
+        else $error("Problem clearing PC Counter. Expected 0, got %d", DUT.PC_OUT);
     endtask
 
     // checks if IR works
