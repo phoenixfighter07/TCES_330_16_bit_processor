@@ -120,14 +120,24 @@ module Controller_tb();
         ResetN = 0;
         waitCycles(1);
         testReset();
-
-        // figure out how to test PC 
+        
+        // tests to see that PC and IR 
         always @(state != HALT) begin
             @ (negedge Clk)
             testPC_OUT();
             testIR();
         end
-        
+
+        // Checks if reset works 
+        ResetN = 0;
+        waitCycles(1);
+        testReset();
+        ResetN = 1;
+        // Checks if reset works in a random cycle
+        waitCycles(10);
+        ResetN = 0;
+        testReset();
+
     end
 
     /** Waits for a certain number of clock cycles */
