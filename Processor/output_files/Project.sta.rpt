@@ -2329,7 +2329,7 @@ Info (332164): Evaluating HDL-embedded SDC commands
         Info (332166): set_clock_groups -asynchronous -group {altera_reserved_tck}
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'Project.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Warning (332060): Node: KeyFilter:filter2|Out was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register Processor:processor|Controller:controller|ControlFSM:control|CurrentState[3] is being clocked by KeyFilter:filter2|Out
+    Info (13166): Register Processor:processor|Controller:controller|FSM:control|CurrentState[3] is being clocked by KeyFilter:filter2|Out
 Warning (332060): Node: CLOCK_50 was determined to be a clock but was found without an associated clock assignment.
     Info (13166): Register KeyFilter:filter1|Out is being clocked by CLOCK_50
 Critical Warning (332168): The following clock transfers have no clock uncertainty assignment. For more accurate results, apply clock uncertainty assignments or use the derive_clock_uncertainty command.
@@ -2368,7 +2368,7 @@ Info: Analyzing Slow 1200mV 0C Model
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Warning (332060): Node: KeyFilter:filter2|Out was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register Processor:processor|Controller:controller|ControlFSM:control|CurrentState[3] is being clocked by KeyFilter:filter2|Out
+    Info (13166): Register Processor:processor|Controller:controller|FSM:control|CurrentState[3] is being clocked by KeyFilter:filter2|Out
 Warning (332060): Node: CLOCK_50 was determined to be a clock but was found without an associated clock assignment.
     Info (13166): Register KeyFilter:filter1|Out is being clocked by CLOCK_50
 Critical Warning (332168): The following clock transfers have no clock uncertainty assignment. For more accurate results, apply clock uncertainty assignments or use the derive_clock_uncertainty command.
@@ -2403,7 +2403,7 @@ Info (332114): Report Metastability: Found 1 synchronizer chains.
     Info (332114): 
 Info: Analyzing Fast 1200mV 0C Model
 Warning (332060): Node: KeyFilter:filter2|Out was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register Processor:processor|Controller:controller|ControlFSM:control|CurrentState[3] is being clocked by KeyFilter:filter2|Out
+    Info (13166): Register Processor:processor|Controller:controller|FSM:control|CurrentState[3] is being clocked by KeyFilter:filter2|Out
 Warning (332060): Node: CLOCK_50 was determined to be a clock but was found without an associated clock assignment.
     Info (13166): Register KeyFilter:filter1|Out is being clocked by CLOCK_50
 Critical Warning (332168): The following clock transfers have no clock uncertainty assignment. For more accurate results, apply clock uncertainty assignments or use the derive_clock_uncertainty command.

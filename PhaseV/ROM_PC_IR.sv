@@ -31,7 +31,7 @@ module ROM_PC_IR(Clk, LD, IR_OUT, UP, Clr, PC_OUT);
 endmodule
 
 /**
-    This testbench tests to see if the connections between the non-controlFSM parts of the control
+    This testbench tests to see if the connections between the non-FSM parts of the control
     section of the processor communicate with each other. It is already assumed that the modules 
     inside the ROM_PC_IR module have been tested and work. 
 */

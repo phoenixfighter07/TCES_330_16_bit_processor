@@ -63,9 +63,9 @@ R12
 R13
 R14
 n@a@l@u_tb
-vControlFSM
+vFSM
 R1
-Z15 DXx4 work 18 ControlFSM_sv_unit 0 22 >JoShBFZ66BY4z7lc:@ld0
+Z15 DXx4 work 18 FSM_sv_unit 0 22 >JoShBFZ66BY4z7lc:@ld0
 Z16 !s110 1780724115
 R4
 r1
@@ -73,25 +73,25 @@ r1
 !i10b 1
 !s100 [kz76NmFeJEI3V?gIeFCM3
 I>k<55oCOjme9PUz57l>1V3
-Z17 !s105 ControlFSM_sv_unit
+Z17 !s105 FSM_sv_unit
 S1
 R0
 Z18 w1780724109
-Z19 8./ControlFSM.sv
-Z20 F./ControlFSM.sv
+Z19 8./FSM.sv
+Z20 F./FSM.sv
 !i122 11
 L0 42 141
 R8
 31
 Z21 !s108 1780724115.000000
-Z22 !s107 ./ControlFSM.sv|
-Z23 !s90 -reportprogress|300|-work|work|+acc|+cover|./ControlFSM.sv|
+Z22 !s107 ./FSM.sv|
+Z23 !s90 -reportprogress|300|-work|work|+acc|+cover|./FSM.sv|
 !i113 1
 R12
 R13
 R14
 n@control@f@s@m
-XControlFSM_sv_unit
+XFSM_sv_unit
 R1
 R16
 V>JoShBFZ66BY4z7lc:@ld0
@@ -118,7 +118,7 @@ R12
 R13
 R14
 n@control@f@s@m_sv_unit
-vControlFSM_tb
+vFSM_tb
 R1
 R15
 R16

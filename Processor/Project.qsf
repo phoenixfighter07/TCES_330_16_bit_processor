@@ -68,7 +68,7 @@ set_global_assignment -name SYSTEMVERILOG_FILE Mux4w_8to1.sv
 set_global_assignment -name SYSTEMVERILOG_FILE IR.sv
 set_global_assignment -name SYSTEMVERILOG_FILE Decoder.sv
 set_global_assignment -name SYSTEMVERILOG_FILE Controller.sv
-set_global_assignment -name SYSTEMVERILOG_FILE ControlFSM.sv
+set_global_assignment -name SYSTEMVERILOG_FILE FSM.sv
 set_global_assignment -name VERILOG_FILE InstMemory.v
 set_global_assignment -name SYSTEMVERILOG_FILE KeyFilter.sv
 set_global_assignment -name SYSTEMVERILOG_FILE ButtonSynchronizer.sv

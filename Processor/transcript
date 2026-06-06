@@ -394,7 +394,7 @@ do runrtl.do
 #             C:/intelFPGA/20.1/modelsim_ase/altera/verilog/cycloneive
 #             c:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/rtl_work
 #             c:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/rtl_work
-# ** Error: (vsim-3033) Instantiation of 'ControlFSM' failed. The design unit was not found.
+# ** Error: (vsim-3033) Instantiation of 'FSM' failed. The design unit was not found.
 #    Time: 0 ps  Iteration: 0  Instance: /testProcessor/DUT/controller File: ./Controller.sv Line: 45
 #         Searched libraries:
 #             C:/intelFPGA/20.1/modelsim_ase/altera/verilog/altera
@@ -579,7 +579,7 @@ do runrtl.do
 # Loading work.InstMemory
 # Loading altera_mf_ver.altsyncram
 # Loading work.IR
-# ** Error: (vsim-3033) Instantiation of 'ControlFSM' failed. The design unit was not found.
+# ** Error: (vsim-3033) Instantiation of 'FSM' failed. The design unit was not found.
 #    Time: 0 ps  Iteration: 0  Instance: /testProcessor/DUT/controller File: ./Controller.sv Line: 45
 #         Searched libraries:
 #             C:/intelFPGA/20.1/modelsim_ase/altera/verilog/altera
@@ -737,17 +737,17 @@ do runrtl.do
 # 	ROM_PC_IR_tb
 # End time: 21:13:16 on Jun 05,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -work work +acc +cover "./ControlFSM.sv"
+# vlog -work work +acc +cover "./FSM.sv"
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 # Start time: 21:13:16 on Jun 05,2026
-# vlog -reportprogress 300 -work work "+acc" "+cover" ./ControlFSM.sv 
-# -- Compiling package ControlFSM_sv_unit
-# -- Compiling module ControlFSM
-# ** Note: (vlog-143) Recognized 1 FSM in module "ControlFSM(verilog)".
-# -- Compiling module ControlFSM_tb
+# vlog -reportprogress 300 -work work "+acc" "+cover" ./FSM.sv 
+# -- Compiling package FSM_sv_unit
+# -- Compiling module FSM
+# ** Note: (vlog-143) Recognized 1 FSM in module "FSM(verilog)".
+# -- Compiling module FSM_tb
 # 
 # Top level modules:
-# 	ControlFSM_tb
+# 	FSM_tb
 # End time: 21:13:17 on Jun 05,2026, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vlog -work work +acc +cover "./InstMemory.v"
@@ -776,8 +776,8 @@ do runrtl.do
 # Loading work.InstMemory
 # Loading altera_mf_ver.altsyncram
 # Loading work.IR
-# Loading work.ControlFSM_sv_unit
-# Loading work.ControlFSM
+# Loading work.FSM_sv_unit
+# Loading work.FSM
 # Loading work.Datapath
 # Loading work.DataMemory
 # Loading work.Mux
@@ -944,17 +944,17 @@ do runrtl.do
 # 	ROM_PC_IR_tb
 # End time: 21:14:53 on Jun 05,2026, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
-# vlog -work work +acc +cover "./ControlFSM.sv"
+# vlog -work work +acc +cover "./FSM.sv"
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 # Start time: 21:14:53 on Jun 05,2026
-# vlog -reportprogress 300 -work work "+acc" "+cover" ./ControlFSM.sv 
-# -- Compiling package ControlFSM_sv_unit
-# -- Compiling module ControlFSM
-# ** Note: (vlog-143) Recognized 1 FSM in module "ControlFSM(verilog)".
-# -- Compiling module ControlFSM_tb
+# vlog -reportprogress 300 -work work "+acc" "+cover" ./FSM.sv 
+# -- Compiling package FSM_sv_unit
+# -- Compiling module FSM
+# ** Note: (vlog-143) Recognized 1 FSM in module "FSM(verilog)".
+# -- Compiling module FSM_tb
 # 
 # Top level modules:
-# 	ControlFSM_tb
+# 	FSM_tb
 # End time: 21:14:53 on Jun 05,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -work work +acc +cover "./InstMemory.v"
@@ -983,8 +983,8 @@ do runrtl.do
 # Loading work.InstMemory
 # Loading altera_mf_ver.altsyncram
 # Loading work.IR
-# Loading work.ControlFSM_sv_unit
-# Loading work.ControlFSM
+# Loading work.FSM_sv_unit
+# Loading work.FSM
 # Loading work.Datapath
 # Loading work.DataMemory
 # Loading work.Mux
@@ -1147,17 +1147,17 @@ do runrtl.do
 # 	ROM_PC_IR_tb
 # End time: 21:22:08 on Jun 05,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -work work +acc +cover "./ControlFSM.sv"
+# vlog -work work +acc +cover "./FSM.sv"
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 # Start time: 21:22:08 on Jun 05,2026
-# vlog -reportprogress 300 -work work "+acc" "+cover" ./ControlFSM.sv 
-# -- Compiling package ControlFSM_sv_unit
-# -- Compiling module ControlFSM
-# ** Note: (vlog-143) Recognized 1 FSM in module "ControlFSM(verilog)".
-# -- Compiling module ControlFSM_tb
+# vlog -reportprogress 300 -work work "+acc" "+cover" ./FSM.sv 
+# -- Compiling package FSM_sv_unit
+# -- Compiling module FSM
+# ** Note: (vlog-143) Recognized 1 FSM in module "FSM(verilog)".
+# -- Compiling module FSM_tb
 # 
 # Top level modules:
-# 	ControlFSM_tb
+# 	FSM_tb
 # End time: 21:22:08 on Jun 05,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -work work +acc +cover "./InstMemory.v"
@@ -1186,8 +1186,8 @@ do runrtl.do
 # Loading work.InstMemory
 # Loading altera_mf_ver.altsyncram
 # Loading work.IR
-# Loading work.ControlFSM_sv_unit
-# Loading work.ControlFSM
+# Loading work.FSM_sv_unit
+# Loading work.FSM
 # Loading work.Datapath
 # Loading work.DataMemory
 # Loading work.Mux
@@ -1350,17 +1350,17 @@ do runrtl.do
 # 	ROM_PC_IR_tb
 # End time: 21:23:04 on Jun 05,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -work work +acc +cover "./ControlFSM.sv"
+# vlog -work work +acc +cover "./FSM.sv"
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 # Start time: 21:23:04 on Jun 05,2026
-# vlog -reportprogress 300 -work work "+acc" "+cover" ./ControlFSM.sv 
-# -- Compiling package ControlFSM_sv_unit
-# -- Compiling module ControlFSM
-# ** Note: (vlog-143) Recognized 1 FSM in module "ControlFSM(verilog)".
-# -- Compiling module ControlFSM_tb
+# vlog -reportprogress 300 -work work "+acc" "+cover" ./FSM.sv 
+# -- Compiling package FSM_sv_unit
+# -- Compiling module FSM
+# ** Note: (vlog-143) Recognized 1 FSM in module "FSM(verilog)".
+# -- Compiling module FSM_tb
 # 
 # Top level modules:
-# 	ControlFSM_tb
+# 	FSM_tb
 # End time: 21:23:04 on Jun 05,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -work work +acc +cover "./InstMemory.v"
@@ -1389,8 +1389,8 @@ do runrtl.do
 # Loading work.InstMemory
 # Loading altera_mf_ver.altsyncram
 # Loading work.IR
-# Loading work.ControlFSM_sv_unit
-# Loading work.ControlFSM
+# Loading work.FSM_sv_unit
+# Loading work.FSM
 # Loading work.Datapath
 # Loading work.DataMemory
 # Loading work.Mux
@@ -1550,17 +1550,17 @@ do runrtl.do
 # 	ROM_PC_IR_tb
 # End time: 21:23:48 on Jun 05,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -work work +acc +cover "./ControlFSM.sv"
+# vlog -work work +acc +cover "./FSM.sv"
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 # Start time: 21:23:48 on Jun 05,2026
-# vlog -reportprogress 300 -work work "+acc" "+cover" ./ControlFSM.sv 
-# -- Compiling package ControlFSM_sv_unit
-# -- Compiling module ControlFSM
-# ** Note: (vlog-143) Recognized 1 FSM in module "ControlFSM(verilog)".
-# -- Compiling module ControlFSM_tb
+# vlog -reportprogress 300 -work work "+acc" "+cover" ./FSM.sv 
+# -- Compiling package FSM_sv_unit
+# -- Compiling module FSM
+# ** Note: (vlog-143) Recognized 1 FSM in module "FSM(verilog)".
+# -- Compiling module FSM_tb
 # 
 # Top level modules:
-# 	ControlFSM_tb
+# 	FSM_tb
 # End time: 21:23:48 on Jun 05,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -work work +acc +cover "./InstMemory.v"
@@ -1589,8 +1589,8 @@ do runrtl.do
 # Loading work.InstMemory
 # Loading altera_mf_ver.altsyncram
 # Loading work.IR
-# Loading work.ControlFSM_sv_unit
-# Loading work.ControlFSM
+# Loading work.FSM_sv_unit
+# Loading work.FSM
 # Loading work.Datapath
 # Loading work.DataMemory
 # Loading work.Mux
@@ -1747,17 +1747,17 @@ do runrtl.do
 # 	ROM_PC_IR_tb
 # End time: 21:25:29 on Jun 05,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -work work +acc +cover "./ControlFSM.sv"
+# vlog -work work +acc +cover "./FSM.sv"
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 # Start time: 21:25:29 on Jun 05,2026
-# vlog -reportprogress 300 -work work "+acc" "+cover" ./ControlFSM.sv 
-# -- Compiling package ControlFSM_sv_unit
-# -- Compiling module ControlFSM
-# ** Note: (vlog-143) Recognized 1 FSM in module "ControlFSM(verilog)".
-# -- Compiling module ControlFSM_tb
+# vlog -reportprogress 300 -work work "+acc" "+cover" ./FSM.sv 
+# -- Compiling package FSM_sv_unit
+# -- Compiling module FSM
+# ** Note: (vlog-143) Recognized 1 FSM in module "FSM(verilog)".
+# -- Compiling module FSM_tb
 # 
 # Top level modules:
-# 	ControlFSM_tb
+# 	FSM_tb
 # End time: 21:25:29 on Jun 05,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -work work +acc +cover "./InstMemory.v"
@@ -1786,8 +1786,8 @@ do runrtl.do
 # Loading work.InstMemory
 # Loading altera_mf_ver.altsyncram
 # Loading work.IR
-# Loading work.ControlFSM_sv_unit
-# Loading work.ControlFSM
+# Loading work.FSM_sv_unit
+# Loading work.FSM
 # Loading work.Datapath
 # Loading work.DataMemory
 # Loading work.Mux
@@ -1942,17 +1942,17 @@ do runrtl.do
 # 	ROM_PC_IR_tb
 # End time: 21:27:59 on Jun 05,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -work work +acc +cover "./ControlFSM.sv"
+# vlog -work work +acc +cover "./FSM.sv"
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 # Start time: 21:27:59 on Jun 05,2026
-# vlog -reportprogress 300 -work work "+acc" "+cover" ./ControlFSM.sv 
-# -- Compiling package ControlFSM_sv_unit
-# -- Compiling module ControlFSM
-# ** Note: (vlog-143) Recognized 1 FSM in module "ControlFSM(verilog)".
-# -- Compiling module ControlFSM_tb
+# vlog -reportprogress 300 -work work "+acc" "+cover" ./FSM.sv 
+# -- Compiling package FSM_sv_unit
+# -- Compiling module FSM
+# ** Note: (vlog-143) Recognized 1 FSM in module "FSM(verilog)".
+# -- Compiling module FSM_tb
 # 
 # Top level modules:
-# 	ControlFSM_tb
+# 	FSM_tb
 # End time: 21:28:00 on Jun 05,2026, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vlog -work work +acc +cover "./InstMemory.v"
@@ -1981,8 +1981,8 @@ do runrtl.do
 # Loading work.InstMemory
 # Loading altera_mf_ver.altsyncram
 # Loading work.IR
-# Loading work.ControlFSM_sv_unit
-# Loading work.ControlFSM
+# Loading work.FSM_sv_unit
+# Loading work.FSM
 # Loading work.Datapath
 # Loading work.DataMemory
 # Loading work.Mux
@@ -2224,17 +2224,17 @@ do processorFSMrtl.do
 # 	ROM_PC_IR_tb
 # End time: 21:38:20 on Jun 05,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -work work +acc +cover "./ControlFSM.sv"
+# vlog -work work +acc +cover "./FSM.sv"
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 # Start time: 21:38:20 on Jun 05,2026
-# vlog -reportprogress 300 -work work "+acc" "+cover" ./ControlFSM.sv 
-# -- Compiling package ControlFSM_sv_unit
-# -- Compiling module ControlFSM
-# ** Note: (vlog-143) Recognized 1 FSM in module "ControlFSM(verilog)".
-# -- Compiling module ControlFSM_tb
+# vlog -reportprogress 300 -work work "+acc" "+cover" ./FSM.sv 
+# -- Compiling package FSM_sv_unit
+# -- Compiling module FSM
+# ** Note: (vlog-143) Recognized 1 FSM in module "FSM(verilog)".
+# -- Compiling module FSM_tb
 # 
 # Top level modules:
-# 	ControlFSM_tb
+# 	FSM_tb
 # End time: 21:38:20 on Jun 05,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -work work +acc +cover "./InstMemory.v"
@@ -2411,17 +2411,17 @@ do processorFSMrtl.do
 # 	ROM_PC_IR_tb
 # End time: 21:39:04 on Jun 05,2026, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
-# vlog -work work +acc +cover "./ControlFSM.sv"
+# vlog -work work +acc +cover "./FSM.sv"
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 # Start time: 21:39:04 on Jun 05,2026
-# vlog -reportprogress 300 -work work "+acc" "+cover" ./ControlFSM.sv 
-# -- Compiling package ControlFSM_sv_unit
-# -- Compiling module ControlFSM
-# ** Note: (vlog-143) Recognized 1 FSM in module "ControlFSM(verilog)".
-# -- Compiling module ControlFSM_tb
+# vlog -reportprogress 300 -work work "+acc" "+cover" ./FSM.sv 
+# -- Compiling package FSM_sv_unit
+# -- Compiling module FSM
+# ** Note: (vlog-143) Recognized 1 FSM in module "FSM(verilog)".
+# -- Compiling module FSM_tb
 # 
 # Top level modules:
-# 	ControlFSM_tb
+# 	FSM_tb
 # End time: 21:39:04 on Jun 05,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -work work +acc +cover "./InstMemory.v"
@@ -2450,8 +2450,8 @@ do processorFSMrtl.do
 # Loading work.InstMemory
 # Loading altera_mf_ver.altsyncram
 # Loading work.IR
-# Loading work.ControlFSM_sv_unit
-# Loading work.ControlFSM
+# Loading work.FSM_sv_unit
+# Loading work.FSM
 # Loading work.Datapath
 # Loading work.DataMemory
 # Loading work.Mux
@@ -2612,17 +2612,17 @@ do processorFSMrtl.do
 # 	ROM_PC_IR_tb
 # End time: 21:39:18 on Jun 05,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -work work +acc +cover "./ControlFSM.sv"
+# vlog -work work +acc +cover "./FSM.sv"
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 # Start time: 21:39:18 on Jun 05,2026
-# vlog -reportprogress 300 -work work "+acc" "+cover" ./ControlFSM.sv 
-# -- Compiling package ControlFSM_sv_unit
-# -- Compiling module ControlFSM
-# ** Note: (vlog-143) Recognized 1 FSM in module "ControlFSM(verilog)".
-# -- Compiling module ControlFSM_tb
+# vlog -reportprogress 300 -work work "+acc" "+cover" ./FSM.sv 
+# -- Compiling package FSM_sv_unit
+# -- Compiling module FSM
+# ** Note: (vlog-143) Recognized 1 FSM in module "FSM(verilog)".
+# -- Compiling module FSM_tb
 # 
 # Top level modules:
-# 	ControlFSM_tb
+# 	FSM_tb
 # End time: 21:39:18 on Jun 05,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -work work +acc +cover "./InstMemory.v"
@@ -2653,8 +2653,8 @@ do processorFSMrtl.do
 # Loading work.InstMemory
 # Loading altera_mf_ver.altsyncram
 # Loading work.IR
-# Loading work.ControlFSM_sv_unit
-# Loading work.ControlFSM
+# Loading work.FSM_sv_unit
+# Loading work.FSM
 # Loading work.Datapath
 # Loading work.DataMemory
 # Loading work.Mux
@@ -2893,17 +2893,17 @@ do processorFSMrtl.do
 # 	ROM_PC_IR_tb
 # End time: 21:55:00 on Jun 05,2026, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
-# vlog -work work +acc +cover "./ControlFSM.sv"
+# vlog -work work +acc +cover "./FSM.sv"
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 # Start time: 21:55:00 on Jun 05,2026
-# vlog -reportprogress 300 -work work "+acc" "+cover" ./ControlFSM.sv 
-# -- Compiling package ControlFSM_sv_unit
-# -- Compiling module ControlFSM
-# ** Note: (vlog-143) Recognized 1 FSM in module "ControlFSM(verilog)".
-# -- Compiling module ControlFSM_tb
+# vlog -reportprogress 300 -work work "+acc" "+cover" ./FSM.sv 
+# -- Compiling package FSM_sv_unit
+# -- Compiling module FSM
+# ** Note: (vlog-143) Recognized 1 FSM in module "FSM(verilog)".
+# -- Compiling module FSM_tb
 # 
 # Top level modules:
-# 	ControlFSM_tb
+# 	FSM_tb
 # End time: 21:55:00 on Jun 05,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -work work +acc +cover "./InstMemory.v"
@@ -2935,8 +2935,8 @@ do processorFSMrtl.do
 # Loading work.InstMemory
 # Loading altera_mf_ver.altsyncram
 # Loading work.IR
-# Loading work.ControlFSM_sv_unit
-# Loading work.ControlFSM
+# Loading work.FSM_sv_unit
+# Loading work.FSM
 # Loading work.Datapath
 # Loading work.DataMemory
 # Loading work.Mux
@@ -3176,17 +3176,17 @@ do processorFSMrtl.do
 # 	ROM_PC_IR_tb
 # End time: 22:00:01 on Jun 05,2026, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
-# vlog -work work +acc +cover "./ControlFSM.sv"
+# vlog -work work +acc +cover "./FSM.sv"
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 # Start time: 22:00:01 on Jun 05,2026
-# vlog -reportprogress 300 -work work "+acc" "+cover" ./ControlFSM.sv 
-# -- Compiling package ControlFSM_sv_unit
-# -- Compiling module ControlFSM
-# ** Note: (vlog-143) Recognized 1 FSM in module "ControlFSM(verilog)".
-# -- Compiling module ControlFSM_tb
+# vlog -reportprogress 300 -work work "+acc" "+cover" ./FSM.sv 
+# -- Compiling package FSM_sv_unit
+# -- Compiling module FSM
+# ** Note: (vlog-143) Recognized 1 FSM in module "FSM(verilog)".
+# -- Compiling module FSM_tb
 # 
 # Top level modules:
-# 	ControlFSM_tb
+# 	FSM_tb
 # End time: 22:00:01 on Jun 05,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -work work +acc +cover "./InstMemory.v"
@@ -3217,8 +3217,8 @@ do processorFSMrtl.do
 # Loading work.InstMemory
 # Loading altera_mf_ver.altsyncram
 # Loading work.IR
-# Loading work.ControlFSM_sv_unit
-# Loading work.ControlFSM
+# Loading work.FSM_sv_unit
+# Loading work.FSM
 # Loading work.Datapath
 # Loading work.DataMemory
 # Loading work.Mux
@@ -3461,17 +3461,17 @@ do runrtl.do
 # 	ROM_PC_IR_tb
 # End time: 22:02:59 on Jun 05,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -work work +acc +cover "./ControlFSM.sv"
+# vlog -work work +acc +cover "./FSM.sv"
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 # Start time: 22:02:59 on Jun 05,2026
-# vlog -reportprogress 300 -work work "+acc" "+cover" ./ControlFSM.sv 
-# -- Compiling package ControlFSM_sv_unit
-# -- Compiling module ControlFSM
-# ** Note: (vlog-143) Recognized 1 FSM in module "ControlFSM(verilog)".
-# -- Compiling module ControlFSM_tb
+# vlog -reportprogress 300 -work work "+acc" "+cover" ./FSM.sv 
+# -- Compiling package FSM_sv_unit
+# -- Compiling module FSM
+# ** Note: (vlog-143) Recognized 1 FSM in module "FSM(verilog)".
+# -- Compiling module FSM_tb
 # 
 # Top level modules:
-# 	ControlFSM_tb
+# 	FSM_tb
 # End time: 22:02:59 on Jun 05,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -work work +acc +cover "./InstMemory.v"
@@ -3502,8 +3502,8 @@ do runrtl.do
 # Loading work.InstMemory
 # Loading altera_mf_ver.altsyncram
 # Loading work.IR
-# Loading work.ControlFSM_sv_unit
-# Loading work.ControlFSM
+# Loading work.FSM_sv_unit
+# Loading work.FSM
 # Loading work.Datapath
 # Loading work.DataMemory
 # Loading work.Mux
@@ -3746,17 +3746,17 @@ do runrtl.do
 # 	ROM_PC_IR_tb
 # End time: 22:24:43 on Jun 05,2026, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
-# vlog -work work +acc +cover "./ControlFSM.sv"
+# vlog -work work +acc +cover "./FSM.sv"
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 # Start time: 22:24:43 on Jun 05,2026
-# vlog -reportprogress 300 -work work "+acc" "+cover" ./ControlFSM.sv 
-# -- Compiling package ControlFSM_sv_unit
-# -- Compiling module ControlFSM
-# ** Note: (vlog-143) Recognized 1 FSM in module "ControlFSM(verilog)".
-# -- Compiling module ControlFSM_tb
+# vlog -reportprogress 300 -work work "+acc" "+cover" ./FSM.sv 
+# -- Compiling package FSM_sv_unit
+# -- Compiling module FSM
+# ** Note: (vlog-143) Recognized 1 FSM in module "FSM(verilog)".
+# -- Compiling module FSM_tb
 # 
 # Top level modules:
-# 	ControlFSM_tb
+# 	FSM_tb
 # End time: 22:24:43 on Jun 05,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -work work +acc +cover "./InstMemory.v"
@@ -3787,8 +3787,8 @@ do runrtl.do
 # Loading work.InstMemory
 # Loading altera_mf_ver.altsyncram
 # Loading work.IR
-# Loading work.ControlFSM_sv_unit
-# Loading work.ControlFSM
+# Loading work.FSM_sv_unit
+# Loading work.FSM
 # Loading work.Datapath
 # Loading work.DataMemory
 # Loading work.Mux
@@ -4031,19 +4031,19 @@ do runrtl.do
 # 	ROM_PC_IR_tb
 # End time: 22:25:19 on Jun 05,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -work work +acc +cover "./ControlFSM.sv"
+# vlog -work work +acc +cover "./FSM.sv"
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 # Start time: 22:25:19 on Jun 05,2026
-# vlog -reportprogress 300 -work work "+acc" "+cover" ./ControlFSM.sv 
+# vlog -reportprogress 300 -work work "+acc" "+cover" ./FSM.sv 
 # -- Compiling package FSMstates
-# ** Error: (vlog-13069) ./ControlFSM.sv(9): near "typedef": syntax error, unexpected "SystemVerilog keyword 'typedef'", expecting ';'.
+# ** Error: (vlog-13069) ./FSM.sv(9): near "typedef": syntax error, unexpected "SystemVerilog keyword 'typedef'", expecting ';'.
 # End time: 22:25:19 on Jun 05,2026, Elapsed time: 0:00:00
 # Errors: 1, Warnings: 0
 # ** Error: C:/intelFPGA/20.1/modelsim_ase/win32aloem/vlog failed.
 # Error in macro ./runrtl.do line 27
 # C:/intelFPGA/20.1/modelsim_ase/win32aloem/vlog failed.
 #     while executing
-# "vlog -work work +acc +cover "./ControlFSM.sv""
+# "vlog -work work +acc +cover "./FSM.sv""
 do runrtl.do
 # turn on verbage
 # transcript on
@@ -4182,17 +4182,17 @@ do runrtl.do
 # 	ROM_PC_IR_tb
 # End time: 22:25:51 on Jun 05,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -work work +acc +cover "./ControlFSM.sv"
+# vlog -work work +acc +cover "./FSM.sv"
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 # Start time: 22:25:51 on Jun 05,2026
-# vlog -reportprogress 300 -work work "+acc" "+cover" ./ControlFSM.sv 
-# -- Compiling package ControlFSM_sv_unit
-# -- Compiling module ControlFSM
-# ** Note: (vlog-143) Recognized 1 FSM in module "ControlFSM(verilog)".
-# -- Compiling module ControlFSM_tb
+# vlog -reportprogress 300 -work work "+acc" "+cover" ./FSM.sv 
+# -- Compiling package FSM_sv_unit
+# -- Compiling module FSM
+# ** Note: (vlog-143) Recognized 1 FSM in module "FSM(verilog)".
+# -- Compiling module FSM_tb
 # 
 # Top level modules:
-# 	ControlFSM_tb
+# 	FSM_tb
 # End time: 22:25:51 on Jun 05,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -work work +acc +cover "./InstMemory.v"
@@ -4223,8 +4223,8 @@ do runrtl.do
 # Loading work.InstMemory
 # Loading altera_mf_ver.altsyncram
 # Loading work.IR
-# Loading work.ControlFSM_sv_unit
-# Loading work.ControlFSM
+# Loading work.FSM_sv_unit
+# Loading work.FSM
 # Loading work.Datapath
 # Loading work.DataMemory
 # Loading work.Mux
@@ -4448,38 +4448,38 @@ do runrtl.do
 # 	ROM_PC_IR_tb
 # End time: 22:34:54 on Jun 05,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -work work +acc +cover "./ControlFSM.sv"
+# vlog -work work +acc +cover "./FSM.sv"
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 # Start time: 22:34:54 on Jun 05,2026
-# vlog -reportprogress 300 -work work "+acc" "+cover" ./ControlFSM.sv 
-# -- Compiling package ControlFSM_sv_unit
-# -- Compiling module ControlFSM
-# ** Error (suppressible): ./ControlFSM.sv(151): (vlog-7033) Variable 'NextState' driven in a combinational block, may not be driven by any other process. See ./ControlFSM.sv(89).
-# ** Error (suppressible): ./ControlFSM.sv(152): (vlog-7033) Variable 'NextState' driven in a combinational block, may not be driven by any other process. See ./ControlFSM.sv(89).
-# ** Error (suppressible): ./ControlFSM.sv(156): (vlog-7033) Variable 'NextState' driven in a combinational block, may not be driven by any other process. See ./ControlFSM.sv(89).
-# ** Error (suppressible): ./ControlFSM.sv(157): (vlog-7033) Variable 'NextState' driven in a combinational block, may not be driven by any other process. See ./ControlFSM.sv(89).
-# ** Error (suppressible): ./ControlFSM.sv(158): (vlog-7033) Variable 'NextState' driven in a combinational block, may not be driven by any other process. See ./ControlFSM.sv(89).
-# ** Error (suppressible): ./ControlFSM.sv(159): (vlog-7033) Variable 'NextState' driven in a combinational block, may not be driven by any other process. See ./ControlFSM.sv(89).
-# ** Error (suppressible): ./ControlFSM.sv(160): (vlog-7033) Variable 'NextState' driven in a combinational block, may not be driven by any other process. See ./ControlFSM.sv(89).
-# ** Error (suppressible): ./ControlFSM.sv(161): (vlog-7033) Variable 'NextState' driven in a combinational block, may not be driven by any other process. See ./ControlFSM.sv(89).
-# ** Error (suppressible): ./ControlFSM.sv(162): (vlog-7033) Variable 'NextState' driven in a combinational block, may not be driven by any other process. See ./ControlFSM.sv(89).
-# ** Error (suppressible): ./ControlFSM.sv(165): (vlog-7033) Variable 'NextState' driven in a combinational block, may not be driven by any other process. See ./ControlFSM.sv(89).
-# ** Error (suppressible): ./ControlFSM.sv(166): (vlog-7033) Variable 'NextState' driven in a combinational block, may not be driven by any other process. See ./ControlFSM.sv(89).
-# ** Error (suppressible): ./ControlFSM.sv(167): (vlog-7033) Variable 'NextState' driven in a combinational block, may not be driven by any other process. See ./ControlFSM.sv(89).
-# ** Error (suppressible): ./ControlFSM.sv(168): (vlog-7033) Variable 'NextState' driven in a combinational block, may not be driven by any other process. See ./ControlFSM.sv(89).
-# ** Error (suppressible): ./ControlFSM.sv(169): (vlog-7033) Variable 'NextState' driven in a combinational block, may not be driven by any other process. See ./ControlFSM.sv(89).
-# ** Error (suppressible): ./ControlFSM.sv(170): (vlog-7033) Variable 'NextState' driven in a combinational block, may not be driven by any other process. See ./ControlFSM.sv(89).
-# ** Error (suppressible): ./ControlFSM.sv(171): (vlog-7033) Variable 'NextState' driven in a combinational block, may not be driven by any other process. See ./ControlFSM.sv(89).
-# ** Error (suppressible): ./ControlFSM.sv(172): (vlog-7033) Variable 'NextState' driven in a combinational block, may not be driven by any other process. See ./ControlFSM.sv(89).
-# ** Error (suppressible): ./ControlFSM.sv(175): (vlog-7033) Variable 'NextState' driven in a combinational block, may not be driven by any other process. See ./ControlFSM.sv(89).
-# -- Compiling module ControlFSM_tb
+# vlog -reportprogress 300 -work work "+acc" "+cover" ./FSM.sv 
+# -- Compiling package FSM_sv_unit
+# -- Compiling module FSM
+# ** Error (suppressible): ./FSM.sv(151): (vlog-7033) Variable 'NextState' driven in a combinational block, may not be driven by any other process. See ./FSM.sv(89).
+# ** Error (suppressible): ./FSM.sv(152): (vlog-7033) Variable 'NextState' driven in a combinational block, may not be driven by any other process. See ./FSM.sv(89).
+# ** Error (suppressible): ./FSM.sv(156): (vlog-7033) Variable 'NextState' driven in a combinational block, may not be driven by any other process. See ./FSM.sv(89).
+# ** Error (suppressible): ./FSM.sv(157): (vlog-7033) Variable 'NextState' driven in a combinational block, may not be driven by any other process. See ./FSM.sv(89).
+# ** Error (suppressible): ./FSM.sv(158): (vlog-7033) Variable 'NextState' driven in a combinational block, may not be driven by any other process. See ./FSM.sv(89).
+# ** Error (suppressible): ./FSM.sv(159): (vlog-7033) Variable 'NextState' driven in a combinational block, may not be driven by any other process. See ./FSM.sv(89).
+# ** Error (suppressible): ./FSM.sv(160): (vlog-7033) Variable 'NextState' driven in a combinational block, may not be driven by any other process. See ./FSM.sv(89).
+# ** Error (suppressible): ./FSM.sv(161): (vlog-7033) Variable 'NextState' driven in a combinational block, may not be driven by any other process. See ./FSM.sv(89).
+# ** Error (suppressible): ./FSM.sv(162): (vlog-7033) Variable 'NextState' driven in a combinational block, may not be driven by any other process. See ./FSM.sv(89).
+# ** Error (suppressible): ./FSM.sv(165): (vlog-7033) Variable 'NextState' driven in a combinational block, may not be driven by any other process. See ./FSM.sv(89).
+# ** Error (suppressible): ./FSM.sv(166): (vlog-7033) Variable 'NextState' driven in a combinational block, may not be driven by any other process. See ./FSM.sv(89).
+# ** Error (suppressible): ./FSM.sv(167): (vlog-7033) Variable 'NextState' driven in a combinational block, may not be driven by any other process. See ./FSM.sv(89).
+# ** Error (suppressible): ./FSM.sv(168): (vlog-7033) Variable 'NextState' driven in a combinational block, may not be driven by any other process. See ./FSM.sv(89).
+# ** Error (suppressible): ./FSM.sv(169): (vlog-7033) Variable 'NextState' driven in a combinational block, may not be driven by any other process. See ./FSM.sv(89).
+# ** Error (suppressible): ./FSM.sv(170): (vlog-7033) Variable 'NextState' driven in a combinational block, may not be driven by any other process. See ./FSM.sv(89).
+# ** Error (suppressible): ./FSM.sv(171): (vlog-7033) Variable 'NextState' driven in a combinational block, may not be driven by any other process. See ./FSM.sv(89).
+# ** Error (suppressible): ./FSM.sv(172): (vlog-7033) Variable 'NextState' driven in a combinational block, may not be driven by any other process. See ./FSM.sv(89).
+# ** Error (suppressible): ./FSM.sv(175): (vlog-7033) Variable 'NextState' driven in a combinational block, may not be driven by any other process. See ./FSM.sv(89).
+# -- Compiling module FSM_tb
 # End time: 22:34:54 on Jun 05,2026, Elapsed time: 0:00:00
 # Errors: 18, Warnings: 0
 # ** Error: C:/intelFPGA/20.1/modelsim_ase/win32aloem/vlog failed.
 # Error in macro ./runrtl.do line 27
 # C:/intelFPGA/20.1/modelsim_ase/win32aloem/vlog failed.
 #     while executing
-# "vlog -work work +acc +cover "./ControlFSM.sv""
+# "vlog -work work +acc +cover "./FSM.sv""
 
 do runrtl.do
 # turn on verbage
@@ -4619,17 +4619,17 @@ do runrtl.do
 # 	ROM_PC_IR_tb
 # End time: 22:35:15 on Jun 05,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -work work +acc +cover "./ControlFSM.sv"
+# vlog -work work +acc +cover "./FSM.sv"
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 # Start time: 22:35:15 on Jun 05,2026
-# vlog -reportprogress 300 -work work "+acc" "+cover" ./ControlFSM.sv 
-# -- Compiling package ControlFSM_sv_unit
-# -- Compiling module ControlFSM
-# ** Note: (vlog-143) Recognized 1 FSM in module "ControlFSM(verilog)".
-# -- Compiling module ControlFSM_tb
+# vlog -reportprogress 300 -work work "+acc" "+cover" ./FSM.sv 
+# -- Compiling package FSM_sv_unit
+# -- Compiling module FSM
+# ** Note: (vlog-143) Recognized 1 FSM in module "FSM(verilog)".
+# -- Compiling module FSM_tb
 # 
 # Top level modules:
-# 	ControlFSM_tb
+# 	FSM_tb
 # End time: 22:35:15 on Jun 05,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -work work +acc +cover "./InstMemory.v"
@@ -4660,8 +4660,8 @@ do runrtl.do
 # Loading work.InstMemory
 # Loading altera_mf_ver.altsyncram
 # Loading work.IR
-# Loading work.ControlFSM_sv_unit
-# Loading work.ControlFSM
+# Loading work.FSM_sv_unit
+# Loading work.FSM
 # Loading work.Datapath
 # Loading work.DataMemory
 # Loading work.Mux

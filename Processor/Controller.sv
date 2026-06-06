@@ -40,9 +40,9 @@ module Controller(  Clk,
     // ROM_PC_IR(Clk, LD, IR_OUT, UP, Clr);
     ROM_PC_IR instruction(.Clk(Clk), .LD(LD), .UP(UP), .Clr(Clr), .IR_OUT(IR_OUT));
 
-    // ControlFSM(Clk, ResetN, Instruction, PC_clr, PC_up, IR_ld, D_addr, D_wr, RF_s, RF_Ra_Addr, 
+    // FSM(Clk, ResetN, Instruction, PC_clr, PC_up, IR_ld, D_addr, D_wr, RF_s, RF_Ra_Addr, 
                 // RF_Rb_Addr, RF_W_en, RF_W_addr, ALU_s0)
-    ControlFSM control(
+    FSM control(
         .Clk(Clk), 
         .Instruction(IR_OUT),
         .ResetN(ResetN),
@@ -64,7 +64,7 @@ endmodule
 `ifdef MODEL_TECH
 /**
     This module tests the controller unit. Since the ROM_PC_IR unit was already tested, the purpose
-    of the testbench is to see whether the controlFSM communicates properly with al of the other 
+    of the testbench is to see whether the FSM communicates properly with al of the other 
     control units. 
 */
 module Controller_tb();

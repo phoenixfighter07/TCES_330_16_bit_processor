@@ -8,44 +8,44 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 dc:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/PhaseV
-vControlFSM
+Z0 dC:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/PhaseV
+vFSM
 Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z2 DXx4 work 18 ControlFSM_sv_unit 0 22 Z]LQZ`jD?X;Jc6:XmI6jI3
-Z3 !s110 1780712690
+Z2 DXx4 work 11 FSM_sv_unit 0 22 PhTRMh6GR5^2=FTK`jb6A1
+Z3 !s110 1780778497
 Z4 VDg1SIo80bB@j0V0VzS_@n1
 r1
 !s85 0
 !i10b 1
-!s100 MbcjVQ;UN<Q?C4gUClS@W2
-IX[gYkkVZFG?mUn`i]1d9A0
-Z5 !s105 ControlFSM_sv_unit
+!s100 ILSKmi>?Szd4^m>P]@5Q>1
+IdZ6^]gPkj5YX_LaTffW^g1
+Z5 !s105 FSM_sv_unit
 S1
 R0
-Z6 w1780712686
-Z7 8./ControlFSM.sv
-Z8 F./ControlFSM.sv
+Z6 w1780778345
+Z7 8./FSM.sv
+Z8 F./FSM.sv
 !i122 0
-L0 42 131
+L0 43 141
 Z9 OV;L;2020.1;71
 31
-Z10 !s108 1780712690.000000
-!s107 ./ControlFSM.sv|
-Z11 !s90 -reportprogress|300|-work|work|+acc|+cover|./ControlFSM.sv|
+Z10 !s108 1780778497.000000
+!s107 ./FSM.sv|
+Z11 !s90 -reportprogress|300|-work|work|+acc|+cover|./FSM.sv|
 !i113 1
 Z12 !s102 +cover
 Z13 o-work work +acc +cover
 Z14 tCvgOpt 0
-n@control@f@s@m
-XControlFSM_sv_unit
+n@f@s@m
+XFSM_sv_unit
 R1
 R3
-VZ]LQZ`jD?X;Jc6:XmI6jI3
+VPhTRMh6GR5^2=FTK`jb6A1
 r1
 !s85 0
 !i10b 1
-!s100 0WDll5^8di:fPZ=o0HVV30
-IZ]LQZ`jD?X;Jc6:XmI6jI3
+!s100 oPOF:Dikb^NAXQRlaR4Io0
+IPhTRMh6GR5^2=FTK`jb6A1
 !i103 1
 S1
 R0
@@ -57,14 +57,14 @@ L0 8 0
 R9
 31
 R10
-Z15 !s107 ./ControlFSM.sv|
+Z15 !s107 ./FSM.sv|
 R11
 !i113 1
 R12
 R13
 R14
-n@control@f@s@m_sv_unit
-vControlFSM_tb
+n@f@s@m_sv_unit
+vFSM_tb
 R1
 R2
 R3
@@ -72,8 +72,8 @@ R4
 r1
 !s85 0
 !i10b 1
-!s100 fi62f:@I4[=HJMSL8K<4[3
-IDknMA^E:e7?^nh@W@D2`]3
+!s100 19=O4e`iGP`5CCmz:<=0X3
+IfGodZcTA7j6U^80ElUcPc1
 R5
 S1
 R0
@@ -81,7 +81,7 @@ R6
 R7
 R8
 !i122 0
-L0 174 225
+L0 185 225
 R9
 31
 R10
@@ -91,4 +91,4 @@ R11
 R12
 R13
 R14
-n@control@f@s@m_tb
+n@f@s@m_tb

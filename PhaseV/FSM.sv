@@ -40,7 +40,7 @@ typedef enum logic [3:0]
  * CurrentState is the 4-bit output signal of the FSM's current state
  * NextState is the 4-bit output signal of the FSM's next state
  */
-module ControlFSM(
+module FSM(
 	Clk, 
 	ResetN, 
 	Instruction,
@@ -182,7 +182,7 @@ module ControlFSM(
 	end
 endmodule
 
-module ControlFSM_tb();
+module FSM_tb();
 	logic Clk, ResetN;
 	logic [15:0] Instruction;
 	logic PC_up,
@@ -207,7 +207,7 @@ module ControlFSM_tb();
 		#(CLK_CYCLE_TIME / 2) Clk = 1;
 	end
 
-	ControlFSM DUT (
+	FSM DUT (
 		Clk, 
 		ResetN, 
 		Instruction,

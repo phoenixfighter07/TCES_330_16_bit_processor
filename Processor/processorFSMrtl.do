@@ -24,7 +24,7 @@ vlog -work work +acc +cover "./Controller.sv"
 vlog -work work +acc +cover "./PC.sv"
 vlog -work work +acc +cover "./IR.sv"
 vlog -work work +acc +cover "./ROM_PC_IR.sv"
-vlog -work work +acc +cover "./ControlFSM.sv"
+vlog -work work +acc +cover "./FSM.sv"
 vlog -work work +acc +cover "./InstMemory.v"
 
 # Call vsim to invoke simulator
