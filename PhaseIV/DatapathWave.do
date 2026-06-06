@@ -6,8 +6,8 @@ add wave -noupdate /Datapath_tb/D_wr
 add wave -noupdate /Datapath_tb/RF_s
 add wave -noupdate -hex /Datapath_tb/RF_W_addr
 add wave -noupdate /Datapath_tb/RF_W_en
-add wave -noupdate -hex /Datapath_tb/RF_Ra_addr
-add wave -noupdate -hex /Datapath_tb/RF_Rb_addr
+add wave -noupdate -hex /Datapath_tb/RF_Ra_Addr
+add wave -noupdate -hex /Datapath_tb/RF_Rb_Addr
 add wave -noupdate -decimal /Datapath_tb/ALU_s0
 add wave -noupdate -hex /Datapath_tb/ALU_inA
 add wave -noupdate -hex /Datapath_tb/ALU_inB

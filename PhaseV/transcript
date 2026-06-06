@@ -95,8 +95,8 @@ do runrtlFSMControl.do
 # add wave -noupdate -hex /ControlFSM_tb/D_addr
 # add wave -noupdate /ControlFSM_tb/D_wr
 # add wave -noupdate /ControlFSM_tb/RF_s
-# add wave -noupdate -hex /ControlFSM_tb/RF_Ra_addr
-# add wave -noupdate -hex /ControlFSM_tb/RF_Rb_addr
+# add wave -noupdate -hex /ControlFSM_tb/RF_Ra_Addr
+# add wave -noupdate -hex /ControlFSM_tb/RF_Rb_Addr
 # add wave -noupdate /ControlFSM_tb/RF_W_en
 # add wave -noupdate -hex /ControlFSM_tb/RF_W_Addr
 # ** UI-Msg: (vish-4014) No objects found matching '/ControlFSM_tb/RF_W_Addr'.
@@ -137,7 +137,7 @@ do runrtlFSMControl.do
 # 
 # Run the simulation
 # run -all
-# Time	Clk	ResetN	Inst	PC_clr	PC_up	IR_ld	D_addr	D_wr	RF_s	RF_Ra_addr	RF_Rb_addr	RF_W_en	RF_W_addr	ALU_s0
+# Time	Clk	ResetN	Inst	PC_clr	PC_up	IR_ld	D_addr	D_wr	RF_s	RF_Ra_Addr	RF_Rb_Addr	RF_W_en	RF_W_addr	ALU_s0
 #     0	x	0	xxxx	0	0	0	00	0	0	0	0	0	0	000
 #    10	0	1	xxxx	0	0	0	00	0	0	0	0	0	0	000
 #    20	1	1	xxxx	1	0	0	00	0	0	0	0	0	0	000
@@ -311,8 +311,8 @@ do runrtlFSMControl.do
 # add wave -noupdate -hex /ControlFSM_tb/D_addr
 # add wave -noupdate /ControlFSM_tb/D_wr
 # add wave -noupdate /ControlFSM_tb/RF_s
-# add wave -noupdate -hex /ControlFSM_tb/RF_Ra_addr
-# add wave -noupdate -hex /ControlFSM_tb/RF_Rb_addr
+# add wave -noupdate -hex /ControlFSM_tb/RF_Ra_Addr
+# add wave -noupdate -hex /ControlFSM_tb/RF_Rb_Addr
 # add wave -noupdate /ControlFSM_tb/RF_W_en
 # add wave -noupdate -hex /ControlFSM_tb/RF_W_Addr
 # ** UI-Msg: (vish-4014) No objects found matching '/ControlFSM_tb/RF_W_Addr'.
@@ -349,7 +349,7 @@ do runrtlFSMControl.do
 # 
 # Run the simulation
 # run -all
-# Time	Clk	ResetN	Inst	PC_clr	PC_up	IR_ld	D_addr	D_wr	RF_s	RF_Ra_addr	RF_Rb_addr	RF_W_en	RF_W_addr	ALU_s0
+# Time	Clk	ResetN	Inst	PC_clr	PC_up	IR_ld	D_addr	D_wr	RF_s	RF_Ra_Addr	RF_Rb_Addr	RF_W_en	RF_W_addr	ALU_s0
 #     0	x	0	xxxx	0	0	0	00	0	0	0	0	0	0	000
 #    10	0	1	xxxx	0	0	0	00	0	0	0	0	0	0	000
 #    20	1	1	xxxx	1	0	0	00	0	0	0	0	0	0	000
@@ -425,3 +425,6 @@ do runrtlFSMControl.do
 # 683 ps
 # 
 # End
+quit
+# End time: 19:27:23 on Jun 05,2026, Elapsed time: 0:02:29
+# Errors: 0, Warnings: 2

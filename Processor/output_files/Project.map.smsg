@@ -1,0 +1,1 @@
+Info (10281): Verilog HDL Declaration information at Processor.sv(51): object "IR_Out" differs only in case from object "IR_OUT" in the same scope File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/Processor.sv Line: 51

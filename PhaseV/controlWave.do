@@ -9,8 +9,8 @@ add wave -noupdate /ControlFSM_tb/IR_ld
 add wave -noupdate -hex /ControlFSM_tb/D_addr
 add wave -noupdate /ControlFSM_tb/D_wr
 add wave -noupdate /ControlFSM_tb/RF_s
-add wave -noupdate -hex /ControlFSM_tb/RF_Ra_addr
-add wave -noupdate -hex /ControlFSM_tb/RF_Rb_addr
+add wave -noupdate -hex /ControlFSM_tb/RF_Ra_Addr
+add wave -noupdate -hex /ControlFSM_tb/RF_Rb_Addr
 add wave -noupdate /ControlFSM_tb/RF_W_en
 add wave -noupdate -hex /ControlFSM_tb/RF_W_Addr
 add wave -noupdate -hex /ControlFSM_tb/ALU_s0

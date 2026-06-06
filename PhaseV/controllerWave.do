@@ -7,8 +7,8 @@ add wave -noupdate /Controller_tb/D_wr
 add wave -noupdate /Controller_tb/RF_s
 add wave -noupdate -hex /Controller_tb/RF_W_addr
 add wave -noupdate /Controller_tb/RF_W_en
-add wave -noupdate -hex /Controller_tb/RF_Ra_addr
-add wave -noupdate -hex /Controller_tb/RF_Rb_addr
+add wave -noupdate -hex /Controller_tb/RF_Ra_Addr
+add wave -noupdate -hex /Controller_tb/RF_Rb_Addr
 add wave -noupdate -decimal /Controller_tb/ALU_s0
 add wave -noupdate /Controller_tb/state
 add wave -noupdate /Controller_tb/nextState

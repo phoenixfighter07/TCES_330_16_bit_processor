@@ -13,8 +13,8 @@
  * RF_s is the select signal to choose between RAM or the ALU to read from into the reg file
  * RF_W_addr is the 4-bit address of the register in the reg file to write to
  * RF_W_en is the write-enable signal for the reg file
- * RF_Ra_addr is the 4-bit address of the first register to read from from the reg file
- * RF_Rb_addr is the 4-bit address of the second register to read from from the reg file
+ * RF_Ra_Addr is the 4-bit address of the first register to read from from the reg file
+ * RF_Rb_Addr is the 4-bit address of the second register to read from from the reg file
  * ALU_s0 is the 3-bit ALU selecting signal for which operation to do
  * ALU_inA the signal going into the 'A' port of the ALU
  * ALU_inB the signal going into the 'B' port of the ALU
@@ -29,8 +29,8 @@ module Datapath(
 	RF_s,
 	RF_W_addr,
 	RF_W_en,
-	RF_Ra_addr,
-	RF_Rb_addr,
+	RF_Ra_Addr,
+	RF_Rb_Addr,
 	ALU_s0,
 	ALU_inA,
 	ALU_inB, 
@@ -44,8 +44,8 @@ module Datapath(
 	Clk;
 
 	input [3:0] RF_W_addr,
-	RF_Ra_addr,
-	RF_Rb_addr;
+	RF_Ra_Addr,
+	RF_Rb_Addr;
 
 	input [2:0] ALU_s0;
 	input [7:0] D_addr;
@@ -86,9 +86,9 @@ module Datapath(
         .write(RF_W_en),
         .wrAddr(RF_W_addr),
         .wrData(Mux_out),
-        .rdAddrA(RF_Ra_addr),
+        .rdAddrA(RF_Ra_Addr),
         .rdDataA(wire_ALU_inA),
-        .rdAddrB(RF_Rb_addr),
+        .rdAddrB(RF_Rb_Addr),
         .rdDataB(wire_ALU_inB)
     );
 endmodule
@@ -107,8 +107,8 @@ module Datapath_tb();
 	Clk;
 
 	logic [3:0] RF_W_addr,
-	RF_Ra_addr,
-	RF_Rb_addr;
+	RF_Ra_Addr,
+	RF_Rb_Addr;
 
 	logic [2:0] ALU_s0;
 	logic [7:0] D_addr;
@@ -142,8 +142,8 @@ module Datapath_tb();
 		RF_W_en = 0;
 
 		RF_W_addr = 0;
-		RF_Ra_addr = 0;
-		RF_Rb_addr = 0;
+		RF_Ra_Addr = 0;
+		RF_Rb_Addr = 0;
 
 		ALU_s0 = 0;
 		D_addr = 0;
@@ -164,8 +164,8 @@ module Datapath_tb();
 
 			RF_W_addr = (i + 2) % REG_FILE_SIZE;
 			RF_W_en = 1;
-			RF_Ra_addr = i;
-			RF_Rb_addr = (i + 1) % REG_FILE_SIZE;
+			RF_Ra_Addr = i;
+			RF_Rb_Addr = (i + 1) % REG_FILE_SIZE;
 			ALU_s0 = op;
 
 			// Let signals propagate
@@ -177,7 +177,7 @@ module Datapath_tb();
 			WaitCycles(1);
 
 			RF_W_en = 0;
-			RF_Ra_addr = RF_W_addr;
+			RF_Ra_Addr = RF_W_addr;
 
 			// Let signals propagate
 			#5;
@@ -211,7 +211,7 @@ module Datapath_tb();
 
 			// LOAD_B
 			RF_W_en = 1;
-			RF_Ra_addr = i % REG_FILE_SIZE;
+			RF_Ra_Addr = i % REG_FILE_SIZE;
 
 			// TODO: Why is it 3 cycles???
 			WaitCycles(1);
@@ -236,7 +236,7 @@ module Datapath_tb();
 
 			D_addr = i;
 			D_wr = 1;
-			RF_Ra_addr = i % REG_FILE_SIZE;
+			RF_Ra_Addr = i % REG_FILE_SIZE;
 
 			WaitCycles(1);
         end
@@ -249,8 +249,8 @@ module Datapath_tb();
 		RF_s,
 		RF_W_addr,
 		RF_W_en,
-		RF_Ra_addr,
-		RF_Rb_addr,
+		RF_Ra_Addr,
+		RF_Rb_Addr,
 		ALU_s0,
 		ALU_inA,
 		ALU_inB, 
@@ -260,7 +260,7 @@ module Datapath_tb();
 	initial begin
 		// Set up monitor
         $timeformat(-12, 0, "", 5);
-		$display("time\tD_addr\tD_wr\tRF_s\tRF_W_addr\tRF_W_en\tRF_Ra_addr\tRF_Rb_addr\tALU_s0\tALU_inA\tALU_inB\tALU_out");
+		$display("time\tD_addr\tD_wr\tRF_s\tRF_W_addr\tRF_W_en\tRF_Ra_Addr\tRF_Rb_Addr\tALU_s0\tALU_inA\tALU_inB\tALU_out");
 		$monitor("%t\t%h\t%b\t%b\t%h\t%b\t%h\t%h\t%h\t%h\t%h\t%h", 
 			$time, 
 			D_addr, 
@@ -268,8 +268,8 @@ module Datapath_tb();
 			RF_s, 
 			RF_W_addr, 
 			RF_W_en, 
-			RF_Ra_addr, 
-			RF_Rb_addr, 
+			RF_Ra_Addr, 
+			RF_Rb_Addr, 
 			ALU_s0, 
 			ALU_inA, 
 			ALU_inB, 

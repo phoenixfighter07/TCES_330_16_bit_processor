@@ -103,8 +103,8 @@ do Datapathrtl.do
 # add wave -noupdate /Datapath_tb/RF_s
 # add wave -noupdate -hex /Datapath_tb/RF_W_addr
 # add wave -noupdate /Datapath_tb/RF_W_en
-# add wave -noupdate -hex /Datapath_tb/RF_Ra_addr
-# add wave -noupdate -hex /Datapath_tb/RF_Rb_addr
+# add wave -noupdate -hex /Datapath_tb/RF_Ra_Addr
+# add wave -noupdate -hex /Datapath_tb/RF_Rb_Addr
 # add wave -noupdate -decimal /Datapath_tb/ALU_s0
 # add wave -noupdate -hex /Datapath_tb/ALU_inA
 # add wave -noupdate -hex /Datapath_tb/ALU_inB
@@ -139,7 +139,7 @@ do Datapathrtl.do
 # 
 # Run the simulation
 # run -all
-# time	D_addr	D_wr	RF_s	RF_W_addr	RF_W_en	RF_Ra_addr	RF_Rb_addr	ALU_s0	ALU_inA	ALU_inB	ALU_out
+# time	D_addr	D_wr	RF_s	RF_W_addr	RF_W_en	RF_Ra_Addr	RF_Rb_Addr	ALU_s0	ALU_inA	ALU_inB	ALU_out
 #     0	00	0	1	0	0	0	0	0	xxxx	xxxx	0000
 #    20	00	0	1	0	1	0	0	0	xxxx	xxxx	0000
 #    40	00	0	1	0	1	0	0	0	abcd	abcd	0000
@@ -450,8 +450,8 @@ do Datapathrtl.do
 # add wave -noupdate /Datapath_tb/RF_s
 # add wave -noupdate -hex /Datapath_tb/RF_W_addr
 # add wave -noupdate /Datapath_tb/RF_W_en
-# add wave -noupdate -hex /Datapath_tb/RF_Ra_addr
-# add wave -noupdate -hex /Datapath_tb/RF_Rb_addr
+# add wave -noupdate -hex /Datapath_tb/RF_Ra_Addr
+# add wave -noupdate -hex /Datapath_tb/RF_Rb_Addr
 # add wave -noupdate -decimal /Datapath_tb/ALU_s0
 # add wave -noupdate -hex /Datapath_tb/ALU_inA
 # add wave -noupdate -hex /Datapath_tb/ALU_inB
@@ -486,7 +486,7 @@ do Datapathrtl.do
 # 
 # Run the simulation
 # run -all
-# time	D_addr	D_wr	RF_s	RF_W_addr	RF_W_en	RF_Ra_addr	RF_Rb_addr	ALU_s0	ALU_inA	ALU_inB	ALU_out
+# time	D_addr	D_wr	RF_s	RF_W_addr	RF_W_en	RF_Ra_Addr	RF_Rb_Addr	ALU_s0	ALU_inA	ALU_inB	ALU_out
 #     0	00	0	1	0	0	0	0	0	xxxx	xxxx	0000
 #    20	00	0	1	0	1	0	0	0	xxxx	xxxx	0000
 # ** Error: Incorrect data loaded back from RAM. Expected abcd, got xxxx.
@@ -814,8 +814,8 @@ do Datapathrtl.do
 # add wave -noupdate /Datapath_tb/RF_s
 # add wave -noupdate -hex /Datapath_tb/RF_W_addr
 # add wave -noupdate /Datapath_tb/RF_W_en
-# add wave -noupdate -hex /Datapath_tb/RF_Ra_addr
-# add wave -noupdate -hex /Datapath_tb/RF_Rb_addr
+# add wave -noupdate -hex /Datapath_tb/RF_Ra_Addr
+# add wave -noupdate -hex /Datapath_tb/RF_Rb_Addr
 # add wave -noupdate -decimal /Datapath_tb/ALU_s0
 # add wave -noupdate -hex /Datapath_tb/ALU_inA
 # add wave -noupdate -hex /Datapath_tb/ALU_inB
@@ -850,7 +850,7 @@ do Datapathrtl.do
 # 
 # Run the simulation
 # run -all
-# time	D_addr	D_wr	RF_s	RF_W_addr	RF_W_en	RF_Ra_addr	RF_Rb_addr	ALU_s0	ALU_inA	ALU_inB	ALU_out
+# time	D_addr	D_wr	RF_s	RF_W_addr	RF_W_en	RF_Ra_Addr	RF_Rb_Addr	ALU_s0	ALU_inA	ALU_inB	ALU_out
 #     0	xx	x	x	x	x	x	x	x	xxxx	xxxx	xxxx
 #    40	00	0	1	0	0	0	0	0	xxxx	xxxx	0000
 #    60	00	0	1	0	1	0	0	0	xxxx	xxxx	0000
@@ -1179,8 +1179,8 @@ do Datapathrtl.do
 # add wave -noupdate /Datapath_tb/RF_s
 # add wave -noupdate -hex /Datapath_tb/RF_W_addr
 # add wave -noupdate /Datapath_tb/RF_W_en
-# add wave -noupdate -hex /Datapath_tb/RF_Ra_addr
-# add wave -noupdate -hex /Datapath_tb/RF_Rb_addr
+# add wave -noupdate -hex /Datapath_tb/RF_Ra_Addr
+# add wave -noupdate -hex /Datapath_tb/RF_Rb_Addr
 # add wave -noupdate -decimal /Datapath_tb/ALU_s0
 # add wave -noupdate -hex /Datapath_tb/ALU_inA
 # add wave -noupdate -hex /Datapath_tb/ALU_inB
@@ -1215,7 +1215,7 @@ do Datapathrtl.do
 # 
 # Run the simulation
 # run -all
-# time		D_addr		D_wr		RF_s		RF_W_addr		RF_W_en		RF_Ra_addr		RF_Rb_addr		ALU_s0		ALU_inA		ALU_inB		ALU_out
+# time		D_addr		D_wr		RF_s		RF_W_addr		RF_W_en		RF_Ra_Addr		RF_Rb_Addr		ALU_s0		ALU_inA		ALU_inB		ALU_out
 #     0		xx		x		x		x		x		x		x		x		xxxx		xxxx		xxxx
 #    40		00		0		1		0		0		0		0		0		xxxx		xxxx		0000
 #    60		00		0		1		0		1		0		0		0		xxxx		xxxx		0000
@@ -1544,8 +1544,8 @@ do Datapathrtl.do
 # add wave -noupdate /Datapath_tb/RF_s
 # add wave -noupdate -hex /Datapath_tb/RF_W_addr
 # add wave -noupdate /Datapath_tb/RF_W_en
-# add wave -noupdate -hex /Datapath_tb/RF_Ra_addr
-# add wave -noupdate -hex /Datapath_tb/RF_Rb_addr
+# add wave -noupdate -hex /Datapath_tb/RF_Ra_Addr
+# add wave -noupdate -hex /Datapath_tb/RF_Rb_Addr
 # add wave -noupdate -decimal /Datapath_tb/ALU_s0
 # add wave -noupdate -hex /Datapath_tb/ALU_inA
 # add wave -noupdate -hex /Datapath_tb/ALU_inB
@@ -1580,7 +1580,7 @@ do Datapathrtl.do
 # 
 # Run the simulation
 # run -all
-# time	D_addr	D_wr	RF_s	RF_W_addr	RF_W_en	RF_Ra_addr	RF_Rb_addr	ALU_s0	ALU_inA	ALU_inB	ALU_out
+# time	D_addr	D_wr	RF_s	RF_W_addr	RF_W_en	RF_Ra_Addr	RF_Rb_Addr	ALU_s0	ALU_inA	ALU_inB	ALU_out
 #     0	xx	x	x	x	x	x	x	x	xxxx	xxxx	xxxx
 #    40	00	0	1	0	0	0	0	0	xxxx	xxxx	0000
 #    60	00	0	1	0	1	0	0	0	xxxx	xxxx	0000
@@ -1909,8 +1909,8 @@ do Datapathrtl.do
 # add wave -noupdate /Datapath_tb/RF_s
 # add wave -noupdate -hex /Datapath_tb/RF_W_addr
 # add wave -noupdate /Datapath_tb/RF_W_en
-# add wave -noupdate -hex /Datapath_tb/RF_Ra_addr
-# add wave -noupdate -hex /Datapath_tb/RF_Rb_addr
+# add wave -noupdate -hex /Datapath_tb/RF_Ra_Addr
+# add wave -noupdate -hex /Datapath_tb/RF_Rb_Addr
 # add wave -noupdate -decimal /Datapath_tb/ALU_s0
 # add wave -noupdate -hex /Datapath_tb/ALU_inA
 # add wave -noupdate -hex /Datapath_tb/ALU_inB
@@ -1945,7 +1945,7 @@ do Datapathrtl.do
 # 
 # Run the simulation
 # run -all
-# time	D_addr	D_wr	RF_s	RF_W_addr	RF_W_en	RF_Ra_addr	RF_Rb_addr	ALU_s0	ALU_inA	ALU_inB	ALU_out
+# time	D_addr	D_wr	RF_s	RF_W_addr	RF_W_en	RF_Ra_Addr	RF_Rb_Addr	ALU_s0	ALU_inA	ALU_inB	ALU_out
 #     0	00	0	1	0	0	0	0	0	xxxx	xxxx	0000
 #    20	00	0	1	0	1	0	0	0	xxxx	xxxx	0000
 # ** Error: Incorrect data loaded back from RAM. Expected abcd, got xxxx.
@@ -2270,8 +2270,8 @@ do Datapathrtl.do
 # add wave -noupdate /Datapath_tb/RF_s
 # add wave -noupdate -hex /Datapath_tb/RF_W_addr
 # add wave -noupdate /Datapath_tb/RF_W_en
-# add wave -noupdate -hex /Datapath_tb/RF_Ra_addr
-# add wave -noupdate -hex /Datapath_tb/RF_Rb_addr
+# add wave -noupdate -hex /Datapath_tb/RF_Ra_Addr
+# add wave -noupdate -hex /Datapath_tb/RF_Rb_Addr
 # add wave -noupdate -decimal /Datapath_tb/ALU_s0
 # add wave -noupdate -hex /Datapath_tb/ALU_inA
 # add wave -noupdate -hex /Datapath_tb/ALU_inB
@@ -2306,7 +2306,7 @@ do Datapathrtl.do
 # 
 # Run the simulation
 # run -all
-# time	D_addr	D_wr	RF_s	RF_W_addr	RF_W_en	RF_Ra_addr	RF_Rb_addr	ALU_s0	ALU_inA	ALU_inB	ALU_out
+# time	D_addr	D_wr	RF_s	RF_W_addr	RF_W_en	RF_Ra_Addr	RF_Rb_Addr	ALU_s0	ALU_inA	ALU_inB	ALU_out
 #     0	00	0	1	0	0	0	0	0	xxxx	xxxx	0000
 #    20	00	0	1	0	1	0	0	0	xxxx	xxxx	0000
 # ** Error: Incorrect data loaded back from RAM. Expected abcd, got xxxx.
@@ -2682,8 +2682,8 @@ do Datapathrtl.do
 # add wave -noupdate /Datapath_tb/RF_s
 # add wave -noupdate -hex /Datapath_tb/RF_W_addr
 # add wave -noupdate /Datapath_tb/RF_W_en
-# add wave -noupdate -hex /Datapath_tb/RF_Ra_addr
-# add wave -noupdate -hex /Datapath_tb/RF_Rb_addr
+# add wave -noupdate -hex /Datapath_tb/RF_Ra_Addr
+# add wave -noupdate -hex /Datapath_tb/RF_Rb_Addr
 # add wave -noupdate -decimal /Datapath_tb/ALU_s0
 # add wave -noupdate -hex /Datapath_tb/ALU_inA
 # add wave -noupdate -hex /Datapath_tb/ALU_inB
@@ -2718,7 +2718,7 @@ do Datapathrtl.do
 # 
 # Run the simulation
 # run -all
-# time	D_addr	D_wr	RF_s	RF_W_addr	RF_W_en	RF_Ra_addr	RF_Rb_addr	ALU_s0	ALU_inA	ALU_inB	ALU_out
+# time	D_addr	D_wr	RF_s	RF_W_addr	RF_W_en	RF_Ra_Addr	RF_Rb_Addr	ALU_s0	ALU_inA	ALU_inB	ALU_out
 #     0	00	0	1	0	0	0	0	0	xxxx	xxxx	0000
 #    20	00	0	1	0	1	0	0	0	xxxx	xxxx	0000
 # ** Error: Incorrect data loaded back from RAM. Expected abcd, got xxxx.
@@ -3094,8 +3094,8 @@ do Datapathrtl.do
 # add wave -noupdate /Datapath_tb/RF_s
 # add wave -noupdate -hex /Datapath_tb/RF_W_addr
 # add wave -noupdate /Datapath_tb/RF_W_en
-# add wave -noupdate -hex /Datapath_tb/RF_Ra_addr
-# add wave -noupdate -hex /Datapath_tb/RF_Rb_addr
+# add wave -noupdate -hex /Datapath_tb/RF_Ra_Addr
+# add wave -noupdate -hex /Datapath_tb/RF_Rb_Addr
 # add wave -noupdate -decimal /Datapath_tb/ALU_s0
 # add wave -noupdate -hex /Datapath_tb/ALU_inA
 # add wave -noupdate -hex /Datapath_tb/ALU_inB
@@ -3130,7 +3130,7 @@ do Datapathrtl.do
 # 
 # Run the simulation
 # run -all
-# time	D_addr	D_wr	RF_s	RF_W_addr	RF_W_en	RF_Ra_addr	RF_Rb_addr	ALU_s0	ALU_inA	ALU_inB	ALU_out
+# time	D_addr	D_wr	RF_s	RF_W_addr	RF_W_en	RF_Ra_Addr	RF_Rb_Addr	ALU_s0	ALU_inA	ALU_inB	ALU_out
 #     0	00	0	1	0	0	0	0	0	xxxx	xxxx	0000
 #    20	00	0	1	0	1	0	0	0	xxxx	xxxx	0000
 # ** Error: Incorrect data loaded back from RAM. Expected abcd, got xxxx.
@@ -3680,8 +3680,8 @@ do Datapathrtl.do
 # add wave -noupdate /Datapath_tb/RF_s
 # add wave -noupdate -hex /Datapath_tb/RF_W_addr
 # add wave -noupdate /Datapath_tb/RF_W_en
-# add wave -noupdate -hex /Datapath_tb/RF_Ra_addr
-# add wave -noupdate -hex /Datapath_tb/RF_Rb_addr
+# add wave -noupdate -hex /Datapath_tb/RF_Ra_Addr
+# add wave -noupdate -hex /Datapath_tb/RF_Rb_Addr
 # add wave -noupdate -decimal /Datapath_tb/ALU_s0
 # add wave -noupdate -hex /Datapath_tb/ALU_inA
 # add wave -noupdate -hex /Datapath_tb/ALU_inB
@@ -3716,7 +3716,7 @@ do Datapathrtl.do
 # 
 # Run the simulation
 # run -all
-# time	D_addr	D_wr	RF_s	RF_W_addr	RF_W_en	RF_Ra_addr	RF_Rb_addr	ALU_s0	ALU_inA	ALU_inB	ALU_out
+# time	D_addr	D_wr	RF_s	RF_W_addr	RF_W_en	RF_Ra_Addr	RF_Rb_Addr	ALU_s0	ALU_inA	ALU_inB	ALU_out
 #     0	00	0	1	0	0	0	0	0	xxxx	xxxx	0000
 #    20	00	0	1	0	1	0	0	0	xxxx	xxxx	0000
 # ** Error: Incorrect data loaded back from RAM. Expected abcd, got xxxx.
@@ -4009,8 +4009,8 @@ do Datapathrtl.do
 # add wave -noupdate /Datapath_tb/RF_s
 # add wave -noupdate -hex /Datapath_tb/RF_W_addr
 # add wave -noupdate /Datapath_tb/RF_W_en
-# add wave -noupdate -hex /Datapath_tb/RF_Ra_addr
-# add wave -noupdate -hex /Datapath_tb/RF_Rb_addr
+# add wave -noupdate -hex /Datapath_tb/RF_Ra_Addr
+# add wave -noupdate -hex /Datapath_tb/RF_Rb_Addr
 # add wave -noupdate -decimal /Datapath_tb/ALU_s0
 # add wave -noupdate -hex /Datapath_tb/ALU_inA
 # add wave -noupdate -hex /Datapath_tb/ALU_inB
@@ -4045,7 +4045,7 @@ do Datapathrtl.do
 # 
 # Run the simulation
 # run -all
-# time	D_addr	D_wr	RF_s	RF_W_addr	RF_W_en	RF_Ra_addr	RF_Rb_addr	ALU_s0	ALU_inA	ALU_inB	ALU_out
+# time	D_addr	D_wr	RF_s	RF_W_addr	RF_W_en	RF_Ra_Addr	RF_Rb_Addr	ALU_s0	ALU_inA	ALU_inB	ALU_out
 #     0	00	0	1	0	0	0	0	0	xxxx	xxxx	0000
 #    20	00	0	1	0	1	0	0	0	xxxx	xxxx	0000
 # ** Error: Incorrect data loaded back from RAM. Expected abcd, got xxxx.
@@ -4306,8 +4306,8 @@ do Datapathrtl.do
 # add wave -noupdate /Datapath_tb/RF_s
 # add wave -noupdate -hex /Datapath_tb/RF_W_addr
 # add wave -noupdate /Datapath_tb/RF_W_en
-# add wave -noupdate -hex /Datapath_tb/RF_Ra_addr
-# add wave -noupdate -hex /Datapath_tb/RF_Rb_addr
+# add wave -noupdate -hex /Datapath_tb/RF_Ra_Addr
+# add wave -noupdate -hex /Datapath_tb/RF_Rb_Addr
 # add wave -noupdate -decimal /Datapath_tb/ALU_s0
 # add wave -noupdate -hex /Datapath_tb/ALU_inA
 # add wave -noupdate -hex /Datapath_tb/ALU_inB
@@ -4342,7 +4342,7 @@ do Datapathrtl.do
 # 
 # Run the simulation
 # run -all
-# time	D_addr	D_wr	RF_s	RF_W_addr	RF_W_en	RF_Ra_addr	RF_Rb_addr	ALU_s0	ALU_inA	ALU_inB	ALU_out
+# time	D_addr	D_wr	RF_s	RF_W_addr	RF_W_en	RF_Ra_Addr	RF_Rb_Addr	ALU_s0	ALU_inA	ALU_inB	ALU_out
 #     0	00	0	1	0	0	0	0	0	xxxx	xxxx	0000
 #    20	00	0	1	0	1	0	0	0	xxxx	xxxx	0000
 #    40	00	0	1	0	1	0	0	0	abcd	abcd	0000

@@ -35,8 +35,8 @@ import FSMstates::*;
  * D_addr is the 8-bit address in RAM to operate on
  * D_wr is the write signal for the RAM
  * RF_s is the selecting signal for the mux leading in to the register file, 0 = ALU, 1 = RAM
- * RF_Ra_addr is the 4-bit address of register A in the register file
- * RF_Rb_addr is the 4-bit address of register B in the register file
+ * RF_Ra_Addr is the 4-bit address of register A in the register file
+ * RF_Rb_Addr is the 4-bit address of register B in the register file
  * RF_W_en is the write signal for the register file
  * RF_W_addr is the 4-bit address of the register to write to in the register file
  * ALU_s0 is the 3-bit operation signal feeding into the ALU
@@ -53,8 +53,8 @@ module ControlFSM(
 	D_addr,
 	D_wr, 
 	RF_s, 
-	RF_Ra_addr, 
-	RF_Rb_addr, 
+	RF_Ra_Addr, 
+	RF_Rb_Addr, 
 	RF_W_en, 
 	RF_W_addr, 
 	ALU_s0,
@@ -70,8 +70,8 @@ module ControlFSM(
 		   RF_s, 
 		   RF_W_en;
 	output logic [3:0] RF_W_addr, 
-		   RF_Ra_addr, 
-		   RF_Rb_addr;
+		   RF_Ra_Addr, 
+		   RF_Rb_Addr;
 	output logic [7:0] D_addr;
 	output logic [2:0] ALU_s0;
 
@@ -86,8 +86,8 @@ module ControlFSM(
 		D_addr = 0;
 		D_wr = 0;
 		RF_s = 0;
-		RF_Ra_addr = 0;
-		RF_Rb_addr = 0;
+		RF_Ra_Addr = 0;
+		RF_Rb_Addr = 0;
 		RF_W_en = 0;
 		RF_W_addr = 0;
 		ALU_s0 = 0;
@@ -106,8 +106,8 @@ module ControlFSM(
 					D_addr = 0;
 					D_wr = 0;
 					RF_s = 0;
-					RF_Ra_addr = 0;
-					RF_Rb_addr = 0;
+					RF_Ra_Addr = 0;
+					RF_Rb_Addr = 0;
 					RF_W_en = 0;
 					RF_W_addr = 0;
 					ALU_s0 = 0;
@@ -128,23 +128,23 @@ module ControlFSM(
 				ADD: begin
 					RF_W_addr = Instruction[3:0];
 					RF_W_en = 1;
-					RF_Ra_addr = Instruction[11:8];
-					RF_Rb_addr = Instruction[7:4];
+					RF_Ra_Addr = Instruction[11:8];
+					RF_Rb_Addr = Instruction[7:4];
 					ALU_s0 = 1;
 					NextState = Fetch;
 				end
 				SUB: begin
 					RF_W_addr = Instruction[3:0];
 					RF_W_en = 1;
-					RF_Ra_addr = Instruction[11:8];
-					RF_Rb_addr = Instruction[7:4];
+					RF_Ra_Addr = Instruction[11:8];
+					RF_Rb_Addr = Instruction[7:4];
 					ALU_s0 = 2;
 					NextState = Fetch;
 				end
 				STORE: begin
 					D_addr = Instruction[7:0];
 					D_wr = 1;
-					RF_Ra_addr = Instruction[11:8];
+					RF_Ra_Addr = Instruction[11:8];
 					NextState = Fetch;
 				end
 				LOAD_A: begin
@@ -185,8 +185,8 @@ module ControlFSM_tb();
 		   RF_s, 
 		   RF_W_en;
 	logic [3:0] RF_W_addr, 
-		   RF_Ra_addr, 
-		   RF_Rb_addr;
+		   RF_Ra_Addr, 
+		   RF_Rb_Addr;
 	logic [7:0] D_addr;
 	logic [2:0] ALU_s0;
 
@@ -210,8 +210,8 @@ module ControlFSM_tb();
 		D_addr,
 		D_wr, 
 		RF_s, 
-		RF_Ra_addr, 
-		RF_Rb_addr, 
+		RF_Ra_Addr, 
+		RF_Rb_Addr, 
 		RF_W_en, 
 		RF_W_addr, 
 		ALU_s0,
@@ -238,7 +238,7 @@ module ControlFSM_tb();
 
 	initial begin
 		$timeformat(-12, 0, "", 5);
-		$display("Time\tClk\tResetN\tInst\tPC_clr\tPC_up\tIR_ld\tD_addr\tD_wr\tRF_s\tRF_Ra_addr\tRF_Rb_addr\tRF_W_en\tRF_W_addr\tALU_s0");
+		$display("Time\tClk\tResetN\tInst\tPC_clr\tPC_up\tIR_ld\tD_addr\tD_wr\tRF_s\tRF_Ra_Addr\tRF_Rb_Addr\tRF_W_en\tRF_W_addr\tALU_s0");
 		$monitor("%t\t%b\t%b\t%h\t%b\t%b\t%b\t%h\t%b\t%b\t%h\t%h\t%b\t%h\t%b",
 			$realtime, 		
 			Clk, 
@@ -250,8 +250,8 @@ module ControlFSM_tb();
 			D_addr,
 			D_wr, 
 			RF_s, 
-			RF_Ra_addr, 
-			RF_Rb_addr, 
+			RF_Ra_Addr, 
+			RF_Rb_Addr, 
 			RF_W_en, 
 			RF_W_addr, 
 			ALU_s0);
@@ -295,8 +295,8 @@ module ControlFSM_tb();
 		assert(D_wr) 
 		else $error("D_wr not asserted when in store! Expected D_wr = %b, got D_wr = %b.", 1'b1, D_wr);
 
-		assert(RF_Ra_addr == Instruction[11:8]) 
-		else $error("RF_Ra_addr did not take on the correct value! Expected RF_Ra_addr = %h, got RF_Ra_addr = %h.", Instruction[11:8], RF_Ra_addr);
+		assert(RF_Ra_Addr == Instruction[11:8]) 
+		else $error("RF_Ra_Addr did not take on the correct value! Expected RF_Ra_Addr = %h, got RF_Ra_Addr = %h.", Instruction[11:8], RF_Ra_Addr);
 
 		// Return to fetch
 		WaitCycles(1);
@@ -347,11 +347,11 @@ module ControlFSM_tb();
 		assert(RF_W_addr == Instruction[3:0]) 
 		else $error("RF_W_addr did not hold the correct value! Expected RF_W_addr = %h, got RF_W_addr = %h.", Instruction[3:0], RF_W_addr);
 
-		assert(RF_Ra_addr == Instruction[11:8]) 
-		else $error("RF_Ra_addr did not take on the correct value! Expected RF_Ra_addr = %h, got RF_Ra_addr = %h.", Instruction[11:8], RF_Ra_addr);
+		assert(RF_Ra_Addr == Instruction[11:8]) 
+		else $error("RF_Ra_Addr did not take on the correct value! Expected RF_Ra_Addr = %h, got RF_Ra_Addr = %h.", Instruction[11:8], RF_Ra_Addr);
 
-		assert(RF_Rb_addr == Instruction[7:4]) 
-		else $error("RF_Rb_addr did not take on the correct value! Expected RF_Rb_addr = %h, got RF_Rb_addr = %h.", Instruction[7:4], RF_Rb_addr);
+		assert(RF_Rb_Addr == Instruction[7:4]) 
+		else $error("RF_Rb_Addr did not take on the correct value! Expected RF_Rb_Addr = %h, got RF_Rb_Addr = %h.", Instruction[7:4], RF_Rb_Addr);
 
 		assert(ALU_s0 == 1) 
 		else $error("ALU_s0 is not the correct operation! Expected ALU_s0 = %h, got ALU_s0 = %h.", 4'h1, ALU_s0);
@@ -372,11 +372,11 @@ module ControlFSM_tb();
 		assert(RF_W_addr == Instruction[3:0]) 
 		else $error("RF_W_addr did not hold the correct value! Expected RF_W_addr = %h, got RF_W_addr = %h.", Instruction[3:0], RF_W_addr);
 
-		assert(RF_Ra_addr == Instruction[11:8]) 
-		else $error("RF_Ra_addr did not take on the correct value! Expected RF_Ra_addr = %h, got RF_Ra_addr = %h.", Instruction[11:8], RF_Ra_addr);
+		assert(RF_Ra_Addr == Instruction[11:8]) 
+		else $error("RF_Ra_Addr did not take on the correct value! Expected RF_Ra_Addr = %h, got RF_Ra_Addr = %h.", Instruction[11:8], RF_Ra_Addr);
 
-		assert(RF_Rb_addr == Instruction[7:4]) 
-		else $error("RF_Rb_addr did not take on the correct value! Expected RF_Rb_addr = %h, got RF_Rb_addr = %h.", Instruction[7:4], RF_Rb_addr);
+		assert(RF_Rb_Addr == Instruction[7:4]) 
+		else $error("RF_Rb_Addr did not take on the correct value! Expected RF_Rb_Addr = %h, got RF_Rb_Addr = %h.", Instruction[7:4], RF_Rb_Addr);
 
 		assert(ALU_s0 == 2) 
 		else $error("ALU_s0 is not the correct operation! Expected ALU_s0 = %h, got ALU_s0 = %h.", 4'h2, ALU_s0);

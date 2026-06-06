@@ -42,7 +42,7 @@ do runlab.do
 # .main_pane.wave.interior.cs.body.pw.wf
 # .main_pane.structure.interior.cs.body.struct
 # .main_pane.objects.interior.cs.body.tree
-# RF_W_en		RF_W_addr		ALU_s0		RF_Ra_addr		RF_Rb_Addr		Q		Registers
+# RF_W_en		RF_W_addr		ALU_s0		RF_Ra_Addr		RF_Rb_Addr		Q		Registers
 #     0	1		 x		0		 0		 0		    0		'{x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x}
 #     1	1		 0		0		 0		 0		    0		'{x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x}
 #    11	1		 1		0		 0		 0		    0		'{x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, 0}

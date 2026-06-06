@@ -87,7 +87,7 @@ module DataMemory (
 	defparam
 		altsyncram_component.clock_enable_input_a = "BYPASS",
 		altsyncram_component.clock_enable_output_a = "BYPASS",
-		altsyncram_component.init_file = "D.mif",
+		altsyncram_component.init_file = "RAM_test.mif",
 		altsyncram_component.intended_device_family = "Cyclone IV E",
 		altsyncram_component.lpm_hint = "ENABLE_RUNTIME_MOD=YES,INSTANCE_NAME=uRAM",
 		altsyncram_component.lpm_type = "altsyncram",

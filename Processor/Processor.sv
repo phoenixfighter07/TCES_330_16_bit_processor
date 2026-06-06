@@ -49,7 +49,7 @@ module Processor(
     input Clk; // processor clock
     input ResetN; // system reset
     output [15:0] IR_Out; // Instruction register
-    output [7:0] PC_Out; // Program counter
+    output [6:0] PC_Out; // Program counter
     output [3:0] State; // FSM current state
     output [3:0] NextState; // FSM next state (or 0 if you don’t use one)
     output [15:0] ALU_A; // ALU A-Side Input
@@ -58,9 +58,8 @@ module Processor(
 
     logic [7:0] D_addr;
     logic D_wr, RF_s, RF_W_en;
-    logic [3:0] RF_W_addr, RF_Ra_addr, RF_Rb_addr;
-    logic [3:0] ALU_s0;
-    logic [15:0] IR_OUT;
+    logic [3:0] RF_W_addr, RF_Ra_Addr, RF_Rb_Addr;
+    logic [2:0] ALU_s0; 
 
     logic ResetN;
 
@@ -72,12 +71,12 @@ module Processor(
         .RF_s(RF_s),
         .RF_W_addr(RF_W_addr),
         .RF_W_en(RF_W_en),
-        .RF_Ra_addr(RF_Ra_addr),
-        .RF_Rb_addr(RF_Rb_addr),
+        .RF_Ra_Addr(RF_Ra_Addr),
+        .RF_Rb_Addr(RF_Rb_Addr),
         .ALU_s0(ALU_s0),
-        .nextState(NextState),
-        .state(State);
-        .IR_OUT(IR_OUT);
+        .NextState(NextState),
+        .State(State),
+        .IR_OUT(IR_Out)
     );
 
     Datapath datapath (
@@ -87,8 +86,8 @@ module Processor(
         .RF_s(RF_s),
         .RF_W_addr(RF_W_addr),
         .RF_W_en(RF_W_en),
-        .RF_Ra_addr(RF_Ra_addr),
-        .RF_Rb_addr(RF_Rb_addr),
+        .RF_Ra_Addr(RF_Ra_Addr),
+        .RF_Rb_Addr(RF_Rb_Addr),
         .ALU_s0(ALU_s0),
         .ALU_inA(ALU_A),
         .ALU_inB(ALU_B), 

@@ -15,18 +15,18 @@
  * 
  * RF_W_addr: The 4-bit address the register file writes the ALU output to.
  * RF_W_en: 1-bit Enable signal for writing to RF_W_addr.
- * RF_Ra_addr: 4-bit address of the register A to read from.
- * RF_Rb_addr: 4-bit address of the register B to read from.
+ * RF_Ra_Addr: 4-bit address of the register A to read from.
+ * RF_Rb_Addr: 4-bit address of the register B to read from.
  * ALU_s0: 3-bit ALU operation signal.
  * Q: The 16-bit output signal for the ALU.
  * Clk: The clock signal for the Register File.
 */
-module regALU(RF_W_addr, RF_W_en, RF_Ra_addr, RF_Rb_addr, ALU_s0, Q, Clk);
+module regALU(RF_W_addr, RF_W_en, RF_Ra_Addr, RF_Rb_Addr, ALU_s0, Q, Clk);
     parameter bits = 16;
     localparam logN = $clog2(bits);
 
     // Define inputs and outputs.
-    input [(logN-1):0] RF_W_addr, RF_Ra_addr, RF_Rb_addr;
+    input [(logN-1):0] RF_W_addr, RF_Ra_Addr, RF_Rb_Addr;
     input RF_W_en, Clk;
     input [2:0] ALU_s0;
     output [(bits-1):0] Q;
@@ -40,9 +40,9 @@ module regALU(RF_W_addr, RF_W_en, RF_Ra_addr, RF_Rb_addr, ALU_s0, Q, Clk);
         RF_W_en,
         RF_W_addr,
         ALU_OUT,
-        RF_Ra_addr,
+        RF_Ra_Addr,
         rdDataA,
-        RF_Rb_addr,
+        RF_Rb_Addr,
         rdDataB
     );
 
@@ -58,11 +58,11 @@ module regALU_tb();
     localparam bits = 16;
     logic Clk;
     logic RF_W_en;
-    logic [3:0] RF_W_addr, RF_Ra_addr, RF_Rb_addr;
+    logic [3:0] RF_W_addr, RF_Ra_Addr, RF_Rb_Addr;
     logic [2:0] ALU_s0;
     logic [bits - 1:0] Q;
     
-    regALU #(.bits(bits)) DUT (RF_W_addr, RF_W_en, RF_Ra_addr, RF_Rb_addr, ALU_s0, Q, Clk);
+    regALU #(.bits(bits)) DUT (RF_W_addr, RF_W_en, RF_Ra_Addr, RF_Rb_Addr, ALU_s0, Q, Clk);
     // Initialize the clock
     always begin
         Clk = 0; #(clkCycleTime/2);
@@ -73,12 +73,12 @@ module regALU_tb();
         // put data in registers. 16 is used as the upper cap becasue is it the number of registers in the register file.
         $timeformat(-12, 0, "", 5);
 
-        $display("RF_W_en\t\tRF_W_addr\t\tALU_s0\t\tRF_Ra_addr\t\tRF_Rb_Addr\t\tQ\t\tRegisters");
-        $monitor("%t\t%d\t\t%d\t\t%d\t\t%d\t\t%d\t\t%d\t\t%p", $realtime, RF_W_en, RF_W_addr, ALU_s0, RF_Ra_addr, RF_Rb_addr, Q, DUT.Registers.regfile);
+        $display("RF_W_en\t\tRF_W_addr\t\tALU_s0\t\tRF_Ra_Addr\t\tRF_Rb_Addr\t\tQ\t\tRegisters");
+        $monitor("%t\t%d\t\t%d\t\t%d\t\t%d\t\t%d\t\t%d\t\t%p", $realtime, RF_W_en, RF_W_addr, ALU_s0, RF_Ra_Addr, RF_Rb_Addr, Q, DUT.Registers.regfile);
 
         RF_W_en = 1; 
         ALU_s0 = 0; // writes 0 to every register 
-        RF_Ra_addr = 0; RF_Rb_addr = 0; // assigned so hat they have a value
+        RF_Ra_Addr = 0; RF_Rb_Addr = 0; // assigned so hat they have a value
         #1;
         for (int i = 0; i < 16; i++) begin
             RF_W_addr = i;
@@ -92,7 +92,7 @@ module regALU_tb();
         RF_W_en = 0;
         ALU_s0 = 7; // Is set to increment for the next few variables
         for (int j = 0; j < 16; j++) begin
-            RF_Ra_addr = j;
+            RF_Ra_Addr = j;
             RF_W_addr = j;
             #clkCycleTime;
             assert(DUT.Registers.regfile[j] == 0) 
@@ -103,7 +103,7 @@ module regALU_tb();
         RF_W_en = 1;
         for (int i = 1; i <= 2; i++) begin
             for (int j = 0; j < 16; j++) begin
-                RF_Ra_addr = j;
+                RF_Ra_Addr = j;
                 RF_W_addr = j;
                 #clkCycleTime;
                 assert(DUT.Registers.regfile[j] == i) 
@@ -117,7 +117,7 @@ module regALU_tb();
         // ALU still in increment mode
         for (int i = 0; i < 16; i++) begin
             for (int j = 0; j < i; j++) begin
-                RF_Ra_addr = i;
+                RF_Ra_Addr = i;
                 RF_W_addr = i;
                 #clkCycleTime;
             end
@@ -128,9 +128,9 @@ module regALU_tb();
         for (int i = 1; i <= 2; i++) begin
             ALU_s0 = i;
             for (int j = 0; j < 16; j++) begin
-                RF_Ra_addr = j;
+                RF_Ra_Addr = j;
                 for (int k = 0; k < 16; k++) begin
-                    RF_Rb_addr = k;
+                    RF_Rb_Addr = k;
                     #clkCycleTime;
                     if (i == 1) begin
                         assert(Q == DUT.Registers.regfile[k] + DUT.Registers.regfile[j])
@@ -148,7 +148,7 @@ module regALU_tb();
         // checks pass-through
         ALU_s0 =  3;
         for(int i = 0; i < 16; i++) begin
-            RF_Ra_addr = i;
+            RF_Ra_Addr = i;
             #clkCycleTime;
             assert(Q == DUT.Registers.regfile[i])
             else $error("Pass-through not working for register %g. Expected: %g; Actual: %g", i, DUT.Registers.regfile[i], Q);
@@ -158,9 +158,9 @@ module regALU_tb();
         for (int i = 4; i <=6; i++) begin
             ALU_s0 = i;
             for (int j = 0; j < 16; j++) begin
-                RF_Ra_addr = j;
+                RF_Ra_Addr = j;
                 for (int k = 0; k < 16; k++) begin
-                    RF_Rb_addr = k;
+                    RF_Rb_Addr = k;
                     #clkCycleTime;
                     if (i == 4) begin // XOR
                         assert(Q == (DUT.Registers.regfile[j] ^ DUT.Registers.regfile[k]))
