@@ -4,23 +4,21 @@
  * 5/28/2026
  * 16-Bit Processor Project Phase V
  */ 
-package FSMstates
-	typedef enum logic [3:0] 
-	{ 
-		Init, 
-		Fetch,
-		Decode,
-		NOOP,
-		LOAD_A,
-		STORE, 
-		ADD,
-		HALT,
-		SUB,
-		LOAD_B
-	} state;
-endpackage
 
-import FSMstates;
+typedef enum logic [3:0] 
+{ 
+	Init, 
+	Fetch,
+	Decode,
+	NOOP,
+	LOAD_A,
+	STORE, 
+	ADD,
+	HALT,
+	SUB,
+	LOAD_B
+} state;
+
 
 /*
  * The FSM for the CPU's control unit.
