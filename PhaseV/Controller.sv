@@ -120,5 +120,15 @@ module Controller_tb();
         else $error("Problem with reset signal. Expected: Init; Actual: %s", state.getname());
     endtask
 
+    /** Tests the PC counter to see if it is incrementing at the correct time. */
+    task automatic testPC_OUT();
+        if (State == Fetch) begin
+            fetchCounter++;
+        end
+        
+        assert(PC_OUT == fetchCounter)
+        else $error("PC_OUT not updating correctly. Expected %d, read %d");
+    endtask
+
 endmodule
 `endif
