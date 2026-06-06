@@ -73,8 +73,8 @@ module Controller(  Clk,
         .RF_Ra_Addr(RF_Ra_Addr),
         .RF_Rb_Addr(RF_Rb_Addr),
         .ALU_s0(ALU_s0), 
-        .CurrentState(State), 
-        .NextState(NextState));
+        .CurrentState_out(State), 
+        .NextState_out(NextState));
 endmodule
 
 `ifdef MODEL_TECH
