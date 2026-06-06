@@ -71,21 +71,21 @@ module ControlFSM(
 
 	// Combinational portion
 	always_comb begin
+		// Default signal values
+		PC_clr = 0;
+		PC_up = 0;
+		IR_ld = 0;
+		D_addr = 0;
+		D_wr = 0;
+		RF_s = 0;
+		RF_Ra_addr = 0;
+		RF_Rb_addr = 0;
+		RF_W_en = 0;
+		RF_W_addr = 0;
+		ALU_s0 = 0;
+		nextState = Init;
+		
 		if (ResetN) begin
-			// Default signal values
-			PC_clr = 0;
-			PC_up = 0;
-			IR_ld = 0;
-			D_addr = 0;
-			D_wr = 0;
-			RF_s = 0;
-			RF_Ra_addr = 0;
-			RF_Rb_addr = 0;
-			RF_W_en = 0;
-			RF_W_addr = 0;
-			ALU_s0 = 0;
-			nextState = Init;
-
 			case(currentState)
 				Init: begin
 					PC_clr = 1;
@@ -114,6 +114,7 @@ module ControlFSM(
 						4'd3: nextState = ADD;
 						4'd4: nextState = SUB;
 						4'd5: nextState = HALT;
+						default: nextState = Init;
 					endcase
 				end
 				ADD: begin
