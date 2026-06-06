@@ -5,23 +5,19 @@
  * 16-Bit Processor Project Phase V
  */ 
 
-package FSMstates
-	typedef enum logic [3:0] 
-	{ 
-		Init, 
-		Fetch,
-		Decode,
-		NOOP,
-		LOAD_A,
-		STORE, 
-		ADD,
-		HALT,
-		SUB,
-		LOAD_B
-	} state;
-endpackage
-
-import FSMstates::*;
+typedef enum logic [3:0] 
+{ 
+	Init, 
+	Fetch,
+	Decode,
+	NOOP,
+	LOAD_A,
+	STORE, 
+	ADD,
+	HALT,
+	SUB,
+	LOAD_B
+} state;
 
 /*
  * The FSM for the CPU's control unit.
@@ -77,7 +73,6 @@ module ControlFSM(
 
 	output state CurrentState, NextState;
 
-	// Combinational portion
 	always_comb begin
 		// Default signal values
 		PC_clr = 0;
@@ -91,28 +86,69 @@ module ControlFSM(
 		RF_W_en = 0;
 		RF_W_addr = 0;
 		ALU_s0 = 0;
-		NextState = Init;
-		
+
+		case(CurrentState)
+			Init: begin
+				PC_clr = 1;
+			end
+			Fetch: begin
+				PC_clr = 0;
+				PC_up = 1;
+				IR_ld = 1;
+				D_addr = 0;
+				D_wr = 0;
+				RF_s = 0;
+				RF_Ra_Addr = 0;
+				RF_Rb_Addr = 0;
+				RF_W_en = 0;
+				RF_W_addr = 0;
+				ALU_s0 = 0;
+			end
+			Decode: begin
+				// Nothing
+			end
+			ADD: begin
+				RF_W_addr = Instruction[3:0];
+				RF_W_en = 1;
+				RF_Ra_Addr = Instruction[11:8];
+				RF_Rb_Addr = Instruction[7:4];
+				ALU_s0 = 1;
+			end
+			SUB: begin
+				RF_W_addr = Instruction[3:0];
+				RF_W_en = 1;
+				RF_Ra_Addr = Instruction[11:8];
+				RF_Rb_Addr = Instruction[7:4];
+				ALU_s0 = 2;
+			end
+			STORE: begin
+				D_addr = Instruction[7:0];
+				D_wr = 1;
+				RF_Ra_Addr = Instruction[11:8];
+			end
+			LOAD_A: begin
+				D_addr = Instruction[11:4];
+				RF_s = 1;
+				RF_W_addr = Instruction[3:0];
+			end
+			LOAD_B: begin
+				D_addr = Instruction[11:4];
+				RF_s = 1;
+				RF_W_addr = Instruction[3:0];
+				RF_W_en = 1;
+			end
+			default: begin
+				// Nothing
+			end
+		endcase
+	end
+
+	// Combinational portion
+	always_comb begin
 		if (ResetN) begin
 			case(CurrentState)
-				Init: begin
-					PC_clr = 1;
-					NextState = Fetch;
-				end
-				Fetch: begin
-					PC_clr = 0;
-					PC_up = 1;
-					IR_ld = 1;
-					D_addr = 0;
-					D_wr = 0;
-					RF_s = 0;
-					RF_Ra_Addr = 0;
-					RF_Rb_Addr = 0;
-					RF_W_en = 0;
-					RF_W_addr = 0;
-					ALU_s0 = 0;
-					NextState = Decode;
-				end
+				Init: NextState = Fetch;
+				Fetch: NextState = Decode;
 				Decode: begin
 					// Extract Opcode
 					case(Instruction[15:12])
@@ -125,41 +161,11 @@ module ControlFSM(
 						default: NextState = Init;
 					endcase
 				end
-				ADD: begin
-					RF_W_addr = Instruction[3:0];
-					RF_W_en = 1;
-					RF_Ra_Addr = Instruction[11:8];
-					RF_Rb_Addr = Instruction[7:4];
-					ALU_s0 = 1;
-					NextState = Fetch;
-				end
-				SUB: begin
-					RF_W_addr = Instruction[3:0];
-					RF_W_en = 1;
-					RF_Ra_Addr = Instruction[11:8];
-					RF_Rb_Addr = Instruction[7:4];
-					ALU_s0 = 2;
-					NextState = Fetch;
-				end
-				STORE: begin
-					D_addr = Instruction[7:0];
-					D_wr = 1;
-					RF_Ra_Addr = Instruction[11:8];
-					NextState = Fetch;
-				end
-				LOAD_A: begin
-					D_addr = Instruction[11:4];
-					RF_s = 1;
-					RF_W_addr = Instruction[3:0];
-					NextState = LOAD_B;
-				end
-				LOAD_B: begin
-					D_addr = Instruction[11:4];
-					RF_s = 1;
-					RF_W_addr = Instruction[3:0];
-					RF_W_en = 1;
-					NextState = Fetch;
-				end
+				ADD: NextState = Fetch;
+				SUB: NextState = Fetch;
+				STORE: NextState = Fetch;
+				LOAD_A: NextState = LOAD_B;
+				LOAD_B: NextState = Fetch;
 				NOOP: NextState = Fetch;
 				HALT: NextState = HALT;
 				default: NextState = Init;

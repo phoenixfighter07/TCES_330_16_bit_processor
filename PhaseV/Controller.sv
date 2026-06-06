@@ -1,408 +1,124 @@
-/*
- * TCES 330
- * Robert Cromer and Landon Wardle
- * 5/28/2026
- * 16-Bit Processor Project Phase V
- */ 
+// Robert Cromer and Landon Wardle
+// TCES 330
+// Project Phase V
+// This file tests the full control side of the processor. 
 
-typedef enum logic [3:0] 
-{ 
-	Init, 
-	Fetch,
-	Decode,
-	NOOP,
-	LOAD_A,
-	STORE, 
-	ADD,
-	HALT,
-	SUB,
-	LOAD_B
-} state;
+/**
+    Clk: The clock
+    ResetN: An active-low reset signal
+    D_addr: The memory adress that is being read from  
+    RF_s: Determines whether the register file write data comes from the ALU(0) or the Memory(1)
+    RF_W_addr: the register file address being written to 
+    RF_W_en: when equal to 1, it lets the register file be written to
+    RF_Ra_Addr: The register address which data is read from to the RA_data
+                port on the register file
+    RF_Rb_Addr: The register address which data is read from to the RB_data port on the register
+                file
+    ALU_s0: The mode that the ALU is in
+*/
+module Controller(  Clk, 
+                    ResetN, 
+                    D_addr, 
+                    D_wr,
+                    RF_s, 
+                    RF_W_addr, 
+                    RF_W_en,
+                    RF_Ra_Addr, 
+                    RF_Rb_Addr, 
+                    ALU_s0, 
+                    State, 
+                    NextState, 
+                    IR_OUT);
+    input Clk, ResetN;
+    output RF_W_en, D_wr, RF_s;
+    output [2:0] ALU_s0;
+    output [3:0] RF_W_addr, RF_Ra_Addr, RF_Rb_Addr, State, NextState;
+    output [7:0] D_addr;
+    output [15:0] IR_OUT;
+    logic LD, UP, Clr; 
 
-/*
- * The FSM for the CPU's control unit.
- *
- * Clk is the input clock signal.
- * ResetN is the active-low reset signal to send the FSM back to the initialization state.
- * Instruction is the 16-bit instruction coming in to the FSM
- * PC_clr is the clear signal for the program counter
- * PC_up is the increment signal for the program counter
- * IR_ld is the load signal for the instruction register
- * D_addr is the 8-bit address in RAM to operate on
- * D_wr is the write signal for the RAM
- * RF_s is the selecting signal for the mux leading in to the register file, 0 = ALU, 1 = RAM
- * RF_Ra_Addr is the 4-bit address of register A in the register file
- * RF_Rb_Addr is the 4-bit address of register B in the register file
- * RF_W_en is the write signal for the register file
- * RF_W_addr is the 4-bit address of the register to write to in the register file
- * ALU_s0 is the 3-bit operation signal feeding into the ALU
- * CurrentState is the 4-bit output signal of the FSM's current state
- * NextState is the 4-bit output signal of the FSM's next state
- */
-module ControlFSM(
-	Clk, 
-	ResetN, 
-	Instruction,
-	PC_clr,
-	PC_up,
-	IR_ld,
-	D_addr,
-	D_wr, 
-	RF_s, 
-	RF_Ra_Addr, 
-	RF_Rb_Addr, 
-	RF_W_en, 
-	RF_W_addr, 
-	ALU_s0,
-	CurrentState,
-	NextState);
+    // ROM_PC_IR(Clk, LD, IR_OUT, UP, Clr);
+    ROM_PC_IR instruction(.Clk(Clk), .LD(LD), .UP(UP), .Clr(Clr), .IR_OUT(IR_OUT));
 
-	input Clk, ResetN;
-	input [15:0] Instruction;
-	output logic PC_up,
-		   IR_ld,
-		   D_wr, 
-		   PC_clr,
-		   RF_s, 
-		   RF_W_en;
-	output logic [3:0] RF_W_addr, 
-		   RF_Ra_Addr, 
-		   RF_Rb_Addr;
-	output logic [7:0] D_addr;
-	output logic [2:0] ALU_s0;
-
-	output state CurrentState, NextState;
-
-	always_comb begin
-		// Default signal values
-		PC_clr = 0;
-		PC_up = 0;
-		IR_ld = 0;
-		D_addr = 0;
-		D_wr = 0;
-		RF_s = 0;
-		RF_Ra_Addr = 0;
-		RF_Rb_Addr = 0;
-		RF_W_en = 0;
-		RF_W_addr = 0;
-		ALU_s0 = 0;
-
-		case(CurrentState)
-			Init: begin
-				PC_clr = 1;
-			end
-			Fetch: begin
-				PC_clr = 0;
-				PC_up = 1;
-				IR_ld = 1;
-				D_addr = 0;
-				D_wr = 0;
-				RF_s = 0;
-				RF_Ra_Addr = 0;
-				RF_Rb_Addr = 0;
-				RF_W_en = 0;
-				RF_W_addr = 0;
-				ALU_s0 = 0;
-			end
-			Decode: begin
-				// Nothing
-			end
-			ADD: begin
-				RF_W_addr = Instruction[3:0];
-				RF_W_en = 1;
-				RF_Ra_Addr = Instruction[11:8];
-				RF_Rb_Addr = Instruction[7:4];
-				ALU_s0 = 1;
-			end
-			SUB: begin
-				RF_W_addr = Instruction[3:0];
-				RF_W_en = 1;
-				RF_Ra_Addr = Instruction[11:8];
-				RF_Rb_Addr = Instruction[7:4];
-				ALU_s0 = 2;
-			end
-			STORE: begin
-				D_addr = Instruction[7:0];
-				D_wr = 1;
-				RF_Ra_Addr = Instruction[11:8];
-			end
-			LOAD_A: begin
-				D_addr = Instruction[11:4];
-				RF_s = 1;
-				RF_W_addr = Instruction[3:0];
-			end
-			LOAD_B: begin
-				D_addr = Instruction[11:4];
-				RF_s = 1;
-				RF_W_addr = Instruction[3:0];
-				RF_W_en = 1;
-			end
-			default: begin
-				// Nothing
-			end
-		endcase
-	end
-
-	// Combinational portion
-	always_comb begin
-		if (ResetN) begin
-			case(CurrentState)
-				Init: NextState = Fetch;
-				Fetch: NextState = Decode;
-				Decode: begin
-					// Extract Opcode
-					case(Instruction[15:12])
-						4'd0: NextState = NOOP;
-						4'd1: NextState = STORE;
-						4'd2: NextState = LOAD_A;
-						4'd3: NextState = ADD;
-						4'd4: NextState = SUB;
-						4'd5: NextState = HALT;
-						default: NextState = Init;
-					endcase
-				end
-				ADD: NextState = Fetch;
-				SUB: NextState = Fetch;
-				STORE: NextState = Fetch;
-				LOAD_A: NextState = LOAD_B;
-				LOAD_B: NextState = Fetch;
-				NOOP: NextState = Fetch;
-				HALT: NextState = HALT;
-				default: NextState = Init;
-			endcase
-		end else begin
-			NextState = Init;
-		end
-	end
-
-	// Sequential portion
-	always_ff @( posedge Clk ) begin
-		CurrentState <= NextState;
-	end
+    // ControlFSM(Clk, ResetN, Instruction, PC_clr, PC_up, IR_ld, D_addr, D_wr, RF_s, RF_Ra_Addr, 
+                // RF_Rb_Addr, RF_W_en, RF_W_addr, ALU_s0)
+    ControlFSM control(
+        .Clk(Clk), 
+        .Instruction(IR_OUT),
+        .ResetN(ResetN),
+        .PC_clr(Clr),
+        .PC_up(UP),
+        .IR_ld(LD),
+        .D_addr(D_addr), 
+        .D_wr(D_wr), 
+        .RF_s(RF_s), 
+        .RF_W_en(RF_W_en),
+        .RF_W_addr(RF_W_addr), 
+        .RF_Ra_Addr(RF_Ra_Addr),
+        .RF_Rb_Addr(RF_Rb_Addr),
+        .ALU_s0(ALU_s0), 
+        .CurrentState(State), 
+        .NextState(NextState));
 endmodule
 
-module ControlFSM_tb();
-	logic Clk, ResetN;
-	logic [15:0] Instruction;
-	logic PC_up,
-		   IR_ld,
-		   D_wr, 
-		   PC_clr,
-		   RF_s, 
-		   RF_W_en;
-	logic [3:0] RF_W_addr, 
-		   RF_Ra_Addr, 
-		   RF_Rb_Addr;
-	logic [7:0] D_addr;
-	logic [2:0] ALU_s0;
+`ifdef MODEL_TECH
+/**
+    This module tests the controller unit. Since the ROM_PC_IR unit was already tested, the purpose
+    of the testbench is to see whether the controlFSM communicates properly with al of the other 
+    control units. 
+*/
+module Controller_tb();
+    logic Clk, ResetN;
+    logic RF_W_en, D_wr;
+    logic [2:0] ALU_s0;
+    logic [3:0] RF_W_addr, RF_Ra_Addr, RF_Rb_Addr
+    state State, NextState;
+    logic [7:0] D_addr;
+    logic [16:0] IR_OUT, fetchCounter; 
 
-	logic [3:0] CurrentState, NextState;
 
-    localparam CLK_CYCLE_TIME = 20;
+    Controller DUT (
+        Clk, 
+        ResetN, 
+        D_addr, 
+        D_wr,
+        RF_s, 
+        RF_W_addr, 
+        RF_W_en,
+        RF_Ra_Addr, 
+        RF_Rb_Addr, 
+        ALU_s0, 
+        State, 
+        NextState, 
+        IR_OUT,
+        PC_OUT);
 
-    // Initialize the clock
-	always begin
-		#(CLK_CYCLE_TIME / 2) Clk = 0;
-		#(CLK_CYCLE_TIME / 2) Clk = 1;
-	end
+    always begin
+        Clk = 1; #(clkTime / 2);
+        Clk = 0; #(clkTime / 2);
+    end
 
-	ControlFSM DUT (
-		Clk, 
-		ResetN, 
-		Instruction,
-		PC_clr,
-		PC_up,
-		IR_ld,
-		D_addr,
-		D_wr, 
-		RF_s, 
-		RF_Ra_Addr, 
-		RF_Rb_Addr, 
-		RF_W_en, 
-		RF_W_addr, 
-		ALU_s0,
-		CurrentState,
-		NextState);
+    initial begin   
+        ResetN = 0;
+        waitCycles(1);
+        testReset();
 
-	// Wait n clock cycles
-	task automatic WaitCycles(input [31:0] n);
-		repeat (n) begin
-			@(negedge Clk);
-		end
-	endtask
+        // figure out how to test PC 
+        
+    end
 
-	// Resets the FSM
-	task automatic ResetFSM();
-		ResetN = 0;
+    /** Waits for a certain number of clock cycles */
+    task automatic waitCycles(input cycles)
+        repeat(cycles) begin
+            @(negedge Clk);
+        end
+    endtask
 
-		WaitCycles(1);
+    /** Tests the reset signal */
+    task automatic testReset();
+        assert(State == Init)
+        else $error("Problem with reset signal. Expected: Init; Actual: %s", state.getname());
+    endtask
 
-		ResetN = 1;
-
-		WaitCycles(1);
-	endtask
-
-	initial begin
-		$timeformat(-12, 0, "", 5);
-		$display("Time\tClk\tResetN\tInst\tPC_clr\tPC_up\tIR_ld\tD_addr\tD_wr\tRF_s\tRF_Ra_Addr\tRF_Rb_Addr\tRF_W_en\tRF_W_addr\tALU_s0");
-		$monitor("%t\t%b\t%b\t%h\t%b\t%b\t%b\t%h\t%b\t%b\t%h\t%h\t%b\t%h\t%b",
-			$realtime, 		
-			Clk, 
-			ResetN, 
-			Instruction,
-			PC_clr,
-			PC_up,
-			IR_ld,
-			D_addr,
-			D_wr, 
-			RF_s, 
-			RF_Ra_Addr, 
-			RF_Rb_Addr, 
-			RF_W_en, 
-			RF_W_addr, 
-			ALU_s0);
-
-		// Set FSM to predictable state.
-		ResetFSM();
-
-		// Test all the instruction control signals
-
-		// Set instruction to NOOP
-		Instruction = 16'h0000;
-
-		assert(PC_clr) 
-		else $error("PC_clr not asserted when reset! Expected PC_clr = %b, got PC_clr = %b.", 1'b1, PC_clr);
-
-		// Enter Fetch
-		WaitCycles(1);
-
-		assert(~PC_clr) 
-		else $error("PC_clr not deasserted when in fetch! Expected PC_clr = %b, got PC_clr = %b.", 1'b0, PC_clr);
-
-		assert(PC_up) 
-		else $error("PC_up not asserted when in fetch! Expected PC_up = %b, got PC_up = %b.", 1'b1, PC_up);
-
-		assert(IR_ld) 
-		else $error("IR_ld not asserted when in fetch! Expected IR_ld = %b, got IR_ld = %b.", 1'b1, IR_ld);
-
-		// Enter Decode
-		WaitCycles(1);
-
-		ResetFSM();
-
-		// Set instruction to STORE from register B to address A1
-		Instruction = 16'h1BA1;
-
-		WaitCycles(2);
-
-		assert(D_addr == Instruction[7:0]) 
-		else $error("D_addr did not take on the correct value! Expected D_addr = %h, got D_addr = %h.", Instruction[7:0], D_addr);
-
-		assert(D_wr) 
-		else $error("D_wr not asserted when in store! Expected D_wr = %b, got D_wr = %b.", 1'b1, D_wr);
-
-		assert(RF_Ra_Addr == Instruction[11:8]) 
-		else $error("RF_Ra_Addr did not take on the correct value! Expected RF_Ra_Addr = %h, got RF_Ra_Addr = %h.", Instruction[11:8], RF_Ra_Addr);
-
-		// Return to fetch
-		WaitCycles(1);
-
-		ResetFSM();
-
-		// Set instruction to LOAD from Address CD to register 2
-		Instruction = 16'h2CD3; 
-
-		WaitCycles(2);
-
-		assert(D_addr == Instruction[11:4]) 
-		else $error("D_addr did not take on the correct value! Expected D_addr = %h, got D_addr = %h.", Instruction[11:4], D_addr);
-
-		assert(RF_s) 
-		else $error("RF_s not asserted when in load_a! Expected RF_s = %b, got RF_s = %b.", 1'b1, RF_s);
-
-		assert(RF_W_addr == Instruction[3:0]) 
-		else $error("RF_W_addr did not take on the correct value! Expected RF_W_addr = %h, got RF_W_addr = %h.", Instruction[3:0], RF_W_addr);
-
-		WaitCycles(1);
-
-		assert(D_addr == Instruction[11:4]) 
-		else $error("D_addr did not hold the correct value! Expected D_addr = %h, got D_addr = %h.", Instruction[11:4], D_addr);
-
-		assert(RF_s) 
-		else $error("RF_s did not stay asserted when in load_b! Expected RF_s = %b, got RF_s = %b.", 1'b1, RF_s);
-
-		assert(RF_W_en) 
-		else $error("RF_W_en did not assert when in load_b! Expected RF_W_en = %b, got RF_W_en = %b.", 1'b1, RF_W_en);
-
-		assert(RF_W_addr == Instruction[3:0]) 
-		else $error("RF_W_addr did not hold the correct value! Expected RF_W_addr = %h, got RF_W_addr = %h.", Instruction[3:0], RF_W_addr);
-
-		// Return to fetch
-		WaitCycles(1);
-
-		ResetFSM();
-
-		// Set instruction to ADD, add register F and register 1, then store into register 3
-		Instruction = 16'h3F13; 
-
-		WaitCycles(2);
-
-		assert(RF_W_en) 
-		else $error("RF_W_en did not assert when in add! Expected RF_W_en = %b, got RF_W_en = %b.", 1'b1, RF_W_en);
-
-		assert(RF_W_addr == Instruction[3:0]) 
-		else $error("RF_W_addr did not hold the correct value! Expected RF_W_addr = %h, got RF_W_addr = %h.", Instruction[3:0], RF_W_addr);
-
-		assert(RF_Ra_Addr == Instruction[11:8]) 
-		else $error("RF_Ra_Addr did not take on the correct value! Expected RF_Ra_Addr = %h, got RF_Ra_Addr = %h.", Instruction[11:8], RF_Ra_Addr);
-
-		assert(RF_Rb_Addr == Instruction[7:4]) 
-		else $error("RF_Rb_Addr did not take on the correct value! Expected RF_Rb_Addr = %h, got RF_Rb_Addr = %h.", Instruction[7:4], RF_Rb_Addr);
-
-		assert(ALU_s0 == 1) 
-		else $error("ALU_s0 is not the correct operation! Expected ALU_s0 = %h, got ALU_s0 = %h.", 4'h1, ALU_s0);
-
-		// Return to fetch
-		WaitCycles(1);
-
-		ResetFSM();
-
-		// Set instruction to SUB, subtract register E, register 3, then store into register 2
-		Instruction = 16'h4E32; 
-
-		WaitCycles(2);
-
-		assert(RF_W_en) 
-		else $error("RF_W_en did not assert when in sub! Expected RF_W_en = %b, got RF_W_en = %b.", 1'b1, RF_W_en);
-
-		assert(RF_W_addr == Instruction[3:0]) 
-		else $error("RF_W_addr did not hold the correct value! Expected RF_W_addr = %h, got RF_W_addr = %h.", Instruction[3:0], RF_W_addr);
-
-		assert(RF_Ra_Addr == Instruction[11:8]) 
-		else $error("RF_Ra_Addr did not take on the correct value! Expected RF_Ra_Addr = %h, got RF_Ra_Addr = %h.", Instruction[11:8], RF_Ra_Addr);
-
-		assert(RF_Rb_Addr == Instruction[7:4]) 
-		else $error("RF_Rb_Addr did not take on the correct value! Expected RF_Rb_Addr = %h, got RF_Rb_Addr = %h.", Instruction[7:4], RF_Rb_Addr);
-
-		assert(ALU_s0 == 2) 
-		else $error("ALU_s0 is not the correct operation! Expected ALU_s0 = %h, got ALU_s0 = %h.", 4'h2, ALU_s0);
-
-		// Return to fetch
-		WaitCycles(1);
-
-		// Set instruction to HALT
-		Instruction = 16'h5EFF; 
-
-		WaitCycles(4);
-
-		assert(DUT.CurrentState == HALT) 
-		else $error("Control unit not in halt state! Expected CurrentState = %h, got CurrentState = %h.", DUT.CurrentState, HALT);
-		
-		WaitCycles(4);
-
-		assert(DUT.CurrentState == HALT) 
-		else $error("Control did not maintain halt state! Expected CurrentState = %h, got CurrentState = %h.", DUT.CurrentState, HALT);
-
-		$stop;
-	end
 endmodule
+`endif
