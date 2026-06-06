@@ -7,7 +7,7 @@
 
 
 // Included because of quartus packages
-`timescale 1ps/1ps;
+`timescale 1ps/1ps
 /**
     Clk: The clock
     LD: The signal that tells the instruction register to update
