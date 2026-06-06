@@ -19,6 +19,7 @@ typedef enum logic [3:0]
 	LOAD_B
 } state;
 
+
 /*
  * The FSM for the CPU's control unit.
  *
@@ -54,8 +55,8 @@ module FSM(
 	RF_W_en, 
 	RF_W_addr, 
 	ALU_s0,
-	CurrentState,
-	NextState);
+	CurrentState_out,
+	NextState_out);
 
 	input Clk, ResetN;
 	input [15:0] Instruction;
@@ -71,7 +72,12 @@ module FSM(
 	output logic [7:0] D_addr;
 	output logic [2:0] ALU_s0;
 
-	output state CurrentState, NextState;
+	state CurrentState, NextState;
+
+	output state CurrentState_out, NextState_out;
+
+	assign CurrentState_out = CurrentState;
+	assign NextState_out = NextState;
 
 	always_comb begin
 		// Default signal values

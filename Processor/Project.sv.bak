@@ -93,9 +93,9 @@ module Project(SW, LEDR, KEY, HEX7, HEX6, HEX5, HEX4, HEX3, HEX2, HEX1, HEX0, CL
 	Decoder decoder1 (.Hex(HEX1), .V(IR_OUT[7:4]));
 	Decoder decoder0 (.Hex(HEX0), .V(IR_OUT[3:0]));
 
-	//Mux4w_8to1(M, R, T, U, V, W, X, Y, Z, S);
-	Mux4w_8to1 HEX7Mux (.M(HEX4MuxOut), .R(PC_OUT[7:4]), .T(ALU_inA[15:12]), .U(ALU_inB[15:12]), .V(ALU_inB[15:12]), .W(NextState), .X(LOW), .Y(LOW), .Z(LOW), .S(S));
-	Mux4w_8to1 HEX6Mux (.M(HEX4MuxOut), .R(PC_OUT[3:0]), .T(ALU_inA[11:8]), .U(ALU_inB[11:8]), .V(ALU_inB[11:8]), .W(LOW), .X(LOW), .Y(LOW), .Z(LOW), .S(S));
-	Mux4w_8to1 HEX5Mux (.M(HEX4MuxOut), .R(LOW), .T(ALU_inA[7:4]), .U(ALU_inB[7:4]), .V(ALU_inB[7:4])V, .W(LOW), .X(LOW), .Y(LOW), .Z(LOW), .S(S));
-	Mux4w_8to1 HEX4Mux (.M(HEX4MuxOut), .R(State), .T(ALU_inA[3:0]), .U(ALU_inB[3:0]), .V(ALU_inB[3:0]), .W(LOW), .X(LOW), .Y(LOW), .Z(LOW), .S(S));
+	//MuxnW_8to1(M, R, T, U, V, W, X, Y, Z, S);
+	MuxnW_8to1 HEX7Mux (.M(HEX4MuxOut), .R(PC_OUT[7:4]), .T(ALU_inA[15:12]), .U(ALU_inB[15:12]), .V(ALU_inB[15:12]), .W(NextState), .X(LOW), .Y(LOW), .Z(LOW), .S(S));
+	MuxnW_8to1 HEX6Mux (.M(HEX4MuxOut), .R(PC_OUT[3:0]), .T(ALU_inA[11:8]), .U(ALU_inB[11:8]), .V(ALU_inB[11:8]), .W(LOW), .X(LOW), .Y(LOW), .Z(LOW), .S(S));
+	MuxnW_8to1 HEX5Mux (.M(HEX4MuxOut), .R(LOW), .T(ALU_inA[7:4]), .U(ALU_inB[7:4]), .V(ALU_inB[7:4])V, .W(LOW), .X(LOW), .Y(LOW), .Z(LOW), .S(S));
+	MuxnW_8to1 HEX4Mux (.M(HEX4MuxOut), .R(State), .T(ALU_inA[3:0]), .U(ALU_inB[3:0]), .V(ALU_inB[3:0]), .W(LOW), .X(LOW), .Y(LOW), .Z(LOW), .S(S));
 endmodule
