@@ -4,7 +4,21 @@
 // This file tests the full control side of the processor. 
 
 
-import FSMstates::*;
+typedef enum logic [3:0] 
+{ 
+	Init, 
+	Fetch,
+	Decode,
+	NOOP,
+	LOAD_A,
+	STORE, 
+	ADD,
+	HALT,
+	SUB,
+	LOAD_B
+} state;
+
+
 /**
     Clk: The clock
     ResetN: An active-low reset signal
