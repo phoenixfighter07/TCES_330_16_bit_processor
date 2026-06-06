@@ -14,7 +14,8 @@ add wave -noupdate -hex /ControlFSM_tb/RF_Rb_addr
 add wave -noupdate /ControlFSM_tb/RF_W_en
 add wave -noupdate -hex /ControlFSM_tb/RF_W_Addr
 add wave -noupdate -hex /ControlFSM_tb/ALU_s0
-add wave -noupdate -hex /ControlFSM_tb/DUT/currentState
+add wave -noupdate -hex /ControlFSM_tb/CurrentState
+add wave -noupdate -hex /ControlFSM_tb/NextState
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {0 ps} 0}
 quietly wave cursor active 0

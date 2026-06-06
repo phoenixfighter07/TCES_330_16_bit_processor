@@ -36,6 +36,8 @@ typedef enum logic [3:0]
  * RF_W_en is the write signal for the register file
  * RF_W_addr is the 4-bit address of the register to write to in the register file
  * ALU_s0 is the 3-bit operation signal feeding into the ALU
+ * CurrentState is the 4-bit output signal of the FSM's current state
+ * NextState is the 4-bit output signal of the FSM's next state
  */
 module ControlFSM(
 	Clk, 
@@ -51,7 +53,9 @@ module ControlFSM(
 	RF_Rb_addr, 
 	RF_W_en, 
 	RF_W_addr, 
-	ALU_s0);
+	ALU_s0,
+	CurrentState,
+	NextState);
 
 	input Clk, ResetN;
 	input [15:0] Instruction;
@@ -67,7 +71,7 @@ module ControlFSM(
 	output logic [7:0] D_addr;
 	output logic [2:0] ALU_s0;
 
-	state currentState, nextState;
+	output state CurrentState, NextState;
 
 	// Combinational portion
 	always_comb begin
@@ -83,13 +87,13 @@ module ControlFSM(
 		RF_W_en = 0;
 		RF_W_addr = 0;
 		ALU_s0 = 0;
-		nextState = Init;
+		NextState = Init;
 		
 		if (ResetN) begin
-			case(currentState)
+			case(CurrentState)
 				Init: begin
 					PC_clr = 1;
-					nextState = Fetch;
+					NextState = Fetch;
 				end
 				Fetch: begin
 					PC_clr = 0;
@@ -103,18 +107,18 @@ module ControlFSM(
 					RF_W_en = 0;
 					RF_W_addr = 0;
 					ALU_s0 = 0;
-					nextState = Decode;
+					NextState = Decode;
 				end
 				Decode: begin
 					// Extract Opcode
 					case(Instruction[15:12])
-						4'd0: nextState = NOOP;
-						4'd1: nextState = STORE;
-						4'd2: nextState = LOAD_A;
-						4'd3: nextState = ADD;
-						4'd4: nextState = SUB;
-						4'd5: nextState = HALT;
-						default: nextState = Init;
+						4'd0: NextState = NOOP;
+						4'd1: NextState = STORE;
+						4'd2: NextState = LOAD_A;
+						4'd3: NextState = ADD;
+						4'd4: NextState = SUB;
+						4'd5: NextState = HALT;
+						default: NextState = Init;
 					endcase
 				end
 				ADD: begin
@@ -123,7 +127,7 @@ module ControlFSM(
 					RF_Ra_addr = Instruction[11:8];
 					RF_Rb_addr = Instruction[7:4];
 					ALU_s0 = 1;
-					nextState = Fetch;
+					NextState = Fetch;
 				end
 				SUB: begin
 					RF_W_addr = Instruction[3:0];
@@ -131,39 +135,39 @@ module ControlFSM(
 					RF_Ra_addr = Instruction[11:8];
 					RF_Rb_addr = Instruction[7:4];
 					ALU_s0 = 2;
-					nextState = Fetch;
+					NextState = Fetch;
 				end
 				STORE: begin
 					D_addr = Instruction[7:0];
 					D_wr = 1;
 					RF_Ra_addr = Instruction[11:8];
-					nextState = Fetch;
+					NextState = Fetch;
 				end
 				LOAD_A: begin
 					D_addr = Instruction[11:4];
 					RF_s = 1;
 					RF_W_addr = Instruction[3:0];
-					nextState = LOAD_B;
+					NextState = LOAD_B;
 				end
 				LOAD_B: begin
 					D_addr = Instruction[11:4];
 					RF_s = 1;
 					RF_W_addr = Instruction[3:0];
 					RF_W_en = 1;
-					nextState = Fetch;
+					NextState = Fetch;
 				end
-				NOOP: nextState = Fetch;
-				HALT: nextState = HALT;
-				default: nextState = Init;
+				NOOP: NextState = Fetch;
+				HALT: NextState = HALT;
+				default: NextState = Init;
 			endcase
 		end else begin
-			nextState = Init;
+			NextState = Init;
 		end
 	end
 
 	// Sequential portion
 	always_ff @( posedge Clk ) begin
-		currentState <= nextState;
+		CurrentState <= NextState;
 	end
 endmodule
 
@@ -181,6 +185,8 @@ module ControlFSM_tb();
 		   RF_Rb_addr;
 	logic [7:0] D_addr;
 	logic [2:0] ALU_s0;
+
+	logic [3:0] CurrentState, NextState;
 
     localparam CLK_CYCLE_TIME = 20;
 
@@ -204,7 +210,9 @@ module ControlFSM_tb();
 		RF_Rb_addr, 
 		RF_W_en, 
 		RF_W_addr, 
-		ALU_s0);
+		ALU_s0,
+		CurrentState,
+		NextState);
 
 	// Wait n clock cycles
 	task automatic WaitCycles(input [31:0] n);
@@ -377,13 +385,13 @@ module ControlFSM_tb();
 
 		WaitCycles(4);
 
-		assert(DUT.currentState == HALT) 
-		else $error("Control unit not in halt state! Expected currentState = %h, got currentState = %h.", DUT.currentState, HALT);
+		assert(DUT.CurrentState == HALT) 
+		else $error("Control unit not in halt state! Expected CurrentState = %h, got CurrentState = %h.", DUT.CurrentState, HALT);
 		
 		WaitCycles(4);
 
-		assert(DUT.currentState == HALT) 
-		else $error("Control did not maintain halt state! Expected currentState = %h, got currentState = %h.", DUT.currentState, HALT);
+		assert(DUT.CurrentState == HALT) 
+		else $error("Control did not maintain halt state! Expected CurrentState = %h, got CurrentState = %h.", DUT.CurrentState, HALT);
 
 		$stop;
 	end
