@@ -89,5 +89,7 @@ module Controller_tb();
         IR_OUT);
 
     always begin
-
+        Clk = 1; #(clkTime / 2);
+        Clk = 0; #(clkTime / 2);
+    end
 endmodule
