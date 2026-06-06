@@ -88,7 +88,7 @@ module Controller_tb();
     logic RF_W_en, D_wr;
     logic [2:0] ALU_s0;
     logic [3:0] RF_W_addr, RF_Ra_Addr, RF_Rb_Addr, State, NextState;
-    logic [6:0] fetchCounter;
+    logic [6:0] PC_OUT, fetchCounter;
     logic [7:0] D_addr;
     logic [15:0] IR_OUT, IR_Tracker; 
     localparam clkTime = 20;
@@ -116,7 +116,7 @@ module Controller_tb();
     end
 
     initial begin   
-        ResetN = 0;
+        ResetN = 0; fetchCounter = 0;
         waitCycles(1);
         testReset();
         ResetN = 1;
@@ -150,7 +150,7 @@ module Controller_tb();
     /** Tests the reset signal */
     task automatic testReset();
         assert(State == DUT.Init)
-        else $error("Problem with reset signal. Expected: Init; Actual: %s", State.name());
+        else $error("Problem with reset signal. Expected: Init; Actual: %s", getState(State));
     endtask
 
     /** Tests the PC counter to see if it is incrementing at the correct time. */
@@ -172,7 +172,7 @@ module Controller_tb();
         else $error("IR ERROR. Expected %h. Recieved %h.", IR_Tracker, IR_OUT);
     endtask
 
-    string function getState(input int state);
+    function string getState(input int state);
         case (state) 
             0: begin getState = "Init"; end
             1: begin getState = "Fetch"; end

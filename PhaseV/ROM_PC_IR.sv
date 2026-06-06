@@ -27,7 +27,7 @@ module ROM_PC_IR(Clk, LD, IR_OUT, UP, Clr, PC_OUT);
     InstMemory ROM(.address(PC_OUT), .clock(Clk), .q(IR_IN));
 
     // IR(Clk, Ld, DataIn, DataOut)
-    IR instructionRegister(Clk, LD, IR_IN, IR_OUT);
+    IR instructionRegister(Clk, LD, IR_IN, IR_OUT, Clr);
 endmodule
 
 /**
