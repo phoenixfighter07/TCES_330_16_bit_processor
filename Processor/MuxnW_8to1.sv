@@ -2,11 +2,13 @@
  * TCES 330
  * Landon Wardle
  * 4/23/2026
- * Module for a 4 bit 8 to 1 Multiplexer and its testbench
+ * Module for an n bit 8 to 1 Multiplexer and its testbench
  */
-module Mux4w_8to1(M, R, T, U, V, W, X, Y, Z, S);
-	output logic [3:0] M;
-	input [3:0] R, T, U, V, W, X, Y, Z;
+module MuxnW_8to1(M, R, T, U, V, W, X, Y, Z, S);
+	parameter n = 4;
+
+	output logic [(n - 1):0] M;
+	input [(n - 1):0] R, T, U, V, W, X, Y, Z;
 	input [2:0] S;
 
 	always_comb begin
@@ -24,11 +26,13 @@ module Mux4w_8to1(M, R, T, U, V, W, X, Y, Z, S);
 endmodule
 
 `ifdef MODEL_TECH
-module Mux4w_8to1_testbench();
-	logic [3:0] M, R, T, U, V, W, X, Y, Z;
+module MuxnW_8to1_testbench();
+	localparam n = 4;
+
+	logic [(n - 1):0] M, R, T, U, V, W, X, Y, Z;
 	logic [2:0] S;
 
-	Mux4w_8to1 DUT(M, R, T, U, V, W, X, Y, Z, S); // Design under test
+	MuxnW_8to1 DUT(M, R, T, U, V, W, X, Y, Z, S); // Design under test
 
 	initial begin
 		// Assign different values to each signal to test mux
