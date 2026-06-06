@@ -125,6 +125,7 @@ module Controller_tb();
         always @(state != HALT) begin
             @ (negedge Clk)
             testPC_OUT();
+            testIR();
         end
         
     end
@@ -158,7 +159,7 @@ module Controller_tb();
         end
 
         assert(IR_OUT == IR_Tracker)
-        else $error("IR ERROR. Elaborate on data in the next commit");
+        else $error("IR ERROR. Expected %h. Recieved %h.", IR_Tracker, IR_OUT);
     endtask
 
 
