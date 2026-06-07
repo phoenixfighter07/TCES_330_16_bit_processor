@@ -80,8 +80,9 @@ endmodule
 `ifdef MODEL_TECH
 /**
     This module tests the controller unit. Since the ROM_PC_IR unit was already tested, the purpose
-    of the testbench is to see whether the FSM communicates properly with al of the other 
-    control units. 
+    of the testbench is to see whether the FSM communicates properly with all of the other 
+    control units. For example, This testbench is also supposed to be used with actual instruction sets in the rom such as 
+    the one in the ROM_instruction.mif file.
 */
 module Controller_tb();
     logic Clk, ResetN;
