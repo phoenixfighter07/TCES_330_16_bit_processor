@@ -117,7 +117,8 @@ module Controller_tb();
 
     initial begin   
         ResetN = 0; fetchCounter = 0;
-        waitCycles(1);
+        #clkTime;
+        @(negedge Clk);
         testReset();
         ResetN = 1;
 
@@ -130,12 +131,13 @@ module Controller_tb();
 
         // Checks if reset works 
         ResetN = 0;
-        waitCycles(1);
+        waitCycles(2);
         testReset();
         ResetN = 1;
         // Checks if reset works in a random cycle
         waitCycles(10);
         ResetN = 0;
+        waitCycles(2);
         testReset();
         $stop;
     end
@@ -149,14 +151,17 @@ module Controller_tb();
 
     /** Tests the reset signal */
     task automatic testReset();
+        IR_Tracker = 0;
         assert(State == DUT.Init)
         else $error("Problem with reset signal. Expected: Init; Actual: %s", getState(State));
+        assert(IR_OUT == 0)
+        else $error("Problem resetting the IR. Should be 0. Is %h", IR_OUT);
     endtask
 
     /** Tests the PC counter to see if it is incrementing at the correct time. */
     task automatic testPC_OUT();
-        if (State == DUT.Fetch) begin
-            fetchCounter++;
+        if (State == DUT.Decode) begin
+            fetchCounter = fetchCounter + 1;
         end
         
         assert(PC_OUT == fetchCounter)
@@ -164,7 +169,7 @@ module Controller_tb();
     endtask
 
     task automatic testIR();
-        if (State == DUT.Fetch) begin
+        if (State == DUT.Decode) begin
             IR_Tracker = IR_OUT;
         end
 

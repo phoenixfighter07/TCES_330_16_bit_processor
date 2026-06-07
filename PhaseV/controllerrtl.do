@@ -28,7 +28,7 @@ vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lns
 # Source the wave do file
 #     This should be the file that sets up the signal window for
 #     the module you are testing.
-do ROM_PC_IRwave.do
+do controllerWave.do
 
 # Set the window types
 view wave
