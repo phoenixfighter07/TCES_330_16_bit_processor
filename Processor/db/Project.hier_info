@@ -35,7 +35,7 @@ LEDR[14] <= SW[14].DB_MAX_OUTPUT_PORT_TYPE
 LEDR[15] <= S[0].DB_MAX_OUTPUT_PORT_TYPE
 LEDR[16] <= S[1].DB_MAX_OUTPUT_PORT_TYPE
 LEDR[17] <= S[2].DB_MAX_OUTPUT_PORT_TYPE
-KEY[1] => KEY[1].IN1
+KEY[1] => ButtonSynchronizer:synch1.bi
 KEY[2] => ButtonSynchronizer:synch2.bi
 HEX7[6] <= Decoder:decoder7.Hex
 HEX7[5] <= Decoder:decoder7.Hex
@@ -93,7 +93,7 @@ HEX0[3] <= Decoder:decoder0.Hex
 HEX0[2] <= Decoder:decoder0.Hex
 HEX0[1] <= Decoder:decoder0.Hex
 HEX0[0] <= Decoder:decoder0.Hex
-CLOCK_50 => CLOCK_50.IN3
+CLOCK_50 => CLOCK_50.IN2
 
 
 |Project|ButtonSynchronizer:synch1
@@ -102,7 +102,7 @@ bi => NextState.B.DATAB
 bi => Selector0.IN1
 bi => State.A.DATAIN
 bo <= bo.DB_MAX_OUTPUT_PORT_TYPE
-StateOut[0] <= bo.DB_MAX_OUTPUT_PORT_TYPE
+StateOut[0] <= StateOut[0].DB_MAX_OUTPUT_PORT_TYPE
 StateOut[1] <= StateOut[1].DB_MAX_OUTPUT_PORT_TYPE
 
 
@@ -184,7 +184,7 @@ bi => NextState.B.DATAB
 bi => Selector0.IN1
 bi => State.A.DATAIN
 bo <= bo.DB_MAX_OUTPUT_PORT_TYPE
-StateOut[0] <= bo.DB_MAX_OUTPUT_PORT_TYPE
+StateOut[0] <= StateOut[0].DB_MAX_OUTPUT_PORT_TYPE
 StateOut[1] <= StateOut[1].DB_MAX_OUTPUT_PORT_TYPE
 
 

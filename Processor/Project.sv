@@ -49,15 +49,15 @@ module Project(SW, LEDR, KEY, HEX7, HEX6, HEX5, HEX4, HEX3, HEX2, HEX1, HEX0, CL
 	
 	assign S = SW[17:15];
 
-	ButtonSynchronizer synch1 ( .Clk(CLOCK_50), .bi(~KEY[1]), .bo(KEY_1_OUT), .StateOut());
+	ButtonSynchronizer synch1 ( .Clk(CLOCK_50), .bi(KEY[1]), .bo(KEY_1_OUT), .StateOut());
 	KeyFilter filter1 (.Clk(CLOCK_50), .In(KEY_1_OUT), .Out(KEY_1_OUT_FILTERED));
 
-	ButtonSynchronizer synch2 ( .Clk(CLOCK_50), .bi(~KEY[2]), .bo(KEY_2_OUT), .StateOut());
+	ButtonSynchronizer synch2 ( .Clk(CLOCK_50), .bi(KEY[2]), .bo(KEY_2_OUT), .StateOut());
 	KeyFilter filter2 (.Clk(CLOCK_50), .In(KEY_2_OUT), .Out(KEY_2_OUT_FILTERED));
 
     Processor processor( 
-		.Clk(CLOCK_50), 
-		.ResetN(KEY_1_OUT),
+		.Clk(KEY_2_OUT_FILTERED), 
+		.ResetN(KEY_1_OUT_FILTERED),
 		.IR_Out(IR_OUT), 
 		.PC_Out(PC_OUT), 
 		.State(State), 
