@@ -11,20 +11,19 @@ typedef enum logic [1:0] {A, B, C} stateType;
 
 module ButtonSynchronizer( Clk, bi, bo, StateOut);
   input Clk, bi;        
-  output logic bo;  
+  output bo;  
   output stateType StateOut; 
 
   stateType State, NextState;
   
 
   assign StateOut = State; 
+  assign bo = (State == B);
 
   //CombLogic (use blocking assigns)
   //describe state transition
   //of a Moore machine
   always_comb begin
-    
-    bo=0;
     case (State)
       A: begin
         if (bi) NextState = B; 
@@ -32,7 +31,6 @@ module ButtonSynchronizer( Clk, bi, bo, StateOut);
       end  
       
       B: begin
-        bo=1;
         if (bi) NextState = C; 
         else NextState = A;
       end  
