@@ -76,7 +76,8 @@ module Processor(
         .ALU_s0(ALU_s0),
         .NextState(NextState),
         .State(State),
-        .IR_OUT(IR_Out)
+        .IR_OUT(IR_Out),
+        .PC_OUT(PC_Out)
     );
 
     Datapath datapath (

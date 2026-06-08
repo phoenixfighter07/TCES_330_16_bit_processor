@@ -35,7 +35,7 @@ module Project(SW, LEDR, KEY, HEX7, HEX6, HEX5, HEX4, HEX3, HEX2, HEX1, HEX0, CL
 
 	// Wires
 	logic D_wr, RF_s, RF_W_en;
-	logic [7:0] D_addr, PC_OUT; 
+	logic [6:0] D_addr, PC_OUT; 
 	logic [3:0] RF_W_addr, RF_Ra_Addr, RF_Rb_Addr, State, NextState;
 	logic [2:0] ALU_s0;
 	logic [15:0] ALU_inA, ALU_inB, ALU_out, IR_OUT;
@@ -49,15 +49,15 @@ module Project(SW, LEDR, KEY, HEX7, HEX6, HEX5, HEX4, HEX3, HEX2, HEX1, HEX0, CL
 	
 	assign S = SW[17:15];
 
-	ButtonSynchronizer synch1 ( .Clk(CLOCK_50), .bi(KEY[1]), .bo(KEY_1_OUT), .StateOut());
+	ButtonSynchronizer synch1 ( .Clk(CLOCK_50), .bi(~KEY[1]), .bo(KEY_1_OUT), .StateOut());
 	KeyFilter filter1 (.Clk(CLOCK_50), .In(KEY_1_OUT), .Out(KEY_1_OUT_FILTERED));
 
-	ButtonSynchronizer synch2 ( .Clk(CLOCK_50), .bi(KEY[2]), .bo(KEY_2_OUT), .StateOut());
+	ButtonSynchronizer synch2 ( .Clk(CLOCK_50), .bi(~KEY[2]), .bo(KEY_2_OUT), .StateOut());
 	KeyFilter filter2 (.Clk(CLOCK_50), .In(KEY_2_OUT), .Out(KEY_2_OUT_FILTERED));
 
     Processor processor( 
-		.Clk(KEY_2_OUT_FILTERED), 
-		.ResetN(KEY_1_OUT_FILTERED),
+		.Clk(CLOCK_50), 
+		.ResetN(KEY_1_OUT),
 		.IR_Out(IR_OUT), 
 		.PC_Out(PC_OUT), 
 		.State(State), 
@@ -79,8 +79,8 @@ module Project(SW, LEDR, KEY, HEX7, HEX6, HEX5, HEX4, HEX3, HEX2, HEX1, HEX0, CL
 	Decoder decoder0 (.Hex(HEX0), .V(IR_OUT[3:0]));
 
 	//MuxnW_8to1(M, R, T, U, V, W, X, Y, Z, S);
-	MuxnW_8to1 HEX7Mux (.M(HEX7MuxOut), .R(PC_OUT[7:4]), .T(ALU_inA[15:12]), .U(ALU_inB[15:12]), .V(ALU_inB[15:12]), .W(NextState), .X(LOW), .Y(LOW), .Z(LOW), .S(S));
-	MuxnW_8to1 HEX6Mux (.M(HEX6MuxOut), .R(PC_OUT[3:0]), .T(ALU_inA[11:8]), .U(ALU_inB[11:8]), .V(ALU_inB[11:8]), .W(LOW), .X(LOW), .Y(LOW), .Z(LOW), .S(S));
-	MuxnW_8to1 HEX5Mux (.M(HEX5MuxOut), .R(LOW), .T(ALU_inA[7:4]), .U(ALU_inB[7:4]), .V(ALU_inB[7:4]), .W(LOW), .X(LOW), .Y(LOW), .Z(LOW), .S(S));
-	MuxnW_8to1 HEX4Mux (.M(HEX4MuxOut), .R(State), .T(ALU_inA[3:0]), .U(ALU_inB[3:0]), .V(ALU_inB[3:0]), .W(LOW), .X(LOW), .Y(LOW), .Z(LOW), .S(S));
+	MuxnW_8to1 HEX7Mux (.M(HEX7MuxOut), .R({1'b0, PC_OUT[6:4]}), .T(ALU_inA[15:12]), .U(ALU_inB[15:12]), .V(ALU_out[15:12]), .W(NextState), .X(LOW), .Y(LOW), .Z(LOW), .S(S));
+	MuxnW_8to1 HEX6Mux (.M(HEX6MuxOut), .R(PC_OUT[3:0]), .T(ALU_inA[11:8]), .U(ALU_inB[11:8]), .V(ALU_out[11:8]), .W(LOW), .X(LOW), .Y(LOW), .Z(LOW), .S(S));
+	MuxnW_8to1 HEX5Mux (.M(HEX5MuxOut), .R(LOW), .T(ALU_inA[7:4]), .U(ALU_inB[7:4]), .V(ALU_out[7:4]), .W(LOW), .X(LOW), .Y(LOW), .Z(LOW), .S(S));
+	MuxnW_8to1 HEX4Mux (.M(HEX4MuxOut), .R(State), .T(ALU_inA[3:0]), .U(ALU_inB[3:0]), .V(ALU_out[3:0]), .W(LOW), .X(LOW), .Y(LOW), .Z(LOW), .S(S));
 endmodule

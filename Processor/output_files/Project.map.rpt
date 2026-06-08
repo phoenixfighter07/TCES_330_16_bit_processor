@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Project
-Sat Jun  6 16:15:56 2026
+Sat Jun  6 18:42:55 2026
 Quartus Prime Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
 
 
@@ -10,27 +10,43 @@ Quartus Prime Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Source assignments for Processor:processor|Controller:controller|ROM_PC_IR:instruction|InstMemory:ROM|altsyncram:altsyncram_component|altsyncram_r8c1:auto_generated|altsyncram_gmd2:altsyncram1
-  6. Source assignments for Processor:processor|Datapath:datapath|DataMemory:RAM|altsyncram:altsyncram_component|altsyncram_jdj1:auto_generated|altsyncram_ana2:altsyncram1
-  7. Parameter Settings for User Entity Instance: Processor:processor|Controller:controller|ROM_PC_IR:instruction|PC:programCounter
-  8. Parameter Settings for User Entity Instance: Processor:processor|Controller:controller|ROM_PC_IR:instruction|InstMemory:ROM|altsyncram:altsyncram_component
-  9. Parameter Settings for User Entity Instance: Processor:processor|Datapath:datapath|DataMemory:RAM|altsyncram:altsyncram_component
- 10. Parameter Settings for User Entity Instance: Processor:processor|Datapath:datapath|ALU:ALU
- 11. Parameter Settings for User Entity Instance: Processor:processor|Datapath:datapath|regfile16x16:RegFile
- 12. Parameter Settings for User Entity Instance: MuxnW_8to1:HEX7Mux
- 13. Parameter Settings for User Entity Instance: MuxnW_8to1:HEX6Mux
- 14. Parameter Settings for User Entity Instance: MuxnW_8to1:HEX5Mux
- 15. Parameter Settings for User Entity Instance: MuxnW_8to1:HEX4Mux
- 16. Port Connectivity Checks: "MuxnW_8to1:HEX4Mux"
- 17. Port Connectivity Checks: "MuxnW_8to1:HEX5Mux"
- 18. Port Connectivity Checks: "MuxnW_8to1:HEX6Mux"
- 19. Port Connectivity Checks: "MuxnW_8to1:HEX7Mux"
- 20. Port Connectivity Checks: "Processor:processor|Controller:controller|ROM_PC_IR:instruction"
- 21. Port Connectivity Checks: "Processor:processor|Controller:controller"
- 22. Port Connectivity Checks: "Processor:processor"
- 23. Port Connectivity Checks: "ButtonSynchronizer:synch2"
- 24. Port Connectivity Checks: "ButtonSynchronizer:synch1"
- 25. Analysis & Synthesis Messages
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. Analysis & Synthesis IP Cores Summary
+ 10. State Machine - |Project|Processor:processor|Controller:controller|FSM:control|CurrentState
+ 11. State Machine - |Project|ButtonSynchronizer:synch2|State
+ 12. State Machine - |Project|ButtonSynchronizer:synch1|State
+ 13. Registers Removed During Synthesis
+ 14. Removed Registers Triggering Further Register Optimizations
+ 15. General Register Statistics
+ 16. Inverted Register Statistics
+ 17. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 18. Source assignments for Processor:processor|Controller:controller|ROM_PC_IR:instruction|InstMemory:ROM|altsyncram:altsyncram_component|altsyncram_g4d1:auto_generated|altsyncram_5ie2:altsyncram1
+ 19. Source assignments for Processor:processor|Datapath:datapath|DataMemory:RAM|altsyncram:altsyncram_component|altsyncram_jdj1:auto_generated|altsyncram_ana2:altsyncram1
+ 20. Parameter Settings for User Entity Instance: Processor:processor|Controller:controller|ROM_PC_IR:instruction|PC:programCounter
+ 21. Parameter Settings for User Entity Instance: Processor:processor|Controller:controller|ROM_PC_IR:instruction|InstMemory:ROM|altsyncram:altsyncram_component
+ 22. Parameter Settings for User Entity Instance: Processor:processor|Datapath:datapath|DataMemory:RAM|altsyncram:altsyncram_component
+ 23. Parameter Settings for User Entity Instance: Processor:processor|Datapath:datapath|ALU:ALU
+ 24. Parameter Settings for User Entity Instance: Processor:processor|Datapath:datapath|regfile16x16:RegFile
+ 25. Parameter Settings for User Entity Instance: MuxnW_8to1:HEX7Mux
+ 26. Parameter Settings for User Entity Instance: MuxnW_8to1:HEX6Mux
+ 27. Parameter Settings for User Entity Instance: MuxnW_8to1:HEX5Mux
+ 28. Parameter Settings for User Entity Instance: MuxnW_8to1:HEX4Mux
+ 29. altsyncram Parameter Settings by Entity Instance
+ 30. Port Connectivity Checks: "MuxnW_8to1:HEX4Mux"
+ 31. Port Connectivity Checks: "MuxnW_8to1:HEX5Mux"
+ 32. Port Connectivity Checks: "MuxnW_8to1:HEX6Mux"
+ 33. Port Connectivity Checks: "MuxnW_8to1:HEX7Mux"
+ 34. Port Connectivity Checks: "KeyFilter:filter2"
+ 35. Port Connectivity Checks: "ButtonSynchronizer:synch2"
+ 36. Port Connectivity Checks: "KeyFilter:filter1"
+ 37. Port Connectivity Checks: "ButtonSynchronizer:synch1"
+ 38. In-System Memory Content Editor Settings
+ 39. Post-Synthesis Netlist Statistics for Top Partition
+ 40. Elapsed Time Per Partition
+ 41. Analysis & Synthesis Messages
 
 
 
@@ -57,20 +73,20 @@ on the Quartus Prime software download page.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Sat Jun  6 16:15:56 2026               ;
+; Analysis & Synthesis Status        ; Successful - Sat Jun  6 18:42:55 2026           ;
 ; Quartus Prime Version              ; 25.1std.0 Build 1129 10/21/2025 SC Lite Edition ;
 ; Revision Name                      ; Project                                         ;
 ; Top-level Entity Name              ; Project                                         ;
 ; Family                             ; Cyclone IV E                                    ;
-; Total logic elements               ; N/A until Partition Merge                       ;
-;     Total combinational functions  ; N/A until Partition Merge                       ;
-;     Dedicated logic registers      ; N/A until Partition Merge                       ;
-; Total registers                    ; N/A until Partition Merge                       ;
-; Total pins                         ; N/A until Partition Merge                       ;
-; Total virtual pins                 ; N/A until Partition Merge                       ;
-; Total memory bits                  ; N/A until Partition Merge                       ;
-; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                       ;
-; Total PLLs                         ; N/A until Partition Merge                       ;
+; Total logic elements               ; 1,189                                           ;
+;     Total combinational functions  ; 919                                             ;
+;     Dedicated logic registers      ; 488                                             ;
+; Total registers                    ; 488                                             ;
+; Total pins                         ; 95                                              ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 6,144                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
 +------------------------------------+-------------------------------------------------+
 
 
@@ -169,15 +185,300 @@ on the Quartus Prime software download page.
 ; Maximum allowed            ; 16          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 16          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
+;     Processor 7            ;   0.0%      ;
+;     Processor 8            ;   0.0%      ;
+;     Processors 9-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                                                              ;
++--------------------------------------------------------------------+-----------------+----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+-------------+
+; File Name with User-Entered Path                                   ; Used in Netlist ; File Type                                    ; File Name with Absolute Path                                                                                                                    ; Library     ;
++--------------------------------------------------------------------+-----------------+----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+-------------+
+; ROM_PC_IR.sv                                                       ; yes             ; User SystemVerilog HDL File                  ; C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/ROM_PC_IR.sv                                                       ;             ;
+; PC.sv                                                              ; yes             ; User SystemVerilog HDL File                  ; C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/PC.sv                                                              ;             ;
+; MuxnW_8to1.sv                                                      ; yes             ; User SystemVerilog HDL File                  ; C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/MuxnW_8to1.sv                                                      ;             ;
+; IR.sv                                                              ; yes             ; User SystemVerilog HDL File                  ; C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/IR.sv                                                              ;             ;
+; Decoder.sv                                                         ; yes             ; User SystemVerilog HDL File                  ; C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/Decoder.sv                                                         ;             ;
+; Controller.sv                                                      ; yes             ; User SystemVerilog HDL File                  ; C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/Controller.sv                                                      ;             ;
+; FSM.sv                                                             ; yes             ; User SystemVerilog HDL File                  ; C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/FSM.sv                                                             ;             ;
+; InstMemory.v                                                       ; yes             ; User Wizard-Generated File                   ; C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/InstMemory.v                                                       ;             ;
+; KeyFilter.sv                                                       ; yes             ; User SystemVerilog HDL File                  ; C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/KeyFilter.sv                                                       ;             ;
+; ButtonSynchronizer.sv                                              ; yes             ; User SystemVerilog HDL File                  ; C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/ButtonSynchronizer.sv                                              ;             ;
+; Project.sv                                                         ; yes             ; User SystemVerilog HDL File                  ; C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/Project.sv                                                         ;             ;
+; regfile16x16.sv                                                    ; yes             ; User SystemVerilog HDL File                  ; C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/regfile16x16.sv                                                    ;             ;
+; Processor.sv                                                       ; yes             ; User SystemVerilog HDL File                  ; C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/Processor.sv                                                       ;             ;
+; Mux.sv                                                             ; yes             ; User SystemVerilog HDL File                  ; C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/Mux.sv                                                             ;             ;
+; Datapath.sv                                                        ; yes             ; User SystemVerilog HDL File                  ; C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/Datapath.sv                                                        ;             ;
+; ALU.sv                                                             ; yes             ; User SystemVerilog HDL File                  ; C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/ALU.sv                                                             ;             ;
+; DataMemory.v                                                       ; yes             ; User Wizard-Generated File                   ; C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/DataMemory.v                                                       ;             ;
+; altsyncram.tdf                                                     ; yes             ; Megafunction                                 ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/altsyncram.tdf                                                                           ;             ;
+; stratix_ram_block.inc                                              ; yes             ; Megafunction                                 ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/stratix_ram_block.inc                                                                    ;             ;
+; lpm_mux.inc                                                        ; yes             ; Megafunction                                 ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/lpm_mux.inc                                                                              ;             ;
+; lpm_decode.inc                                                     ; yes             ; Megafunction                                 ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/lpm_decode.inc                                                                           ;             ;
+; aglobal251.inc                                                     ; yes             ; Megafunction                                 ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/aglobal251.inc                                                                           ;             ;
+; a_rdenreg.inc                                                      ; yes             ; Megafunction                                 ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/a_rdenreg.inc                                                                            ;             ;
+; altrom.inc                                                         ; yes             ; Megafunction                                 ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/altrom.inc                                                                               ;             ;
+; altram.inc                                                         ; yes             ; Megafunction                                 ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/altram.inc                                                                               ;             ;
+; altdpram.inc                                                       ; yes             ; Megafunction                                 ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/altdpram.inc                                                                             ;             ;
+; db/altsyncram_g4d1.tdf                                             ; yes             ; Auto-Generated Megafunction                  ; C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/db/altsyncram_g4d1.tdf                                             ;             ;
+; db/altsyncram_5ie2.tdf                                             ; yes             ; Auto-Generated Megafunction                  ; C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/db/altsyncram_5ie2.tdf                                             ;             ;
+; ROM_instructions.mif                                               ; yes             ; Auto-Found Memory Initialization File        ; C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/ROM_instructions.mif                                               ;             ;
+; sld_mod_ram_rom.vhd                                                ; yes             ; Encrypted Megafunction                       ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/sld_mod_ram_rom.vhd                                                                      ;             ;
+; sld_jtag_endpoint_adapter.vhd                                      ; yes             ; Encrypted Megafunction                       ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter.vhd                                                            ;             ;
+; sld_jtag_endpoint_adapter_impl.sv                                  ; yes             ; Encrypted Megafunction                       ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter_impl.sv                                                        ;             ;
+; sld_rom_sr.vhd                                                     ; yes             ; Encrypted Megafunction                       ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/sld_rom_sr.vhd                                                                           ;             ;
+; db/altsyncram_jdj1.tdf                                             ; yes             ; Auto-Generated Megafunction                  ; C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/db/altsyncram_jdj1.tdf                                             ;             ;
+; db/altsyncram_ana2.tdf                                             ; yes             ; Auto-Generated Megafunction                  ; C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/db/altsyncram_ana2.tdf                                             ;             ;
+; RAM_test.mif                                                       ; yes             ; Auto-Found Memory Initialization File        ; C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/RAM_test.mif                                                       ;             ;
+; sld_hub.vhd                                                        ; yes             ; Encrypted Megafunction                       ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/sld_hub.vhd                                                                              ; altera_sld  ;
+; db/ip/slde1ef6cd0/alt_sld_fab.v                                    ; yes             ; Encrypted Auto-Found Verilog HDL File        ; C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/db/ip/slde1ef6cd0/alt_sld_fab.v                                    ; alt_sld_fab ;
+; db/ip/slde1ef6cd0/submodules/alt_sld_fab_alt_sld_fab.v             ; yes             ; Encrypted Auto-Found Verilog HDL File        ; C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/db/ip/slde1ef6cd0/submodules/alt_sld_fab_alt_sld_fab.v             ; alt_sld_fab ;
+; db/ip/slde1ef6cd0/submodules/alt_sld_fab_alt_sld_fab_ident.sv      ; yes             ; Auto-Found SystemVerilog HDL File            ; C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/db/ip/slde1ef6cd0/submodules/alt_sld_fab_alt_sld_fab_ident.sv      ; alt_sld_fab ;
+; db/ip/slde1ef6cd0/submodules/alt_sld_fab_alt_sld_fab_presplit.sv   ; yes             ; Encrypted Auto-Found SystemVerilog HDL File  ; C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/db/ip/slde1ef6cd0/submodules/alt_sld_fab_alt_sld_fab_presplit.sv   ; alt_sld_fab ;
+; db/ip/slde1ef6cd0/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd ; yes             ; Encrypted Auto-Found VHDL File               ; C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/db/ip/slde1ef6cd0/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd ; alt_sld_fab ;
+; db/ip/slde1ef6cd0/submodules/alt_sld_fab_alt_sld_fab_splitter.sv   ; yes             ; Encrypted Auto-Found SystemVerilog HDL File  ; C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/db/ip/slde1ef6cd0/submodules/alt_sld_fab_alt_sld_fab_splitter.sv   ; alt_sld_fab ;
+; sld_jtag_hub.vhd                                                   ; yes             ; Encrypted Megafunction                       ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/sld_jtag_hub.vhd                                                                         ;             ;
++--------------------------------------------------------------------+-----------------+----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+-------------+
+
+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimated Total logic elements              ; 1,189          ;
+;                                             ;                ;
+; Total combinational functions               ; 919            ;
+; Logic element usage by number of LUT inputs ;                ;
+;     -- 4 input functions                    ; 625            ;
+;     -- 3 input functions                    ; 170            ;
+;     -- <=2 input functions                  ; 124            ;
+;                                             ;                ;
+; Logic elements by mode                      ;                ;
+;     -- normal mode                          ; 860            ;
+;     -- arithmetic mode                      ; 59             ;
+;                                             ;                ;
+; Total registers                             ; 488            ;
+;     -- Dedicated logic registers            ; 488            ;
+;     -- I/O registers                        ; 0              ;
+;                                             ;                ;
+; I/O pins                                    ; 95             ;
+; Total memory bits                           ; 6144           ;
+;                                             ;                ;
+; Embedded Multiplier 9-bit elements          ; 0              ;
+;                                             ;                ;
+; Maximum fan-out node                        ; CLOCK_50~input ;
+; Maximum fan-out                             ; 315            ;
+; Total fan-out                               ; 5643           ;
+; Average fan-out                             ; 3.45           ;
++---------------------------------------------+----------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ;
++-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
+; Compilation Hierarchy Node                                                                                                              ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                                                                                                                                                                                                 ; Entity Name                       ; Library Name ;
++-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
+; |Project                                                                                                                                ; 919 (1)             ; 488 (0)                   ; 6144        ; 0            ; 0       ; 0         ; 95   ; 0            ; |Project                                                                                                                                                                                                                                                                                                                                            ; Project                           ; work         ;
+;    |Decoder:decoder0|                                                                                                                   ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project|Decoder:decoder0                                                                                                                                                                                                                                                                                                                           ; Decoder                           ; work         ;
+;    |Decoder:decoder1|                                                                                                                   ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project|Decoder:decoder1                                                                                                                                                                                                                                                                                                                           ; Decoder                           ; work         ;
+;    |Decoder:decoder2|                                                                                                                   ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project|Decoder:decoder2                                                                                                                                                                                                                                                                                                                           ; Decoder                           ; work         ;
+;    |Decoder:decoder3|                                                                                                                   ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project|Decoder:decoder3                                                                                                                                                                                                                                                                                                                           ; Decoder                           ; work         ;
+;    |Decoder:decoder4|                                                                                                                   ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project|Decoder:decoder4                                                                                                                                                                                                                                                                                                                           ; Decoder                           ; work         ;
+;    |Decoder:decoder5|                                                                                                                   ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project|Decoder:decoder5                                                                                                                                                                                                                                                                                                                           ; Decoder                           ; work         ;
+;    |Decoder:decoder6|                                                                                                                   ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project|Decoder:decoder6                                                                                                                                                                                                                                                                                                                           ; Decoder                           ; work         ;
+;    |Decoder:decoder7|                                                                                                                   ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project|Decoder:decoder7                                                                                                                                                                                                                                                                                                                           ; Decoder                           ; work         ;
+;    |MuxnW_8to1:HEX4Mux|                                                                                                                 ; 12 (12)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project|MuxnW_8to1:HEX4Mux                                                                                                                                                                                                                                                                                                                         ; MuxnW_8to1                        ; work         ;
+;    |MuxnW_8to1:HEX5Mux|                                                                                                                 ; 10 (10)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project|MuxnW_8to1:HEX5Mux                                                                                                                                                                                                                                                                                                                         ; MuxnW_8to1                        ; work         ;
+;    |MuxnW_8to1:HEX6Mux|                                                                                                                 ; 12 (12)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project|MuxnW_8to1:HEX6Mux                                                                                                                                                                                                                                                                                                                         ; MuxnW_8to1                        ; work         ;
+;    |MuxnW_8to1:HEX7Mux|                                                                                                                 ; 19 (19)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project|MuxnW_8to1:HEX7Mux                                                                                                                                                                                                                                                                                                                         ; MuxnW_8to1                        ; work         ;
+;    |Processor:processor|                                                                                                                ; 638 (0)             ; 376 (0)                   ; 6144        ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project|Processor:processor                                                                                                                                                                                                                                                                                                                        ; Processor                         ; work         ;
+;       |Controller:controller|                                                                                                           ; 147 (0)             ; 73 (0)                    ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project|Processor:processor|Controller:controller                                                                                                                                                                                                                                                                                                  ; Controller                        ; work         ;
+;          |FSM:control|                                                                                                                  ; 40 (40)             ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project|Processor:processor|Controller:controller|FSM:control                                                                                                                                                                                                                                                                                      ; FSM                               ; work         ;
+;          |ROM_PC_IR:instruction|                                                                                                        ; 107 (0)             ; 69 (0)                    ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project|Processor:processor|Controller:controller|ROM_PC_IR:instruction                                                                                                                                                                                                                                                                            ; ROM_PC_IR                         ; work         ;
+;             |IR:instructionRegister|                                                                                                    ; 16 (16)             ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project|Processor:processor|Controller:controller|ROM_PC_IR:instruction|IR:instructionRegister                                                                                                                                                                                                                                                     ; IR                                ; work         ;
+;             |InstMemory:ROM|                                                                                                            ; 73 (0)              ; 46 (0)                    ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project|Processor:processor|Controller:controller|ROM_PC_IR:instruction|InstMemory:ROM                                                                                                                                                                                                                                                             ; InstMemory                        ; work         ;
+;                |altsyncram:altsyncram_component|                                                                                        ; 73 (0)              ; 46 (0)                    ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project|Processor:processor|Controller:controller|ROM_PC_IR:instruction|InstMemory:ROM|altsyncram:altsyncram_component                                                                                                                                                                                                                             ; altsyncram                        ; work         ;
+;                   |altsyncram_g4d1:auto_generated|                                                                                      ; 73 (0)              ; 46 (0)                    ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project|Processor:processor|Controller:controller|ROM_PC_IR:instruction|InstMemory:ROM|altsyncram:altsyncram_component|altsyncram_g4d1:auto_generated                                                                                                                                                                                              ; altsyncram_g4d1                   ; work         ;
+;                      |altsyncram_5ie2:altsyncram1|                                                                                      ; 0 (0)               ; 0 (0)                     ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project|Processor:processor|Controller:controller|ROM_PC_IR:instruction|InstMemory:ROM|altsyncram:altsyncram_component|altsyncram_g4d1:auto_generated|altsyncram_5ie2:altsyncram1                                                                                                                                                                  ; altsyncram_5ie2                   ; work         ;
+;                      |sld_mod_ram_rom:mgl_prim2|                                                                                        ; 73 (51)             ; 46 (37)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project|Processor:processor|Controller:controller|ROM_PC_IR:instruction|InstMemory:ROM|altsyncram:altsyncram_component|altsyncram_g4d1:auto_generated|sld_mod_ram_rom:mgl_prim2                                                                                                                                                                    ; sld_mod_ram_rom                   ; work         ;
+;                         |sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr|                                                            ; 22 (22)             ; 9 (9)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project|Processor:processor|Controller:controller|ROM_PC_IR:instruction|InstMemory:ROM|altsyncram:altsyncram_component|altsyncram_g4d1:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr                                                                                                                 ; sld_rom_sr                        ; work         ;
+;             |PC:programCounter|                                                                                                         ; 18 (18)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project|Processor:processor|Controller:controller|ROM_PC_IR:instruction|PC:programCounter                                                                                                                                                                                                                                                          ; PC                                ; work         ;
+;       |Datapath:datapath|                                                                                                               ; 491 (0)             ; 303 (0)                   ; 4096        ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project|Processor:processor|Datapath:datapath                                                                                                                                                                                                                                                                                                      ; Datapath                          ; work         ;
+;          |ALU:ALU|                                                                                                                      ; 36 (36)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project|Processor:processor|Datapath:datapath|ALU:ALU                                                                                                                                                                                                                                                                                              ; ALU                               ; work         ;
+;          |DataMemory:RAM|                                                                                                               ; 74 (0)              ; 47 (0)                    ; 4096        ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project|Processor:processor|Datapath:datapath|DataMemory:RAM                                                                                                                                                                                                                                                                                       ; DataMemory                        ; work         ;
+;             |altsyncram:altsyncram_component|                                                                                           ; 74 (0)              ; 47 (0)                    ; 4096        ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project|Processor:processor|Datapath:datapath|DataMemory:RAM|altsyncram:altsyncram_component                                                                                                                                                                                                                                                       ; altsyncram                        ; work         ;
+;                |altsyncram_jdj1:auto_generated|                                                                                         ; 74 (0)              ; 47 (0)                    ; 4096        ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project|Processor:processor|Datapath:datapath|DataMemory:RAM|altsyncram:altsyncram_component|altsyncram_jdj1:auto_generated                                                                                                                                                                                                                        ; altsyncram_jdj1                   ; work         ;
+;                   |altsyncram_ana2:altsyncram1|                                                                                         ; 0 (0)               ; 0 (0)                     ; 4096        ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project|Processor:processor|Datapath:datapath|DataMemory:RAM|altsyncram:altsyncram_component|altsyncram_jdj1:auto_generated|altsyncram_ana2:altsyncram1                                                                                                                                                                                            ; altsyncram_ana2                   ; work         ;
+;                   |sld_mod_ram_rom:mgl_prim2|                                                                                           ; 74 (52)             ; 47 (38)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project|Processor:processor|Datapath:datapath|DataMemory:RAM|altsyncram:altsyncram_component|altsyncram_jdj1:auto_generated|sld_mod_ram_rom:mgl_prim2                                                                                                                                                                                              ; sld_mod_ram_rom                   ; work         ;
+;                      |sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr|                                                               ; 22 (22)             ; 9 (9)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project|Processor:processor|Datapath:datapath|DataMemory:RAM|altsyncram:altsyncram_component|altsyncram_jdj1:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr                                                                                                                                           ; sld_rom_sr                        ; work         ;
+;          |Mux:Mux|                                                                                                                      ; 16 (16)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project|Processor:processor|Datapath:datapath|Mux:Mux                                                                                                                                                                                                                                                                                              ; Mux                               ; work         ;
+;          |regfile16x16:RegFile|                                                                                                         ; 365 (365)           ; 256 (256)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project|Processor:processor|Datapath:datapath|regfile16x16:RegFile                                                                                                                                                                                                                                                                                 ; regfile16x16                      ; work         ;
+;    |sld_hub:auto_hub|                                                                                                                   ; 171 (1)             ; 112 (0)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project|sld_hub:auto_hub                                                                                                                                                                                                                                                                                                                           ; sld_hub                           ; altera_sld   ;
+;       |alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric| ; 170 (0)             ; 112 (0)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric                                                                                                                                                                                           ; alt_sld_fab_with_jtag_input       ; altera_sld   ;
+;          |alt_sld_fab:instrumentation_fabric|                                                                                           ; 170 (0)             ; 112 (0)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric                                                                                                                                                        ; alt_sld_fab                       ; alt_sld_fab  ;
+;             |alt_sld_fab_alt_sld_fab:alt_sld_fab|                                                                                       ; 170 (1)             ; 112 (6)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab                                                                                                                    ; alt_sld_fab_alt_sld_fab           ; alt_sld_fab  ;
+;                |alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|                                                                            ; 169 (0)             ; 106 (0)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric                                                                        ; alt_sld_fab_alt_sld_fab_sldfabric ; alt_sld_fab  ;
+;                   |sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|                                                                        ; 169 (132)           ; 106 (78)                  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub                           ; sld_jtag_hub                      ; work         ;
+;                      |sld_rom_sr:hub_info_reg|                                                                                          ; 19 (19)             ; 9 (9)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|sld_rom_sr:hub_info_reg   ; sld_rom_sr                        ; work         ;
+;                      |sld_shadow_jsm:shadow_jsm|                                                                                        ; 18 (18)             ; 19 (19)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|sld_shadow_jsm:shadow_jsm ; sld_shadow_jsm                    ; altera_sld   ;
++-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                                                                                       ;
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+------+----------------------+
+; Name                                                                                                                                                                                 ; Type ; Mode           ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF                  ;
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+------+----------------------+
+; Processor:processor|Controller:controller|ROM_PC_IR:instruction|InstMemory:ROM|altsyncram:altsyncram_component|altsyncram_g4d1:auto_generated|altsyncram_5ie2:altsyncram1|ALTSYNCRAM ; AUTO ; True Dual Port ; 128          ; 16           ; 128          ; 16           ; 2048 ; ROM_instructions.mif ;
+; Processor:processor|Datapath:datapath|DataMemory:RAM|altsyncram:altsyncram_component|altsyncram_jdj1:auto_generated|altsyncram_ana2:altsyncram1|ALTSYNCRAM                           ; AUTO ; True Dual Port ; 256          ; 16           ; 256          ; 16           ; 4096 ; RAM_test.mif         ;
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+------+----------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                                                                                                                                                                                                                                                          ;
++--------+--------------+---------+--------------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                                                                                                                                                                                                                                                              ; IP Include File ;
++--------+--------------+---------+--------------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+
+; Altera ; Signal Tap   ; N/A     ; N/A          ; Licensed     ; |Project|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric                                                                                 ;                 ;
+; Altera ; Signal Tap   ; N/A     ; N/A          ; Licensed     ; |Project|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab                                             ;                 ;
+; Altera ; Signal Tap   ; N/A     ; N/A          ; Licensed     ; |Project|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_presplit:presplit   ;                 ;
+; Altera ; Signal Tap   ; N/A     ; N/A          ; Licensed     ; |Project|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric ;                 ;
+; Altera ; Signal Tap   ; N/A     ; N/A          ; Licensed     ; |Project|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_splitter:splitter   ;                 ;
++--------+--------------+---------+--------------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+
+
+
+Encoding Type:  User-Encoded
++---------------------------------------------------------------------------------------------+
+; State Machine - |Project|Processor:processor|Controller:controller|FSM:control|CurrentState ;
++---------------------+----------------+----------------+----------------+--------------------+
+; Name                ; CurrentState~5 ; CurrentState~4 ; CurrentState~3 ; CurrentState~2     ;
++---------------------+----------------+----------------+----------------+--------------------+
+; CurrentState.Init   ; 0              ; 0              ; 0              ; 0                  ;
+; CurrentState.Fetch  ; 0              ; 0              ; 0              ; 1                  ;
+; CurrentState.Decode ; 0              ; 0              ; 1              ; 0                  ;
+; CurrentState.NOOP   ; 0              ; 0              ; 1              ; 1                  ;
+; CurrentState.LOAD_A ; 0              ; 1              ; 0              ; 0                  ;
+; CurrentState.STORE  ; 0              ; 1              ; 0              ; 1                  ;
+; CurrentState.ADD    ; 0              ; 1              ; 1              ; 0                  ;
+; CurrentState.HALT   ; 0              ; 1              ; 1              ; 1                  ;
+; CurrentState.SUB    ; 1              ; 0              ; 0              ; 0                  ;
+; CurrentState.LOAD_B ; 1              ; 0              ; 0              ; 1                  ;
++---------------------+----------------+----------------+----------------+--------------------+
+
+
+Encoding Type:  User-Encoded
++----------------------------------------------------------+
+; State Machine - |Project|ButtonSynchronizer:synch2|State ;
++---------+---------+--------------------------------------+
+; Name    ; State~3 ; State~2                              ;
++---------+---------+--------------------------------------+
+; State.A ; 0       ; 0                                    ;
+; State.B ; 0       ; 1                                    ;
+; State.C ; 1       ; 0                                    ;
++---------+---------+--------------------------------------+
+
+
+Encoding Type:  User-Encoded
++----------------------------------------------------------+
+; State Machine - |Project|ButtonSynchronizer:synch1|State ;
++---------+---------+--------------------------------------+
+; Name    ; State~3 ; State~2                              ;
++---------+---------+--------------------------------------+
+; State.A ; 0       ; 0                                    ;
+; State.B ; 0       ; 1                                    ;
+; State.C ; 1       ; 0                                    ;
++---------+---------+--------------------------------------+
+
+
++------------------------------------------------------------+
+; Registers Removed During Synthesis                         ;
++---------------------------------------+--------------------+
+; Register name                         ; Reason for Removal ;
++---------------------------------------+--------------------+
+; ButtonSynchronizer:synch2|State~2     ; Lost fanout        ;
+; ButtonSynchronizer:synch2|State~3     ; Lost fanout        ;
+; ButtonSynchronizer:synch1|State~2     ; Lost fanout        ;
+; ButtonSynchronizer:synch1|State~3     ; Lost fanout        ;
+; Total Number of Removed Registers = 4 ;                    ;
++---------------------------------------+--------------------+
+
+
++-------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                     ;
++-----------------------------------+--------------------+----------------------------------------+
+; Register name                     ; Reason for Removal ; Registers Removed due to This Register ;
++-----------------------------------+--------------------+----------------------------------------+
+; ButtonSynchronizer:synch2|State~2 ; Lost Fanouts       ; ButtonSynchronizer:synch2|State~3      ;
+; ButtonSynchronizer:synch1|State~2 ; Lost Fanouts       ; ButtonSynchronizer:synch1|State~3      ;
++-----------------------------------+--------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 488   ;
+; Number of registers using Synchronous Clear  ; 22    ;
+; Number of registers using Synchronous Load   ; 31    ;
+; Number of registers using Asynchronous Clear ; 102   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 440   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Inverted Register Statistics                                                                                                                                                                                                                                                                                                              ;
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; Inverted Register                                                                                                                                                                                                                                                                                                               ; Fan out ;
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[2] ; 2       ;
+; sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[1] ; 3       ;
+; Total number of inverted registers = 2                                                                                                                                                                                                                                                                                          ;         ;
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                                                                                                                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                                                                                                                                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |Project|Processor:processor|Controller:controller|ROM_PC_IR:instruction|IR:instructionRegister|DataOut[5]                                                                                                                                          ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |Project|Processor:processor|Controller:controller|ROM_PC_IR:instruction|PC:programCounter|Q[6]                                                                                                                                                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |Project|Processor:processor|Controller:controller|ROM_PC_IR:instruction|InstMemory:ROM|altsyncram:altsyncram_component|altsyncram_g4d1:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_data_shift_cntr_reg[4]                                     ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |Project|Processor:processor|Controller:controller|ROM_PC_IR:instruction|InstMemory:ROM|altsyncram:altsyncram_component|altsyncram_g4d1:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_data_reg[2]                                                ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |Project|Processor:processor|Datapath:datapath|DataMemory:RAM|altsyncram:altsyncram_component|altsyncram_jdj1:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_data_shift_cntr_reg[4]                                                               ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |Project|Processor:processor|Datapath:datapath|DataMemory:RAM|altsyncram:altsyncram_component|altsyncram_jdj1:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_data_reg[15]                                                                         ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |Project|Processor:processor|Controller:controller|ROM_PC_IR:instruction|InstMemory:ROM|altsyncram:altsyncram_component|altsyncram_g4d1:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_addr_reg[6]                                                ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |Project|Processor:processor|Datapath:datapath|DataMemory:RAM|altsyncram:altsyncram_component|altsyncram_jdj1:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_addr_reg[6]                                                                          ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |Project|Processor:processor|Controller:controller|ROM_PC_IR:instruction|InstMemory:ROM|altsyncram:altsyncram_component|altsyncram_g4d1:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr|word_counter[4] ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |Project|Processor:processor|Datapath:datapath|DataMemory:RAM|altsyncram:altsyncram_component|altsyncram_jdj1:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr|word_counter[3]                           ;
+; 26:1               ; 4 bits    ; 68 LEs        ; 44 LEs               ; 24 LEs                 ; Yes        ; |Project|Processor:processor|Controller:controller|ROM_PC_IR:instruction|InstMemory:ROM|altsyncram:altsyncram_component|altsyncram_g4d1:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr|WORD_SR[2]      ;
+; 26:1               ; 4 bits    ; 68 LEs        ; 48 LEs               ; 20 LEs                 ; Yes        ; |Project|Processor:processor|Datapath:datapath|DataMemory:RAM|altsyncram:altsyncram_component|altsyncram_jdj1:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr|WORD_SR[0]                                ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; No         ; |Project|Processor:processor|Controller:controller|FSM:control|NextState.LOAD_A                                                                                                                                                                     ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |Project|Processor:processor|Datapath:datapath|ALU:ALU|Mux4                                                                                                                                                                                         ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 12 LEs               ; 8 LEs                  ; No         ; |Project|MuxnW_8to1:HEX5Mux|Mux1                                                                                                                                                                                                                    ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 24 LEs               ; 16 LEs                 ; No         ; |Project|MuxnW_8to1:HEX4Mux|Mux3                                                                                                                                                                                                                    ;
+; 8:1                ; 3 bits    ; 15 LEs        ; 12 LEs               ; 3 LEs                  ; No         ; |Project|MuxnW_8to1:HEX7Mux|Mux3                                                                                                                                                                                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Source assignments for Processor:processor|Controller:controller|ROM_PC_IR:instruction|InstMemory:ROM|altsyncram:altsyncram_component|altsyncram_r8c1:auto_generated|altsyncram_gmd2:altsyncram1 ;
+; Source assignments for Processor:processor|Controller:controller|ROM_PC_IR:instruction|InstMemory:ROM|altsyncram:altsyncram_component|altsyncram_g4d1:auto_generated|altsyncram_5ie2:altsyncram1 ;
 +---------------------------------+--------------------+------+------------------------------------------------------------------------------------------------------------------------------------+
 ; Assignment                      ; Value              ; From ; To                                                                                                                                 ;
 +---------------------------------+--------------------+------+------------------------------------------------------------------------------------------------------------------------------------+
@@ -247,7 +548,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                                                                         ;
 ; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                                                                         ;
 ; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                                                                         ;
-; INIT_FILE                          ; ROM_test.mif         ; Untyped                                                                                         ;
+; INIT_FILE                          ; ROM_instructions.mif ; Untyped                                                                                         ;
 ; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                                                                         ;
 ; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                                                                         ;
 ; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                                                                         ;
@@ -260,7 +561,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                                                                         ;
 ; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                                                                         ;
 ; DEVICE_FAMILY                      ; Cyclone IV E         ; Untyped                                                                                         ;
-; CBXI_PARAMETER                     ; altsyncram_r8c1      ; Untyped                                                                                         ;
+; CBXI_PARAMETER                     ; altsyncram_g4d1      ; Untyped                                                                                         ;
 +------------------------------------+----------------------+-------------------------------------------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -386,6 +687,37 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                                                                           ;
++-------------------------------------------+----------------------------------------------------------------------------------------------------------------+
+; Name                                      ; Value                                                                                                          ;
++-------------------------------------------+----------------------------------------------------------------------------------------------------------------+
+; Number of entity instances                ; 2                                                                                                              ;
+; Entity Instance                           ; Processor:processor|Controller:controller|ROM_PC_IR:instruction|InstMemory:ROM|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; ROM                                                                                                            ;
+;     -- WIDTH_A                            ; 16                                                                                                             ;
+;     -- NUMWORDS_A                         ; 128                                                                                                            ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                                                   ;
+;     -- WIDTH_B                            ; 1                                                                                                              ;
+;     -- NUMWORDS_B                         ; 1                                                                                                              ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                                                         ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                                                   ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                                                           ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                                                      ;
+; Entity Instance                           ; Processor:processor|Datapath:datapath|DataMemory:RAM|altsyncram:altsyncram_component                           ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                                                                                                    ;
+;     -- WIDTH_A                            ; 16                                                                                                             ;
+;     -- NUMWORDS_A                         ; 256                                                                                                            ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                                                   ;
+;     -- WIDTH_B                            ; 1                                                                                                              ;
+;     -- NUMWORDS_B                         ; 1                                                                                                              ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                                                         ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                                                   ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                                                           ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                                                      ;
++-------------------------------------------+----------------------------------------------------------------------------------------------------------------+
+
+
 +------------------------------------------------+
 ; Port Connectivity Checks: "MuxnW_8to1:HEX4Mux" ;
 +------+-------+----------+----------------------+
@@ -428,38 +760,20 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+-------+----------+----------------------+
 ; Port ; Type  ; Severity ; Details              ;
 +------+-------+----------+----------------------+
+; R[3] ; Input ; Info     ; Stuck at GND         ;
 ; X    ; Input ; Info     ; Stuck at GND         ;
 ; Y    ; Input ; Info     ; Stuck at GND         ;
 ; Z    ; Input ; Info     ; Stuck at GND         ;
 +------+-------+----------+----------------------+
 
 
-+----------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "Processor:processor|Controller:controller|ROM_PC_IR:instruction"  ;
-+--------+---------+------------------+--------------------------------------------------------+
-; Port   ; Type    ; Severity         ; Details                                                ;
-+--------+---------+------------------+--------------------------------------------------------+
-; PC_OUT ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity ;
-+--------+---------+------------------+--------------------------------------------------------+
-
-
-+---------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "Processor:processor|Controller:controller"                                                                 ;
-+--------+--------+----------+----------------------------------------------------------------------------------------------------------+
-; Port   ; Type   ; Severity ; Details                                                                                                  ;
-+--------+--------+----------+----------------------------------------------------------------------------------------------------------+
-; PC_OUT ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
-+--------+--------+----------+----------------------------------------------------------------------------------------------------------+
-
-
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "Processor:processor"                                                                                                                                                     ;
-+---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port    ; Type   ; Severity ; Details                                                                                                                                                               ;
-+---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; PC_Out  ; Output ; Warning  ; Output or bidir port (7 bits) is smaller than the port expression (8 bits) it drives.  The 1 most-significant bit(s) in the port expression will be connected to GND. ;
-; ALU_Out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                   ;
-+---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "KeyFilter:filter2"                                                                  ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Out  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-------------------------------------------------------+
@@ -471,6 +785,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------+--------+----------+------------------------+
 
 
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "KeyFilter:filter1"                                                                  ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Out  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
 +-------------------------------------------------------+
 ; Port Connectivity Checks: "ButtonSynchronizer:synch1" ;
 +----------+--------+----------+------------------------+
@@ -480,13 +803,61 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------+--------+----------+------------------------+
 
 
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; In-System Memory Content Editor Settings                                                                                                                                                                  ;
++----------------+-------------+-------+-------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------+
+; Instance Index ; Instance ID ; Width ; Depth ; Mode       ; Hierarchy Location                                                                                                                            ;
++----------------+-------------+-------+-------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------+
+; 0              ; uROM        ; 16    ; 128   ; Read/Write ; Processor:processor|Controller:controller|ROM_PC_IR:instruction|InstMemory:ROM|altsyncram:altsyncram_component|altsyncram_g4d1:auto_generated ;
+; 1              ; uRAM        ; 16    ; 256   ; Read/Write ; Processor:processor|Datapath:datapath|DataMemory:RAM|altsyncram:altsyncram_component|altsyncram_jdj1:auto_generated                           ;
++----------------+-------------+-------+-------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 149                         ;
+; cycloneiii_ff         ; 376                         ;
+;     CLR               ; 14                          ;
+;     ENA               ; 318                         ;
+;     ENA CLR           ; 14                          ;
+;     ENA CLR SLD       ; 15                          ;
+;     ENA SCLR          ; 10                          ;
+;     plain             ; 5                           ;
+; cycloneiii_lcell_comb ; 755                         ;
+;     arith             ; 51                          ;
+;         2 data inputs ; 36                          ;
+;         3 data inputs ; 15                          ;
+;     normal            ; 704                         ;
+;         1 data inputs ; 15                          ;
+;         2 data inputs ; 38                          ;
+;         3 data inputs ; 88                          ;
+;         4 data inputs ; 563                         ;
+; cycloneiii_ram_block  ; 32                          ;
+;                       ;                             ;
+; Max LUT depth         ; 14.20                       ;
+; Average LUT depth     ; 7.83                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
 +-------------------------------+
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
-    Info: Processing started: Sat Jun  6 16:15:45 2026
+    Info: Processing started: Sat Jun  6 18:42:41 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Project -c Project
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 24 processors detected
@@ -541,8 +912,7 @@ Info (12127): Elaborating entity "Project" for the top level hierarchy
 Info (12128): Elaborating entity "ButtonSynchronizer" for hierarchy "ButtonSynchronizer:synch1" File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/Project.sv Line: 52
 Info (12128): Elaborating entity "KeyFilter" for hierarchy "KeyFilter:filter1" File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/Project.sv Line: 53
 Info (12128): Elaborating entity "Processor" for hierarchy "Processor:processor" File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/Project.sv Line: 68
-Warning (10034): Output port "PC_Out" at Processor.sv(52) has no driver File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/Processor.sv Line: 52
-Info (12128): Elaborating entity "Controller" for hierarchy "Processor:processor|Controller:controller" File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/Processor.sv Line: 80
+Info (12128): Elaborating entity "Controller" for hierarchy "Processor:processor|Controller:controller" File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/Processor.sv Line: 81
 Info (12128): Elaborating entity "ROM_PC_IR" for hierarchy "Processor:processor|Controller:controller|ROM_PC_IR:instruction" File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/Controller.sv Line: 57
 Info (12128): Elaborating entity "PC" for hierarchy "Processor:processor|Controller:controller|ROM_PC_IR:instruction|PC:programCounter" File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/ROM_PC_IR.sv Line: 24
 Info (12128): Elaborating entity "InstMemory" for hierarchy "Processor:processor|Controller:controller|ROM_PC_IR:instruction|InstMemory:ROM" File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/ROM_PC_IR.sv Line: 27
@@ -552,7 +922,7 @@ Info (12133): Instantiated megafunction "Processor:processor|Controller:controll
     Info (12134): Parameter "address_aclr_a" = "NONE"
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
-    Info (12134): Parameter "init_file" = "ROM_test.mif"
+    Info (12134): Parameter "init_file" = "ROM_instructions.mif"
     Info (12134): Parameter "intended_device_family" = "Cyclone IV E"
     Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=YES,INSTANCE_NAME=uROM"
     Info (12134): Parameter "lpm_type" = "altsyncram"
@@ -563,15 +933,15 @@ Info (12133): Instantiated megafunction "Processor:processor|Controller:controll
     Info (12134): Parameter "widthad_a" = "7"
     Info (12134): Parameter "width_a" = "16"
     Info (12134): Parameter "width_byteena_a" = "1"
-Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_r8c1.tdf
-    Info (12023): Found entity 1: altsyncram_r8c1 File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/db/altsyncram_r8c1.tdf Line: 28
-Info (12128): Elaborating entity "altsyncram_r8c1" for hierarchy "Processor:processor|Controller:controller|ROM_PC_IR:instruction|InstMemory:ROM|altsyncram:altsyncram_component|altsyncram_r8c1:auto_generated" File: c:/altera_lite/25.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_gmd2.tdf
-    Info (12023): Found entity 1: altsyncram_gmd2 File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/db/altsyncram_gmd2.tdf Line: 28
-Info (12128): Elaborating entity "altsyncram_gmd2" for hierarchy "Processor:processor|Controller:controller|ROM_PC_IR:instruction|InstMemory:ROM|altsyncram:altsyncram_component|altsyncram_r8c1:auto_generated|altsyncram_gmd2:altsyncram1" File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/db/altsyncram_r8c1.tdf Line: 35
-Info (12128): Elaborating entity "sld_mod_ram_rom" for hierarchy "Processor:processor|Controller:controller|ROM_PC_IR:instruction|InstMemory:ROM|altsyncram:altsyncram_component|altsyncram_r8c1:auto_generated|sld_mod_ram_rom:mgl_prim2" File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/db/altsyncram_r8c1.tdf Line: 36
-Info (12130): Elaborated megafunction instantiation "Processor:processor|Controller:controller|ROM_PC_IR:instruction|InstMemory:ROM|altsyncram:altsyncram_component|altsyncram_r8c1:auto_generated|sld_mod_ram_rom:mgl_prim2" File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/db/altsyncram_r8c1.tdf Line: 36
-Info (12133): Instantiated megafunction "Processor:processor|Controller:controller|ROM_PC_IR:instruction|InstMemory:ROM|altsyncram:altsyncram_component|altsyncram_r8c1:auto_generated|sld_mod_ram_rom:mgl_prim2" with the following parameter: File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/db/altsyncram_r8c1.tdf Line: 36
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_g4d1.tdf
+    Info (12023): Found entity 1: altsyncram_g4d1 File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/db/altsyncram_g4d1.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_g4d1" for hierarchy "Processor:processor|Controller:controller|ROM_PC_IR:instruction|InstMemory:ROM|altsyncram:altsyncram_component|altsyncram_g4d1:auto_generated" File: c:/altera_lite/25.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_5ie2.tdf
+    Info (12023): Found entity 1: altsyncram_5ie2 File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/db/altsyncram_5ie2.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_5ie2" for hierarchy "Processor:processor|Controller:controller|ROM_PC_IR:instruction|InstMemory:ROM|altsyncram:altsyncram_component|altsyncram_g4d1:auto_generated|altsyncram_5ie2:altsyncram1" File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/db/altsyncram_g4d1.tdf Line: 35
+Info (12128): Elaborating entity "sld_mod_ram_rom" for hierarchy "Processor:processor|Controller:controller|ROM_PC_IR:instruction|InstMemory:ROM|altsyncram:altsyncram_component|altsyncram_g4d1:auto_generated|sld_mod_ram_rom:mgl_prim2" File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/db/altsyncram_g4d1.tdf Line: 36
+Info (12130): Elaborated megafunction instantiation "Processor:processor|Controller:controller|ROM_PC_IR:instruction|InstMemory:ROM|altsyncram:altsyncram_component|altsyncram_g4d1:auto_generated|sld_mod_ram_rom:mgl_prim2" File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/db/altsyncram_g4d1.tdf Line: 36
+Info (12133): Instantiated megafunction "Processor:processor|Controller:controller|ROM_PC_IR:instruction|InstMemory:ROM|altsyncram:altsyncram_component|altsyncram_g4d1:auto_generated|sld_mod_ram_rom:mgl_prim2" with the following parameter: File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/db/altsyncram_g4d1.tdf Line: 36
     Info (12134): Parameter "CVALUE" = "0000000000000000"
     Info (12134): Parameter "IS_DATA_IN_RAM" = "1"
     Info (12134): Parameter "IS_READABLE" = "1"
@@ -580,13 +950,13 @@ Info (12133): Instantiated megafunction "Processor:processor|Controller:controll
     Info (12134): Parameter "SHIFT_COUNT_BITS" = "5"
     Info (12134): Parameter "WIDTH_WORD" = "16"
     Info (12134): Parameter "WIDTHAD" = "7"
-Info (12128): Elaborating entity "sld_jtag_endpoint_adapter" for hierarchy "Processor:processor|Controller:controller|ROM_PC_IR:instruction|InstMemory:ROM|altsyncram:altsyncram_component|altsyncram_r8c1:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_jtag_endpoint_adapter:jtag_signal_adapter" File: c:/altera_lite/25.1std/quartus/libraries/megafunctions/sld_mod_ram_rom.vhd Line: 302
-Info (12128): Elaborating entity "sld_jtag_endpoint_adapter_impl" for hierarchy "Processor:processor|Controller:controller|ROM_PC_IR:instruction|InstMemory:ROM|altsyncram:altsyncram_component|altsyncram_r8c1:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_jtag_endpoint_adapter:jtag_signal_adapter|sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst" File: c:/altera_lite/25.1std/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter.vhd Line: 232
-Info (12128): Elaborating entity "sld_rom_sr" for hierarchy "Processor:processor|Controller:controller|ROM_PC_IR:instruction|InstMemory:ROM|altsyncram:altsyncram_component|altsyncram_r8c1:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr" File: c:/altera_lite/25.1std/quartus/libraries/megafunctions/sld_mod_ram_rom.vhd Line: 828
+Info (12128): Elaborating entity "sld_jtag_endpoint_adapter" for hierarchy "Processor:processor|Controller:controller|ROM_PC_IR:instruction|InstMemory:ROM|altsyncram:altsyncram_component|altsyncram_g4d1:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_jtag_endpoint_adapter:jtag_signal_adapter" File: c:/altera_lite/25.1std/quartus/libraries/megafunctions/sld_mod_ram_rom.vhd Line: 302
+Info (12128): Elaborating entity "sld_jtag_endpoint_adapter_impl" for hierarchy "Processor:processor|Controller:controller|ROM_PC_IR:instruction|InstMemory:ROM|altsyncram:altsyncram_component|altsyncram_g4d1:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_jtag_endpoint_adapter:jtag_signal_adapter|sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst" File: c:/altera_lite/25.1std/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter.vhd Line: 232
+Info (12128): Elaborating entity "sld_rom_sr" for hierarchy "Processor:processor|Controller:controller|ROM_PC_IR:instruction|InstMemory:ROM|altsyncram:altsyncram_component|altsyncram_g4d1:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr" File: c:/altera_lite/25.1std/quartus/libraries/megafunctions/sld_mod_ram_rom.vhd Line: 828
 Info (12128): Elaborating entity "IR" for hierarchy "Processor:processor|Controller:controller|ROM_PC_IR:instruction|IR:instructionRegister" File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/ROM_PC_IR.sv Line: 30
 Info (12128): Elaborating entity "FSM" for hierarchy "Processor:processor|Controller:controller|FSM:control" File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/Controller.sv Line: 77
 Info (10264): Verilog HDL Case Statement information at FSM.sv(96): all case item expressions in this case statement are onehot File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/FSM.sv Line: 96
-Info (12128): Elaborating entity "Datapath" for hierarchy "Processor:processor|Datapath:datapath" File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/Processor.sv Line: 95
+Info (12128): Elaborating entity "Datapath" for hierarchy "Processor:processor|Datapath:datapath" File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/Processor.sv Line: 96
 Info (12128): Elaborating entity "DataMemory" for hierarchy "Processor:processor|Datapath:datapath|DataMemory:RAM" File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/Datapath.sv Line: 68
 Info (12128): Elaborating entity "altsyncram" for hierarchy "Processor:processor|Datapath:datapath|DataMemory:RAM|altsyncram:altsyncram_component" File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/DataMemory.v Line: 86
 Info (12130): Elaborated megafunction instantiation "Processor:processor|Datapath:datapath|DataMemory:RAM|altsyncram:altsyncram_component" File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/DataMemory.v Line: 86
@@ -628,12 +998,47 @@ Info (12128): Elaborating entity "ALU" for hierarchy "Processor:processor|Datapa
 Info (12128): Elaborating entity "regfile16x16" for hierarchy "Processor:processor|Datapath:datapath|regfile16x16:RegFile" File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/Datapath.sv Line: 93
 Info (12128): Elaborating entity "Decoder" for hierarchy "Decoder:decoder7" File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/Project.sv Line: 71
 Info (12128): Elaborating entity "MuxnW_8to1" for hierarchy "MuxnW_8to1:HEX7Mux" File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/Project.sv Line: 82
-Error (12002): Port "PC_OUT" does not exist in macrofunction "instruction" File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/Controller.sv Line: 57
-Warning (12241): 3 hierarchies have connectivity warnings - see the Connectivity Checks report folder
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 1 error, 4 warnings
-    Error: Peak virtual memory: 4841 megabytes
-    Error: Processing ended: Sat Jun  6 16:15:57 2026
-    Error: Elapsed time: 00:00:12
-    Error: Total CPU time (on all processors): 00:00:28
+Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
+Info (11172): 2026.06.06.18:42:48 Progress: Loading slde1ef6cd0/alt_sld_fab_wrapper_hw.tcl
+Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
+Info (11172): Alt_sld_fab: Generating "alt_sld_fab" for QUARTUS_SYNTH
+Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
+Info (11172): Presplit: "alt_sld_fab" instantiated altera_super_splitter "presplit"
+Info (11172): Splitter: "alt_sld_fab" instantiated altera_sld_splitter "splitter"
+Info (11172): Sldfabric: "alt_sld_fab" instantiated altera_sld_jtag_hub "sldfabric"
+Info (11172): Ident: "alt_sld_fab" instantiated altera_connection_identification_hub "ident"
+Info (11172): Alt_sld_fab: Done "alt_sld_fab" with 6 modules, 6 files
+Info (11171): Finished IP generation for the debug fabric: alt_sld_fab.
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/slde1ef6cd0/alt_sld_fab.v
+    Info (12023): Found entity 1: alt_sld_fab File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/db/ip/slde1ef6cd0/alt_sld_fab.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/slde1ef6cd0/submodules/alt_sld_fab_alt_sld_fab.v
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/db/ip/slde1ef6cd0/submodules/alt_sld_fab_alt_sld_fab.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/slde1ef6cd0/submodules/alt_sld_fab_alt_sld_fab_ident.sv
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_ident File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/db/ip/slde1ef6cd0/submodules/alt_sld_fab_alt_sld_fab_ident.sv Line: 33
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/slde1ef6cd0/submodules/alt_sld_fab_alt_sld_fab_presplit.sv
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_presplit File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/db/ip/slde1ef6cd0/submodules/alt_sld_fab_alt_sld_fab_presplit.sv Line: 3
+Info (12021): Found 2 design units, including 1 entities, in source file db/ip/slde1ef6cd0/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd
+    Info (12022): Found design unit 1: alt_sld_fab_alt_sld_fab_sldfabric-rtl File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/db/ip/slde1ef6cd0/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd Line: 142
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_sldfabric File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/db/ip/slde1ef6cd0/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd Line: 11
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/slde1ef6cd0/submodules/alt_sld_fab_alt_sld_fab_splitter.sv
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_splitter File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/db/ip/slde1ef6cd0/submodules/alt_sld_fab_alt_sld_fab_splitter.sv Line: 3
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276007): RAM logic "Processor:processor|Datapath:datapath|regfile16x16:RegFile|regfile" is uninferred due to asynchronous read logic File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/regfile16x16.sv Line: 52
+Info (286031): Timing-Driven Synthesis is running on partition "Top"
+Info (17049): 4 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/Project.sv Line: 27
+Info (21057): Implemented 1343 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 24 input pins
+    Info (21059): Implemented 75 output pins
+    Info (21061): Implemented 1211 logic cells
+    Info (21064): Implemented 32 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 4971 megabytes
+    Info: Processing ended: Sat Jun  6 18:42:55 2026
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:28
 
 

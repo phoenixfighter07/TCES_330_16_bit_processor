@@ -1,1 +1,94 @@
 # Reading pref.tcl
+cd ./Processor
+# reading modelsim.ini
+do runButtonSynchronizer.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 17:59:33 on Jun 06,2026
+# vlog -reportprogress 300 ./ButtonSynchronizer.sv 
+# -- Compiling package ButtonSynchronizer_sv_unit
+# -- Compiling module ButtonSynchronizer
+# -- Compiling module ButtonSynchronizer_tb
+# 
+# Top level modules:
+# 	ButtonSynchronizer_tb
+# End time: 17:59:33 on Jun 06,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -voptargs=""+acc"" -t 1ps -lib work IR_tb 
+# Start time: 17:59:33 on Jun 06,2026
+# Loading sv_std.std
+# Loading work.IR_tb
+# Loading work.IR
+# WARNING: No extended dataflow license exists
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: lando  Hostname: LANDONSLAPTOP  ProcessID: 7368
+#           Attempting to use alternate WLF file "./wlft948nwf".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft948nwf
+# ** UI-Msg: (vish-4014) No objects found matching '/ButtonSynchronizer_tb/Clk'.
+# Executing ONERROR command at macro ./ButtonSynchronizerWave.do line 3
+# ** UI-Msg: (vish-4014) No objects found matching '/ButtonSynchronizer_tb/bi'.
+# Executing ONERROR command at macro ./ButtonSynchronizerWave.do line 4
+# ** UI-Msg: (vish-4014) No objects found matching '/ButtonSynchronizer_tb/bo'.
+# Executing ONERROR command at macro ./ButtonSynchronizerWave.do line 5
+# ** UI-Msg: (vish-4014) No objects found matching '/ButtonSynchronizer_tb/StateOut'.
+# Executing ONERROR command at macro ./ButtonSynchronizerWave.do line 6
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+# time	Clk	Ld	DataIn	DataOut
+#     0	0	1	0000	xxxx
+#     5	1	1	0000	0000
+#    10	0	1	5231	0000
+#    15	1	1	5231	5231
+#    20	0	0	5231	5231
+#    25	1	0	5231	5231
+#    30	0	0	5231	5231
+#    35	1	0	5231	5231
+#    40	0	0	5231	5231
+#    45	1	0	5231	5231
+#    50	0	0	5231	5231
+#    55	1	0	5231	5231
+#    60	0	0	5231	5231
+#    65	1	0	5231	5231
+#    70	0	0	5231	5231
+#    75	1	0	5231	0000
+# ** Note: $stop    : ./IR.sv(92)
+#    Time: 77 ps  Iteration: 0  Instance: /IR_tb
+# Break in Module IR_tb at ./IR.sv line 92
+do runButtonSynchronizer.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 17:59:52 on Jun 06,2026
+# vlog -reportprogress 300 ./ButtonSynchronizer.sv 
+# -- Compiling package ButtonSynchronizer_sv_unit
+# -- Compiling module ButtonSynchronizer
+# -- Compiling module ButtonSynchronizer_tb
+# 
+# Top level modules:
+# 	ButtonSynchronizer_tb
+# End time: 17:59:52 on Jun 06,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 17:59:55 on Jun 06,2026, Elapsed time: 0:00:22
+# Errors: 0, Warnings: 2
+# vsim -voptargs=""+acc"" -t 1ps -lib work ButtonSynchronizer_tb 
+# Start time: 17:59:55 on Jun 06,2026
+# Loading sv_std.std
+# Loading work.ButtonSynchronizer_sv_unit
+# Loading work.ButtonSynchronizer_tb
+# Loading work.ButtonSynchronizer
+# WARNING: No extended dataflow license exists
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: lando  Hostname: LANDONSLAPTOP  ProcessID: 7368
+#           Attempting to use alternate WLF file "./wlftt0st1d".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftt0st1d
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+# Start!
+# ** Note: $stop    : ./ButtonSynchronizer.sv(75)
+#    Time: 160 ps  Iteration: 0  Instance: /ButtonSynchronizer_tb
+# Break in Module ButtonSynchronizer_tb at ./ButtonSynchronizer.sv line 75
+# End time: 18:03:04 on Jun 06,2026, Elapsed time: 0:03:09
+# Errors: 0, Warnings: 2
