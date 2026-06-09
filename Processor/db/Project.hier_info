@@ -35,8 +35,10 @@ LEDR[14] <= SW[14].DB_MAX_OUTPUT_PORT_TYPE
 LEDR[15] <= S[0].DB_MAX_OUTPUT_PORT_TYPE
 LEDR[16] <= S[1].DB_MAX_OUTPUT_PORT_TYPE
 LEDR[17] <= S[2].DB_MAX_OUTPUT_PORT_TYPE
+KEY[0] => ~NO_FANOUT~
 KEY[1] => ButtonSynchronizer:synch1.bi
-KEY[2] => ButtonSynchronizer:synch2.bi
+KEY[2] => KEY[2].IN1
+KEY[3] => ~NO_FANOUT~
 HEX7[6] <= Decoder:decoder7.Hex
 HEX7[5] <= Decoder:decoder7.Hex
 HEX7[4] <= Decoder:decoder7.Hex
@@ -93,7 +95,7 @@ HEX0[3] <= Decoder:decoder0.Hex
 HEX0[2] <= Decoder:decoder0.Hex
 HEX0[1] <= Decoder:decoder0.Hex
 HEX0[0] <= Decoder:decoder0.Hex
-CLOCK_50 => CLOCK_50.IN2
+CLOCK_50 => CLOCK_50.IN1
 
 
 |Project|ButtonSynchronizer:synch1
@@ -107,88 +109,6 @@ StateOut[1] <= StateOut[1].DB_MAX_OUTPUT_PORT_TYPE
 
 
 |Project|KeyFilter:filter1
-Clk => Countdown[0].CLK
-Clk => Countdown[1].CLK
-Clk => Countdown[2].CLK
-Clk => Countdown[3].CLK
-Clk => Countdown[4].CLK
-Clk => Countdown[5].CLK
-Clk => Countdown[6].CLK
-Clk => Countdown[7].CLK
-Clk => Countdown[8].CLK
-Clk => Countdown[9].CLK
-Clk => Countdown[10].CLK
-Clk => Countdown[11].CLK
-Clk => Countdown[12].CLK
-Clk => Countdown[13].CLK
-Clk => Countdown[14].CLK
-Clk => Countdown[15].CLK
-Clk => Countdown[16].CLK
-Clk => Countdown[17].CLK
-Clk => Countdown[18].CLK
-Clk => Countdown[19].CLK
-Clk => Countdown[20].CLK
-Clk => Countdown[21].CLK
-Clk => Countdown[22].CLK
-Clk => Countdown[23].CLK
-Clk => Countdown[24].CLK
-Clk => Countdown[25].CLK
-Clk => Countdown[26].CLK
-Clk => Countdown[27].CLK
-Clk => Countdown[28].CLK
-Clk => Countdown[29].CLK
-Clk => Countdown[30].CLK
-Clk => Countdown[31].CLK
-Clk => Countdown[32].CLK
-Clk => Out~reg0.CLK
-In => Countdown.OUTPUTSELECT
-In => Countdown.OUTPUTSELECT
-In => Countdown.OUTPUTSELECT
-In => Countdown.OUTPUTSELECT
-In => Countdown.OUTPUTSELECT
-In => Countdown.OUTPUTSELECT
-In => Countdown.OUTPUTSELECT
-In => Countdown.OUTPUTSELECT
-In => Countdown.OUTPUTSELECT
-In => Countdown.OUTPUTSELECT
-In => Countdown.OUTPUTSELECT
-In => Countdown.OUTPUTSELECT
-In => Countdown.OUTPUTSELECT
-In => Countdown.OUTPUTSELECT
-In => Countdown.OUTPUTSELECT
-In => Countdown.OUTPUTSELECT
-In => Countdown.OUTPUTSELECT
-In => Countdown.OUTPUTSELECT
-In => Countdown.OUTPUTSELECT
-In => Countdown.OUTPUTSELECT
-In => Countdown.OUTPUTSELECT
-In => Countdown.OUTPUTSELECT
-In => Countdown.OUTPUTSELECT
-In => Countdown.OUTPUTSELECT
-In => Countdown.OUTPUTSELECT
-In => Countdown.OUTPUTSELECT
-In => Countdown.OUTPUTSELECT
-In => Countdown.OUTPUTSELECT
-In => Countdown.OUTPUTSELECT
-In => Countdown.OUTPUTSELECT
-In => Countdown.OUTPUTSELECT
-In => Countdown.OUTPUTSELECT
-In => Countdown.OUTPUTSELECT
-In => Out.DATAB
-Out <= Out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Project|ButtonSynchronizer:synch2
-Clk => State~1.DATAIN
-bi => NextState.B.DATAB
-bi => Selector0.IN1
-bi => State.A.DATAIN
-bo <= bo.DB_MAX_OUTPUT_PORT_TYPE
-StateOut[0] <= StateOut[0].DB_MAX_OUTPUT_PORT_TYPE
-StateOut[1] <= StateOut[1].DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Project|KeyFilter:filter2
 Clk => Countdown[0].CLK
 Clk => Countdown[1].CLK
 Clk => Countdown[2].CLK
