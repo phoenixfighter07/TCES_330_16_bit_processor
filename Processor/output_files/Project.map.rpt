@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Project
-Mon Jun  8 16:56:51 2026
+Mon Jun  8 17:02:52 2026
 Quartus Prime Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
 
 
@@ -69,7 +69,7 @@ on the Quartus Prime software download page.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Jun  8 16:56:51 2026           ;
+; Analysis & Synthesis Status        ; Successful - Mon Jun  8 17:02:52 2026           ;
 ; Quartus Prime Version              ; 25.1std.0 Build 1129 10/21/2025 SC Lite Edition ;
 ; Revision Name                      ; Project                                         ;
 ; Top-level Entity Name              ; Project                                         ;
@@ -189,10 +189,7 @@ on the Quartus Prime software download page.
 ;     Processor 3            ;   0.0%      ;
 ;     Processor 4            ;   0.0%      ;
 ;     Processor 5            ;   0.0%      ;
-;     Processor 6            ;   0.0%      ;
-;     Processor 7            ;   0.0%      ;
-;     Processor 8            ;   0.0%      ;
-;     Processors 9-16        ;   0.0%      ;
+;     Processors 6-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -820,7 +817,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
-    Info: Processing started: Mon Jun  8 16:56:38 2026
+    Info: Processing started: Mon Jun  8 17:02:38 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Project -c Project
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 24 processors detected
@@ -962,7 +959,7 @@ Info (12128): Elaborating entity "regfile16x16" for hierarchy "Processor:process
 Info (12128): Elaborating entity "Decoder" for hierarchy "Decoder:decoder7" File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/Project.sv Line: 71
 Info (12128): Elaborating entity "MuxnW_8to1" for hierarchy "MuxnW_8to1:HEX7Mux" File: C:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/Processor/Project.sv Line: 82
 Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
-Info (11172): 2026.06.08.16:56:44 Progress: Loading slde1ef6cd0/alt_sld_fab_wrapper_hw.tcl
+Info (11172): 2026.06.08.17:02:45 Progress: Loading slde1ef6cd0/alt_sld_fab_wrapper_hw.tcl
 Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
 Info (11172): Alt_sld_fab: Generating "alt_sld_fab" for QUARTUS_SYNTH
 Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
@@ -997,8 +994,8 @@ Info (21057): Implemented 1430 device resources after synthesis - the final reso
     Info (21064): Implemented 32 RAM segments
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 2 warnings
     Info: Peak virtual memory: 4972 megabytes
-    Info: Processing ended: Mon Jun  8 16:56:51 2026
-    Info: Elapsed time: 00:00:13
-    Info: Total CPU time (on all processors): 00:00:29
+    Info: Processing ended: Mon Jun  8 17:02:52 2026
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:28
 
 
