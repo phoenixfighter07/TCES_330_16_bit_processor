@@ -56,7 +56,7 @@ module Project(SW, LEDR, LEDG, KEY, HEX7, HEX6, HEX5, HEX4, HEX3, HEX2, HEX1, HE
 
     Processor processor( 
 		.Clk(KEY_2_OUT_FILTERED), 
-		.ResetN(~KEY[1]),
+		.ResetN(KEY[1]),
 		.IR_Out(IR_OUT), 
 		.PC_Out(PC_OUT), 
 		.State(State), 
