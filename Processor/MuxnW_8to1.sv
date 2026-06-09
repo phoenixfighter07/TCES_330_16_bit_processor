@@ -5,7 +5,7 @@
  * Module for an n bit 8 to 1 Multiplexer and its testbench
  */
 module MuxnW_8to1(M, R, T, U, V, W, X, Y, Z, S);
-	parameter n = 4;
+	parameter n = 16;
 
 	output logic [(n - 1):0] M;
 	input [(n - 1):0] R, T, U, V, W, X, Y, Z;

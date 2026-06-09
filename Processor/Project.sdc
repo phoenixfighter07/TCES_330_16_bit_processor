@@ -40,7 +40,7 @@ set_time_format -unit ns -decimal_places 3
 #**************************************************************
 
 create_clock -name {altera_reserved_tck} -period 100.000 -waveform { 0.000 50.000 } [get_ports {altera_reserved_tck}]
-create_clock -name {processorClock} -period 500.000 -waveform { 0.000 250.000 } [get_nets {filter2|Out}]
+create_clock -name {processorClock} -period 500.000 -waveform { 0.000 250.000 } [get_nets {filter1|Out}]
 create_clock -name {MHz50Clock} -period 20.000 -waveform { 0.000 10.000 } [get_ports {CLOCK_50}]
 
 

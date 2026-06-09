@@ -421,11 +421,11 @@ HEX0[2]                      : E17       : output : 2.5 V             :         
 LEDR[5]                      : E18       : output : 2.5 V             :         : 7         : Y              
 LEDR[2]                      : E19       : output : 2.5 V             :         : 7         : Y              
 VCCIO7                       : E20       : power  :                   : 2.5V    : 7         :                
-RESERVED_INPUT               : E21       :        :                   :         : 7         :                
-RESERVED_INPUT               : E22       :        :                   :         : 7         :                
+LEDG[0]                      : E21       : output : 2.5 V             :         : 7         : Y              
+LEDG[1]                      : E22       : output : 2.5 V             :         : 7         : Y              
 VCCIO7                       : E23       : power  :                   : 2.5V    : 7         :                
-RESERVED_INPUT               : E24       :        :                   :         : 7         :                
-RESERVED_INPUT               : E25       :        :                   :         : 7         :                
+LEDG[3]                      : E24       : output : 2.5 V             :         : 7         : Y              
+LEDG[2]                      : E25       : output : 2.5 V             :         : 7         : Y              
 RESERVED_INPUT               : E26       :        :                   :         : 6         :                
 RESERVED_INPUT               : E27       :        :                   :         : 6         :                
 RESERVED_INPUT               : E28       :        :                   :         : 6         :                
