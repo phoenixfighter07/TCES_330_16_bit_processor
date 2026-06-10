@@ -2,13 +2,13 @@ onerror {resume}
 quietly WaveActivateNextPane {} 0
 add wave -noupdate /testProcessor/Clk
 add wave -noupdate /testProcessor/ResetN
-add wave -noupdate /testProcessor/IR_Out
-add wave -noupdate /testProcessor/PC_Out
-add wave -noupdate /testProcessor/State
-add wave -noupdate /testProcessor/NextState
-add wave -noupdate /testProcessor/ALU_A
-add wave -noupdate /testProcessor/ALU_B
-add wave -noupdate /testProcessor/ALU_Out
+add wave -noupdate -hex /testProcessor/IR_Out
+add wave -noupdate -hex /testProcessor/PC_Out
+add wave -noupdate -hex /testProcessor/State
+add wave -noupdate -hex /testProcessor/NextState
+add wave -noupdate -hex /testProcessor/ALU_A
+add wave -noupdate -hex /testProcessor/ALU_B
+add wave -noupdate -hex /testProcessor/ALU_Out
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {0 ps} 0}
 quietly wave cursor active 0

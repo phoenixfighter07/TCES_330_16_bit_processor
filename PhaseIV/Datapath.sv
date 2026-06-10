@@ -95,7 +95,7 @@ endmodule
 
 module Datapath_tb();
 	// The data that should be in each RAM address
-	localparam RAM_DATA = 16'hFFFF;
+	localparam RAM_DATA = 16'hABCD;
 
 	localparam REG_FILE_SIZE = 16;
 	localparam RAM_SIZE = 16;
@@ -212,7 +212,7 @@ module Datapath_tb();
 			// LOAD_B
 			RF_W_en = 1;
 			RF_Ra_Addr = i % REG_FILE_SIZE;
-			
+
 			WaitCycles(1);
 
 			// Let signals propagate

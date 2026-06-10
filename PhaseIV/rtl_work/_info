@@ -11,7 +11,7 @@ cModel Technology
 Z0 dc:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/PhaseIV
 vALU
 Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z2 !s110 1780603826
+Z2 !s110 1781118891
 !i10b 1
 !s100 7Mg>zB2efY>KDBE4P;R8;3
 Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
@@ -28,7 +28,7 @@ Z8 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z9 !s108 1780603826.000000
+Z9 !s108 1781118891.000000
 Z10 !s107 ./ALU.sv|
 Z11 !s90 -reportprogress|300|-work|work|+acc|./ALU.sv|
 !i113 1
@@ -87,59 +87,59 @@ R13
 n@data@memory
 vDatapath
 R1
-R2
+Z14 !s110 1781118892
 !i10b 1
-!s100 MhoS_1<k`;]ITE8Uzaah<3
+!s100 ikzjUe8ZY_35mC:K@J^J42
 R3
-I_dde9z;0P_mKDWBm1mH>j0
+I26VeLn5zNYE?3^8zT`>gW2
 R4
 S1
 R0
-Z14 w1780603702
-Z15 8./Datapath.sv
-Z16 F./Datapath.sv
+Z15 w1781118885
+Z16 8./Datapath.sv
+Z17 F./Datapath.sv
 !i122 4
 L0 25 70
 R8
 r1
 !s85 0
 31
-R9
+Z18 !s108 1781118892.000000
 !s107 ./Datapath.sv|
-Z17 !s90 -reportprogress|300|-work|work|+acc|./Datapath.sv|
+Z19 !s90 -reportprogress|300|-work|work|+acc|./Datapath.sv|
 !i113 1
 R12
 R13
 n@datapath
 vDatapath_tb
 R1
-R2
+R14
 !i10b 1
-!s100 _`:g_R_^OTh[?_AMbOaLk0
+!s100 e_:Q3dA>:O4Qz3Aoo0mLX0
 R3
-I[ARY=5bGcKZ1BkH]jOjaS1
+IC3db5Y?e0j0k7VCfKdPmA1
 R4
 S1
 R0
-R14
 R15
 R16
+R17
 !i122 4
-L0 96 192
+L0 96 193
 R8
 r1
 !s85 0
 31
-R9
-Z18 !s107 ./Datapath.sv|
-R17
+R18
+Z20 !s107 ./Datapath.sv|
+R19
 !i113 1
 R12
 R13
 n@datapath_tb
 vMux
-Z19 !s105 Mux_sv_unit
-Z20 DXx4 work 11 Mux_sv_unit 0 22 QLeo;l;f8XZZH2PW7lWSm0
+Z21 !s105 Mux_sv_unit
+Z22 DXx4 work 11 Mux_sv_unit 0 22 QLeo;l;f8XZZH2PW7lWSm0
 R1
 R2
 !i10b 1
@@ -149,9 +149,9 @@ Ih9XockLR2a3z39OR4Nn>g2
 R4
 S1
 R0
-Z21 w1780424898
-Z22 8./Mux.sv
-Z23 F./Mux.sv
+Z23 w1780424898
+Z24 8./Mux.sv
+Z25 F./Mux.sv
 !i122 1
 L0 16 7
 R8
@@ -159,8 +159,8 @@ r1
 !s85 0
 31
 R9
-Z24 !s107 ./Mux.sv|
-Z25 !s90 -reportprogress|300|-work|work|+acc|./Mux.sv|
+Z26 !s107 ./Mux.sv|
+Z27 !s90 -reportprogress|300|-work|work|+acc|./Mux.sv|
 !i113 1
 R12
 R13
@@ -177,23 +177,23 @@ IQLeo;l;f8XZZH2PW7lWSm0
 !i103 1
 S1
 R0
-R21
-R22
 R23
+R24
+R25
 !i122 1
 L0 25 0
 R8
 31
 R9
-R24
-R25
+R26
+R27
 !i113 1
 R12
 R13
 n@mux_sv_unit
 vMux_tb
 R1
-R20
+R22
 R2
 R4
 r1
@@ -201,26 +201,26 @@ r1
 !i10b 1
 !s100 f`O=m>`aP8YdPBLLJH3?]0
 IKU]>jN?T`W<BmJCm=@XM;0
-R19
+R21
 S1
 R0
-R21
-R22
 R23
+R24
+R25
 !i122 1
 L0 39 64
 R8
 31
 R9
-R24
-R25
+R26
+R27
 !i113 1
 R12
 R13
 n@mux_tb
 vregfile16x16
 R1
-R2
+R14
 !i10b 1
 !s100 ;@A8DN;`UfJ@1^WPX]fWQ1
 R3
@@ -229,23 +229,23 @@ R4
 S1
 R0
 R5
-Z26 8./regfile16x16.sv
-Z27 F./regfile16x16.sv
+Z28 8./regfile16x16.sv
+Z29 F./regfile16x16.sv
 !i122 3
 L0 23 40
 R8
 r1
 !s85 0
 31
-R9
-Z28 !s107 ./regfile16x16.sv|
-Z29 !s90 -reportprogress|300|-work|work|+acc|./regfile16x16.sv|
+R18
+Z30 !s107 ./regfile16x16.sv|
+Z31 !s90 -reportprogress|300|-work|work|+acc|./regfile16x16.sv|
 !i113 1
 R12
 R13
 vregfile16x16_tb
 R1
-R2
+R14
 !i10b 1
 !s100 d`fE?>22OkH4dg5b_PMHK3
 R3
@@ -254,17 +254,17 @@ R4
 S1
 R0
 R5
-R26
-R27
+R28
+R29
 !i122 3
 L0 65 100
 R8
 r1
 !s85 0
 31
-R9
-R28
-R29
+R18
+R30
+R31
 !i113 1
 R12
 R13
