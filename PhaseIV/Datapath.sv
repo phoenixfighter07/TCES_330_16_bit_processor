@@ -212,8 +212,7 @@ module Datapath_tb();
 			// LOAD_B
 			RF_W_en = 1;
 			RF_Ra_Addr = i % REG_FILE_SIZE;
-
-			// TODO: Why is it 3 cycles???
+			
 			WaitCycles(1);
 
 			// Let signals propagate

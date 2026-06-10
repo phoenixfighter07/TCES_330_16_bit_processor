@@ -8,316 +8,87 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 dC:/Users/rober/TCES 330/TCES_330_16_bit_processor/PHAseV
-vController
-Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z2 !s110 1780809959
-!i10b 1
-!s100 M^X5jW<4BBjM1eSU:l0S@2
-Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
-IaJ;Cj>]>8ARXJWzT0AS9I0
-Z4 VDg1SIo80bB@j0V0VzS_@n1
-S1
-R0
-Z5 w1780809951
-Z6 8./Controller.sv
-Z7 F./Controller.sv
-!i122 5
-L0 22 57
-Z8 OV;L;2020.1;71
-r1
-!s85 0
-31
-Z9 !s108 1780809959.000000
-!s107 ./Controller.sv|
-Z10 !s90 -reportprogress|300|-work|work|+acc|./Controller.sv|
-!i113 1
-Z11 o-work work +acc
-Z12 tCvgOpt 0
-n@controller
-vController_tb
-R1
-R2
-!i10b 1
-!s100 lXCM@1<G]N2YL0O37?ZW33
-R3
-IWGbeY2cS;fEKza9[KTHRJ1
-R4
-S1
-R0
-R5
-R6
-R7
-!i122 5
-L0 86 110
-R8
-r1
-!s85 0
-31
-R9
-Z13 !s107 ./Controller.sv|
-R10
-!i113 1
-R11
-R12
-n@controller_tb
+Z0 dc:/Users/lando/OneDrive/Documents/GitHub/TCES_330_16_bit_processor/PhaseV
 vFSM
-R1
-Z14 DXx4 work 11 FSM_sv_unit 0 22 dZQhJ_ZkQI4g:Y4DI=F=N1
-R2
-R4
+Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
+Z2 DXx4 work 11 FSM_sv_unit 0 22 <;GU]6TXNL66PXld;4TTD3
+Z3 !s110 1781115635
+Z4 VDg1SIo80bB@j0V0VzS_@n1
 r1
 !s85 0
 !i10b 1
 !s100 3Le4e]9nQBlmOBC^>l=A=0
-I@1M`^EQGMR>7iISHYa7iT3
-Z15 !s105 FSM_sv_unit
+IF7@Hgf?00ZLOah>nNhQ8J0
+Z5 !s105 FSM_sv_unit
 S1
 R0
-Z16 w1780787607
-Z17 8./FSM.sv
-Z18 F./FSM.sv
-!i122 4
+Z6 w1780787506
+Z7 8./FSM.sv
+Z8 F./FSM.sv
+!i122 0
 L0 43 146
-R8
+Z9 OV;L;2020.1;71
 31
-R9
-Z19 !s107 ./FSM.sv|
-Z20 !s90 -reportprogress|300|-work|work|+acc|./FSM.sv|
+Z10 !s108 1781115634.000000
+!s107 ./FSM.sv|
+Z11 !s90 -reportprogress|300|-work|work|+acc|+cover|./FSM.sv|
 !i113 1
-R11
-R12
+Z12 !s102 +cover
+Z13 o-work work +acc +cover
+Z14 tCvgOpt 0
 n@f@s@m
 XFSM_sv_unit
 R1
-R2
-VdZQhJ_ZkQI4g:Y4DI=F=N1
+R3
+V<;GU]6TXNL66PXld;4TTD3
 r1
 !s85 0
 !i10b 1
 !s100 9[LdmaQ4Akm96ziVJkJ]92
-IdZQhJ_ZkQI4g:Y4DI=F=N1
+I<;GU]6TXNL66PXld;4TTD3
 !i103 1
 S1
 R0
-R16
-R17
-R18
-!i122 4
-L0 8 0
+R6
+R7
 R8
-31
+!i122 0
+L0 8 0
 R9
-R19
-R20
-!i113 1
+31
+R10
+Z15 !s107 ./FSM.sv|
 R11
+!i113 1
 R12
+R13
+R14
 n@f@s@m_sv_unit
 vFSM_tb
 R1
-R14
 R2
+R3
 R4
 r1
 !s85 0
 !i10b 1
 !s100 jP;^eAPT4JHkok>WC@j_=2
-I7FGf_46KDK2FB:cz<QAZJ1
-R15
+IdaKSkK:1MM[Gm`]KXm[9m2
+R5
 S1
 R0
-R16
-R17
-R18
-!i122 4
+R6
+R7
+R8
+!i122 0
 L0 190 225
-R8
-31
 R9
-R19
-R20
-!i113 1
+31
+R10
+R15
 R11
+!i113 1
 R12
+R13
+R14
 n@f@s@m_tb
-vInstMemory
-R2
-!i10b 1
-!s100 BDCNMR=QfbMFF8a=Bm1=n0
-R3
-IgS0a`;H7Tee1cX1n9BH;00
-R4
-R0
-w1780794193
-8./InstMemory.v
-F./InstMemory.v
-!i122 2
-L0 40 61
-R8
-r1
-!s85 0
-31
-R9
-!s107 ./InstMemory.v|
-!s90 -reportprogress|300|-work|work|+acc|./InstMemory.v|
-!i113 1
-R11
-R12
-n@inst@memory
-vIR
-R1
-R2
-!i10b 1
-!s100 1G@J3_=_PK<hbCW_5?a=L3
-R3
-IN<^VGz6CLfiVQTKgHY3LS1
-R4
-S1
-R0
-Z21 w1780712138
-Z22 8./IR.sv
-Z23 F./IR.sv
-!i122 3
-L0 17 17
-R8
-r1
-!s85 0
-31
-R9
-Z24 !s107 ./IR.sv|
-Z25 !s90 -reportprogress|300|-work|work|+acc|./IR.sv|
-!i113 1
-R11
-R12
-n@i@r
-vIR_tb
-R1
-R2
-!i10b 1
-!s100 K]Yl`Z1YQ`z3LlRL2cJN_2
-R3
-ID]1[d0ma8O?OoECjeaTQ40
-R4
-S1
-R0
-R21
-R22
-R23
-!i122 3
-L0 36 59
-R8
-r1
-!s85 0
-31
-R9
-R24
-R25
-!i113 1
-R11
-R12
-n@i@r_tb
-vPC
-R1
-R2
-!i10b 1
-!s100 JhlWcFgdfM:4h81k9ZU^20
-R3
-ILVDngP]9=iSYaihBcB[TB1
-R4
-S1
-R0
-Z26 w1780613755
-Z27 8./PC.sv
-Z28 F./PC.sv
-!i122 1
-L0 16 17
-R8
-r1
-!s85 0
-31
-Z29 !s108 1780809958.000000
-Z30 !s107 ./PC.sv|
-Z31 !s90 -reportprogress|300|-work|work|+acc|./PC.sv|
-!i113 1
-R11
-R12
-n@p@c
-vPC_tb
-R1
-R2
-!i10b 1
-!s100 o]XZKfFCVdjiD_CzSa7kH2
-R3
-IeM^AL;j@VIWFc1J[3Nb7W2
-R4
-S1
-R0
-R26
-R27
-R28
-!i122 1
-L0 39 93
-R8
-r1
-!s85 0
-31
-R29
-R30
-R31
-!i113 1
-R11
-R12
-n@p@c_tb
-vROM_PC_IR
-R1
-Z32 !s110 1780809958
-!i10b 1
-!s100 UKeS5Yn8XoM;SllXSeeI@3
-R3
-IQY:0KdMO8UIM?mI:99I<z2
-R4
-S1
-R0
-Z33 w1780789867
-Z34 8./ROM_PC_IR.sv
-Z35 F./ROM_PC_IR.sv
-!i122 0
-L0 17 15
-R8
-r1
-!s85 0
-31
-R29
-Z36 !s107 ./ROM_PC_IR.sv|
-Z37 !s90 -reportprogress|300|-work|work|+acc|./ROM_PC_IR.sv|
-!i113 1
-R11
-R12
-n@r@o@m_@p@c_@i@r
-vROM_PC_IR_tb
-R1
-R32
-!i10b 1
-!s100 o33<nfF`[BJDlS[iL6KoJ0
-R3
-I^QiP`;n>kYO0U8LkOPba@2
-R4
-S1
-R0
-R33
-R34
-R35
-!i122 0
-L0 38 57
-R8
-r1
-!s85 0
-31
-R29
-R36
-R37
-!i113 1
-R11
-R12
-n@r@o@m_@p@c_@i@r_tb
