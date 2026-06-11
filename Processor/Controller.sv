@@ -54,7 +54,7 @@ module Controller(  Clk,
                 SUB = 8,
                 LOAD_B = 9;
     // ROM_PC_IR(Clk, LD, IR_OUT, UP, Clr);
-    ROM_PC_IR instruction(.Clk(Clk), .LD(LD), .UP(UP), .Clr(~ResetN), .IR_OUT(IR_OUT), .PC_OUT(PC_OUT));
+    ROM_PC_IR instruction(.Clk(Clk), .LD(LD), .UP(UP), .Clr(Clr), .IR_OUT(IR_OUT), .PC_OUT(PC_OUT));
 
     // FSM(Clk, ResetN, Instruction, PC_clr, PC_up, IR_ld, D_addr, D_wr, RF_s, RF_Ra_Addr, 
                 // RF_Rb_Addr, RF_W_en, RF_W_addr, ALU_s0)
@@ -80,8 +80,9 @@ endmodule
 `ifdef MODEL_TECH
 /**
     This module tests the controller unit. Since the ROM_PC_IR unit was already tested, the purpose
-    of the testbench is to see whether the FSM communicates properly with al of the other 
-    control units. 
+    of the testbench is to see whether the FSM communicates properly with all of the other 
+    control units. For example, This testbench is also supposed to be used with actual instruction sets in the rom such as 
+    the one in the ROM_instruction.mif file.
 */
 module Controller_tb();
     logic Clk, ResetN;
@@ -117,7 +118,8 @@ module Controller_tb();
 
     initial begin   
         ResetN = 0; fetchCounter = 0;
-        waitCycles(1);
+        #clkTime;
+        @(negedge Clk);
         testReset();
         ResetN = 1;
 
@@ -130,12 +132,13 @@ module Controller_tb();
 
         // Checks if reset works 
         ResetN = 0;
-        waitCycles(1);
+        waitCycles(2);
         testReset();
         ResetN = 1;
         // Checks if reset works in a random cycle
         waitCycles(10);
         ResetN = 0;
+        waitCycles(2);
         testReset();
         $stop;
     end
@@ -149,14 +152,17 @@ module Controller_tb();
 
     /** Tests the reset signal */
     task automatic testReset();
+        IR_Tracker = 0;
         assert(State == DUT.Init)
         else $error("Problem with reset signal. Expected: Init; Actual: %s", getState(State));
+        assert(IR_OUT == 0)
+        else $error("Problem resetting the IR. Should be 0. Is %h", IR_OUT);
     endtask
 
     /** Tests the PC counter to see if it is incrementing at the correct time. */
     task automatic testPC_OUT();
-        if (State == DUT.Fetch) begin
-            fetchCounter++;
+        if (State == DUT.Decode) begin
+            fetchCounter = fetchCounter + 1;
         end
         
         assert(PC_OUT == fetchCounter)
@@ -164,7 +170,7 @@ module Controller_tb();
     endtask
 
     task automatic testIR();
-        if (State == DUT.Fetch) begin
+        if (State == DUT.Decode) begin
             IR_Tracker = IR_OUT;
         end
 
