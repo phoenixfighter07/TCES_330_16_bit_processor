@@ -60,12 +60,13 @@ module ROM_PC_IR_tb();
         // ROM_test.mif file
         for(int i = 0; i < 128; i++) begin
             UP = 0;
-            waitCycles(2);
+            waitCycles(2); // waits for ROM and IR to update
             assertIR();
             assert(DUT.IR_IN == i)
-            else $error("Error with ROM connection. Expected ROM output to be %d. Recieved %d", i, DUT.IR_IN);
+            else $error("Error with ROM connection. Expected ROM output to be %d. 
+                Recieved %d", i, DUT.IR_IN);
             UP = 1;
-            waitCycles(1); // 1 cycle to update teh PC, another to update the 
+            waitCycles(1); // 1 cycle to update the PC
         end
 
         $stop;
@@ -78,8 +79,8 @@ module ROM_PC_IR_tb();
         end 
     endtask
 
-    // Checks if the clear signal works. It is implied that the clear signal was already running for a 
-    // few cycles. 
+    // Checks if the clear signal works. It is implied that the clear signal 
+    // was already running for a few cycles beforehand. 
     task automatic assertClear();
         assert(PC_OUT == 0)
         else $error("Problem clearing PC Counter. Expected 0, got %d", PC_OUT);
