@@ -42,7 +42,7 @@ module ROM_PC_IR_tb();
     localparam clkTime = 20;
 
 
-    ROM_PC_IR DUT(Clk, LD, IR_OUT, UP, Clr);
+    ROM_PC_IR DUT(Clk, LD, IR_OUT, UP, Clr, PC_OUT);
 
     always begin
         Clk = 0; #(clkTime/2);
@@ -82,7 +82,9 @@ module ROM_PC_IR_tb();
     // few cycles. 
     task automatic assertClear();
         assert(PC_OUT == 0)
-        else $error("Problem clearing PC Counter. Expected 0, got %d", DUT.PC_OUT);
+        else $error("Problem clearing PC Counter. Expected 0, got %d", PC_OUT);
+        assert(IR_OUT == 0)
+        else $error("Problem clearing IR. Expected 0, got %h", IR_OUT);
     endtask
 
     // checks if IR works
