@@ -30,6 +30,7 @@ module ROM_PC_IR(Clk, LD, IR_OUT, UP, Clr, PC_OUT);
     IR instructionRegister(Clk, LD, IR_IN, IR_OUT, Clr);
 endmodule
 
+`ifdef MODEL_TECH
 /**
     This testbench tests to see if the connections between the non-FSM parts of the control
     section of the processor communicate with each other. It is already assumed that the modules 
@@ -95,3 +96,4 @@ module ROM_PC_IR_tb();
     endtask
 
 endmodule
+`endif
