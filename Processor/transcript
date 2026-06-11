@@ -1,0 +1,233 @@
+# Reading pref.tcl
+do controllerrtl.do
+# 
+# Get rid of current work lib
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# 
+# Create work library and map it to 'work'
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Modifying modelsim.ini
+# 
+# Compile Verilog
+#     All Verilog files that are part of this design should have
+#     their own "vlog" line below.
+# vlog -work work +acc "./ROM_PC_IR.sv"
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:34:46 on Jun 10,2026
+# vlog -reportprogress 300 -work work "+acc" ./ROM_PC_IR.sv 
+# -- Compiling module ROM_PC_IR
+# -- Compiling module ROM_PC_IR_tb
+# ** Warning: ./ROM_PC_IR.sv(67): (vlog-2643) Unterminated string literal continues onto next line.
+# 
+# Top level modules:
+# 	ROM_PC_IR_tb
+# End time: 22:34:46 on Jun 10,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# vlog -work work +acc "./PC.sv"
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:34:46 on Jun 10,2026
+# vlog -reportprogress 300 -work work "+acc" ./PC.sv 
+# -- Compiling module PC
+# -- Compiling module PC_tb
+# 
+# Top level modules:
+# 	PC_tb
+# End time: 22:34:46 on Jun 10,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -work work +acc "./InstMemory.v"
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:34:46 on Jun 10,2026
+# vlog -reportprogress 300 -work work "+acc" ./InstMemory.v 
+# -- Compiling module InstMemory
+# 
+# Top level modules:
+# 	InstMemory
+# End time: 22:34:46 on Jun 10,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -work work +acc "./IR.sv"
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:34:46 on Jun 10,2026
+# vlog -reportprogress 300 -work work "+acc" ./IR.sv 
+# -- Compiling module IR
+# -- Compiling module IR_tb
+# 
+# Top level modules:
+# 	IR_tb
+# End time: 22:34:46 on Jun 10,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -work work +acc "./FSM.sv"
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:34:46 on Jun 10,2026
+# vlog -reportprogress 300 -work work "+acc" ./FSM.sv 
+# -- Compiling package FSM_sv_unit
+# -- Compiling module FSM
+# -- Compiling module FSM_tb
+# 
+# Top level modules:
+# 	FSM_tb
+# End time: 22:34:47 on Jun 10,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -work work +acc "./Controller.sv"
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:34:47 on Jun 10,2026
+# vlog -reportprogress 300 -work work "+acc" ./Controller.sv 
+# -- Compiling module Controller
+# -- Compiling module Controller_tb
+# 
+# Top level modules:
+# 	Controller_tb
+# End time: 22:34:47 on Jun 10,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# Call vsim to invoke simulator
+#     Make sure the last item on the line is the name of the
+#     testbench module you want to execute.
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc" -fsmdebug  Controller_tb
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=""+acc"" -fsmdebug Controller_tb 
+# Start time: 22:34:47 on Jun 10,2026
+# Loading sv_std.std
+# Loading work.Controller_tb
+# Loading work.Controller
+# Loading work.ROM_PC_IR
+# Loading work.PC
+# Loading work.InstMemory
+# Loading altera_mf_ver.altsyncram
+# Loading work.IR
+# Loading work.FSM_sv_unit
+# Loading work.FSM
+# Loading altera_mf_ver.altsyncram_body
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+# WARNING: No extended dataflow license exists
+# 
+# Source the wave do file
+#     This should be the file that sets up the signal window for
+#     the module you are testing.
+# do controllerWave.do
+# onerror {resume}
+# quietly WaveActivateNextPane {} 0
+# add wave -noupdate /Controller_tb/Clk
+# add wave -noupdate /Controller_tb/ResetN
+# add wave -noupdate -hex /Controller_tb/D_addr
+# add wave -noupdate /Controller_tb/D_wr
+# add wave -noupdate /Controller_tb/RF_s
+# add wave -noupdate -hex /Controller_tb/RF_W_addr
+# add wave -noupdate /Controller_tb/RF_W_en
+# add wave -noupdate -hex /Controller_tb/RF_Ra_Addr
+# add wave -noupdate -hex /Controller_tb/RF_Rb_Addr
+# add wave -noupdate -decimal /Controller_tb/ALU_s0
+# add wave -noupdate /Controller_tb/state
+# ** UI-Msg: (vish-4014) No objects found matching '/Controller_tb/state'.
+# Executing ONERROR command at macro ./controllerWave.do line 13
+# add wave -noupdate /Controller_tb/nextState
+# ** UI-Msg: (vish-4014) No objects found matching '/Controller_tb/nextState'.
+# Executing ONERROR command at macro ./controllerWave.do line 14
+# add wave -noupdate -hex /Controller_tb/IR_OUT
+# TreeUpdate [SetDefaultTree]
+# WaveRestoreCursors {{Cursor 1} {0 ps} 0}
+# quietly wave cursor active 0
+# configure wave -namecolwidth 150
+# configure wave -valuecolwidth 100
+# configure wave -justifyvalue left
+# configure wave -signalnamewidth 0
+# configure wave -snapdistance 10
+# configure wave -datasetprefix 0
+# configure wave -rowmargin 4
+# configure wave -childrowmargin 2
+# configure wave -gridoffset 0
+# configure wave -gridperiod 1
+# configure wave -griddelta 40
+# configure wave -timeline 0
+# configure wave -timelineunits ps
+# update
+# WaveRestoreZoom {0 ps} {1 ns}
+# 
+# Set the window types
+# view wave
+# .main_pane.wave.interior.cs.body.pw.wf
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# 
+# Run the simulation
+# run -all
+# ** Error: PC_OUT not updating correctly. Expected   1, read   0
+#    Time: 30 ps  Scope: Controller_tb.testPC_OUT File: ./Controller.sv Line: 163
+# ** Error: IR ERROR. Expected 0000. Recieved 21b1.
+#    Time: 50 ps  Scope: Controller_tb.testIR File: ./Controller.sv Line: 172
+# ** Error: IR ERROR. Expected 0000. Recieved 21b1.
+#    Time: 70 ps  Scope: Controller_tb.testIR File: ./Controller.sv Line: 172
+# ** Error: IR ERROR. Expected 0000. Recieved 21b1.
+#    Time: 90 ps  Scope: Controller_tb.testIR File: ./Controller.sv Line: 172
+# ** Error: PC_OUT not updating correctly. Expected   2, read   1
+#    Time: 110 ps  Scope: Controller_tb.testPC_OUT File: ./Controller.sv Line: 163
+# ** Error: IR ERROR. Expected 21b1. Recieved 22a2.
+#    Time: 130 ps  Scope: Controller_tb.testIR File: ./Controller.sv Line: 172
+# ** Error: IR ERROR. Expected 21b1. Recieved 22a2.
+#    Time: 150 ps  Scope: Controller_tb.testIR File: ./Controller.sv Line: 172
+# ** Error: IR ERROR. Expected 21b1. Recieved 22a2.
+#    Time: 170 ps  Scope: Controller_tb.testIR File: ./Controller.sv Line: 172
+# ** Error: PC_OUT not updating correctly. Expected   3, read   2
+#    Time: 190 ps  Scope: Controller_tb.testPC_OUT File: ./Controller.sv Line: 163
+# ** Error: IR ERROR. Expected 22a2. Recieved 23c3.
+#    Time: 210 ps  Scope: Controller_tb.testIR File: ./Controller.sv Line: 172
+# ** Error: IR ERROR. Expected 22a2. Recieved 23c3.
+#    Time: 230 ps  Scope: Controller_tb.testIR File: ./Controller.sv Line: 172
+# ** Error: IR ERROR. Expected 22a2. Recieved 23c3.
+#    Time: 250 ps  Scope: Controller_tb.testIR File: ./Controller.sv Line: 172
+# ** Error: PC_OUT not updating correctly. Expected   4, read   3
+#    Time: 270 ps  Scope: Controller_tb.testPC_OUT File: ./Controller.sv Line: 163
+# ** Error: IR ERROR. Expected 23c3. Recieved 27e4.
+#    Time: 290 ps  Scope: Controller_tb.testIR File: ./Controller.sv Line: 172
+# ** Error: IR ERROR. Expected 23c3. Recieved 27e4.
+#    Time: 310 ps  Scope: Controller_tb.testIR File: ./Controller.sv Line: 172
+# ** Error: IR ERROR. Expected 23c3. Recieved 27e4.
+#    Time: 330 ps  Scope: Controller_tb.testIR File: ./Controller.sv Line: 172
+# ** Error: PC_OUT not updating correctly. Expected   5, read   4
+#    Time: 350 ps  Scope: Controller_tb.testPC_OUT File: ./Controller.sv Line: 163
+# ** Error: IR ERROR. Expected 27e4. Recieved 4121.
+#    Time: 370 ps  Scope: Controller_tb.testIR File: ./Controller.sv Line: 172
+# ** Error: IR ERROR. Expected 27e4. Recieved 4121.
+#    Time: 390 ps  Scope: Controller_tb.testIR File: ./Controller.sv Line: 172
+# ** Error: PC_OUT not updating correctly. Expected   6, read   5
+#    Time: 410 ps  Scope: Controller_tb.testPC_OUT File: ./Controller.sv Line: 163
+# ** Error: IR ERROR. Expected 4121. Recieved 4342.
+#    Time: 430 ps  Scope: Controller_tb.testIR File: ./Controller.sv Line: 172
+# ** Error: IR ERROR. Expected 4121. Recieved 4342.
+#    Time: 450 ps  Scope: Controller_tb.testIR File: ./Controller.sv Line: 172
+# ** Error: PC_OUT not updating correctly. Expected   7, read   6
+#    Time: 470 ps  Scope: Controller_tb.testPC_OUT File: ./Controller.sv Line: 163
+# ** Error: IR ERROR. Expected 4342. Recieved 312a.
+#    Time: 490 ps  Scope: Controller_tb.testIR File: ./Controller.sv Line: 172
+# ** Error: IR ERROR. Expected 4342. Recieved 312a.
+#    Time: 510 ps  Scope: Controller_tb.testIR File: ./Controller.sv Line: 172
+# ** Error: PC_OUT not updating correctly. Expected   8, read   7
+#    Time: 530 ps  Scope: Controller_tb.testPC_OUT File: ./Controller.sv Line: 163
+# ** Error: IR ERROR. Expected 312a. Recieved 1a6a.
+#    Time: 550 ps  Scope: Controller_tb.testIR File: ./Controller.sv Line: 172
+# ** Error: IR ERROR. Expected 312a. Recieved 1a6a.
+#    Time: 570 ps  Scope: Controller_tb.testIR File: ./Controller.sv Line: 172
+# ** Error: PC_OUT not updating correctly. Expected   9, read   8
+#    Time: 590 ps  Scope: Controller_tb.testPC_OUT File: ./Controller.sv Line: 163
+# ** Error: IR ERROR. Expected 1a6a. Recieved 5000.
+#    Time: 610 ps  Scope: Controller_tb.testIR File: ./Controller.sv Line: 172
+# ** Error: IR ERROR. Expected 1a6a. Recieved 5000.
+#    Time: 630 ps  Scope: Controller_tb.testIR File: ./Controller.sv Line: 172
+# ** Error: Problem with reset signal. Expected: Init; Actual: Decode
+#    Time: 850 ps  Scope: Controller_tb.testReset File: ./Controller.sv Line: 153
+# ** Note: $stop    : ./Controller.sv(140)
+#    Time: 850 ps  Iteration: 1  Instance: /Controller_tb
+# Break in Module Controller_tb at ./Controller.sv line 140
+# 
+# View the entire wave display
+# wave zoomfull
+# 0 ps
+# 893 ps
+# 
+# End

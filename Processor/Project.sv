@@ -21,6 +21,10 @@
  * KEY[2] acts as the system clock
  *
  * CLOCK_50 is the 50 MHz clock built-in to the DE2
+ *
+ * NOTE: For the processor to function as expected the RAM (DataMemory.v) needs to 
+ * read from RAM_processor.mif, and then the ROM (InstMemory.v) needs to read from
+ * ROM_instructions.mif.
  */
 module Project(SW, LEDR, LEDG, KEY, HEX7, HEX6, HEX5, HEX4, HEX3, HEX2, HEX1, HEX0, CLOCK_50);
 	input [17:0] SW;
