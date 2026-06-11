@@ -72,7 +72,7 @@ module ROM_PC_IR_tb();
         $stop;
     end
 
-    // waits for a number fo cycles
+    // waits for a number of cycles
     task automatic waitCycles(input [31:0] cycles);
         repeat (cycles) begin
             @(negedge Clk);

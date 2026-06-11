@@ -10,14 +10,14 @@ z2
 cModel Technology
 Z0 dC:/Users/rober/TCES 330/TCES_330_16_bit_processor/Processor
 vInstMemory
-Z1 !s110 1781147209
+Z1 !s110 1781152560
 !i10b 1
 !s100 F^YY0S@PSNN>d5jJA4SJ03
 Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
 IhiWaX3G_1BQfb6=h34lC91
 Z3 VDg1SIo80bB@j0V0VzS_@n1
 R0
-w1781147040
+w1781152555
 8./InstMemory.v
 F./InstMemory.v
 !i122 2
@@ -26,7 +26,7 @@ Z4 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z5 !s108 1781147209.000000
+Z5 !s108 1781152560.000000
 !s107 ./InstMemory.v|
 !s90 -reportprogress|300|-work|work|+acc|./InstMemory.v|
 !i113 1
@@ -147,7 +147,7 @@ IQY:0KdMO8UIM?mI:99I<z2
 R3
 S1
 R0
-Z18 w1781147204
+Z18 w1781151389
 Z19 8./ROM_PC_IR.sv
 Z20 F./ROM_PC_IR.sv
 !i122 0
@@ -156,9 +156,9 @@ R4
 r1
 !s85 0
 31
-Z21 !s108 1781147208.000000
-Z22 !s107 ./ROM_PC_IR.sv|
-Z23 !s90 -reportprogress|300|-work|work|+acc|./ROM_PC_IR.sv|
+R5
+Z21 !s107 ./ROM_PC_IR.sv|
+Z22 !s90 -reportprogress|300|-work|work|+acc|./ROM_PC_IR.sv|
 !i113 1
 R6
 R7
@@ -167,9 +167,9 @@ vROM_PC_IR_tb
 R8
 R1
 !i10b 1
-!s100 4j>OL99cjG15WUZ8WRHAV1
+!s100 FlR0Jh0GQa6<BCNm8e40:3
 R2
-IniAe?9Gf2j@M;3goAWaFX0
+Ih:`JL9DQ<b[RIQK[Xi>WH3
 R3
 S1
 R0
@@ -177,14 +177,14 @@ R18
 R19
 R20
 !i122 0
-L0 38 59
+L0 38 60
 R4
 r1
 !s85 0
 31
+R5
 R21
 R22
-R23
 !i113 1
 R6
 R7

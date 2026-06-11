@@ -4,9 +4,9 @@ add wave -noupdate /ROM_PC_IR_tb/Clk
 add wave -noupdate /ROM_PC_IR_tb/LD
 add wave -noupdate /ROM_PC_IR_tb/Clr
 add wave -noupdate /ROM_PC_IR_tb/UP
-add wave -noupdate /ROM_PC_IR_tb/IR_OUT
-add wave -noupdate /ROM_PC_IR_tb/DUT.IR_IN
-add wave -noupdate /ROM_PC_IR_tb/DUT.PC_addr
+add wave -noupdate -hex /ROM_PC_IR_tb/DUT.IR_IN
+add wave -noupdate -hex /ROM_PC_IR_tb/IR_OUT
+add wave -noupdate -hex /ROM_PC_IR_tb/PC_OUT
 
 
 add wave -noupdate /Light_testbench/X1
