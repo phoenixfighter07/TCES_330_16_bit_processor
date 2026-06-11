@@ -18,6 +18,8 @@
 /*
  * NOTE: The asserts in this testbench WILL fail unless the 
  * .mif file matches the contents of the data array.
+ * NOTE: When testing modify the InstMemory.v file to read from ROM_test.mif 
+ * instead of ROM_instructions.mif!
  */  
 
  `timescale 1ps / 1ps
